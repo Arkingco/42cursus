@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/13 14:21:40 by kipark            #+#    #+#             */
-/*   Updated: 2021/12/14 17:03:59 by kipark           ###   ########seoul.kr  */
+/*   Created: 2021/12/14 15:16:22 by kipark            #+#    #+#             */
+/*   Updated: 2021/12/14 17:03:58 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"get_next_line.h"
-#include<stdio.h>
-#include<fcntl.h>
 
-int main(int argc, char *argv[])
-{	
-	int i;
-	int fd;
-	int read_byte;
-	
-	i = 1;
-	read_byte = 0;
-	while(i < argc)
-	{
-		if(0 < (fd = open(argv[1], O_RDONLY)))
-		{
-			printf("count\n");
-			get_next_line(fd);
-		}
-		++i;
-	}
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-	
-}
+#include<unistd.h>
+#include<stdlib.h>
+
+typedef struct gnl_list
+{
+	char				*content;
+	struct	gnl_list	*next;
+}	g_list;
+
+int ft_strchr(char *s, char word);
+int ft_strlen(char *s);
+char *get_next_line(int fd);
+
+#endif
