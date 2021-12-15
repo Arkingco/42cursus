@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include"libft.h" 
 
-void	ft_putstr_fd(char *c, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
-	int	c_length;
+	int	s_length;
 
-	c_length = ft_strlen(c);
-	write(fd, c, c_length);
+	s_length = ft_strlen(s);
+	write(fd, s, s_length);
 }
