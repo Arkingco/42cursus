@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:14:40 by kipark            #+#    #+#             */
-/*   Updated: 2021/12/14 17:27:36 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2021/12/15 20:47:06 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,25 +59,58 @@ void set_next_line(g_list *bf_list, char *buffer, int buffer_size)
 	bf_list->content[i] = '\0';
 }
 
+char *malloc_next_line(g_list **bf_list, int list_size)
+{
+	g_list *list;
+	char *line;
+	int gl_idx;
+	int i;
+
+	line = malloc(sizeof(char) * (list_size + 10));
+	if(line == 0)
+		return (0);
+	list = *bf_list;
+	gl_idx = 0;
+	i = 0;
+	while(!list)
+	{
+		if(list->content[i] == '\0' && list->next == NULL)
+			return (line);
+		if(list->content[i] == '\0')
+		{
+			list = list->next;
+			i = 0;
+		}
+		line[gl_idx] = list->content[i];
+		gl_idx++;
+		i++;
+	}
+	return (0);
+}
+
 char *get_next_line(int fd)
 {
-	static char buffer[BUFFER_SIZE];
-	g_list	*bf_list;
-	char *get_line;
-	int next_line_counter;
-	int max_line_counter;
-	
-	max_line_counter = 0;
-	next_line_counter = 0;
+	static char	buffer[BUFFER_SIZE];
+	g_list		*bf_list;
+	char		*get_line;
+	int			list_string_size;
+
+	list_string_size = BUFFER_SIZE;
 	bf_list = make_buffer_list(NULL);
-	while((read(fd, buffer, BUFFER_SIZE)) > 0)
+	while ((read(fd, buffer, BUFFER_SIZE)) > 0)
 	{
-		if((next_line_counter += ft_strchr(buffer, '\n')) == 0)
+		if (ft_strchr(buffer, '\n') == 0)
+		{
+			list_string_size += ft_strchr(buffer, '\n');
+			set_next_line(bf_list, buffer, ft_strchr(buffer, '\n'));
 			break;
-		set_next_line(bf_list, buffer, ft_strlen(buffer));
-		printf("%s", buffer);
+		}
+		list_string_size += BUFFER_SIZE;
+		set_next_line(bf_list, buffer, BUFFER_SIZE);
 	}
-	printf("\n");
-	get_line = malloc(sizeof(int));
+	get_line = malloc_next_line(&bf_list, list_string_size);
+	if(get_line == 0)
+		return (0);
+	printf("%s\n", get_line);
 	return (0);
 }
