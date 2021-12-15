@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:27:48 by kipark            #+#    #+#             */
-/*   Updated: 2021/12/14 17:03:47 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2021/12/15 21:15:46 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int ft_strchr(char *s, char word)
 	while(s[i] != '\0')
 	{
 		if(s[i] == word)
-			return (i);
+			return (i+1);
 		++i;
 	}
 	return (0);

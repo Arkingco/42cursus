@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:14:40 by kipark            #+#    #+#             */
-/*   Updated: 2021/12/15 20:47:06 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2021/12/15 21:32:14 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,11 @@ void set_next_line(g_list *bf_list, char *buffer, int buffer_size)
 		++i;
 	}
 	bf_list->content[i] = '\0';
+	bf_list->next = malloc(sizeof(g_list) * 1);
+	if(bf_list->next == NULL)
+		return ;
+	bf_list->next->content = NULL;
+	bf_list->next->next = NULL;
 }
 
 char *malloc_next_line(g_list **bf_list, int list_size)
@@ -66,10 +71,10 @@ char *malloc_next_line(g_list **bf_list, int list_size)
 	int gl_idx;
 	int i;
 
+	list = *bf_list;
 	line = malloc(sizeof(char) * (list_size + 10));
 	if(line == 0)
 		return (0);
-	list = *bf_list;
 	gl_idx = 0;
 	i = 0;
 	while(!list)
@@ -88,6 +93,17 @@ char *malloc_next_line(g_list **bf_list, int list_size)
 	return (0);
 }
 
+void print_list(g_list *bf_list)
+{
+	printf("%s", bf_list->content);
+	while(bf_list->next != NULL)
+	{
+		bf_list = bf_list->next;
+		printf("%s", bf_list->content);
+	}
+	printf("\n");
+}
+
 char *get_next_line(int fd)
 {
 	static char	buffer[BUFFER_SIZE];
@@ -99,14 +115,15 @@ char *get_next_line(int fd)
 	bf_list = make_buffer_list(NULL);
 	while ((read(fd, buffer, BUFFER_SIZE)) > 0)
 	{
-		if (ft_strchr(buffer, '\n') == 0)
+		if (ft_strchr(buffer, '\n') != 0)
 		{
 			list_string_size += ft_strchr(buffer, '\n');
 			set_next_line(bf_list, buffer, ft_strchr(buffer, '\n'));
 			break;
 		}
-		list_string_size += BUFFER_SIZE;
+		print_list(bf_list);
 		set_next_line(bf_list, buffer, BUFFER_SIZE);
+		list_string_size += BUFFER_SIZE;
 	}
 	get_line = malloc_next_line(&bf_list, list_string_size);
 	if(get_line == 0)
