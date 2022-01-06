@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:16:22 by kipark            #+#    #+#             */
-/*   Updated: 2021/12/14 17:03:58 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/06 14:34:14 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,9 @@
 #include<unistd.h>
 #include<stdlib.h>
 
-typedef struct gnl_list
-{
-	char				*content;
-	struct	gnl_list	*next;
-}	g_list;
-
-int ft_strchr(char *s, char word);
-int ft_strlen(char *s);
+int gnl_strchr(char *s, char word);
+int gnl_strlen(char *s);
+char *gnl_strjoin(char *static_line, char *buffer, int buffer_length);
 char *get_next_line(int fd);
 
 #endif

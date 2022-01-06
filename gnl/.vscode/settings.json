@@ -6,6 +6,13 @@
             "binaryArgs": [
                 "countingStar"
             ]
+        },
+        {
+            "cwd": "/Users/kipark/workspace/gnl/gnl",
+            "binaryPath": "/Users/kipark/workspace/gnl/gnl/a.out",
+            "binaryArgs": [
+                "countingStar"
+            ]
         }
     ],
     "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",

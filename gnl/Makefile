@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/14 16:11:13 by kipark            #+#    #+#              #
-#    Updated: 2021/12/15 20:36:21 by kipark           ###   ########seoul.kr   #
+#    Updated: 2022/01/04 18:35:50 by kipark           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC_FLAG = -Wextra -Werror -Wall -g
 
 src = 	get_next_line.c			\
 		get_next_line_utils.c	\
-		main.c	
+		main.c
 
 all :
 	$(CC) $(CC_FLAG) $(src)
