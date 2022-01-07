@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:27:48 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/07 15:56:31 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/07 19:45:21 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,16 @@ char *gnl_strjoin(char *static_line, char *buffer, int buffer_length)
 	new_line[i] = '\0';
 	free(static_line);
 	return (new_line);
+}
+
+void gnl_buffer_clear(char *buffer)
+{
+	int i;
+
+	i = 0;
+	while(i < BUFFER_SIZE)
+	{
+		buffer[i] = '\0';
+		i++;
+	}
 }
