@@ -6,18 +6,13 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:14:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/06 20:55:17 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/07 17:20:30 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"get_next_line.h"
-#include<stdio.h>
 
-#define BUFFER_SIZE 100
-
-///
-///		malloc 으로 만든 get_next_line
-///
+#define EOF -1
 
 char *gnl_set_line(char *static_line, char *buffer, int fd)
 {
@@ -30,7 +25,6 @@ char *gnl_set_line(char *static_line, char *buffer, int fd)
 		}
 		static_line = gnl_strjoin(static_line, buffer, BUFFER_SIZE);
 	}
-
 	return (static_line);
 }
 
@@ -58,17 +52,19 @@ char *gnl_set_static_line(char *static_line)
 	char *new_static_line;
 	int new_static_line_length;
 	int static_line_length;
+	int static_strchr_length;
 	int i;
 
 	i = 0;
+	static_strchr_length = gnl_strchr(static_line, '\n');
 	static_line_length = gnl_strlen(static_line);
-	new_static_line_length = gnl_strlen(static_line) - gnl_strchr(static_line, '\n');
-	new_static_line = malloc(sizeof(char) * static_line_length + 1);
+	new_static_line_length = static_line_length - static_strchr_length;
+	new_static_line = malloc(sizeof(char) * new_static_line_length + 1);
 	if(new_static_line == 0)
 		return (0);
 	while(i < new_static_line_length)
 	{
-		new_static_line[i] = static_line[i + static_line_length];
+		new_static_line[i] = static_line[i + static_strchr_length];
 		++i;
 	}
 	new_static_line[i] = '\0';
@@ -81,17 +77,17 @@ char *get_next_line(int fd)
 	char			buffer[BUFFER_SIZE];
 	static char		*static_line;
 	char			*return_line;
-	 
+
 	if(fd < 0 || BUFFER_SIZE < 1)
 		return (0);
 	if(static_line == NULL || gnl_strchr(static_line, '\n') == 0)
-	{
+	{ 
 		static_line = gnl_set_line(static_line, buffer, fd);
-		printf("\n\n%s\n\n", static_line);
 	}
 	return_line = NULL;
 	return_line = gnl_set_return_line(static_line, return_line);
 	static_line = gnl_set_static_line(static_line);
-	
+	if(return_line[0] == '\0')
+		return (0);
 	return (return_line);
 }

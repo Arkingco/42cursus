@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:16:22 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/06 14:34:14 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/07 15:40:10 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 
 #include<unistd.h>
 #include<stdlib.h>
+
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 42
+#endif
+#define OPEN_MAX 256
 
 int gnl_strchr(char *s, char word);
 int gnl_strlen(char *s);

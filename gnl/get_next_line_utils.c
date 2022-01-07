@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:27:48 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/06 20:29:01 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/07 15:56:31 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int gnl_strchr(char *s, char word)
 	int i;
 
 	i = 0;
+	if(s == 0)
+		return (0);
 	while(s[i] != '\0')
 	{
 		if(s[i] == word)
