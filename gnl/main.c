@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:21:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/07 16:17:53 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/07 17:32:00 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ int main(int argc, char *argv[])
 			char *str = get_next_line(fd);
 			while(str != NULL)
 			{
-				printf("%s\n", str);
+				printf("%s", str);
 				str = get_next_line(fd);
 			}
 		}
-		// else
-		// {
-		// 	printf("%s", get_next_line(0));
-		// }
+		else
+		{
+			printf("%s", get_next_line(0));
+		}
 		i++;
 	}
 }

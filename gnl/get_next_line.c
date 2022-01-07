@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:14:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/07 17:20:30 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/07 17:42:56 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ char *gnl_set_return_line(char *static_line, char *return_line)
 	int i;
 
 	return_line_length = gnl_strchr(static_line, '\n');
+	if(return_line_length == 0)
+		return_line_length = gnl_strlen(static_line);
 	return_line = malloc(sizeof(char) * return_line_length + 1);
 	if(return_line == 0)
 		return (0);
@@ -57,6 +59,8 @@ char *gnl_set_static_line(char *static_line)
 
 	i = 0;
 	static_strchr_length = gnl_strchr(static_line, '\n');
+	if(static_strchr_length == 0)
+		static_strchr_length = gnl_strlen(static_line);
 	static_line_length = gnl_strlen(static_line);
 	new_static_line_length = static_line_length - static_strchr_length;
 	new_static_line = malloc(sizeof(char) * new_static_line_length + 1);
@@ -88,6 +92,10 @@ char *get_next_line(int fd)
 	return_line = gnl_set_return_line(static_line, return_line);
 	static_line = gnl_set_static_line(static_line);
 	if(return_line[0] == '\0')
+	{
+		free(return_line);
+		free(static_line);
 		return (0);
+	}
 	return (return_line);
 }
