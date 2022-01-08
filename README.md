@@ -1,4 +1,4 @@
-# [LIBFT] 함수 정리 & 디펜스 TIL
+# [LIBFT] 함수 정리 & 디펜스 [TIL]
 
 - ft_is 함수들
     
