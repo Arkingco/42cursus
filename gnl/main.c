@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:21:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/10 12:20:49 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/10 16:57:15 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 #include<stdio.h>
 #include<fcntl.h>
 
+#define PI 0.5
+
 int main(int argc, char *argv[])
 {
 	int i;
 	int fd;
 	int read_byte;
-
+	
 	i = 1;
 	read_byte = 0;
 	while(i < argc)  	
@@ -38,9 +40,7 @@ int main(int argc, char *argv[])
 			printf("%s", get_next_line(0));
 		}
 		i++;
-	}
-	for(int i=0; i<1000000; i++)
-	{
-		char bba[1000000];
+
+		
 	}
 }

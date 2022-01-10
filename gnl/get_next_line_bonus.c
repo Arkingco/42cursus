@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:14:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/10 16:57:56 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/10 16:56:36 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"get_next_line.h"
+#include"get_next_line_bonus.h"
 
 static char *gnl_strjoin(char *static_line, char *buffer, int buffer_length)
 {
@@ -70,7 +70,7 @@ static char *gnl_set_return_line(char *static_line)
 	if (return_line_length == 0)
 		return_line_length = gnl_strlen(static_line);
 	return_line = malloc(sizeof(char) * return_line_length + 1);
-	if (return_line == NULL)
+	if (return_line == 0)
 		return (0);
 	i = 0;
 	while (i < return_line_length)
@@ -111,17 +111,17 @@ static char *gnl_set_static_line(char *static_line)
 	return (new_static_line);
 }
 
-char *get_next_line(int fd)
+char *get_next_line(int fd) 3 4 5 6 7
 {
 	char			*return_line;
-	static char		*static_line;
+	static char		*static_line[8193];
 
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (0);
-	static_line = gnl_set_line(static_line, fd);
-	return_line = gnl_set_return_line(static_line);
-	static_line = gnl_set_static_line(static_line);
+	static_line[fd] = gnl_set_line(static_line[fd], fd);
+	return_line = gnl_set_return_line(static_line[fd]);
+	static_line[fd] = gnl_set_static_line(static_line[fd]);
 	if (return_line == NULL)
-		gnl_free_char_pointer(static_line);
+		gnl_free_char_pointer(static_line[fd]);
 	return (return_line);
 }

@@ -19,7 +19,17 @@
     "files.associations": {
         "stdio.h": "c",
         "get_next_line.h": "c",
-        "istream": "c"
+        "istream": "c",
+        "__bit_reference": "c",
+        "__hash_table": "c",
+        "__split_buffer": "c",
+        "array": "c",
+        "iterator": "c",
+        "memory": "c",
+        "string": "c",
+        "string_view": "c",
+        "unordered_map": "c",
+        "vector": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
