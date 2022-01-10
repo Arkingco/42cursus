@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:21:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/07 19:36:14 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/10 12:20:49 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,9 @@ int main(int argc, char *argv[])
 			printf("%s", get_next_line(0));
 		}
 		i++;
+	}
+	for(int i=0; i<1000000; i++)
+	{
+		char bba[1000000];
 	}
 }
