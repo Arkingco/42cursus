@@ -6,13 +6,13 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:14:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/10 16:56:36 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/10 20:35:19 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"get_next_line_bonus.h"
 
-static char *gnl_strjoin(char *static_line, char *buffer, int buffer_length)
+static char	*gnl_strjoin(char *static_line, char *buffer, int buffer_length)
 {
 	char	*new_line;
 	int		static_line_length;
@@ -38,7 +38,7 @@ static char *gnl_strjoin(char *static_line, char *buffer, int buffer_length)
 	return (new_line);
 }
 
-static char *gnl_set_line(char *static_line, int fd)
+static char	*gnl_set_line(char *static_line, int fd)
 {
 	char	buffer[BUFFER_SIZE + 1];
 	int		read_byte;
@@ -49,7 +49,7 @@ static char *gnl_set_line(char *static_line, int fd)
 		if (gnl_strchr(buffer, '\n') != 0)
 		{
 			static_line = gnl_strjoin(static_line, buffer, read_byte);
-			break;
+			break ;
 		}
 		static_line = gnl_strjoin(static_line, buffer, read_byte);
 		buffer[read_byte] = '\0';
@@ -58,7 +58,7 @@ static char *gnl_set_line(char *static_line, int fd)
 	return (static_line);
 }
 
-static char *gnl_set_return_line(char *static_line)
+static char	*gnl_set_return_line(char *static_line)
 {
 	char	*return_line;
 	int		return_line_length;
@@ -82,7 +82,7 @@ static char *gnl_set_return_line(char *static_line)
 	return (return_line);
 }
 
-static char *gnl_set_static_line(char *static_line)
+static char	*gnl_set_static_line(char *static_line)
 {
 	char	*new_static_line;
 	int		new_static_length;
@@ -111,7 +111,7 @@ static char *gnl_set_static_line(char *static_line)
 	return (new_static_line);
 }
 
-char *get_next_line(int fd) 3 4 5 6 7
+char	*get_next_line(int fd)
 {
 	char			*return_line;
 	static char		*static_line[8193];

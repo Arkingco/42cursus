@@ -6,13 +6,13 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:27:48 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/10 15:57:52 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/10 20:39:20 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"get_next_line_bonus.h"
 
-int gnl_strchr(char *line, char word)
+int	gnl_strchr(char *line, char word)
 {
 	int	i;
 
@@ -22,13 +22,13 @@ int gnl_strchr(char *line, char word)
 	while (line[i] != '\0')
 	{
 		if (line[i] == word)
-			return (i+1);
+			return (i + 1);
 		++i;
 	}
 	return (0);
 }
 
-int gnl_strlen(char *line)
+int	gnl_strlen(char *line)
 {
 	int	i;
 
@@ -40,7 +40,7 @@ int gnl_strlen(char *line)
 	return (i);
 }
 
-void gnl_free_char_pointer(char *pointer)
+void	gnl_free_char_pointer(char *pointer)
 {
 	free(pointer);
 	pointer = NULL;
