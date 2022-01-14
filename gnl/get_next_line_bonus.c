@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:14:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/10 20:44:54 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/14 17:11:42 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ char	*get_next_line(int fd)
 	char			*return_line;
 	static char		*static_line[8193];
 
-	if (fd < 0 || BUFFER_SIZE < 1)
+	if (fd < 0 || BUFFER_SIZE < 1 || fd > 8192)
 		return (0);
 	static_line[fd] = gnl_set_line(static_line[fd], fd);
 	return_line = gnl_set_return_line(static_line[fd]);

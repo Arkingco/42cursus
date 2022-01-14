@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:16:22 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/10 20:44:37 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/14 14:38:19 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
-
-# define OPEN_MAX 256
 
 int		gnl_strchr(char *s, char word);
 int		gnl_strlen(char *s);
