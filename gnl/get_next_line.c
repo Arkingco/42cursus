@@ -6,14 +6,11 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:14:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/14 16:48:38 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/14 19:52:25 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"get_next_line.h"
-#include<stdio.h>
-#include <string.h>
-#include <stdlib.h>
 
 static char	*gnl_strjoin(char *static_line, char *buffer, int buffer_length)
 {

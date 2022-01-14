@@ -6,8 +6,10 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
+ 
 
-# Make data base, printed on Fri Jan 14 12:50:17 2022
+# Make data base, printed on Fri Jan 14 19:20:32 2022
+ 
 
 # Variables
 
@@ -30,20 +32,21 @@ VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupp
 # environment
 _ = /usr/bin/make
 # makefile (from `Makefile', line 1)
- 
 MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_NODE_CACHED_DATA_DIR = 
 # environment
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220114T115002
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220114T192021
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-6c98cefc-1731-4f74-8ac9-707a158b3059.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-b6c8c3dc-d262-4cc0-ba93-8c2b2c5ea8bf.sock
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # environment
-LaunchInstanceID = CB5BB179-7F02-44EE-BC3C-C518BA49EF61
+VSLS_SESSION_KEEPALIVE_INTERVAL = 20
+# environment
+LaunchInstanceID = C5087137-F893-4EEA-814F-77A28D00B6D2
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -51,13 +54,15 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.0qqLLLAiOz/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.uDIj3KIFJu/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
 PWD = /Users/kipark/workspace/gnl/gnl
 # makefile (from `Makefile', line 16)
 src = get_next_line.c get_next_line_utils.c main.c
+# environment
+DOTNET_ROOT = /Users/kipark/Library/Application Support/Code/User/globalStorage/ms-vsliveshare.vsliveshare/dotnet-3.1.1
 # environment
 HOME = /Users/kipark
 # default
@@ -109,7 +114,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000010.Electron
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000004.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -127,7 +132,7 @@ CC_FLAG = -Wextra -Werror -Wall -g
 # environment
 LC_ALL = C
 # environment
-SECURITYSESSIONID = 186d7
+SECURITYSESSIONID = 186a6
 # automatic
 ^F = $(notdir $^)
 # default
@@ -139,9 +144,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 41325
+VSCODE_PID = 2257
 # variable set hash-table stats:
-# Load=64/1024=6%, Rehash=0, Collisions=4/93=4%
+# Load=66/1024=6%, Rehash=0, Collisions=4/95=4%
 
 # Pattern-specific Variable Values
 
@@ -149,9 +154,9 @@ VSCODE_PID = 41325
 
 # Directories
 
-# . (device 16777225, inode 785595): 16 files, no impossibilities.
+# . (device 16777225, inode 785595): 17 files, no impossibilities.
 
-# 16 files, no impossibilities in 1 directories.
+# 17 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -222,6 +227,6 @@ Makefile:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Fri Jan 14 12:50:17 2022
+# Finished Make data base on Fri Jan 14 19:20:32 2022
 
  

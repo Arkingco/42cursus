@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:27:48 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/10 20:48:22 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/14 19:20:31 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	gnl_strlen(char *line)
 
 void	gnl_free_char_pointer(char *pointer)
 {
+	if(pointer == 0)
+		return ;
 	free(pointer);
 	pointer = NULL;
 	return ;
