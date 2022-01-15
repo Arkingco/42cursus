@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:16:22 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/10 20:45:03 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/15 18:38:42 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 int		gnl_strchr(char *s, char word);
 int		gnl_strlen(char *s);
-void	gnl_free_char_pointer(char *pointer);
+void	gnl_free_char_pointer(char **pointer);
 
 char	*get_next_line(int fd);
 

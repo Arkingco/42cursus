@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:14:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/14 19:52:25 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/15 18:38:42 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static char	*gnl_strjoin(char *static_line, char *buffer, int buffer_length)
 		++i;
 	}
 	new_line[i] = '\0';
-	gnl_free_char_pointer(static_line);
+	gnl_free_char_pointer(&static_line);
 	return (new_line);
 }
 
@@ -107,7 +107,7 @@ static char	*gnl_set_static_line(char *static_line)
 		++i;
 	}
 	new_static_line[i] = '\0';
-	gnl_free_char_pointer(static_line);
+	gnl_free_char_pointer(&static_line);
 	return (new_static_line);
 }
 
@@ -122,6 +122,6 @@ char	*get_next_line(int fd)
 	return_line = gnl_set_return_line(static_line);
 	static_line = gnl_set_static_line(static_line);
 	if (return_line == NULL)
-		gnl_free_char_pointer(static_line);
+		gnl_free_char_pointer(&static_line);
 	return (return_line);
 }

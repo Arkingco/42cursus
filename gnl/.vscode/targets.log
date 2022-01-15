@@ -8,8 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Fri Jan 14 19:20:32 2022
- 
+# Make data base, printed on Sat Jan 15 18:27:36 2022
 
 # Variables
 
@@ -38,29 +37,28 @@ VSCODE_NODE_CACHED_DATA_DIR =
 # environment
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220114T192021
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220115T155545
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-b6c8c3dc-d262-4cc0-ba93-8c2b2c5ea8bf.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-1470ac34-1408-46f3-8149-62e1b70b1dee.sock
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # environment
 VSLS_SESSION_KEEPALIVE_INTERVAL = 20
 # environment
-LaunchInstanceID = C5087137-F893-4EEA-814F-77A28D00B6D2
-# environment
 VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
+ 
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.uDIj3KIFJu/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.33JxyT2UUZ/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
 PWD = /Users/kipark/workspace/gnl/gnl
 # makefile (from `Makefile', line 16)
-src = get_next_line.c get_next_line_utils.c main.c
+src = get_next_line_bonus.c get_next_line_utils_bonus.c get_next_line.h main.c
 # environment
 DOTNET_ROOT = /Users/kipark/Library/Application Support/Code/User/globalStorage/ms-vsliveshare.vsliveshare/dotnet-3.1.1
 # environment
@@ -114,15 +112,13 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000004.Electron
+XPC_SERVICE_NAME = com.microsoft.VSCode.1052
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
 __CF_USER_TEXT_ENCODING = 0x19390:0x0:0x0
-# environment
-COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # makefile (from `Makefile', line 14)
@@ -131,8 +127,6 @@ CC_FLAG = -Wextra -Werror -Wall -g
 <F = $(notdir $<)
 # environment
 LC_ALL = C
-# environment
-SECURITYSESSIONID = 186a6
 # automatic
 ^F = $(notdir $^)
 # default
@@ -144,9 +138,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 2257
+VSCODE_PID = 22491
 # variable set hash-table stats:
-# Load=66/1024=6%, Rehash=0, Collisions=4/95=4%
+# Load=63/1024=6%, Rehash=0, Collisions=4/92=4%
 
 # Pattern-specific Variable Values
 
@@ -154,9 +148,9 @@ VSCODE_PID = 2257
 
 # Directories
 
-# . (device 16777225, inode 785595): 17 files, no impossibilities.
+# . (device 16777225, inode 785595): 19 files, no impossibilities.
 
-# 17 files, no impossibilities in 1 directories.
+# 19 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -189,7 +183,7 @@ all:
 # ? := 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=3/13=23%
-#  commands to execute (from `Makefile', line 21):
+#  commands to execute (from `Makefile', line 22):
 	$(CC) $(CC_FLAG) $(src)
 	
 
@@ -202,7 +196,7 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-01-06 20:56:01
+#  Last modified 2022-01-15 18:26:54
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -226,7 +220,8 @@ Makefile:
 # # of strcache buffers: 1
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+ 
 
-# Finished Make data base on Fri Jan 14 19:20:32 2022
+# Finished Make data base on Sat Jan 15 18:27:36 2022
 
  

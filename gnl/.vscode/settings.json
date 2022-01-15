@@ -4,7 +4,9 @@
             "cwd": "/Users/kipark/workspace/gnl/gnl",
             "binaryPath": "/Users/kipark/workspace/gnl/gnl/a.out",
             "binaryArgs": [
-                "countingStar"
+                "countingStar",
+                "hangang_gang",
+                "we_are_young"
             ]
         },
         {
