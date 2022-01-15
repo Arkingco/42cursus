@@ -32,7 +32,8 @@
         "string_view": "c",
         "unordered_map": "c",
         "vector": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "get_next_line_bonus.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

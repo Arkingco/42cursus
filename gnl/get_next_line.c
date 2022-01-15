@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:14:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/15 18:38:42 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/15 23:30:35 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,24 @@ static char	*gnl_strjoin(char *static_line, char *buffer, int buffer_length)
 
 static char	*gnl_set_line(char *static_line, int fd)
 {
-	char	buffer[BUFFER_SIZE + 1];
+	char	*buffer;
 	int		read_byte;
 
+	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if(buffer == NULL)
+		return (0);
 	read_byte = read(fd, buffer, BUFFER_SIZE);
 	while (read_byte > 0)
 	{
-		if (gnl_strchr(buffer, '\n') != 0)
+		if (gnl_strchr(buffer, '\n'))
 		{
 			static_line = gnl_strjoin(static_line, buffer, read_byte);
 			break ;
 		}
 		static_line = gnl_strjoin(static_line, buffer, read_byte);
-		buffer[read_byte] = '\0';
 		read_byte = read(fd, buffer, BUFFER_SIZE);
 	}
+	gnl_free_char_pointer(&buffer);
 	return (static_line);
 }
 
@@ -69,7 +72,7 @@ static char	*gnl_set_return_line(char *static_line)
 	return_line_length = gnl_strchr(static_line, '\n');
 	if (return_line_length == 0)
 		return_line_length = gnl_strlen(static_line);
-	return_line = malloc(sizeof(char) * return_line_length + 1);
+	return_line = malloc(sizeof(char) * (return_line_length + 1)); 
 	if (return_line == NULL)
 		return (0);
 	i = 0;
@@ -86,19 +89,15 @@ static char	*gnl_set_static_line(char *static_line)
 {
 	char	*new_static_line;
 	int		new_static_length;
-	int		static_length;
 	int		static_strchr_length;
 	int		i;
 
 	i = 0;
-	if (gnl_strlen(static_line) == 0)
-		return (static_line);
 	static_strchr_length = gnl_strchr(static_line, '\n');
 	if (static_strchr_length == 0)
 		static_strchr_length = gnl_strlen(static_line);
-	static_length = gnl_strlen(static_line);
-	new_static_length = static_length - static_strchr_length;
-	new_static_line = malloc(sizeof(char) * new_static_length + 1);
+	new_static_length = gnl_strlen(static_line) - static_strchr_length;
+	new_static_line = malloc(sizeof(char) * (new_static_length + 1));
 	if (new_static_line == 0)
 		return (0);
 	while (i < new_static_length)
@@ -120,8 +119,11 @@ char	*get_next_line(int fd)
 		return (0);
 	static_line = gnl_set_line(static_line, fd);
 	return_line = gnl_set_return_line(static_line);
-	static_line = gnl_set_static_line(static_line);
 	if (return_line == NULL)
+	{
 		gnl_free_char_pointer(&static_line);
+		return (0);
+	}
+	static_line = gnl_set_static_line(static_line);
 	return (return_line);
 }

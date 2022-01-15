@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Sat Jan 15 18:27:36 2022
+# Make data base, printed on Sat Jan 15 19:18:11 2022
 
 # Variables
 
@@ -23,6 +23,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # automatic
 @F = $(notdir $@)
 # makefile
+ 
 CURDIR := /Users/kipark/workspace/gnl/gnl
 # makefile
 SHELL = /bin/sh
@@ -49,7 +50,6 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
- 
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
 SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.33JxyT2UUZ/Listeners
@@ -140,6 +140,7 @@ LANG = C
 # environment
 VSCODE_PID = 22491
 # variable set hash-table stats:
+ 
 # Load=63/1024=6%, Rehash=0, Collisions=4/92=4%
 
 # Pattern-specific Variable Values
@@ -196,7 +197,7 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-01-15 18:26:54
+#  Last modified 2022-01-15 19:15:27
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -220,8 +221,7 @@ Makefile:
 # # of strcache buffers: 1
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
- 
 
-# Finished Make data base on Sat Jan 15 18:27:36 2022
+# Finished Make data base on Sat Jan 15 19:18:11 2022
 
  
