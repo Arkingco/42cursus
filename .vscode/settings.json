@@ -1,0 +1,11 @@
+{
+    "makefile.extensionOutputFolder": "./.vscode",
+    "files.associations": {
+        "ft_printf_util.h": "c",
+        "ft_printf.h": "c",
+        "complex": "c",
+        "ft_printf_format.h": "c",
+        "stdlib.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
+}

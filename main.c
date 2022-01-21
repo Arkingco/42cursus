@@ -8,12 +8,35 @@
 // va_list
 // va_end
 
-int test(int nSize, ...)
+#define get_type_sizeof(type) return_get_type_size(sizeof(type))
+
+int return_get_type_size(int type_size)
 {
-	return (0);
+	return type_size;
+}
+
+int va_test(int num, ...)
+{
+	int sum;
+	int i;
+	int arg;
+	va_list ap;
+	
+
+	va_start(ap, num);
+	i = 0;
+	sum = 0;
+	while(i < num)
+	{
+		arg = va_arg(ap, int);
+		sum += arg;
+		++i;
+	}
+	va_end(ap);
+	return (sum);
 }
 
 int main()
 {
-	printf("hi");
+	printf("%d", va_test(4, 10, 15, 10, 5));
 }
