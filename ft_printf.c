@@ -6,16 +6,16 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:22:50 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/21 21:43:15 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/21 21:50:02 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_printf.h"
 
-int check_printf_plag(va_list *va_ap, char str)
+int check_printf_plag(va_list va_ap, char str)
 {
     if(str == 'c')
-        return (1);
+        ft_printf_format_c(va_ap);
     return (0);
 }
  
@@ -33,7 +33,7 @@ int ft_printf(const char *str, ...)
             write(1, &str[i], 1);
         else
         {
-            check_printf_plag(&ap, str[i+1]);
+            check_printf_plag(ap, str[i+1]);
             ++i;
         }
         ++i;
@@ -44,5 +44,5 @@ int ft_printf(const char *str, ...)
 
 int main()
 {
-    ft_printf("hi%c", 10);
+    ft_printf("hi%c %c", 'b', 'g');
 }
