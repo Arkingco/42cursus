@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:22:50 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/21 21:52:09 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/23 16:07:39 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int check_printf_plag(va_list va_ap, char str)
     write_byte = 0;
     if(str == 'c')
         write_byte = ft_printf_format_c(va_ap);
-    return (0);
+    return (write_byte);
 }
  
 int ft_printf(const char *str, ...)
