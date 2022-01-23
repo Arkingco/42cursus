@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:05:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/23 13:42:21 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/23 20:49:29 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 int ft_printf_format_p(va_list ap)
 {
-    
+    long result;
+
+    result = (long)va_arg(ap, void *);
+    printf("%d", result);
 }

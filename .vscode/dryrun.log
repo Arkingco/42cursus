@@ -1,6 +1,5 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/kipark/workspace/printf/ft_printf'
 gcc  format/ft_printf_format_c.c format/ft_printf_format_d.c format/ft_printf_format_i.c format/ft_printf_format_p.c format/ft_printf_format_s.c format/ft_printf_format_u.c format/ft_printf_format_x_x.c format/ft_printf_format_x.c  util/ft_printf_str_util.c  ft_printf.c
- 
 make: Leaving directory `/Users/kipark/workspace/printf/ft_printf'
  

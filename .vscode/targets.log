@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Sun Jan 23 16:05:24 2022
+# Make data base, printed on Sun Jan 23 21:52:48 2022
 
 # Variables
 
@@ -39,13 +39,13 @@ VSCODE_NODE_CACHED_DATA_DIR = /Users/kipark/Library/Application Support/Code/Cac
 # environment
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220123T160514
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220123T215239
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-d11b4677-656f-469a-ad3f-4fb64be4a8d8.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-cd89d38d-da2d-4296-a098-bd9d6e053931.sock
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # environment
-LaunchInstanceID = AE25718E-DBB5-4F7D-8A53-12931294E767
+LaunchInstanceID = 2D3F1AD0-E5BD-4A38-999B-992C57C43866
 # environment
 VSCODE_LOG_STACK = false
 # makefile (from `Makefile', line 18)
@@ -55,7 +55,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.CLOugbKuH6/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.4OtlakVrGx/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -99,6 +99,7 @@ PIPE_LOGGING = true
 # default
 MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
 # default
+ 
 .VARIABLES := 
 # environment
 TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/
@@ -143,7 +144,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 2129
+VSCODE_PID = 1846
 # variable set hash-table stats:
 # Load=66/1024=6%, Rehash=0, Collisions=4/97=4%
 
@@ -226,6 +227,6 @@ Makefile:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sun Jan 23 16:05:24 2022
+# Finished Make data base on Sun Jan 23 21:52:48 2022
 
  

@@ -38,5 +38,8 @@ int va_test(int num, ...)
 
 int main()
 {
-	printf("%d", va_test(4, 10, 15, 10, 5));
+	int a;
+	printf("%d \n %p", va_test(4, 10, 15, 10, 5), &a);
+
+	
 }

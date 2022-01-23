@@ -6,13 +6,13 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:05:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/23 13:42:44 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/23 17:43:34 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_printf_format.h"
 
-int ft_printf_format_u(va_list ap)
-{
+// int ft_printf_format_u(va_list ap)
+// {
     
-}
+// }
