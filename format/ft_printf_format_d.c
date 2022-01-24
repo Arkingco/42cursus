@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:05:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/23 18:06:04 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/24 17:40:46 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static int printf_recursive_c(long int result)
     write_byte = 0;
     if(result < 0)
     {
-        write(1, "-", 1);
+        if(write(1, "-", 1) == -1)
+            return(write_byte);
         write_byte = printf_recursive_c(result * -1);
         write_byte++;
     }
@@ -29,7 +30,8 @@ static int printf_recursive_c(long int result)
         if(result > 9)
             write_byte = printf_recursive_c(result / 10);
         write_a = (result % 10) + '0';
-        write(1, &write_a, 1);
+        if(write(1, &write_a, 1) == -1)
+            return(write_byte);
         write_byte++;   
     }
     return (write_byte);

@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:07:00 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/23 17:42:29 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/24 18:48:16 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include<stdarg.h>
 #include<unistd.h>
+#include"../util/ft_printf_util.h"
+
+#define HEXADECIMAL_MAX_LEN 16
 
 int ft_printf_format_c(va_list ap);
 int ft_printf_format_s(va_list ap);
