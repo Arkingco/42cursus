@@ -1,6 +1,17 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/kipark/workspace/printf/ft_printf'
-gcc  format/ft_printf_format_c.c format/ft_printf_format_d.c format/ft_printf_format_i.c format/ft_printf_format_p.c format/ft_printf_format_s.c format/ft_printf_format_u.c format/ft_printf_format_x_x.c format/ft_printf_format_x.c  util/ft_printf_str_util.c  ft_printf.c
+gcc -Wall -Wextra -Werror -c format/ft_printf_format_c.c -o format/ft_printf_format_c.o
  
+gcc -Wall -Wextra -Werror -c format/ft_printf_format_d.c -o format/ft_printf_format_d.o
+gcc -Wall -Wextra -Werror -c format/ft_printf_format_i.c -o format/ft_printf_format_i.o
+gcc -Wall -Wextra -Werror -c format/ft_printf_format_p.c -o format/ft_printf_format_p.o
+gcc -Wall -Wextra -Werror -c format/ft_printf_format_s.c -o format/ft_printf_format_s.o
+gcc -Wall -Wextra -Werror -c format/ft_printf_format_u.c -o format/ft_printf_format_u.o
+gcc -Wall -Wextra -Werror -c format/ft_printf_format_x_x.c -o format/ft_printf_format_x_x.o
+gcc -Wall -Wextra -Werror -c format/ft_printf_format_x.c -o format/ft_printf_format_x.o
+ 
+gcc -Wall -Wextra -Werror -c util/ft_printf_str_util.c -o util/ft_printf_str_util.o
+gcc -Wall -Wextra -Werror -c ft_printf.c -o ft_printf.o
+ar crs libftprintf.a format/ft_printf_format_c.o format/ft_printf_format_d.o format/ft_printf_format_i.o format/ft_printf_format_p.o format/ft_printf_format_s.o format/ft_printf_format_u.o format/ft_printf_format_x_x.o format/ft_printf_format_x.o util/ft_printf_str_util.o ft_printf.o
 make: Leaving directory `/Users/kipark/workspace/printf/ft_printf'
  

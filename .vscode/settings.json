@@ -8,5 +8,6 @@
         "stdlib.h": "c",
         "unistd.h": "c"
     },
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools"
 }
