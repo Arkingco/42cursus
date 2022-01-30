@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:05:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/24 19:55:31 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/30 17:59:56 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	ft_printf_recursive_u(unsigned int result)
 	return (write_byte);
 }
 
-int	ft_printf_format_u(va_list ap)
+ssize_t	ft_printf_format_u(va_list ap)
 {
 	return (ft_printf_recursive_u(va_arg(ap, unsigned int)));
 }

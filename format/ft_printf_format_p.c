@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*    	*/
-/*    	:::   	  ::::::::   */
-/*   ft_printf_format_p.c     	   :+:	  :+:      	:+:   */
-/*    	+:+ +:+   	 +:+    	 */
-/*   By: kipark <kipark@student.42seoul.kr>   	 +#+  +:+     	   +#+   	*/
-/*    	+#+#+#+#+#+   +#+ 	   */
-/*   Created: 2022/01/21 19:05:13 by kipark   	#+#   	#+#  	 */
-/*   Updated: 2022/01/24 19:46:20 by kipark   	   ###   ########seoul.kr  */
-/*    	*/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf_format_p.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/30 17:59:15 by kipark            #+#    #+#             */
+/*   Updated: 2022/01/30 18:00:05 by kipark           ###   ########seoul.kr  */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_printf_format.h"
@@ -40,7 +40,7 @@ static int	ft_printf_format_p_run(size_t add_to_size_t)
 	return (print_byte);
 }
 
-int	ft_printf_format_p(va_list ap)
+ssize_t	ft_printf_format_p(va_list ap)
 {
 	return (ft_printf_format_p_run((size_t)va_arg(ap, void *)));
 }

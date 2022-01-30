@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:05:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/01/24 19:54:30 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/01/30 18:00:12 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	printf_itoa(long int result)
 	return (print_byte);
 }
 
-int	ft_printf_format_d(va_list ap)
+ssize_t	ft_printf_format_d(va_list ap)
 {
 	int	result;
 

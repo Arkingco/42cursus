@@ -6,7 +6,9 @@
         "complex": "c",
         "ft_printf_format.h": "c",
         "stdlib.h": "c",
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "stdarg.h": "c",
+        "sstream": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools"
