@@ -1,6 +1,7 @@
 #include<stdio.h>
+#include"ft_printf.h"
 
 int main()
 {
-	printf("%x", -1);
+	printf("%+100.10d \n", -12345);
 }
