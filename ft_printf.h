@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:23:11 by kipark            #+#    #+#             */
-/*   Updated: 2022/02/07 21:39:54 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/02/13 21:59:14 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,19 @@
 # include"format/ft_printf_format.h"
 # include"util/ft_printf_util.h"
 
-struct flag_list {
+typedef struct FLAG_LIST {
 	int	sharp;
 	int	zero;
 	int	space;
 	int	plus;
 	int	minus;
 	int	dot;
-}
+} flag_list;
+
+typedef struct STR_DESIGN {
+	long long int str_length;
+	char *print_str;
+} str_dedign;
 
 int	ft_printf(const char *str, ...);
 
