@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:22:50 by kipark            #+#    #+#             */
-/*   Updated: 2022/02/13 19:44:43 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/02/14 21:44:44 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,12 @@ int	check_printf_plag(va_list va_ap, char str)
 	return (write_byte);
 }
 
-void ft_printf_check_string(const char **string)
+int set_flag_minus(t_flag_list *flag, char *str)
 {
-	flag_list flag;
-	char *str;
-
-	str = *string;
+	flag->plus = 1;
+	str++;
 	if(*str == '#')
 		set_flag_sharp(&flag, str);
-	else if(*str == '0')
-		set_flag_zero(&flag, str);
 	else if(*str == ' ')
 		set_flag_space(&flag, str);
 	else if(*str == '.')
@@ -58,103 +54,100 @@ void ft_printf_check_string(const char **string)
 		set_flag_dot(&flag, str);
 	else if(*str == '-')
 		set_flag_minus(&flag, str);
+	return (0);
+}
+
+int set_flag_sharp(t_flag_list *flag, char *str)
+{
+	flag->sharp = 1;
+	str++;
+	if(*str == '0')
+		set_flag_zero(&flag, str);
+	else if(*str == '.')
+		set_flag_dot(&flag, str);
+	else if(*str == '-')
+		set_flag_minus(&flag, str);
+	return (0);
+}
+
+int set_flag_plus(t_flag_list *flag, char *str)
+{
+	flag->plus = 1;
+	str++;
+	if(*str == '0')
+		set_flag_zero(&flag, str);
+	else if(*str == '.')
+		set_flag_dot(&flag, str);
+	else if(*str == '+')
+		set_flag_plus(&flag, str);
+	else if(*str == '.')
+		set_flag_dot(&flag, str);
+	else if(*str == '-')
+		set_flag_minus(&flag, str);
+	return (0);
+}
+
+int set_flag_dot(t_flag_list *flag, char *str)
+{
+	return (0);
+}
+
+int set_flag_space(t_flag_list *flag, char *str)
+{
+	flag->space = 1;
+	str++;
+	if(*str == '0')
+		set_flag_zero(&flag, str);
+	else if(*str == ' ')
+		set_flag_space(&flag, str);
+	else if(*str == '.')
+		set_flag_dot(&flag, str);
+	else if(*str == '-')
+		set_flag_minus(&flag, str);
+	return (0);
+}
+
+int set_flag_zero(t_flag_list *flag, char *str)
+{
+	flag->zero = 1;
+	str++;
+	if(*str == '#')
+		set_flag_sharp(&flag, str);
+	else if(*str == '0')
+		set_flag_zero(&flag, str);
+	else if(*str == ' ')
+		set_flag_space(&flag, str);
+	else if(*str == '.')
+		set_flag_dot(&flag, str);
+	else if(*str == '+')
+		set_flag_plus(&flag, str);
+	return (0);
+}
+
+void ft_printf_check_string(va_list va_ap, char *str)
+{
+	t_flag_list flag;
+	
+	if(*str == '#')
+		set_flag_sharp(&flag, str);
+	else if(*str == '0')
+		set_flag_zero(&flag, str);
+	else if(*str == ' ')
+		set_flag_space(&flag, str);
+	else if(*str == '.')
+		set_flag_dot6g_plus(&flag, str);
+	else if(*str == '.')
+		set_flag_dot(&flag, str);
+	else if(*str == '-')
+		set_flag_minus(&flag, str);
+	check_printf_plag(va_ap, str);
 	return ;
 }
 
-int set_flag_sharp(flag_list *flag, const char **string)
+int check_printf_flags(va_list va_ap, char *str)
 {
-	flag->sharp = 1;
-	char *str;
-
-	str = *string;
-	str++;
-	if(*str == '0')
-		set_flag_zero(&flag, str);
-	else if(*str == '.')
-		set_flag_dot(&flag, str);
-	else if(*str == '-')
-		set_flag_minus(&flag, str);
-}
-
-int set_flag_zero(flag_list *flag, const char **string)
-{
-	flag->zero = 1;
-	char *str;
-
-	str = *string;
-	str++;
-	if(*str == '#')
-		set_flag_sharp(&flag, str);
-	else if(*str == '0')
-		set_flag_zero(&flag, str);
-	else if(*str == ' ')
-		set_flag_space(&flag, str);
-	else if(*str == '.')
-		set_flag_dot(&flag, str);
-	else if(*str == '+')
-		set_flag_plus(&flag, str);
-}
-
-int set_flag_space(flag_list *flag, const char **string)
-{
-	flag->space = 1;
-	char *str;
-
-	str = *string;
-	str++;
-	if(*str == '0')
-		set_flag_zero(&flag, str);
-	else if(*str == ' ')
-		set_flag_space(&flag, str);
-	else if(*str == '.')
-		set_flag_dot(&flag, str);
-	else if(*str == '-')
-		set_flag_minus(&flag, str);
-}
-
-int set_flag_dot(flag_list *flag, const char **string)
-{
-	// some dot complemant 
-}
-
-int set_flag_plus(flag_list *flag, const char **string)
-{
-	flag->plus = 1;
-	char *str;
-
-	str = *string;
-	str++;
-	if(*str == '0')
-		set_flag_zero(&flag, str);
-	else if(*str == '.')
-		set_flag_dot(&flag, str);
-	else if(*str == '+')
-		set_flag_plus(&flag, str);
-	else if(*str == '.')
-		set_flag_dot(&flag, str);
-	else if(*str == '-')
-		set_flag_minus(&flag, str);
-}
-
-int set_flag_minus(flag_list *flag, const char **string)
-{
-	flag->plus = 1;
-	char *str;
-
-	str = *string;
-	str++;
-	if(*str == '#')
-		set_flag_sharp(&flag, str);
-	else if(*str == ' ')
-		set_flag_space(&flag, str);
-	else if(*str == '.')
-		set_flag_dot(&flag, str);
-	else if(*str == '+')
-		set_flag_plus(&flag, str);
-	else if(*str == '.')
-		set_flag_dot(&flag, str);
-	else if(*str == '-')
-		set_flag_minus(&flag, str);
+	ft_printf_check_string(va_ap, str);
+	return (0);
 }
 
 int	ft_printf(const char *str, ...)
@@ -177,7 +170,7 @@ int	ft_printf(const char *str, ...)
 		else
 		{
 			if (str[i + 1] != '\0')
-				printf_byte += check_printf_plag(ap, str[i + 1]);
+				printf_byte += check_printf_flags(ap, str + (i + 1));
 			++i;
 		}
 		++i;
