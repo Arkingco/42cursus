@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:32:27 by kipark            #+#    #+#             */
-/*   Updated: 2022/02/14 14:58:24 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/02/23 17:31:07 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ int	ft_printf_format_write(char *str)
 		return (print_byte = write(1, "(null)", 6));
 	print_byte = write(1, str, check_printf_str_len(str));
 	if (print_byte == -1)
-		return (0);
+		return (-1);
 	return (print_byte);
 }

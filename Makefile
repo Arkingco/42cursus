@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:26:51 by kipark            #+#    #+#              #
-#    Updated: 2022/02/07 14:12:21 by kipark           ###   ########seoul.kr   #
+#    Updated: 2022/02/23 17:51:43 by kipark           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,33 +38,19 @@ SRC				=	$(format_src) 		\
 					$(util)				\
 					$(ft_printf)		\
 
-OBJ_FILE_P1_P2	=	$(SRC:.c=.o)		
-
-OBJ_FILE_BONUS  =	$(SRC_PART_BONUS:.c=.o) 
-
-ifdef WITH_BONUS
-    OBJ_FILE = $(OBJ_FILE_P1_P2) $(OBJ_FILE_BONUS)
-else
-    OBJ_FILE = $(OBJ_FILE_P1_P2)
-endif
+OBJ_FILE	=	$(SRC:.c=.o)
 
  .PHONY : all clean fclean re bonus
 
 all : $(NAME)
 
-%.o : %.c
-	$(CC) $(C_FLAG) -c $< -o $@
-
 clean	:
-	$(RM) $(RM_PLAG) $(OBJ_FILE_P1_P2) $(OBJ_FILE_BONUS)
+	$(RM) $(RM_PLAG) $(OBJ_FILE)
 
 fclean	: clean
 	$(RM) $(RM_PLAG) $(NAME)
 
 $(NAME) : $(OBJ_FILE)
 	$(AR) $(AR_FLAG) $@ $^
-
-bonus	:
-	make WITH_BONUS=1 all
 
 re	: fclean all
