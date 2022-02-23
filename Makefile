@@ -6,14 +6,14 @@
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:26:51 by kipark            #+#    #+#              #
-#    Updated: 2022/02/23 17:51:43 by kipark           ###   ########seoul.kr   #
+#    Updated: 2022/02/23 18:12:08 by kipark           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libftprintf.a
 
 CC 			= gcc
-C_FLAG   	= -Wall -Wextra -Werror
+CFLAGS   	= -Wall -Wextra -Werror
 
 RM			= rm
 RM_PLAG		= -f
@@ -40,17 +40,17 @@ SRC				=	$(format_src) 		\
 
 OBJ_FILE	=	$(SRC:.c=.o)
 
- .PHONY : all clean fclean re bonus
+ .PHONY : all clean fclean re
 
 all : $(NAME)
+
+$(NAME) : $(OBJ_FILE)
+	$(AR) $(AR_FLAG) $@ $^
 
 clean	:
 	$(RM) $(RM_PLAG) $(OBJ_FILE)
 
 fclean	: clean
 	$(RM) $(RM_PLAG) $(NAME)
-
-$(NAME) : $(OBJ_FILE)
-	$(AR) $(AR_FLAG) $@ $^
 
 re	: fclean all

@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:22:50 by kipark            #+#    #+#             */
-/*   Updated: 2022/02/23 17:27:37 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/02/23 20:40:46 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,28 +44,28 @@ int	ft_printf(const char *str, ...)
 {
 	va_list	ap;
 	int		printf_byte;
-	int		i;
+	int		check_printf_plag_byte;
 
-	i = 0;
+	check_printf_plag_byte = 0;
 	printf_byte = 0;
 	va_start(ap, str);
-	while (str[i] != '\0')
+	while (*str != '\0')
 	{
-		if (!check_printf_str_char(str[i], '%'))
+		if (!check_printf_str_char(*str, '%'))
 		{
-			if (write(1, &str[i], 1) == -1)
+			if (write(1, str, 1) == -1)
 				return (-1);
 			printf_byte++;
 		}
 		else
 		{
-			if (str[i + 1] != '\0')
-				if(check_printf_plag(ap, str[i+1]) == -1)
-					return (-1);
-				else
-					printf_byte += check_printf_plag(ap, str[i++]);
+			check_printf_plag_byte = check_printf_plag(ap, *(str + 1));
+			if(check_printf_plag_byte == -1)
+				return (-1);
+			
+			str++;
 		}
-		++i;
+		str++;
 	}
 	va_end(ap);
 	return (printf_byte);

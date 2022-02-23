@@ -6,8 +6,11 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
+ 
+make: *** No rule to make target `ft_printf.o', needed by `libftprintf.a'.  Stop.
+ 
 
-# Make data base, printed on Mon Feb 14 21:04:14 2022
+# Make data base, printed on Wed Feb 23 19:48:54 2022
 
 # Variables
 
@@ -24,39 +27,35 @@ SRC = $(format_src) $(util) $(ft_printf)
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /Users/kipark/workspace/printf/ft_printf
+CURDIR := /Users/kipark/workspace/printf/42_ft_printf
 # makefile
 SHELL = /bin/sh
 # makefile (from `Makefile', line 18)
 RM = rm
 # environment
-VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{},"_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
+# makefile (from `Makefile', line 16)
+CFLAGS = -Wall -Wextra -Werror
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_NODE_CACHED_DATA_DIR = 
-# makefile (from `Makefile', line 48)
-OBJ_FILE = $(OBJ_FILE_P1_P2)
-# makefile (from `Makefile', line 43)
-OBJ_FILE_BONUS = $(SRC_PART_BONUS:.c=.o) 
+# makefile (from `Makefile', line 41)
+OBJ_FILE = $(SRC:.c=.o)
 # environment
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220214T204416
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220223T191743
 # makefile (from `Makefile', line 35)
 ft_printf = ft_printf.c
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-49f2f611-578a-4d3a-ad32-b7f53b808d95.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-5c97228c-a034-4499-9677-ba3ebb09bd09.sock
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
-# makefile (from `Makefile', line 16)
-C_FLAG = -Wall -Wextra -Werror
-# makefile (from `Makefile', line 41)
-OBJ_FILE_P1_P2 = $(SRC:.c=.o)		
 # environment
-LaunchInstanceID = B4096A55-097F-4F19-B8A1-C3C12761C580
+LaunchInstanceID = 202F9041-4465-46A8-9916-116A3585433F
 # makefile (from `Makefile', line 21)
 AR = ar
 # environment
@@ -68,11 +67,11 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.1D0i6MeaoD/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.o20jMojhjp/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
-PWD = /Users/kipark/workspace/printf/ft_printf
+PWD = /Users/kipark/workspace/printf/42_ft_printf
 # makefile (from `Makefile', line 19)
 RM_PLAG = -f
 # environment
@@ -130,7 +129,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000002.Electron
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000003.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -160,9 +159,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 10574
+VSCODE_PID = 1141
 # variable set hash-table stats:
-# Load=75/1024=7%, Rehash=0, Collisions=6/112=5%
+# Load=73/1024=7%, Rehash=0, Collisions=4/104=4%
 
 # Pattern-specific Variable Values
 
@@ -170,114 +169,54 @@ VSCODE_PID = 10574
 
 # Directories
 
-# format (device 16777225, inode 1176846): 18 files, no impossibilities so far.
-# . (device 16777225, inode 1146463): 13 files, no impossibilities.
-# util (device 16777225, inode 1176228): 3 files, no impossibilities so far.
+# . (device 16777225, inode 1490610): 11 files, no impossibilities.
 
-# 34 files, no impossibilities in 3 directories.
+# 11 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
-%.o: %.c
-#  commands to execute (from `Makefile', line 56):
-	$(CC) $(C_FLAG) -c $< -o $@
-	
-
-# 1 implicit rules, 0 (0.0%) terminal.
+# No implicit rules.
 
 # Files
-
-# Not a target:
-util/ft_printf_str_util.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-02-14 14:58:24
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 all: libftprintf.a
 #  Phony target (prerequisite of .PHONY).
 #  Command-line target.
 #  Implicit rule search has not been done.
 #  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
+#  File has not been updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-format/ft_printf_format_c.o: format/ft_printf_format_c.c
+# Not a target:
+format/ft_printf_format_c.o:
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `format/ft_printf_format_c'
-#  Last modified 2022-02-14 16:25:28
+ 
+#  Last modified 2022-02-23 18:12:03
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 56):
-	$(CC) $(C_FLAG) -c $< -o $@
-	
 
-format/ft_printf_format_x.o: format/ft_printf_format_x.c
+# Not a target:
+format/ft_printf_format_x.o:
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `format/ft_printf_format_x'
-#  Last modified 2022-02-14 16:25:29
+#  Last modified 2022-02-23 18:12:03
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 56):
-	$(CC) $(C_FLAG) -c $< -o $@
-	
 
-ft_printf.o: ft_printf.c
+# Not a target:
+ft_printf.o:
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `ft_printf'
 #  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := ft_printf.o
-# automatic
-# % := 
-# automatic
-# * := ft_printf
-# automatic
-# + := ft_printf.c
-# automatic
-# | := 
-# automatic
-# < := ft_printf.c
-# automatic
-# ^ := ft_printf.c
-# automatic
-# ? := ft_printf.c
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=3/14=21%
-#  commands to execute (from `Makefile', line 56):
-	$(CC) $(C_FLAG) -c $< -o $@
-	
-
-# Not a target:
-format/ft_printf_format_d.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-30 18:00:12
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-format/ft_printf_format_i.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-30 18:00:08
-#  File has been updated.
-#  Successfully updated.
+#  File has not been updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
@@ -290,98 +229,43 @@ format/ft_printf_format_i.c:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-02-07 14:12:21
+#  Last modified 2022-02-23 18:12:08
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-format/ft_printf_format_x_x.c:
+format/ft_printf_format_u.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-02-07 14:57:19
+#  Last modified 2022-02-23 18:12:03
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
- 
-format/ft_printf_format_u.o: format/ft_printf_format_u.c
+# Not a target:
+format/ft_printf_format_x_x.o:
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `format/ft_printf_format_u'
-#  Last modified 2022-02-14 16:25:29
+#  Last modified 2022-02-23 18:12:03
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 56):
-	$(CC) $(C_FLAG) -c $< -o $@
-	
-
-format/ft_printf_format_x_x.o: format/ft_printf_format_x_x.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `format/ft_printf_format_x_x'
-#  Last modified 2022-02-14 16:25:29
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 56):
-	$(CC) $(C_FLAG) -c $< -o $@
-	
-
-bonus:
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 68):
-	make WITH_BONUS=1 all
-	
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 62):
+#  commands to execute (from `Makefile', line 54):
 	$(RM) $(RM_PLAG) $(NAME)
 	
 
 # Not a target:
-format/ft_printf_format_c.c:
+format/ft_printf_format_p.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-01-30 21:08:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-format/ft_printf_format_p.o: format/ft_printf_format_p.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `format/ft_printf_format_p'
-#  Last modified 2022-02-14 16:25:28
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 56):
-	$(CC) $(C_FLAG) -c $< -o $@
-	
-
-# Not a target:
-format/ft_printf_format_x.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-02-07 14:17:59
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-ft_printf.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-02-14 16:48:11
+#  Last modified 2022-02-23 18:12:03
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -404,35 +288,14 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 59):
-	$(RM) $(RM_PLAG) $(OBJ_FILE_P1_P2) $(OBJ_FILE_BONUS)
+#  commands to execute (from `Makefile', line 51):
+	$(RM) $(RM_PLAG) $(OBJ_FILE)
 	
 
 # Not a target:
-format/ft_printf_format_u.c:
+util/ft_printf_str_util.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-01-30 17:59:56
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-util/ft_printf_str_util.o: util/ft_printf_str_util.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `util/ft_printf_str_util'
-#  Last modified 2022-02-14 16:25:29
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 56):
-	$(CC) $(C_FLAG) -c $< -o $@
-	
-
-# Not a target:
-format/ft_printf_format_s.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-01-30 18:00:00
+#  Last modified 2022-02-23 18:12:03
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -441,61 +304,42 @@ format/ft_printf_format_s.c:
 libftprintf.a: format/ft_printf_format_c.o format/ft_printf_format_d.o format/ft_printf_format_i.o format/ft_printf_format_p.o format/ft_printf_format_s.o format/ft_printf_format_u.o format/ft_printf_format_x_x.o format/ft_printf_format_x.o util/ft_printf_str_util.o ft_printf.o
 #  Implicit rule search has not been done.
 #  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
+#  File has not been updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
-#  commands to execute (from `Makefile', line 65):
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 48):
 	$(AR) $(AR_FLAG) $@ $^
 	
 
 # Not a target:
-format/ft_printf_format_p.c:
+format/ft_printf_format_s.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-02-14 14:54:35
+#  Last modified 2022-02-23 18:12:03
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-format/ft_printf_format_s.o: format/ft_printf_format_s.c
+# Not a target:
+format/ft_printf_format_d.o:
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `format/ft_printf_format_s'
-#  Last modified 2022-02-14 16:25:28
+#  Last modified 2022-02-23 18:12:03
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 56):
-	$(CC) $(C_FLAG) -c $< -o $@
-	
 
-format/ft_printf_format_d.o: format/ft_printf_format_d.c
+# Not a target:
+format/ft_printf_format_i.o:
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `format/ft_printf_format_d'
-#  Last modified 2022-02-14 16:25:28
+#  Last modified 2022-02-23 18:12:03
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 56):
-	$(CC) $(C_FLAG) -c $< -o $@
-	
-
-format/ft_printf_format_i.o: format/ft_printf_format_i.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `format/ft_printf_format_i'
-#  Last modified 2022-02-14 16:25:28
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 56):
-	$(CC) $(C_FLAG) -c $< -o $@
-	
 
 # files hash-table stats:
-# Load=30/1024=3%, Rehash=0, Collisions=10/92=11%
+# Load=19/1024=2%, Rehash=0, Collisions=4/50=8%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -507,6 +351,6 @@ format/ft_printf_format_i.o: format/ft_printf_format_i.c
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Feb 14 21:04:14 2022
+# Finished Make data base on Wed Feb 23 19:48:54 2022
 
  
