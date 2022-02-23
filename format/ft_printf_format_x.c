@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:05:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/02/07 14:17:59 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/02/23 17:13:32 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ static int	ft_printf_recursive_x(unsigned int result)
 		write_byte = ft_printf_recursive_x(result / 16);
 	write_a = get_printf_char_10_to_16(result % 16);
 	if (write(1, &write_a, 1) == -1)
-		return (write_byte);
+		return (-1);
 	write_byte++;
 	return (write_byte);
 }
 
 ssize_t	ft_printf_format_x(va_list ap)
 {
-	return (ft_printf_recursive_x(va_arg(ap, int)));
+	return (ft_printf_recursive_x(va_arg(ap, unsigned int)));
 }
