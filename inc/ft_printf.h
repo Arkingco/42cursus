@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:23:11 by kipark            #+#    #+#             */
-/*   Updated: 2022/02/27 21:37:50 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/02/27 21:57:23 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 
 # define HEXADECIMAL_MAX_LEN 16
+
 typedef struct s_flag_list {
 	int	sharp;
 	int	zero;
