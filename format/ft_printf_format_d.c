@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:05:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/02/23 20:46:58 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/02/27 18:09:06 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	printf_recursive_d(long int result)
 		if (result > 9)
 		{
 			write_byte = printf_recursive_d(result / 10);
-			if(write_byte == -1)
+			if (write_byte == -1)
 				return (-1);
 		}
 		write_a = (result % 10) + '0';

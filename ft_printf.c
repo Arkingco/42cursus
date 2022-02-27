@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:22:50 by kipark            #+#    #+#             */
-/*   Updated: 2022/02/23 20:40:46 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/02/27 18:11:21 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,37 +36,38 @@ int	check_printf_plag(va_list va_ap, char str)
 	if (str == '%')
 		write_byte = write(1, "%", 1);
 	if (write_byte == -1)
-		return (-1);
+		write_byte = -1;
 	return (write_byte);
+}
+
+int	printf_end(va_list *ap)
+{
+	va_end(*ap);
+	return (-1);
 }
 
 int	ft_printf(const char *str, ...)
 {
 	va_list	ap;
 	int		printf_byte;
-	int		check_printf_plag_byte;
+	int		before_printf_byte;
 
-	check_printf_plag_byte = 0;
+	before_printf_byte = 0;
 	printf_byte = 0;
 	va_start(ap, str);
 	while (*str != '\0')
 	{
+		before_printf_byte = printf_byte;
 		if (!check_printf_str_char(*str, '%'))
-		{
-			if (write(1, str, 1) == -1)
-				return (-1);
-			printf_byte++;
-		}
+			printf_byte = printf_byte + write(1, str, 1);
 		else
 		{
-			check_printf_plag_byte = check_printf_plag(ap, *(str + 1));
-			if(check_printf_plag_byte == -1)
-				return (-1);
-			
+			printf_byte = printf_byte + check_printf_plag(ap, *(str + 1));
 			str++;
 		}
+		if (before_printf_byte > printf_byte)
+			return (printf_end(&ap));
 		str++;
 	}
-	va_end(ap);
 	return (printf_byte);
 }

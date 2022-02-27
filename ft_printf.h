@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:23:11 by kipark            #+#    #+#             */
-/*   Updated: 2022/02/23 19:31:25 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/02/27 18:12:29 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ typedef struct s_flag_list {
 	int	plus;
 	int	minus;
 	int	dot;
-} t_flag_list;
+}	t_flag_list;
 
 typedef struct s_str_design {
-	long long int str_length;
-	char *print_str;
-} t_str_dedign;
+	long long int	str_length;
+	char			*print_str;
+}	t_str_dedign;
 
 int	ft_printf(const char *str, ...);
 

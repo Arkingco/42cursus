@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 17:59:15 by kipark            #+#    #+#             */
-/*   Updated: 2022/02/23 17:48:12 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/02/27 18:10:00 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	ft_printf_recursive_p(size_t result)
 	if (result > 15)
 	{
 		write_byte = ft_printf_recursive_p(result / 16);
-		if(write_byte == -1)
+		if (write_byte == -1)
 			return (-1);
 	}
 	write_a = get_printf_char_10_to_16(result % 16);
