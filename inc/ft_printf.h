@@ -19,20 +19,6 @@
 
 # define HEXADECIMAL_MAX_LEN 16
 
-typedef struct s_flag_list {
-	int	sharp;
-	int	zero;
-	int	space;
-	int	plus;
-	int	minus;
-	int	dot;
-}	t_flag_list;
-
-typedef struct s_str_design {
-	long long int	str_length;
-	char			*print_str;
-}	t_str_dedign;
-
 int		util_str_len(char *str);
 int		util_str_char(char str, char target);
 int		util_format_write(char *str);

@@ -33,5 +33,5 @@ static int	ft_printf_recursive_u(unsigned int result)
 
 int	ft_printf_format_u(va_list ap)
 {
-	return (ft_printf_recursive_u((unsigend int)va_arg(ap,int)));
+	return (ft_printf_recursive_u((unsigned int)va_arg(ap,int)));
 }
