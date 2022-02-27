@@ -6,20 +6,20 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:32:27 by kipark            #+#    #+#             */
-/*   Updated: 2022/02/23 17:31:07 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/02/27 21:49:26 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ft_printf_util.h"
+#include"ft_printf.h"
 
-int	check_printf_str_char(char str, char target)
+int	util_str_char(char str, char target)
 {
 	if (str == target)
 		return (1);
 	return (0);
 }
 
-size_t	check_printf_str_len(char *str)
+int	util_str_len(char *str)
 {
 	int	len;
 
@@ -29,7 +29,7 @@ size_t	check_printf_str_len(char *str)
 	return (len);
 }
 
-char	get_printf_char_10_to_16(int index)
+char	util_char_10_to_16_x(int index)
 {
 	char	*a;
 
@@ -37,7 +37,7 @@ char	get_printf_char_10_to_16(int index)
 	return (a[index]);
 }
 
-char	get_printf_char_10_to_16_x(int index)
+char	util_char_10_to_16(int index)
 {
 	char	*a;
 
@@ -45,13 +45,13 @@ char	get_printf_char_10_to_16_x(int index)
 	return (a[index]);
 }
 
-int	ft_printf_format_write(char *str)
+int	util_format_write(char *str)
 {
-	ssize_t	print_byte;
+	int	print_byte;
 
 	if (str == NULL)
 		return (print_byte = write(1, "(null)", 6));
-	print_byte = write(1, str, check_printf_str_len(str));
+	print_byte = write(1, str, util_str_len(str));
 	if (print_byte == -1)
 		return (-1);
 	return (print_byte);

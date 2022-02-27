@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:22:50 by kipark            #+#    #+#             */
-/*   Updated: 2022/02/27 18:11:21 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/02/27 21:42:20 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	ft_printf(const char *str, ...)
 	while (*str != '\0')
 	{
 		before_printf_byte = printf_byte;
-		if (!check_printf_str_char(*str, '%'))
+		if (!util_str_char(*str, '%'))
 			printf_byte = printf_byte + write(1, str, 1);
 		else
 		{

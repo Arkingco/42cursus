@@ -6,11 +6,11 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:05:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/02/27 18:09:40 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/02/27 21:49:38 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ft_printf_format.h"
+#include"ft_printf.h"
 
 static int	ft_printf_recursive_x(unsigned int result)
 {
@@ -24,14 +24,14 @@ static int	ft_printf_recursive_x(unsigned int result)
 		if (write_byte == -1)
 			return (-1);
 	}
-	write_a = get_printf_char_10_to_16(result % 16);
+	write_a = util_char_10_to_16(result % 16);
 	if (write(1, &write_a, 1) == -1)
 		return (-1);
 	write_byte++;
 	return (write_byte);
 }
 
-ssize_t	ft_printf_format_x(va_list ap)
+int	ft_printf_format_x(va_list ap)
 {
 	return (ft_printf_recursive_x(va_arg(ap, unsigned int)));
 }

@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:26:51 by kipark            #+#    #+#              #
-#    Updated: 2022/02/27 16:53:12 by kipark           ###   ########seoul.kr   #
+#    Updated: 2022/02/27 21:26:55 by kipark           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,9 @@ SRC				=	$(format_src) 		\
 					$(ft_printf)		\
 
 OBJ_FILE	=	$(SRC:.c=.o)
+
+%.o : %.c
+	$(CC) $(CFLAGS) -c -o $@ $< -I inc
 
  .PHONY : all clean fclean re
 
