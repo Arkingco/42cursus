@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 17:59:15 by kipark            #+#    #+#             */
-/*   Updated: 2022/02/27 21:46:19 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/02/28 16:55:54 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,16 @@ static int	ft_printf_recursive_p(size_t result)
 static int	ft_printf_format_p_run(size_t add_to_size_t)
 {
 	int	print_byte;
+	int	before_print_byte;
 
 	print_byte = 0;
+	before_print_byte = print_byte;
 	print_byte += util_format_write("0x");
-	if (print_byte == -1)
+	if (before_print_byte > print_byte)
 		return (-1);
+	before_print_byte = print_byte;
 	print_byte += ft_printf_recursive_p(add_to_size_t);
-	if (print_byte == -1)
+	if (before_print_byte > print_byte)
 		return (-1);
 	return (print_byte);
 }

@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:05:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/02/27 21:46:29 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/02/28 16:52:09 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ static int	ft_printf_recursive_u(unsigned int result)
 
 int	ft_printf_format_u(va_list ap)
 {
-	return (ft_printf_recursive_u((unsigned int)va_arg(ap,int)));
+	return (ft_printf_recursive_u((unsigned int)va_arg(ap, int)));
 }

@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 18:26:51 by kipark            #+#    #+#              #
-#    Updated: 2022/02/27 21:26:55 by kipark           ###   ########seoul.kr   #
+#    Updated: 2022/02/28 16:56:03 by kipark           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,10 @@ CC 			= gcc
 CFLAGS   	= -Wall -Wextra -Werror
 
 RM			= rm
-RM_PLAG		= -f
+RM_FLAGS	= -f
 
 AR			= ar
-AR_FLAG		= crs
+AR_FLAGS	= crs
 
 format_src = 	format/ft_printf_format_c.c 		\
 				format/ft_printf_format_d.c 		\
@@ -48,12 +48,12 @@ OBJ_FILE	=	$(SRC:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJ_FILE)
-	$(AR) $(AR_FLAG) $@ $^
+	$(AR) $(AR_FLAGS) $@ $^
 
 clean	:
-	$(RM) $(RM_PLAG) $(OBJ_FILE)
+	$(RM) $(RM_FLAGS) $(OBJ_FILE)
 
 fclean	: clean
-	$(RM) $(RM_PLAG) $(NAME)
+	$(RM) $(RM_FLAGS) $(NAME)
 
 re	: fclean all

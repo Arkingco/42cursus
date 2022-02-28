@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:32:27 by kipark            #+#    #+#             */
-/*   Updated: 2022/02/27 21:49:26 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/02/28 16:51:39 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	util_str_len(char *str)
 	return (len);
 }
 
-char	util_char_10_to_16_x(int index)
+char	util_char_10_to_16(int index)
 {
 	char	*a;
 
@@ -37,7 +37,7 @@ char	util_char_10_to_16_x(int index)
 	return (a[index]);
 }
 
-char	util_char_10_to_16(int index)
+char	util_char_10_to_16_x(int index)
 {
 	char	*a;
 
