@@ -1,5 +1,3 @@
-# 42_born2beroot
-본투비루트
 # [Born2beroot] 정리
 
 PDF FILE
