@@ -1,0 +1,14 @@
+{
+	"files.associations": {
+		"push_swap.h": "c",
+		"unistd.h": "c",
+		"stdlib.h": "c"
+	},
+	"makefile.launchConfigurations": [
+		{
+			"cwd": "/Users/kipark/workspace/push_swap",
+			"binaryPath": "/Users/kipark/workspace/push_swap/a.out",
+			"binaryArgs": []
+		}
+	]
+}
