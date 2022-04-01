@@ -1,6 +1,5 @@
-make debug --dry-run --keep-going --print-directory
-make: Entering directory `/Users/kipark/workspace/push_swap'
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/kipark/workspace/git_push_swap'
 gcc -Wall -Wextra -Werror -g main.c stack_operations/push_swap_operations_stack.c 
- 
-make: Leaving directory `/Users/kipark/workspace/push_swap'
+make: Leaving directory `/Users/kipark/workspace/git_push_swap'
  
