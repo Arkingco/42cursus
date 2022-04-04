@@ -7,10 +7,11 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
  
-make: *** No rule to make target `all'.  Stop.
+make: *** No rule to make target `all'
+.  Stop.
 
 
-# Make data base, printed on Sun Apr  3 17:11:52 2022
+# Make data base, printed on Mon Apr  4 21:48:01 2022
 
 # Variables
 
@@ -39,15 +40,17 @@ VSCODE_NODE_CACHED_DATA_DIR =
 # environment
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220403T171142
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220404T210713
 # environment
 INFOPATH = /goinfre/kipark/homebrew/share/info:
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-5c3a8987-aa46-498c-9ffa-4c471f25cb09.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-38623544-cbe9-4908-9244-f8382ca3380f.sock
 # environment
 PATH = /goinfre/kipark/homebrew/bin:/goinfre/kipark/homebrew/sbin:/Applications/Visual Studio Code 3.app/Contents/Resources/app/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # environment
-LaunchInstanceID = BA375BB1-4B46-4451-831D-E9C8A1DBCC30
+VSLS_SESSION_KEEPALIVE_INTERVAL = 20
+# environment
+LaunchInstanceID = 1F5CBA6F-F064-4E0F-8FB6-7FAE1317A821
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -55,11 +58,13 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.xNfh18lPCz/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.KdvzNyhPPI/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
 PWD = /Users/kipark/workspace/git_push_swap
+# environment
+DOTNET_ROOT = /Users/kipark/Library/Application Support/Code/User/globalStorage/ms-vsliveshare.vsliveshare/dotnet-3.1.1
 # environment
 HOMEBREW_CELLAR = /goinfre/kipark/homebrew/Cellar
 # environment
@@ -93,7 +98,7 @@ AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
 # environment
 USER = kipark
 # makefile (from `Makefile', line 4)
-push_swap_dir = main.c stack_operations/push_swap_operations_stack.c stack_operations/push_swap_operations_p.c stack_operations/push_swap_operations_r.c stack_operations/push_swap_operations_rr.c stack_operations/push_swap_operations_s.c 
+push_swap_dir = main.c operations/push_swap_operations_stack.c operations/push_swap_operations_p.c operations/push_swap_operations_r.c operations/push_swap_operations_rr.c operations/push_swap_operations_s.c parser/parser_atoi.c parser/parser_error.c parser/parser_split.c parser/parser_util.c parser/parser.c error.c
 # makefile
 .DEFAULT_GOAL := debug
 # environment
@@ -117,7 +122,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000003.Electron
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
 # environment
 HOMEBREW_PREFIX = /goinfre/kipark/homebrew
 # automatic
@@ -153,9 +158,9 @@ cc_flags = -Wall -Wextra -Werror
 # environment
 LANG = C
 # environment
-VSCODE_PID = 1951
+VSCODE_PID = 10702
 # variable set hash-table stats:
-# Load=70/1024=7%, Rehash=0, Collisions=2/94=2%
+# Load=72/1024=7%, Rehash=0, Collisions=2/96=2%
 
 # Pattern-specific Variable Values
 
@@ -191,7 +196,7 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-03 15:14:35
+#  Last modified 2022-04-04 21:47:55
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -201,7 +206,7 @@ debug:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 12):
+#  commands to execute (from `Makefile', line 18):
 	$(cc) $(cc_flags) -g $(push_swap_dir)
 	
 
@@ -224,6 +229,6 @@ debug:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sun Apr  3 17:11:52 2022
+# Finished Make data base on Mon Apr  4 21:48:01 2022
 
  

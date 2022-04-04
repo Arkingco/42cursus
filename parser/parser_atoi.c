@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:50:14 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/03 17:26:46 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/04/04 16:36:10 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,15 @@ static long int	is_space(const char *str)
 {
 	if ((*str >= 9 && *str <= 13) || *str == ' ')
 		return (1);
+	return (0);
+}
+
+static int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
 	return (0);
 }
 

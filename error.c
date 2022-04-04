@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_util.c                                      :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/03 15:47:46 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/04 16:37:25 by kipark           ###   ########seoul.kr  */
+/*   Created: 2022/04/04 14:56:33 by kipark            #+#    #+#             */
+/*   Updated: 2022/04/04 21:48:10 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../push_swap.h"
+#include"push_swap.h"
 
-int	parse_row_length(char **input_argv)
+void print_error()
 {
-	int i;
+	write(1, "Error\n", 6);
+	exit(0);
+}
 
-	i = 0;
-	while(input_argv[i] != NULL)
-		i++;
-	return (i);
+void error_exit()
+{
+	write(1, "Error\n", 6);
+	exit(0);
 }

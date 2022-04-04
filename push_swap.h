@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:39:52 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/03 17:27:13 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/04/04 21:44:01 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,14 @@ void	push_swap_operations_p(t_stack **a, t_stack **b, enum e_operations opers);
 void	push_swap_operations_r(t_stack **a, t_stack **b, enum e_operations opers);
 void	push_swap_operations_rr(t_stack **a, t_stack **b, enum e_operations opers);
 
-char		**push_swap_parser_split(char const *s, char c);
-long int	*push_swap_parse(char *s);
-long int	parse_atoi(const char *str);
-int	need_parse_length(char **input_argv);
+void print_error();
+void error_exit();
 
+char		**push_swap_parser_split(char const *s, char c);
+long int	*parser(char *s);
+long int	parse_atoi(const char *str);
+int	parse_row_length(char **input_argv);
+int paser_check_str_error(char *str);
+int paser_error(char **need_parsed);
 
 #endif

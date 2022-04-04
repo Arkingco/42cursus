@@ -12,7 +12,6 @@
 
 #include"../push_swap.h"
 
-// allocate stack new_node
 t_stack *new_node_set(long int node_value)
 {
 	t_stack *new_node;
