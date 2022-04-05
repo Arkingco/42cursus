@@ -6,13 +6,13 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 15:36:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/05 15:36:22 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/04/05 17:25:04 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
 
-void	set_return_value(long int *return_arvg_to_int, char **input_argv_to_str, int parse_size)
+void	set_return_paser_value(long int *return_arvg_to_int, char **input_argv_to_str, int parse_size)
 {
 	int idx;
 

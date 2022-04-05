@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 14:56:33 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/05 13:16:49 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/04/05 17:52:24 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void print_error()
 {
-	write(1, "Error\n", 6);
-	exit(0);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
 void error_exit()
 {
-	write(1, "Error\n", 6);
-	exit(0);
+	write(2, "Error\n", 6);
+	exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 12:11:58 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/05 17:10:18 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/04/05 21:27:18 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,57 +88,35 @@ void set_argv_arr(long int *argv_arr, int argc, char **argv)
 	argv_arr[arr_idx] = INT64_MIN;
 }
 
-// 정렬이 된게 들어오면 바로 꺼지면 안된다.
+void push_swap_algorithm(int *argv_arr)
+{
+	
+}
+// exit()할때 malloc 알아서 풀어줌??
+// 프로세스에 할당되어있는 malloc들이 프로세스 자체를 없애버리니까 같이 날라간다 고 하네여~
 int main(int argc, char **argv)
 {
-	t_stack *head = NULL;
+	// t_stack *head = NULL;
 
-	stack_operations_add(&head, 10);
-	stack_operations_add(&head, 20);
-	stack_operations_add(&head, 30);
+	// stack_operations_add(&head, 10);
+	// stack_operations_add(&head, 20);
+	// stack_operations_add(&head, 30);
 	
-	// show_stack_next(head);
-	// printf("---------\n");
-	// show_stack_previuos(head, head);
-
-	// char **a = push_swap_parser_split("1233123", ' ');			0
-	// char **b = push_swap_parser_split("+1231123", ' ');			0
-	// char **c = push_swap_parser_split("-4123", ' ');				0
-	// char **a1 = push_swap_parser_split("++123+3123", ' ');		1
-	// char **b1 = push_swap_parser_split("--1231123", ' ');		1
-	// char **c1 = push_swap_parser_split("41+23", ' ');			1
-	// char **a2 = push_swap_parser_split("123123 a", ' ');			1
-	// char **b2 = push_swap_parser_split("+1231123 ", ' ');		0
-	// char **c2 = push_swap_parser_split("4123 123 4123", ' ');	0
-	// printf("\n\n\n %d %d %d %d %d %d %d %d %d", paser_error(a), paser_error(b), paser_error(c),  paser_error(a1), paser_error(b1), paser_error(c1),  paser_error(a2), paser_error(b2), paser_error(c2));
-
-	// long int *a = parser(argv[argc-1]);
-	// if(a != NULL)
-	// 	for(int i=0; a[i] != INT64_MIN; ++i){
-	// 		printf("%ld \n", a[i]);
-	// 	}
-
-	// char **a = push_swap_parser_split("123 41 312 ", ' ');
-
-
-
-
 	long int *argv_arr;
-	
+
 	if(argc < 1)
 		return (0);
-
 	argv_arr = malloc(sizeof(long int) * (ARGV_ARR_SIZE + 1));
 	set_argv_arr(argv_arr, argc, argv);
 	check_argv_duplicate(argv_arr);
 	// some algorithm
-
-	
-
+	push_swap_algorithm(argv_arr);
 	//
 	for(int i=0; argv_arr[i] != INT64_MIN; ++i)
 	{
 		printf("%ld\n", argv_arr[i]);
 	}
 	free(argv_arr);
+
+	printf("%d", INT32_MIN);
 }

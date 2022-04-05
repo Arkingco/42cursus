@@ -13,7 +13,7 @@
 		{
 			"cwd": "/Users/kipark/workspace/git_push_swap",
 			"binaryPath": "/Users/kipark/workspace/git_push_swap/a.out",
-			"binaryArgs": ["2","3","4", "5 6 7 8 9"]
+			"binaryArgs": ["-2147483648","3","4", "5 6 7 8 9"]
 		}
 	],
 }

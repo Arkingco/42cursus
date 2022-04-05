@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:50:14 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/05 15:22:43 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/04/05 17:43:46 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,11 @@ long int	parse_atoi(const char *str)
 		str++;
 	while (ft_isdigit(*str))
 	{
-		temp = temp * 10;
-		temp = temp + (*str - '0');
+		temp = (temp * 10) + (*str - '0');
+		if(temp > INT32_MAX)
+			error_exit();
+		if(minus_flag && temp - 1 >= INT32_MAX)
+			error_exit();
 		str++;
 	}
 	if (minus_flag)
