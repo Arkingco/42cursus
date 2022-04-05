@@ -12,7 +12,8 @@ push_swap_dir = main.c \
 				parser/parser_split.c						\
 				parser/parser_util.c						\
 				parser/parser.c								\
-				error.c
+				error.c										\
+				push_swap_util.c
 
 debug :
 	$(cc) $(cc_flags) -g $(push_swap_dir)

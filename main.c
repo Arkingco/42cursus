@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 12:11:58 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/04 22:18:30 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/04/05 17:10:18 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include<stdlib.h>
 #include"push_swap.h"
 
+#define ARGV_ARR_SIZE 500
 
 void show_stack_next(t_stack *head)
 {
@@ -42,6 +43,25 @@ void show_stack_previuos(t_stack *head, t_stack *stop_head)
 	}
 }
 
+void check_argv_duplicate(long int *argv_arr)
+{
+	int i;
+	int j;
+	
+	i = 0;
+	while(argv_arr[i] != INT64_MIN)
+	{
+		j = i + 1;
+		while(argv_arr[j] != INT64_MIN)
+		{
+			if(argv_arr[i] == argv_arr[j])
+				error_exit();
+			++j;
+		}
+		++i;
+	}
+}
+
 void set_argv_arr(long int *argv_arr, int argc, char **argv)
 {
 	int idx;
@@ -51,12 +71,16 @@ void set_argv_arr(long int *argv_arr, int argc, char **argv)
 
 	idx = 1;
 	arr_idx = 0;
-	while(idx < argc)
+	while (idx < argc)
 	{
 		parse_pointer = parser(argv[idx]);
 		i = 0;
-		while(parse_pointer[i] != INT64_MIN)
+		while (parse_pointer[i] != INT64_MIN)
+		{
 			argv_arr[arr_idx++] = parse_pointer[i++];
+			if (arr_idx == ARGV_ARR_SIZE)
+				error_exit();
+		}
 		free(parse_pointer);
 		parse_pointer = 0;
 		idx++;
@@ -64,6 +88,7 @@ void set_argv_arr(long int *argv_arr, int argc, char **argv)
 	argv_arr[arr_idx] = INT64_MIN;
 }
 
+// 정렬이 된게 들어오면 바로 꺼지면 안된다.
 int main(int argc, char **argv)
 {
 	t_stack *head = NULL;
@@ -103,12 +128,14 @@ int main(int argc, char **argv)
 	if(argc < 1)
 		return (0);
 
-	argv_arr = malloc(sizeof(long int) * (501 + 1));
+	argv_arr = malloc(sizeof(long int) * (ARGV_ARR_SIZE + 1));
 	set_argv_arr(argv_arr, argc, argv);
-	
+	check_argv_duplicate(argv_arr);
 	// some algorithm
 
-	//	
+	
+
+	//
 	for(int i=0; argv_arr[i] != INT64_MIN; ++i)
 	{
 		printf("%ld\n", argv_arr[i]);

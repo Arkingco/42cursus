@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:39:52 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/04 21:44:01 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/04/05 13:48:40 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,7 @@ long int	parse_atoi(const char *str);
 int	parse_row_length(char **input_argv);
 int paser_check_str_error(char *str);
 int paser_error(char **need_parsed);
+
+void push_swap_memset(void *arr, int arr_length);
 
 #endif

@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   push_swap_util.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 14:56:33 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/05 13:16:49 by kipark           ###   ########seoul.kr  */
+/*   Created: 2022/04/05 13:39:13 by kipark            #+#    #+#             */
+/*   Updated: 2022/04/05 13:54:43 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-void print_error()
+void push_swap_memset(void *arr, int arr_length)
 {
-	write(1, "Error\n", 6);
-	exit(0);
-}
+	int i;
+	unsigned char *pointer;
 
-void error_exit()
-{
-	write(1, "Error\n", 6);
-	exit(0);
+	i = 0;
+	pointer = (unsigned char *)arr;
+	while(i < arr_length)
+	{
+		pointer[i] = 0;
+		++i;
+	}
 }
