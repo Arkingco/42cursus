@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 21:49:30 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/04 16:25:04 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/04/06 14:33:05 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void push_swap_operations_p_delete_node(t_stack **head)
 {
 	t_stack *temp_head;
 	
-	if((*head)->next == NULL)
+	if((*head)->next == head)
 	{
 		free(*head);
 		*head = NULL;
@@ -48,8 +48,6 @@ static void push_swap_operations_p_pb(t_stack **a, t_stack **b)
 	stack_operations_add(b, (*a)->node_value);
 	push_swap_operations_p_delete_node(a);
 }
-
-
 
 void push_swap_operations_p(t_stack **a, t_stack **b, enum e_operations opers)
 {

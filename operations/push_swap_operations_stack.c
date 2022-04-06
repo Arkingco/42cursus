@@ -37,7 +37,7 @@ int stack_operations_add(t_stack **head, long int node_value)
 	if(*head == NULL)
 	{
 		*head = new_node;
-		(*head)->next = new_node;
+		(*head)->next = NULL;
 		(*head)->previous = *head;
 	}
 	else
