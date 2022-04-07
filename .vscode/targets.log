@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Wed Apr  6 20:48:30 2022
+# Make data base, printed on Thu Apr  7 18:27:09 2022
 
 # Variables
 
@@ -29,7 +29,7 @@ CURDIR := /Users/kipark/workspace/git_push_swap
 # makefile
 SHELL = /bin/sh
 # environment
-VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{},"_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
 # makefile (from `Makefile', line 1)
@@ -39,15 +39,15 @@ VSCODE_NODE_CACHED_DATA_DIR =
 # environment
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220406T204817
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220407T182657
 # environment
 INFOPATH = /goinfre/kipark/homebrew/share/info:
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-2bcda181-cf88-4f80-a7d8-db60611156fa.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-1c3afc58-ecd8-40e0-b32a-7f295ce39041.sock
 # environment
 PATH = /goinfre/kipark/homebrew/bin:/goinfre/kipark/homebrew/sbin:/Applications/Visual Studio Code 3.app/Contents/Resources/app/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # environment
-LaunchInstanceID = 02D81039-A47D-4387-8758-6D113C9F1527
+LaunchInstanceID = 4C67245B-F64E-4C35-A929-CBB55631958F
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -55,7 +55,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.CExX26eb5y/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.Lp0URqqJar/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -153,7 +153,7 @@ cc_flags = -Wall -Wextra -Werror
 # environment
 LANG = C
 # environment
-VSCODE_PID = 3857
+VSCODE_PID = 4949
 # variable set hash-table stats:
 # Load=70/1024=7%, Rehash=0, Collisions=2/94=2%
 
@@ -224,6 +224,6 @@ debug:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Wed Apr  6 20:48:30 2022
+# Finished Make data base on Thu Apr  7 18:27:09 2022
 
  

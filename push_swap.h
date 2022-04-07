@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:39:52 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/05 13:48:40 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/04/07 18:32:01 by kipark           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define PUSH_SWAP_H
 
 #define DEAFAULT_STACK_NODE_VALUE 424242424242
+#define COST_ARRAY_SIZE 501
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -23,6 +24,12 @@ typedef struct s_stack {
 	struct s_stack *next;
 	long int	node_value; 
 } t_stack;
+
+typedef struct s_cost {
+	int top_down[COST_ARRAY_SIZE];
+	int bottom_up[COST_ARRAY_SIZE];
+	t_stack *pointer;
+} t_cost;
 
 enum e_operations {
 	SA = 0, SB, SS,
@@ -39,15 +46,15 @@ void	push_swap_operations_p(t_stack **a, t_stack **b, enum e_operations opers);
 void	push_swap_operations_r(t_stack **a, t_stack **b, enum e_operations opers);
 void	push_swap_operations_rr(t_stack **a, t_stack **b, enum e_operations opers);
 
-void print_error();
-void error_exit();
-
 char		**push_swap_parser_split(char const *s, char c);
 long int	*parser(char *s);
 long int	parse_atoi(const char *str);
 int	parse_row_length(char **input_argv);
 int paser_check_str_error(char *str);
 int paser_error(char **need_parsed);
+
+void print_error();
+void error_exit();
 
 void push_swap_memset(void *arr, int arr_length);
 
