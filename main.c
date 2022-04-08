@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 12:11:58 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/07 12:38:20 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/04/08 21:34:26 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,11 @@ void set_argv_arr(long int *argv_arr, int argc, char **argv)
 	argv_arr[arr_idx] = INT64_MIN;
 }
 
-void push_swap_algorithm(int *argv_arr)
+void push_swap_algorithm(long int *argv_arr)
 {
 	
 }
+
 // exit()할때 malloc 알아서 풀어줌??
 // 프로세스에 할당되어있는 malloc들이 프로세스 자체를 없애버리니까 같이 날라간다 고 하네여~
 int main(int argc, char **argv)
@@ -101,7 +102,8 @@ int main(int argc, char **argv)
 	// stack_operations_add(&head, 10);
 	// stack_operations_add(&head, 20);
 	// stack_operations_add(&head, 30);
-	
+	// i m new kipark
+		
 	long int *argv_arr;
 
 	if(argc < 1)

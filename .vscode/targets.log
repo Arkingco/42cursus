@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Thu Apr  7 21:49:45 2022
+# Make data base, printed on Fri Apr  8 21:22:39 2022
 
 # Variables
 
@@ -25,7 +25,7 @@ make: *** No rule to make target `all'.  Stop.
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /Users/kipark/workspace/git_push_swap
+CURDIR := /Users/kipark/workspace/42_push_swap
 # makefile
 SHELL = /bin/sh
 # environment
@@ -35,21 +35,18 @@ _ = /usr/bin/make
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # environment
-VSCODE_NODE_CACHED_DATA_DIR = 
+VSCODE_NODE_CACHED_DATA_DIR = /Users/kipark/Library/Application Support/Code/CachedData/6ab598523be7a800d7f3eb4d92d7ab9a66069390
 # environment
+ 
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220407T214935
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220408T212235
 # environment
-INFOPATH = /goinfre/kipark/homebrew/share/info:
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-8cb1cd2f-f4bf-4d8f-a0d6-f374d6dbad86.sock
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-3b1fcab0-32ab-4b4d-9c7c-f43a52a4e435.sock
+PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # environment
-PATH = /goinfre/kipark/homebrew/bin:/goinfre/kipark/homebrew/sbin:/Applications/Visual Studio Code 3.app/Contents/Resources/app/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
-# environment
-VSLS_SESSION_KEEPALIVE_INTERVAL = 20
-# environment
-LaunchInstanceID = BEF31446-84DD-44F7-9ECE-02B7F8EAE064
+LaunchInstanceID = 58A06978-2E21-44C9-ADE8-FB5B14469E66
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -57,17 +54,11 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.q9CsjEuekd/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.IIctH7hezo/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
-PWD = /Users/kipark/workspace/git_push_swap
-# environment
-DOTNET_ROOT = /Users/kipark/Library/Application Support/Code/User/globalStorage/ms-vsliveshare.vsliveshare/dotnet-3.1.1
-# environment
-HOMEBREW_CELLAR = /goinfre/kipark/homebrew/Cellar
-# environment
-MANPATH = /goinfre/kipark/homebrew/share/man::
+PWD = /Users/kipark/workspace/42_push_swap
 # environment
 HOME = /Users/kipark
 # default
@@ -86,8 +77,6 @@ XPC_FLAGS = 0x0
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
-# environment
-HOMEBREW_CASK_OPTS = --appdir=/Users/kipark/goinfre/Applications
 # environment
 SHLVL = 1
 # default
@@ -121,15 +110,11 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
-# environment
-HOMEBREW_PREFIX = /goinfre/kipark/homebrew
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000004.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
-# environment
-HOMEBREW_REPOSITORY = /goinfre/kipark/homebrew
 # environment
 __CF_USER_TEXT_ENCODING = 0x19390:0x0:0x0
 # environment
@@ -143,7 +128,7 @@ LC_ALL = C
 # makefile (from `Makefile', line 1)
 cc = gcc
 # environment
-SECURITYSESSIONID = 186a5
+SECURITYSESSIONID = 186a6
 # automatic
 ^F = $(notdir $^)
 # default
@@ -157,9 +142,9 @@ cc_flags = -Wall -Wextra -Werror
 # environment
 LANG = C
 # environment
-VSCODE_PID = 1817
+VSCODE_PID = 2503
 # variable set hash-table stats:
-# Load=72/1024=7%, Rehash=0, Collisions=2/96=2%
+# Load=64/1024=6%, Rehash=0, Collisions=2/88=2%
 
 # Pattern-specific Variable Values
 
@@ -167,7 +152,7 @@ VSCODE_PID = 1817
 
 # Directories
 
-# . (device 16777225, inode 2162566): 18 files, no impossibilities.
+# . (device 16777225, inode 2325758): 18 files, no impossibilities.
 
 # 18 files, no impossibilities in 1 directories.
 
@@ -195,7 +180,7 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-05 13:45:34
+#  Last modified 2022-04-08 17:16:19
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -228,6 +213,6 @@ debug:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Thu Apr  7 21:49:45 2022
+# Finished Make data base on Fri Apr  8 21:22:39 2022
 
  
