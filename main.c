@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 12:11:58 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/08 21:34:26 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/08 21:38:08 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int main(int argc, char **argv)
 	// stack_operations_add(&head, 10);
 	// stack_operations_add(&head, 20);
 	// stack_operations_add(&head, 30);
-	// i m new kipark
+	// i m new kipark zzzz 
 		
 	long int *argv_arr;
 
