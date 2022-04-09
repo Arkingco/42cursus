@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 12:11:58 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/08 21:38:08 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/09 14:46:23 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void set_argv_arr(long int *argv_arr, int argc, char **argv)
 
 void push_swap_algorithm(long int *argv_arr)
 {
-	
+	argv_arr = 0;
 }
 
 // exit()할때 malloc 알아서 풀어줌??
@@ -102,18 +102,17 @@ int main(int argc, char **argv)
 	// stack_operations_add(&head, 10);
 	// stack_operations_add(&head, 20);
 	// stack_operations_add(&head, 30);
-	// i m new kipark zzzz 
 		
 	long int *argv_arr;
 
 	if(argc < 1)
 		return (0);
 	argv_arr = malloc(sizeof(long int) * (ARGV_ARR_SIZE + 1));
+	
 	set_argv_arr(argv_arr, argc, argv);
 	check_argv_duplicate(argv_arr);
-	// some algorithm
 	push_swap_algorithm(argv_arr);
-	//
+
 	for(int i=0; argv_arr[i] != INT64_MIN; ++i)
 	{
 		printf("%ld\n", argv_arr[i]);

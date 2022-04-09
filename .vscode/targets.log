@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Fri Apr  8 21:22:39 2022
+# Make data base, printed on Sat Apr  9 17:33:18 2022
 
 # Variables
 
@@ -37,16 +37,15 @@ MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_NODE_CACHED_DATA_DIR = /Users/kipark/Library/Application Support/Code/CachedData/6ab598523be7a800d7f3eb4d92d7ab9a66069390
 # environment
- 
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220408T212235
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220409T173312
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-8cb1cd2f-f4bf-4d8f-a0d6-f374d6dbad86.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-83eeac6f-34e1-42b6-84c3-fbb8d06c1101.sock
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # environment
-LaunchInstanceID = 58A06978-2E21-44C9-ADE8-FB5B14469E66
+LaunchInstanceID = 09E8EA9D-B759-4E4B-AA3A-0E64A944A638
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -54,7 +53,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.IIctH7hezo/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.N3RWgvHjSY/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -110,7 +109,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000004.Electron
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -142,7 +141,7 @@ cc_flags = -Wall -Wextra -Werror
 # environment
 LANG = C
 # environment
-VSCODE_PID = 2503
+VSCODE_PID = 3681
 # variable set hash-table stats:
 # Load=64/1024=6%, Rehash=0, Collisions=2/88=2%
 
@@ -213,6 +212,6 @@ debug:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Fri Apr  8 21:22:39 2022
+# Finished Make data base on Sat Apr  9 17:33:18 2022
 
  

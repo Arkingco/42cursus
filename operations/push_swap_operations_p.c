@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_operations_p.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 21:49:30 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/06 14:33:05 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/04/09 14:46:08 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void push_swap_operations_p_delete_node(t_stack **head)
 {
 	t_stack *temp_head;
 	
-	if((*head)->next == head)
+	if((*head)->next == *head)
 	{
 		free(*head);
 		*head = NULL;

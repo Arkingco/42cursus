@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:39:52 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/07 18:32:01 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/04/09 15:23:21 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,9 @@ void print_error();
 void error_exit();
 
 void push_swap_memset(void *arr, int arr_length);
+
+void check_stack_cost_a(t_cost *cost, t_stack *a, t_stack *b);
+void check_stack_cost_b(t_cost *cost, t_stack *b);
+int get_stack_length(t_stack *stack);
 
 #endif
