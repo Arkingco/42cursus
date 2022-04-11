@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 21:27:34 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/09 15:52:56 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/11 20:45:11 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // greedy algorithm 사용
 // 옆에 있어야하는 노드의 값을 구하기
-
+// 노드의 cost를 만들었다 
 void algorithm_run(t_stack *a, t_stack *b)
 {
 	t_cost cost_a;
