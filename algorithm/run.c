@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 21:27:34 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/11 20:45:11 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/12 16:03:30 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,33 @@ void algorithm_run(t_stack *a, t_stack *b)
 	check_stack_size(b);
 	check_stack_cost_b(&cost_b, b);
 	check_stack_cost_a(&cost_a, a, b);
+	push_stack_b_to_a(&cost_a, &cost_b);
 	
+
+	// 마지막은 스택 a 정렬하는 알고리즘
+	// 이거는 코스트 b 를 사용해서 a 의 코스트를 구하고 탑다운 바텀업 값을 구하면 될 것 같음
+}
+
+void push_stack_b_to_a(t_stack *a, t_stack *b)
+{
+		
 }
 
 void stack_all_pb(t_stack *a, t_stack *b)
 {
 	t_stack *head_a;
+	int stack_length;
 
-	if(get_stack_length(a) <= 2)
+	stack_length = get_stack_length(a);
+	if(stack_length <= 2)
 		return ;
 	head_a = a;
-	if(a->next == head_a)
-		push_swap_operations_p(&a, &b, PB);
 	while(a->next != head_a)
 	{
 		push_swap_operations_p(&a, &b, PB);
 		a = a->next;
-		if(get_stack_length(a) <= 2)
-			break;
+		stack_length--;
+		if(stack_length <= 2)
+			return ;
 	}
 }

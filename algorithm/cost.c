@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 16:22:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/09 15:25:31 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/12 20:51:25 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,11 @@ void check_stack_cost_a(t_cost *cost, t_stack *a, t_stack *b)
 	t_stack *a_head;
 
 	a_head = a;
+	top_down_length = 0;
 	stack_a_length = get_stack_length(a);
 	stack_b_length = get_stack_length(b);
-	top_down_length = 0;
 	while(stack_b_length--)
 	{
-		a = a_head;
 		while(1)
 		{
 			if(a->previous->node_value < b->node_value && a->next->node_value > b->node_value)
@@ -75,10 +74,11 @@ void check_stack_cost_a(t_cost *cost, t_stack *a, t_stack *b)
 				cost->top_down[b->node_value] = top_down_length;
 				cost->bottom_up[b->node_value] = stack_a_length - top_down_length;
 				break;
-			}
+			}	
 			a = a->next;
 			top_down_length++;
 		}
 		b = b->next;
+		a = a_head;
 	}
 }
