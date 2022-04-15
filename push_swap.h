@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:39:52 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/09 15:23:21 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/15 21:08:17 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ typedef struct s_stack {
 } t_stack;
 
 typedef struct s_cost {
-	int top_down[COST_ARRAY_SIZE];
-	int bottom_up[COST_ARRAY_SIZE];
-	t_stack *pointer;
+	int node;
+	int ra;
+	int rb;
+	int rr;
+	int cost_value;
 } t_cost;
 
 enum e_operations {
