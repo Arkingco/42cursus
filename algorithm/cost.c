@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 16:22:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/16 19:04:05 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/16 19:28:07 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,17 @@ void check_stack_cost(t_cost *cost, t_stack *a, t_stack *b)
 }
 
 // drinking cording ~
-void set_new_cost(t_cost *new_cost, )
+void set_new_cost(t_cost *new_cost)
 {
-	new_cost->
+	new_cost->ra = 0;
+	new_cost->rra = 0;
+	new_cost->rb = 0;
+	new_cost->rrb = 0;
+	new_cost->rr = 0;
+	new_cost->rrr = 0;
+	new_cost->target_a = 0;
+	new_cost->target_b = 0;
+	new_cost->cost_value = 0;
 }
 
 void find_min_cost(t_cost *cost, t_cost *new_cost)

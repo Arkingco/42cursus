@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:39:52 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/16 16:47:36 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/16 19:28:04 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ typedef struct s_cost {
 	int rb;
 	int rra;
 	int rrb;
+	int rr;
+	int rrr;
 	int cost_value;
 	int target_a;
 	int target_b;
@@ -72,6 +74,8 @@ void error_exit();
 void push_swap_memset(void *arr, int arr_length);
 void push_swap_free(void **pointer);
 
+
+void set_new_cost(t_cost *new_cost);
 void check_stack_cost(t_cost *cost, t_stack *a, t_stack *b);
 void check_stack_cost_b(t_cost *cost, t_stack *b);
 int get_stack_length(t_stack *stack);
