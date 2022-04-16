@@ -2,7 +2,13 @@
 	"files.associations": {
 		"push_swap.h": "c",
 		"unistd.h": "c",
-		"stdlib.h": "c"
+		"stdlib.h": "c",
+		"__functional_03": "c",
+		"functional": "c",
+		"__locale": "c",
+		"__string": "c",
+		"string": "c",
+		"string_view": "c"
 	},
 	"makefile.launchConfigurations": [
 		{

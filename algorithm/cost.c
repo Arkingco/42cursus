@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 16:22:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/15 21:58:13 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/16 19:04:05 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,24 +61,38 @@ int get_stack_length(t_stack *stack)
 // 스택 a에 top에 오게 하도록 만들어야 하는게 제일 효율적임
 // 이 아니라 그냥 무조건 위치가 정해 져 있음 
 // 이 위치를 특정하는게 사실상 불가능함 그냥 정렬을 하거나 가능하다면 나름 근사값으로 처리를 하는 수 밖에 없는데 일단 흐음..
-void check_stack_cost_a(t_cost *cost, t_stack *a, t_stack *b)
+void check_stack_cost(t_cost *cost, t_stack *a, t_stack *b)
 {
-	// 스택 a의 원소를 중심으로 하는 배열 a를 만들기
 	t_stack *b_head;
-	int *arr;
-	int target;
+	t_cost	new_cost;
 
 	b_head = b;
+	cost->cost_value = INT32_MAX;
 	while(b->next != b_head)
 	{
-		arr = make_array_a(a, b);
-
-		find_cost_a_b(cost, target, b->node_value);
+		set_new_cost(&new_cost);
+		new_cost.target_b = b->node_value;
+		new_cost.target_a = return_target_in_a(a, b->node_value);
+		find_cost_a_b(&new_cost, a, b);
+		find_min_cost(cost, &new_cost);
 		b = b->next;
 	}
 }
 
-int make_array_a(t_stack *a, t_stack *b)
+// drinking cording ~
+void set_new_cost(t_cost *new_cost, )
+{
+	new_cost->
+}
+
+void find_min_cost(t_cost *cost, t_cost *new_cost)
+{
+	if(cost->cost_value > new_cost->cost_value)
+		cost = new_cost;
+}
+
+// return target
+int return_target_in_a(t_stack *a, int b_node)
 {
 	int *arr;
 	int target;
@@ -88,21 +102,68 @@ int make_array_a(t_stack *a, t_stack *b)
 	arr = malloc(sizeof(int) * array_size);
 	if(arr == NULL)
 		print_error();
-	set_arr(a, arr);
+	set_arr(a, arr, b_node);
 	sort_arr_to_merge(arr);
-	target = find_target_in_arr(arr, array_size, b->node_value);
-	find_target_in_a(a, target);
-
-	free(arr);
-	arr = 0;
+	target = find_target_in_arr(arr, array_size, b_node);
+	push_swap_free(arr);
+	return (target);
 }
 
-int find_target_in_a(t_stack *a, int target)
+void find_cost_a_b(t_cost *new_cost, t_stack *a, t_stack *b)
 {
-	
-	while()	
+	set_cost_to_target_in_stack(new_cost, a, STACK_A);
+	set_cost_to_target_in_stack(new_cost, b, STACK_B);
+	if(new_cost->ra > new_cost->rra)
+	{
+		new_cost->ra = -1;
+		new_cost->cost_value += new_cost->rra;
+	}
+	else
+	{
+		new_cost->rra = -1;
+		new_cost->cost_value += new_cost->ra;
+	}
+	if(new_cost->rb > new_cost->rrb)
+	{
+		new_cost->rb = -1;
+		new_cost->cost_value += new_cost->rrb;
+	}
+	else
+	{
+		new_cost->rrb = -1;
+		new_cost->cost_value += new_cost->rb;
+	}
 }
-void set_arr(t_stack *a, int *arr)
+
+void set_cost_to_target_in_stack(t_cost *new_cost, t_stack *stack, int ab)
+{
+	t_stack *stack_head;
+	int stack_length;
+	int length;
+
+	stack_length = get_stack_length(stack);
+	length = 0;
+	stack_head = stack;
+	while(stack->next != stack_head)
+	{
+		if(stack->node_value == new_cost->target_a && ab)
+		{
+			new_cost->ra = length;
+			new_cost->rra = stack_length - length;
+			break;
+		}
+		else if(stack->node_value == new_cost->target_b && !ab)
+		{
+			new_cost->rb = length;
+			new_cost->rrb = stack_length - length;
+			break;
+		}
+		++length;
+		stack = stack->next;
+	}
+}
+
+void set_arr(t_stack *a, int *arr, int b_node)
 {
 	t_stack *a_head;
 	int i;
@@ -112,8 +173,10 @@ void set_arr(t_stack *a, int *arr)
 	while(a->next != a_head)
 	{
 		arr[i] = a->node_value;
-		a = a->next;		
+		a = a->next;
+		++i;
 	}
+	arr[i] = b_node;
 }
 
 int find_target_in_arr(int *arr, int array_size,int b_node)

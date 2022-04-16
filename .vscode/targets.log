@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Fri Apr 15 20:23:42 2022
+# Make data base, printed on Sat Apr 16 18:58:30 2022
 
 # Variables
 
@@ -29,7 +29,7 @@ CURDIR := /Users/kipark/workspace/42_push_swap
 # makefile
 SHELL = /bin/sh
 # environment
-VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{},"_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
 # makefile (from `Makefile', line 1)
@@ -39,13 +39,13 @@ VSCODE_NODE_CACHED_DATA_DIR = /Users/kipark/Library/Application Support/Code/Cac
 # environment
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220415T202334
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220416T185824
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-7edba03f-120a-45b5-85d5-c70977c9d07f.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-e74491d3-91c9-465a-bc8d-8c38076a6ad1.sock
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # environment
-LaunchInstanceID = A1637C8B-D2B2-4316-930A-B67474744F70
+LaunchInstanceID = A89ACFCA-ED3E-4845-ACC1-A04C9A00F882
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -53,7 +53,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.UbRjxSdbsH/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.J9IUkfp7f5/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -141,7 +141,7 @@ cc_flags = -Wall -Wextra -Werror
 # environment
 LANG = C
 # environment
-VSCODE_PID = 1322
+VSCODE_PID = 5504
 # variable set hash-table stats:
 # Load=64/1024=6%, Rehash=0, Collisions=2/88=2%
 
@@ -189,6 +189,7 @@ debug:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+ 
 #  commands to execute (from `Makefile', line 19):
 	$(cc) $(cc_flags) -g $(push_swap_dir)
 	
@@ -212,6 +213,6 @@ debug:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Fri Apr 15 20:23:42 2022
+# Finished Make data base on Sat Apr 16 18:58:30 2022
 
  

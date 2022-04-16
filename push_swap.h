@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:39:52 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/15 21:08:17 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/16 16:47:36 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #define DEAFAULT_STACK_NODE_VALUE 424242424242
 #define COST_ARRAY_SIZE 501
+#define STACK_A 1
+#define STACK_B 0
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -26,12 +28,21 @@ typedef struct s_stack {
 } t_stack;
 
 typedef struct s_cost {
-	int node;
 	int ra;
 	int rb;
-	int rr;
+	int rra;
+	int rrb;
 	int cost_value;
+	int target_a;
+	int target_b;
 } t_cost;
+
+typedef struct s_execute_cost {
+	int ra;
+	int rb;
+	int rra;
+	int rrb;
+} t_excute_cost;
 
 enum e_operations {
 	SA = 0, SB, SS,
@@ -59,8 +70,9 @@ void print_error();
 void error_exit();
 
 void push_swap_memset(void *arr, int arr_length);
+void push_swap_free(void **pointer);
 
-void check_stack_cost_a(t_cost *cost, t_stack *a, t_stack *b);
+void check_stack_cost(t_cost *cost, t_stack *a, t_stack *b);
 void check_stack_cost_b(t_cost *cost, t_stack *b);
 int get_stack_length(t_stack *stack);
 
