@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 21:27:34 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/16 19:36:04 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/16 20:14:35 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,36 +18,41 @@
 void algorithm_run(t_stack *a, t_stack *b)
 {
 	t_cost cost;
+	int stack_a_sotring_size;
 
-	set_new_cost(&cost);
+	stack_a_sotring_size = get_stack_length(a);
 	stack_push_all_pb(a, b);
-	check_stack_cost(&cost, a, b);
-	cost_optimization(&cost);
-	excute_cost(&cost, a, b);
+	while(get_stack_length(a) != stack_a_sotring_size)
+	{
+		set_new_cost(&cost);
+		check_stack_cost(&cost, a, b);
+		cost_optimization(&cost);
+		excute_cost(&cost, a, b);
+	}
 }
 
 void excute_cost(t_cost *cost, t_stack *a, t_stack *b)
 {
-	while(cost->rr != 0)
-	{
+	int count;
+
+	count = 0;
+	while(count++ < cost->rr)
 		push_swap_operations_rr(a, b, RR);
-		cost->rr = cost->rr - 1;
-	}
-	while(cost->rrr != 0)
-	{
-		push_swap_operations_rr(a, b, RRR);
-		cost->rrr = cost->rrr - 1;
-	}
-	while(cost->ra != 0)
-	{
+	count = 0;
+	while(count++ < cost->ra)
 		push_swap_operations_r(a, b, RA);
-		cost->ra = cost->ra - 1;
-	}
-	while(cost->rb != 0)
-	{
+	count = 0;
+	while(count++ < cost->rb)
 		push_swap_operations_r(a, b, RB);
-		cost->rb = cost->rb - 1;
-	}
+	count = 0;
+	while(count++ < cost->rrr)
+		push_swap_operations_rr(a, b, RRR);
+	count = 0;
+	while(count++ < cost->rra)
+		push_swap_operations_rr(a, b, RRA);
+	count = 0;
+	while(count++ < cost->rrb)
+		push_swap_operations_rr(a, b, RRB);
 	push_swap_operations_p(a, b, PA);
 }
 
