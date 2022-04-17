@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:39:52 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/17 15:21:49 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/17 15:49:06 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,36 +39,24 @@ typedef struct s_cost {
 	int target_b;
 } t_cost;
 
-typedef struct s_stack_info {
-	struct s_stack *head;
-	int	stack_length;
-} t_stack_info;
-
-typedef struct s_execute_cost {
-	int ra;
-	int rb;
-	int rra;
-	int rrb;
-} t_excute_cost;
-
-enum e_operations {
-	SA = 0, SB, SS,
-	PA,  PB,
-	RA,  RB,  RR,
-	RRA, RRB, RRR	
-};
-
 t_stack *new_node_set(long int node_value);
-int stack_operations_add(t_stack **head, t_stack_info *stack_info,long int node_value);
+int stack_operations_add(t_stack **head, long int node_value);
 
+void p_pb(t_stack **a, t_stack **b);
+void p_pa(t_stack **a, t_stack **b);
+void p_delete_node(t_stack **head);
 
-void push_swap_operations_p_pb(t_stack **a, t_stack **b, t_stack_info *info_b);
-void push_swap_operations_p_pa(t_stack **a, t_stack **b, t_stack_info *info_a);
+void s_sa(t_stack *a);
+void s_sb(t_stack *b);
+void s_ss(t_stack *a, t_stack *b);
 
-void	push_swap_operations_s(t_stack *a, t_stack *b, enum e_operations opers);
-void	push_swap_operations_r(t_stack **a, t_stack **b, enum e_operations opers);
-void	push_swap_operations_rr(t_stack **a, t_stack **b, enum e_operations opers);
-void	push_swap_operations_p_delete_node(t_stack **head);
+void r_ra(t_stack **a);
+void r_rb(t_stack **b);
+void r_rr(t_stack **a, t_stack **b);
+
+void rr_rrb(t_stack **b);
+void rr_rra(t_stack **a);
+void rr_rrr(t_stack **a, t_stack **b);
 
 char		**push_swap_parser_split(char const *s, char c);
 long int	*parser(char *s);
@@ -86,7 +74,7 @@ void push_swap_free(void **pointer);
 void algorithm_run(t_stack *a, t_stack *b);
 void sort_arr(int *arr, int arr_length);
 
-void show_stack(t_stack *a, t_stack *b, t_stack_info info_a, t_stack_info info_b);
+void show_stack(t_stack *a, t_stack *b);
 void set_new_cost(t_cost *new_cost);
 void check_stack_cost(t_cost *cost, t_stack *a, t_stack *b);
 void check_stack_cost_b(t_cost *cost, t_stack *b);

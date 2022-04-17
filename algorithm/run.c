@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 21:27:34 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/17 15:21:03 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/17 15:44:56 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,23 @@ void excute_cost(t_cost *cost, t_stack *a, t_stack *b)
 
 	count = 0;
 	while(count++ < cost->rr)
-		push_swap_operations_r(&a, &b, RR);
+		r_rr(&a, &b);
 	count = 0;
 	while(count++ < cost->ra)
-		push_swap_operations_r(&a, &b, RA);
+		r_rr(&a, &b);
 	count = 0;
 	while(count++ < cost->rb)
-		push_swap_operations_r(&a, &b, RB);
+		r_rr(&a, &b);
 	count = 0;
 	while(count++ < cost->rrr)
-		push_swap_operations_rr(&a, &b, RRR);
+		r_rrr(&a, &b);
 	count = 0;
 	while(count++ < cost->rra)
-		push_swap_operations_rr(&a, &b, RRA);
+		r_rrr(&a, &b);
 	count = 0;
 	while(count++ < cost->rrb)
-		push_swap_operations_rr(&a, &b, RRB);
-	push_swap_operations_p(&a, &b, PA);
+		r_rrr(&a, &b);
+	p_pa(&a, &b);
 }
 
 void cost_optimization(t_cost *cost)
@@ -77,7 +77,7 @@ void stack_push_all_pb(t_stack *a, t_stack *b)
 	head_a = a;
 	while(a->next != head_a)
 	{
-		push_swap_operations_p(&a, &b, PB);
+		p_pb(&a, &b, PB);
 		a = a->next;
 		stack_length--;
 		if(stack_length <= 3)
@@ -107,7 +107,7 @@ void show_stack(t_stack *a, t_stack *b, t_stack_info info_a, t_stack_info info_b
 	printf("\n\n\n\n");
 }
 
-void algorithm_run(t_stack *a, t_stack *b)
+void algorithm_r_rrun(t_stack *a, t_stack *b)
 {
 	t_cost cost;
 	t_stack_info

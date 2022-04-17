@@ -1,56 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_operations_r.c                           :+:      :+:    :+:   */
+/*   r.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 16:18:19 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/04 16:28:01 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/04/17 15:30:11 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
 
-static void push_swap_operations_r_works(t_stack **head)
+static void r_works(t_stack **head)
 {
 	*head = (*head)->next;
 	return ;
 }
 
-static void push_swap_operations_r_ra(t_stack **a)
+void r_ra(t_stack **a)
 {
 	if(*a == NULL)
 		return ;
 	if((*a)->next == NULL)
 		return ;
-	return (push_swap_operations_r_works(a));
+	return (r_works(a));
 }
 
-static void push_swap_operations_r_rb(t_stack **b)
+void r_rb(t_stack **b)
 {
 	if(*b == NULL)
 		return ;
 	if((*b)->next == NULL)
 		return ;
-	return (push_swap_operations_r_works(b));
+	return (r_works(b));
 }
 
-static void push_swap_operations_r_rr(t_stack **a, t_stack **b)
+void r_rr(t_stack **a, t_stack **b)
 {
-	push_swap_operations_r_ra(a);
-	push_swap_operations_r_rb(b);
-	return ;
-}
-
-
-void push_swap_operations_r(t_stack **a, t_stack **b, enum e_operations opers)
-{
-	if(opers == RA)
-		push_swap_operations_r_ra(a);
-	if(opers == RB)
-		push_swap_operations_r_rb(b);
-	if(opers == RR)
-		push_swap_operations_r_rr(a, b);
+	r_ra(a);
+	r_rb(b);
 	return ;
 }

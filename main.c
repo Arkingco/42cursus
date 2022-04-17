@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 12:11:58 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/17 15:05:06 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/17 16:34:17 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,20 +97,18 @@ int main(int argc, char **argv)
 {
 	t_stack *head_a = NULL;
 	t_stack *head_b = NULL;
-	t_stack_info info_a;
-	t_stack_info info_b;
 	
 	
-	stack_operations_add(&head_a, &info_a, 2);
-	stack_operations_add(&head_a, &info_a, 3);
-	stack_operations_add(&head_a, &info_a, 1);
-	stack_operations_add(&head_a, &info_a, 5);
-	stack_operations_add(&head_a, &info_a, 6);
-	stack_operations_add(&head_a, &info_a, 7);
-	stack_operations_add(&head_b, &info_b, 8);
-	stack_operations_add(&head_b, &info_b, 11);
+	stack_operations_add(&head_a, 2);
+	stack_operations_add(&head_a, 3);
+	stack_operations_add(&head_a, 1);
+	stack_operations_add(&head_a, 5);
+	stack_operations_add(&head_a, 6);
+	stack_operations_add(&head_a, 7);
+	stack_operations_add(&head_b, 8);
+	stack_operations_add(&head_b, 11);
 	
-	show_stack(head_a, head_b, info_a, info_b);
+	show_stack(head_a, head_b);
 	long int *argv_arr;
 
 	if(argc < 1)
