@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 12:11:58 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/16 16:19:50 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/17 15:05:06 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,6 @@ void set_argv_arr(long int *argv_arr, int argc, char **argv)
 		while (parse_pointer[i] != INT64_MIN)
 		{
 			argv_arr[arr_idx++] = parse_pointer[i++];
-			if (arr_idx == ARGV_ARR_SIZE)
-				error_exit();
 		}
 		free(parse_pointer);
 		parse_pointer = 0;
@@ -97,12 +95,22 @@ void push_swap_algorithm(long int *argv_arr)
 // 프로세스에 할당되어있는 malloc들이 프로세스 자체를 없애버리니까 같이 날라간다 고 하네여~
 int main(int argc, char **argv)
 {
-	// t_stack *head = NULL;
-
-	// stack_operations_add(&head, 10);
-	// stack_operations_add(&head, 20);
-	// stack_operations_add(&head, 30);
-		
+	t_stack *head_a = NULL;
+	t_stack *head_b = NULL;
+	t_stack_info info_a;
+	t_stack_info info_b;
+	
+	
+	stack_operations_add(&head_a, &info_a, 2);
+	stack_operations_add(&head_a, &info_a, 3);
+	stack_operations_add(&head_a, &info_a, 1);
+	stack_operations_add(&head_a, &info_a, 5);
+	stack_operations_add(&head_a, &info_a, 6);
+	stack_operations_add(&head_a, &info_a, 7);
+	stack_operations_add(&head_b, &info_b, 8);
+	stack_operations_add(&head_b, &info_b, 11);
+	
+	show_stack(head_a, head_b, info_a, info_b);
 	long int *argv_arr;
 
 	if(argc < 1)
@@ -111,8 +119,8 @@ int main(int argc, char **argv)
 	
 	set_argv_arr(argv_arr, argc, argv);
 	check_argv_duplicate(argv_arr);
-	push_swap_algorithm(argv_arr);
-
+	algorithm_run(head_a, head_b);
+	
 	for(int i=0; argv_arr[i] != INT64_MIN; ++i)
 	{
 		printf("%ld\n", argv_arr[i]);

@@ -26,7 +26,7 @@ t_stack *new_node_set(long int node_value)
 }
 
 // head is already allocated using new_node_set
-int stack_operations_add(t_stack **head, long int node_value)
+int stack_operations_add(t_stack **head, t_stack_info *stack_info,long int node_value)
 {
 	t_stack *new_node;
 	t_stack *temp_head;
@@ -37,7 +37,7 @@ int stack_operations_add(t_stack **head, long int node_value)
 	if(*head == NULL)
 	{
 		*head = new_node;
-		(*head)->next = NULL;
+		(*head)->next = *head;
 		(*head)->previous = *head;
 	}
 	else
@@ -49,5 +49,7 @@ int stack_operations_add(t_stack **head, long int node_value)
 		(*head)->previous->next = *head;
 		temp_head->previous = *head;
 	}
+	stack_info->head = (*head);
+	stack_info->stack_length = stack_info->stack_length + 1;
 	return (1);
 }

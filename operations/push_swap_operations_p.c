@@ -6,13 +6,13 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 21:49:30 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/16 12:43:33 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/17 15:21:14 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
 
-static void push_swap_operations_p_delete_node(t_stack **head)
+void push_swap_operations_p_delete_node(t_stack **head)
 {
 	t_stack *temp_head;
 	
@@ -23,7 +23,7 @@ static void push_swap_operations_p_delete_node(t_stack **head)
 		head = NULL;
 		return ;
 	}
-	else if((*head)->next)
+	else if((*head)->next != NULL)
 	{
 		temp_head = *head;
 		*head = (*head)->next;
@@ -33,27 +33,18 @@ static void push_swap_operations_p_delete_node(t_stack **head)
 	}
 }
 
-static void push_swap_operations_p_pa(t_stack **a, t_stack **b)
+void push_swap_operations_p_pa(t_stack **a, t_stack **b, t_stack_info *info_a)
 {
 	if(*b == NULL)
 		return;
-	stack_operations_add(a, (*b)->node_value);
+	stack_operations_add(a, (*b)->node_value, info_a);
 	push_swap_operations_p_delete_node(b);
 }
 
-static void push_swap_operations_p_pb(t_stack **a, t_stack **b)
+void push_swap_operations_p_pb(t_stack **a, t_stack **b, t_stack_info *info_b)
 {
 	if(*a == NULL)
 		return;
-	stack_operations_add(b, (*a)->node_value);
+	stack_operations_add(b, (*a)->node_value, info_b);
 	push_swap_operations_p_delete_node(a);
-}
-
-void push_swap_operations_p(t_stack **a, t_stack **b, enum e_operations opers)
-{
-	if(opers == PA)
-		push_swap_operations_p_pa(a, b);
-	if(opers == PB)
-		push_swap_operations_p_pb(a, b);
-	return ;
 }

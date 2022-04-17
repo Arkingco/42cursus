@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:39:52 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/16 19:28:04 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/17 15:21:49 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ typedef struct s_cost {
 	int target_b;
 } t_cost;
 
+typedef struct s_stack_info {
+	struct s_stack *head;
+	int	stack_length;
+} t_stack_info;
+
 typedef struct s_execute_cost {
 	int ra;
 	int rb;
@@ -54,12 +59,16 @@ enum e_operations {
 };
 
 t_stack *new_node_set(long int node_value);
-int stack_operations_add(t_stack **head_node, long int node_value);
+int stack_operations_add(t_stack **head, t_stack_info *stack_info,long int node_value);
+
+
+void push_swap_operations_p_pb(t_stack **a, t_stack **b, t_stack_info *info_b);
+void push_swap_operations_p_pa(t_stack **a, t_stack **b, t_stack_info *info_a);
 
 void	push_swap_operations_s(t_stack *a, t_stack *b, enum e_operations opers);
-void	push_swap_operations_p(t_stack **a, t_stack **b, enum e_operations opers);
 void	push_swap_operations_r(t_stack **a, t_stack **b, enum e_operations opers);
 void	push_swap_operations_rr(t_stack **a, t_stack **b, enum e_operations opers);
+void	push_swap_operations_p_delete_node(t_stack **head);
 
 char		**push_swap_parser_split(char const *s, char c);
 long int	*parser(char *s);
@@ -74,10 +83,13 @@ void error_exit();
 void push_swap_memset(void *arr, int arr_length);
 void push_swap_free(void **pointer);
 
+void algorithm_run(t_stack *a, t_stack *b);
+void sort_arr(int *arr, int arr_length);
 
+void show_stack(t_stack *a, t_stack *b, t_stack_info info_a, t_stack_info info_b);
 void set_new_cost(t_cost *new_cost);
 void check_stack_cost(t_cost *cost, t_stack *a, t_stack *b);
 void check_stack_cost_b(t_cost *cost, t_stack *b);
-int get_stack_length(t_stack *stack);
+int	get_stack_length(t_stack *stack);
 
 #endif

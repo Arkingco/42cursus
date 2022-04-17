@@ -12,6 +12,9 @@ push_swap_dir = main.c \
 				parser/parser_split.c						\
 				parser/parser_util.c						\
 				parser/parser.c								\
+				algorithm/cost.c							\
+				algorithm/run.c								\
+				algorithm/sort_merge.c						\
 				error.c										\
 				push_swap_util.c
 

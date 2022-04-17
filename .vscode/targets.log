@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Sat Apr 16 18:58:30 2022
+# Make data base, printed on Sun Apr 17 14:06:15 2022
 
 # Variables
 
@@ -39,13 +39,13 @@ VSCODE_NODE_CACHED_DATA_DIR = /Users/kipark/Library/Application Support/Code/Cac
 # environment
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220416T185824
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220417T132140
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-e74491d3-91c9-465a-bc8d-8c38076a6ad1.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-abf17d7a-4f64-49e4-9134-edecc1ac3382.sock
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # environment
-LaunchInstanceID = A89ACFCA-ED3E-4845-ACC1-A04C9A00F882
+LaunchInstanceID = 85C46AFA-E75D-46B8-81CF-2C4DE0787406
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -53,7 +53,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.J9IUkfp7f5/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.xJNwKX3I5d/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -85,7 +85,7 @@ AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
 # environment
 USER = kipark
 # makefile (from `Makefile', line 4)
-push_swap_dir = main.c operations/push_swap_operations_stack.c operations/push_swap_operations_p.c operations/push_swap_operations_r.c operations/push_swap_operations_rr.c operations/push_swap_operations_s.c parser/parser_atoi.c parser/parser_error.c parser/parser_split.c parser/parser_util.c parser/parser.c error.c push_swap_util.c
+push_swap_dir = main.c operations/push_swap_operations_stack.c operations/push_swap_operations_p.c operations/push_swap_operations_r.c operations/push_swap_operations_rr.c operations/push_swap_operations_s.c parser/parser_atoi.c parser/parser_error.c parser/parser_split.c parser/parser_util.c parser/parser.c algorithm/cost.c algorithm/run.c algorithm/sort_merge.c error.c push_swap_util.c
 # makefile
 .DEFAULT_GOAL := debug
 # environment
@@ -109,7 +109,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000003.Electron
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000007.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -127,7 +127,7 @@ LC_ALL = C
 # makefile (from `Makefile', line 1)
 cc = gcc
 # environment
-SECURITYSESSIONID = 186a6
+SECURITYSESSIONID = 186bd
 # automatic
 ^F = $(notdir $^)
 # default
@@ -141,7 +141,7 @@ cc_flags = -Wall -Wextra -Werror
 # environment
 LANG = C
 # environment
-VSCODE_PID = 5504
+VSCODE_PID = 95003
 # variable set hash-table stats:
 # Load=64/1024=6%, Rehash=0, Collisions=2/88=2%
 
@@ -151,9 +151,9 @@ VSCODE_PID = 5504
 
 # Directories
 
-# . (device 16777225, inode 2325758): 19 files, no impossibilities.
+# . (device 16777225, inode 2325758): 18 files, no impossibilities.
 
-# 19 files, no impossibilities in 1 directories.
+# 18 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -172,6 +172,7 @@ all:
 
 # Not a target:
 .SUFFIXES:
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -179,7 +180,7 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-08 17:16:19
+#  Last modified 2022-04-17 14:06:13
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -189,8 +190,7 @@ debug:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
-#  commands to execute (from `Makefile', line 19):
+#  commands to execute (from `Makefile', line 22):
 	$(cc) $(cc_flags) -g $(push_swap_dir)
 	
 
@@ -213,6 +213,6 @@ debug:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sat Apr 16 18:58:30 2022
+# Finished Make data base on Sun Apr 17 14:06:15 2022
 
  

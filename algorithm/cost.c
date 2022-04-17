@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 16:22:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/16 19:28:07 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/17 14:57:59 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ int get_stack_length(t_stack *stack)
 	int length;
 	t_stack *head;
 
+	head = stack;
 	if(head == NULL)
 		return (0);
 	length = 1;
-	head = stack;
 	while(stack->next != head)
 	{
 		length++;
@@ -57,27 +57,43 @@ int get_stack_length(t_stack *stack)
 	return (length);
 }
 
+void set_arr(t_stack *a, int *arr, int b_node)
+{
+	t_stack *a_head;
+	int i;
+
+	a_head = a;
+	if(a_head == NULL)
+		return ;
+	i = 0;
+	while(a->next != a_head)
+	{
+		arr[i] = a->node_value;
+		a = a->next;
+		++i;
+	}
+	arr[i] = b_node;
+}
+
+int find_target_in_arr(int *arr, int array_size,int b_node)
+{
+	int i;
+
+	i = 0;
+	while(i < array_size)
+	{
+		if(arr[i] == b_node)
+		{
+			return (array_size % (i + 1));			
+		}
+		++i;
+	}
+	return (-1);
+}
 
 // 스택 a에 top에 오게 하도록 만들어야 하는게 제일 효율적임
 // 이 아니라 그냥 무조건 위치가 정해 져 있음 
 // 이 위치를 특정하는게 사실상 불가능함 그냥 정렬을 하거나 가능하다면 나름 근사값으로 처리를 하는 수 밖에 없는데 일단 흐음..
-void check_stack_cost(t_cost *cost, t_stack *a, t_stack *b)
-{
-	t_stack *b_head;
-	t_cost	new_cost;
-
-	b_head = b;
-	cost->cost_value = INT32_MAX;
-	while(b->next != b_head)
-	{
-		set_new_cost(&new_cost);
-		new_cost.target_b = b->node_value;
-		new_cost.target_a = return_target_in_a(a, b->node_value);
-		find_cost_a_b(&new_cost, a, b);
-		find_min_cost(cost, &new_cost);
-		b = b->next;
-	}
-}
 
 // drinking cording ~
 void set_new_cost(t_cost *new_cost)
@@ -111,11 +127,42 @@ int return_target_in_a(t_stack *a, int b_node)
 	if(arr == NULL)
 		print_error();
 	set_arr(a, arr, b_node);
-	sort_arr_to_merge(arr);
+	sort_arr(arr, array_size);
 	target = find_target_in_arr(arr, array_size, b_node);
-	push_swap_free(arr);
+	push_swap_free((void *)&arr);
 	return (target);
 }
+
+void set_cost_to_target_in_stack(t_cost *new_cost, t_stack *stack, int ab)
+{
+	t_stack *stack_head;
+	int stack_length;
+	int length;
+
+	if(stack == NULL)
+		return ;
+	stack_length = get_stack_length(stack);
+	length = 0;
+	stack_head = stack;
+	while(stack->next != stack_head)
+	{
+		if(stack->node_value == new_cost->target_a && ab)
+		{
+			new_cost->ra = length;
+			new_cost->rra = stack_length - length;
+			break;
+		}
+		else if(stack->node_value == new_cost->target_b && !ab)
+		{
+			new_cost->rb = length;
+			new_cost->rrb = stack_length - length;
+			break;
+		}
+		++length;
+		stack = stack->next;
+	}
+}
+
 
 void find_cost_a_b(t_cost *new_cost, t_stack *a, t_stack *b)
 {
@@ -143,61 +190,22 @@ void find_cost_a_b(t_cost *new_cost, t_stack *a, t_stack *b)
 	}
 }
 
-void set_cost_to_target_in_stack(t_cost *new_cost, t_stack *stack, int ab)
+void check_stack_cost(t_cost *cost, t_stack *a, t_stack *b)
 {
-	t_stack *stack_head;
-	int stack_length;
-	int length;
+	t_stack *b_head;
+	t_cost	new_cost;
 
-	stack_length = get_stack_length(stack);
-	length = 0;
-	stack_head = stack;
-	while(stack->next != stack_head)
+	if(b == NULL)
+		return ;
+	b_head = b;
+	cost->cost_value = INT32_MAX;
+	while(b->next != b_head)
 	{
-		if(stack->node_value == new_cost->target_a && ab)
-		{
-			new_cost->ra = length;
-			new_cost->rra = stack_length - length;
-			break;
-		}
-		else if(stack->node_value == new_cost->target_b && !ab)
-		{
-			new_cost->rb = length;
-			new_cost->rrb = stack_length - length;
-			break;
-		}
-		++length;
-		stack = stack->next;
-	}
-}
-
-void set_arr(t_stack *a, int *arr, int b_node)
-{
-	t_stack *a_head;
-	int i;
-
-	a_head = a;
-	i = 0;
-	while(a->next != a_head)
-	{
-		arr[i] = a->node_value;
-		a = a->next;
-		++i;
-	}
-	arr[i] = b_node;
-}
-
-int find_target_in_arr(int *arr, int array_size,int b_node)
-{
-	int i;
-
-	i = 0;
-	while(i < array_size)
-	{
-		if(arr[i] == b_node)
-		{
-			return (array_size % (i + 1));			
-		}
-		++i;
+		set_new_cost(&new_cost);
+		new_cost.target_b = b->node_value;
+		new_cost.target_a = return_target_in_a(a, b->node_value);
+		find_cost_a_b(&new_cost, a, b);
+		find_min_cost(cost, &new_cost);
+		b = b->next;
 	}
 }
