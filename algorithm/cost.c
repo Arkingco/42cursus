@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 16:22:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/17 14:57:59 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/18 15:49:11 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void check_stack_cost_b(t_cost *cost, t_stack *b)
 }
 */
 
-int get_stack_length(t_stack *stack)
+int get_stack_length(t_stack *stack, t_stack *head_stack)
 {
 	int length;
 	t_stack *head;
@@ -48,10 +48,12 @@ int get_stack_length(t_stack *stack)
 	head = stack;
 	if(head == NULL)
 		return (0);
-	length = 1;
-	while(stack->next != head)
+	length = 0;
+	while(1)
 	{
 		length++;
+		if(stack->next == head_stack)
+			break;
 		stack = stack->next;
 	}
 	return (length);
@@ -122,7 +124,7 @@ int return_target_in_a(t_stack *a, int b_node)
 	int target;
 	int array_size;
 
-	array_size = get_stack_length(a) + 1;
+	array_size = get_stack_length(a, a) + 1;
 	arr = malloc(sizeof(int) * array_size);
 	if(arr == NULL)
 		print_error();
@@ -141,7 +143,7 @@ void set_cost_to_target_in_stack(t_cost *new_cost, t_stack *stack, int ab)
 
 	if(stack == NULL)
 		return ;
-	stack_length = get_stack_length(stack);
+	stack_length = get_stack_length(stack, stack);
 	length = 0;
 	stack_head = stack;
 	while(stack->next != stack_head)

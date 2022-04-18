@@ -23,11 +23,12 @@ void p_delete_node(t_stack **head)
 		head = NULL;
 		return ;
 	}
-	else if((*head)->next != NULL)
+	else
 	{
-		temp_head = *head;
-		*head = (*head)->next;
-		(*head)->previous = temp_head->previous;
+		temp_head = (*head);
+		(*head)->next->previous = (*head)->previous;
+		(*head)->previous->next = (*head)->next;
+		(*head) = (*head)->next;
 		free(temp_head);
 		temp_head = NULL;
 	}

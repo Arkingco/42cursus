@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 12:11:58 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/17 16:34:17 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/18 16:28:05 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int main(int argc, char **argv)
 {
 	t_stack *head_a = NULL;
 	t_stack *head_b = NULL;
-	
+	long int *argv_arr;
 	
 	stack_operations_add(&head_a, 2);
 	stack_operations_add(&head_a, 3);
@@ -107,14 +107,13 @@ int main(int argc, char **argv)
 	stack_operations_add(&head_a, 7);
 	stack_operations_add(&head_b, 8);
 	stack_operations_add(&head_b, 11);
-	
-	show_stack(head_a, head_b);
-	long int *argv_arr;
+	stack_operations_add(&head_b, 14);
 
+	show_stack(head_a, head_b, "pb_3번 이후");
 	if(argc < 1)
 		return (0);
 	argv_arr = malloc(sizeof(long int) * (ARGV_ARR_SIZE + 1));
-	
+	argv = NULL;	
 	set_argv_arr(argv_arr, argc, argv);
 	check_argv_duplicate(argv_arr);
 	algorithm_run(head_a, head_b);

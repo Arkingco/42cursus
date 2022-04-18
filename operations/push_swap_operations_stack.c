@@ -22,7 +22,7 @@ t_stack *new_node_set(long int node_value)
 	new_node->previous = (t_stack *)NULL;
 	new_node->next = (t_stack *)NULL;
 	new_node->node_value = node_value;
-	return (new_node);	
+	return (new_node);
 }
 
 // head is already allocated using new_node_set

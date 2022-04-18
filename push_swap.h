@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:39:52 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/17 15:49:06 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/18 15:19:17 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,10 @@ void push_swap_free(void **pointer);
 void algorithm_run(t_stack *a, t_stack *b);
 void sort_arr(int *arr, int arr_length);
 
-void show_stack(t_stack *a, t_stack *b);
+void show_stack(t_stack *a, t_stack *b, char *flag);
 void set_new_cost(t_cost *new_cost);
 void check_stack_cost(t_cost *cost, t_stack *a, t_stack *b);
 void check_stack_cost_b(t_cost *cost, t_stack *b);
-int	get_stack_length(t_stack *stack);
+int	get_stack_length(t_stack *stack, t_stack *head_stack);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 21:27:34 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/17 15:44:56 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/18 16:26:12 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,22 @@ void excute_cost(t_cost *cost, t_stack *a, t_stack *b)
 
 	count = 0;
 	while(count++ < cost->rr)
-		r_rr(&a, &b);
+		r_ra(&a);
 	count = 0;
 	while(count++ < cost->ra)
-		r_rr(&a, &b);
+		r_rb(&a);
 	count = 0;
 	while(count++ < cost->rb)
 		r_rr(&a, &b);
 	count = 0;
 	while(count++ < cost->rrr)
-		r_rrr(&a, &b);
+		rr_rra(&a);
 	count = 0;
 	while(count++ < cost->rra)
-		r_rrr(&a, &b);
+		rr_rrb(&a);
 	count = 0;
 	while(count++ < cost->rrb)
-		r_rrr(&a, &b);
+		rr_rrr(&a, &b);
 	p_pa(&a, &b);
 }
 
@@ -66,58 +66,63 @@ void cost_optimization(t_cost *cost)
 	}
 }
 
-void stack_push_all_pb(t_stack *a, t_stack *b)
+void stack_push_all_pb(t_stack **a, t_stack **b)
 {
-	t_stack *head_a;
 	int stack_length;
 
-	stack_length = get_stack_length(a);
+	stack_length = get_stack_length(*a, *a);
 	if(stack_length <= 3)
 		return ;
-	head_a = a;
-	while(a->next != head_a)
+	while(1)
 	{
-		p_pb(&a, &b, PB);
-		a = a->next;
+		p_pb(a, b);
 		stack_length--;
 		if(stack_length <= 3)
 			return ;
 	}
 }
 
-void show_stack(t_stack *a, t_stack *b, t_stack_info info_a, t_stack_info info_b)
+void show_stack(t_stack *a, t_stack *b, char *flag)
 {
 	int i;
 	t_stack *a_head = a;
 	t_stack *b_head = b;
-
-	i = 0;
-	while(i++ < info_a.stack_length)
+	
+	printf("------------%s--------------\n", flag);
+	i = 1;
+	while(1)
 	{
-		printf("a --- %ld \n", a->node_value);
+		printf("--a : [%d] %ld\n", i, a->node_value);
+		if(a->next == a_head)
+			break;
 		a = a->next;
+		++i;
 	}
-	i = 0;
-	while(i++ < info_b.stack_length)
+	printf("-------b------\n");
+	i = 1;
+	while(1)
 	{
-		printf("b --- %ld\n", b->node_value);
+		printf("--b : [%d] %ld\n", i, b->node_value);
+		if(b->next == b_head)
+			break;
 		b = b->next;
+		++i;
 	}
-
-	printf("\n\n\n\n");
+	printf("\n\n");
 }
 
-void algorithm_r_rrun(t_stack *a, t_stack *b)
+void algorithm_run(t_stack *a, t_stack *b)
 {
 	t_cost cost;
-	t_stack_info
 	int stack_a_sotring_size;
 
-	stack_a_sotring_size = get_stack_length(a);
-	stack_push_all_pb(a, b);
-	while(get_stack_length(a) != stack_a_sotring_size)
+	show_stack(a, b, "not_while");
+	stack_a_sotring_size = get_stack_length(a, a);
+	stack_push_all_pb(&a, &b);
+	show_stack(a, b, "before_while");
+	while(get_stack_length(a, a) != stack_a_sotring_size)
 	{
-		show_stack(a, b);
+		show_stack(a, b, "[in while]");
 		set_new_cost(&cost);
 		check_stack_cost(&cost, a, b);
 		cost_optimization(&cost);
