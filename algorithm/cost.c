@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 16:22:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/18 15:49:11 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/18 19:54:03 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,14 @@ void set_arr(t_stack *a, int *arr, int b_node)
 	if(a_head == NULL)
 		return ;
 	i = 0;
-	while(a->next != a_head)
+	while(1)
 	{
 		arr[i] = a->node_value;
-		a = a->next;
 		++i;
+		if(a->next == a_head)
+			break;
+		a = a->next;
+		
 	}
 	arr[i] = b_node;
 }
@@ -86,7 +89,7 @@ int find_target_in_arr(int *arr, int array_size,int b_node)
 	{
 		if(arr[i] == b_node)
 		{
-			return (array_size % (i + 1));			
+			return (arr[(i + 1) % array_size]);			
 		}
 		++i;
 	}
@@ -114,7 +117,17 @@ void set_new_cost(t_cost *new_cost)
 void find_min_cost(t_cost *cost, t_cost *new_cost)
 {
 	if(cost->cost_value > new_cost->cost_value)
-		cost = new_cost;
+	{
+		cost->ra = new_cost->ra;
+		cost->rra = new_cost->rra;
+		cost->rb = new_cost->rb;
+		cost->rrb = new_cost->rrb;
+		cost->rr = new_cost->rr;
+		cost->rrr =new_cost->rrr;
+		cost->target_a = new_cost->target_a;
+		cost->target_b = new_cost->target_b;
+		cost->cost_value = new_cost->cost_value;
+	}
 }
 
 // return target
@@ -146,7 +159,7 @@ void set_cost_to_target_in_stack(t_cost *new_cost, t_stack *stack, int ab)
 	stack_length = get_stack_length(stack, stack);
 	length = 0;
 	stack_head = stack;
-	while(stack->next != stack_head)
+	while(1)
 	{
 		if(stack->node_value == new_cost->target_a && ab)
 		{
@@ -161,6 +174,8 @@ void set_cost_to_target_in_stack(t_cost *new_cost, t_stack *stack, int ab)
 			break;
 		}
 		++length;
+		if(stack->next == stack_head)
+			break;
 		stack = stack->next;
 	}
 }
@@ -201,13 +216,15 @@ void check_stack_cost(t_cost *cost, t_stack *a, t_stack *b)
 		return ;
 	b_head = b;
 	cost->cost_value = INT32_MAX;
-	while(b->next != b_head)
+	while(1)
 	{
 		set_new_cost(&new_cost);
 		new_cost.target_b = b->node_value;
 		new_cost.target_a = return_target_in_a(a, b->node_value);
 		find_cost_a_b(&new_cost, a, b);
 		find_min_cost(cost, &new_cost);
+		if(b->next == b_head)
+			break;
 		b = b->next;
 	}
 }

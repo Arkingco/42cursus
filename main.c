@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 12:11:58 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/18 16:28:05 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/18 19:59:02 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,6 @@
 #include"push_swap.h"
 
 #define ARGV_ARR_SIZE 500
-
-void show_stack_next(t_stack *head)
-{
-	if(head == NULL)
-		return ;
-	while(1)
-	{
-		printf("stack %ld \n", head->node_value);
-		if(head == head->next || head->next == NULL)
-			break;
-		head = head->next;
-	}
-}
-
-void show_stack_previuos(t_stack *head, t_stack *stop_head)
-{
-	if(head == NULL)
-		return ;
-	while(1)
-	{
-		printf("stack %ld \n", head->node_value);
-		head = head->previous;
-		if(head == stop_head || head == NULL)
-			break ;
-	}
-}
 
 void check_argv_duplicate(long int *argv_arr)
 {
@@ -95,34 +69,25 @@ void push_swap_algorithm(long int *argv_arr)
 // 프로세스에 할당되어있는 malloc들이 프로세스 자체를 없애버리니까 같이 날라간다 고 하네여~
 int main(int argc, char **argv)
 {
-	t_stack *head_a = NULL;
-	t_stack *head_b = NULL;
+	t_stack *a = NULL;
+	t_stack *b = NULL;
 	long int *argv_arr;
 	
-	stack_operations_add(&head_a, 2);
-	stack_operations_add(&head_a, 3);
-	stack_operations_add(&head_a, 1);
-	stack_operations_add(&head_a, 5);
-	stack_operations_add(&head_a, 6);
-	stack_operations_add(&head_a, 7);
-	stack_operations_add(&head_b, 8);
-	stack_operations_add(&head_b, 11);
-	stack_operations_add(&head_b, 14);
 
-	show_stack(head_a, head_b, "pb_3번 이후");
+
 	if(argc < 1)
 		return (0);
 	argv_arr = malloc(sizeof(long int) * (ARGV_ARR_SIZE + 1));
-	argv = NULL;	
+	argv = NULL;
 	set_argv_arr(argv_arr, argc, argv);
 	check_argv_duplicate(argv_arr);
-	algorithm_run(head_a, head_b);
-	
+
 	for(int i=0; argv_arr[i] != INT64_MIN; ++i)
 	{
-		printf("%ld\n", argv_arr[i]);
+		stack_operations_add(&a, argv_arr[i]);
 	}
+	
+	algorithm_run(a, b);
+	
 	free(argv_arr);
-
-	printf("%d", INT32_MIN);
 }
