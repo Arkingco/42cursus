@@ -40,6 +40,7 @@ void p_pa(t_stack **a, t_stack **b)
 		return;
 	stack_operations_add(a, (*b)->node_value);
 	p_delete_node(b);
+	write(1, "pa\n", 3);
 }
 
 void p_pb(t_stack **a, t_stack **b)
@@ -48,4 +49,5 @@ void p_pb(t_stack **a, t_stack **b)
 		return;
 	stack_operations_add(b, (*a)->node_value);
 	p_delete_node(a);
+	write(1, "pb\n", 3);	
 }

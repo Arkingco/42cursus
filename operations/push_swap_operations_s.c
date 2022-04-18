@@ -25,11 +25,13 @@ static void s_swap(t_stack *ab)
 
 void s_sa(t_stack *a)
 {
+	write(1, "sa\n", 3);
 	return (s_swap(a));
 }
 
 void s_sb(t_stack *b)
 {
+	write(1, "sb\n", 3);
 	return (s_swap(b));
 }
 
@@ -37,5 +39,6 @@ void s_ss(t_stack *a, t_stack *b)
 {
 	s_swap(a);
 	s_swap(b);
+	write(1, "ss\n", 3);
 	return ;
 }

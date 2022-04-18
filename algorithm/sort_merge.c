@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 21:24:54 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/17 13:55:16 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/18 20:42:23 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@
 // 		merge(left, right);
 // 	}
 // }
+
+#include<stdio.h>
 
 void sort_arr(int *arr, int arr_length)
 {

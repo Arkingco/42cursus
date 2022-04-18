@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 16:22:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/18 19:54:03 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/18 20:15:14 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,7 +221,7 @@ void check_stack_cost(t_cost *cost, t_stack *a, t_stack *b)
 		set_new_cost(&new_cost);
 		new_cost.target_b = b->node_value;
 		new_cost.target_a = return_target_in_a(a, b->node_value);
-		find_cost_a_b(&new_cost, a, b);
+		find_cost_a_b(&new_cost, a, b_head);
 		find_min_cost(cost, &new_cost);
 		if(b->next == b_head)
 			break;

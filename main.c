@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 12:11:58 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/18 19:59:02 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/18 22:15:48 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void check_argv_duplicate(long int *argv_arr)
 	}
 }
 
-void set_argv_arr(long int *argv_arr, int argc, char **argv)
+void set_argv_arr(long int *argv_arr, int argc, char **argv, int *arr_length)
 {
 	int idx;
 	int arr_idx;
@@ -58,6 +58,7 @@ void set_argv_arr(long int *argv_arr, int argc, char **argv)
 		idx++;
 	}
 	argv_arr[arr_idx] = INT64_MIN;
+	*arr_length = arr_idx;
 }
 
 void push_swap_algorithm(long int *argv_arr)
@@ -72,22 +73,18 @@ int main(int argc, char **argv)
 	t_stack *a = NULL;
 	t_stack *b = NULL;
 	long int *argv_arr;
+	int arr_length;
 	
-
-
-	if(argc < 1)
+	if(argc < 2)
 		return (0);
 	argv_arr = malloc(sizeof(long int) * (ARGV_ARR_SIZE + 1));
-	argv = NULL;
-	set_argv_arr(argv_arr, argc, argv);
+	arr_length = 0;
+	set_argv_arr(argv_arr, argc, argv, &arr_length);
 	check_argv_duplicate(argv_arr);
-
-	for(int i=0; argv_arr[i] != INT64_MIN; ++i)
+	while(--arr_length != -1)
 	{
-		stack_operations_add(&a, argv_arr[i]);
+		stack_operations_add(&a, argv_arr[arr_length]);
 	}
-	
 	algorithm_run(a, b);
-	
 	free(argv_arr);
 }

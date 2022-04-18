@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 21:27:34 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/18 19:42:36 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/18 22:15:15 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,22 @@ void excute_cost(t_cost *cost, t_stack **a, t_stack **b)
 
 	count = 0;
 	while(count++ < cost->rr)
-		r_ra(a);
-	count = 0;
-	while(count++ < cost->ra)
-		r_rb(a);
-	count = 0;
-	while(count++ < cost->rb)
 		r_rr(a, b);
 	count = 0;
+	while(count++ < cost->ra)
+		r_ra(a);
+	count = 0;
+	while(count++ < cost->rb)
+		r_rb(b);
+	count = 0;
 	while(count++ < cost->rrr)
-		rr_rra(a);
+		rr_rrr(a, b);
 	count = 0;
 	while(count++ < cost->rra)
-		rr_rrb(a);
+		rr_rra(a);
 	count = 0;
 	while(count++ < cost->rrb)
-		rr_rrr(a, b);
+		rr_rrb(b);
 	p_pa(a, b);
 }
 
@@ -46,8 +46,8 @@ void cost_optimization(t_cost *cost)
 		{
 			while(cost->ra != 0 && cost->rb != 0)
 			{
-				cost->ra -= cost->ra - 1;
-				cost->rb -= cost->rb - 1;
+				cost->ra = cost->ra - 1;
+				cost->rb = cost->rb - 1;
 				cost->rr = cost->rr + 1;
 			}
 		}
@@ -115,6 +115,65 @@ void show_stack(t_stack *a, t_stack *b, char *flag)
 	printf("\n\n");
 }
 
+void stack_sort_third(t_stack **a)
+{
+	int	top;
+	int	mid;
+	int	bottom;
+
+	top = (*a)->node_value;
+	mid = (*a)->next->node_value;
+	bottom = (*a)->next->next->node_value;
+	if (top > mid && mid > bottom && top > bottom)
+	{
+		s_sa(*a);
+		rr_rra(a);
+	}
+	else if (top > mid && bottom > mid && top > bottom)
+		r_ra(a);
+	else if (mid > top && mid > bottom && bottom > top)
+	{
+		s_sa(*a);
+		r_ra(a);
+	}
+	else if (top > mid && bottom > mid && bottom > top)
+		s_sa(*a);
+	else if (mid > top && mid > bottom && top > bottom)
+		rr_rra(a);
+}
+
+void stack_sort_second(t_stack **a)
+{
+	int top;
+	int bottomtom;
+	
+	top = (*a)->node_value;
+	bottomtom = (*a)->next->node_value;
+	if(top > bottomtom)
+	{
+		r_ra(a);
+	}
+}
+
+void soft_sort(t_stack **a)
+{
+	int stack_length;
+
+	stack_length = get_stack_length(*a, *a);
+	if(stack_length == 2)
+	{
+		stack_sort_second(a);
+	}
+	else if(stack_length == 3)
+	{
+		stack_sort_third(a);
+	}
+	else 
+	{
+		return ;
+	}
+}
+
 void algorithm_run(t_stack *a, t_stack *b)
 {
 	t_cost cost;
@@ -122,14 +181,15 @@ void algorithm_run(t_stack *a, t_stack *b)
 
 	stack_a_sotring_size = get_stack_length(a, a);
 	stack_push_all_pb(&a, &b);
+	soft_sort(&a);
 	while(get_stack_length(a, a) != stack_a_sotring_size)
 	{
-		printf("%d  %d \n", get_stack_length(a, a), get_stack_length(b, b));
+		// printf("%d  %d \n", get_stack_length(a, a), get_stack_length(b, b));
 		show_stack(a, b, "[in while]");
 		set_new_cost(&cost);
 		check_stack_cost(&cost, a, b);
 		cost_optimization(&cost);
 		excute_cost(&cost, &a, &b);
 	}
-	show_stack(a, b, "[in while]");
+	// show_stack(a, b, "[in while]");
 }

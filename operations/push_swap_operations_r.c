@@ -24,6 +24,7 @@ void r_ra(t_stack **a)
 		return ;
 	if((*a)->next == NULL)
 		return ;
+	write(1, "ra\n", 3);
 	return (r_works(a));
 }
 
@@ -33,6 +34,7 @@ void r_rb(t_stack **b)
 		return ;
 	if((*b)->next == NULL)
 		return ;
+	write(1, "rb\n", 3);
 	return (r_works(b));
 }
 
@@ -40,5 +42,6 @@ void r_rr(t_stack **a, t_stack **b)
 {
 	r_ra(a);
 	r_rb(b);
+	write(1, "rr\n", 3);
 	return ;
 }
