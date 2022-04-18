@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 12:11:58 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/18 22:15:48 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/18 22:17:39 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,13 @@ void push_swap_algorithm(long int *argv_arr)
 // 프로세스에 할당되어있는 malloc들이 프로세스 자체를 없애버리니까 같이 날라간다 고 하네여~
 int main(int argc, char **argv)
 {
-	t_stack *a = NULL;
-	t_stack *b = NULL;
+	t_stack *a;
+	t_stack *b;
 	long int *argv_arr;
 	int arr_length;
 	
+	a = NULL;
+	b = NULL;
 	if(argc < 2)
 		return (0);
 	argv_arr = malloc(sizeof(long int) * (ARGV_ARR_SIZE + 1));
