@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 21:27:34 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/19 15:22:53 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/19 16:41:20 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,11 +174,75 @@ void soft_sort(t_stack **a)
 	}
 }
 
+void end_sort_stack_a(t_stack *a, t_stack *head, int target_a, int stack_length)
+{
+	t_cost cost;
+	int length;
+	int count;
+
+	count = 0;
+	length = 0;
+	set_new_cost(&cost);
+	while(1)
+	{
+		if(a->node_value == target_a)
+		{
+			cost.ra = length;
+			cost.rra = stack_length - length;
+			break;
+		}
+		if(a->next == head)
+			break;
+		a = a->next;
+	}
+	if(cost.ra > cost.rra)
+		cost.ra = -1;
+	if(cost.rra > cost.ra)
+		cost.rra = -1;
+	excute_cost(&cost, &a, NULL);
+}
+
+int find_min_value_stack(t_stack *a, t_stack *head)
+{
+	long int min_value;
+
+	min_value = INT64_MAX;
+	while(1)
+	{
+		if(min_value > a->node_value)
+			min_value = a->node_value;
+		if(a->next == head)
+			break;
+		a = a->next;
+	}
+	return ((int)min_value);
+}
+
+int check_arr_is_sort(t_stack *a, t_stack *head)
+{
+	long int node_value;
+
+	node_value = INT64_MIN;
+	while(1)
+	{
+		if(a->node_value < node_value)
+			return (0);
+		node_value = a->node_value;
+		if(a->next == head)
+			break;
+		a = a->next;
+	}
+	return (1);
+}
+
 void algorithm_run(t_stack *a, t_stack *b)
 {
 	t_cost cost;
 	int stack_a_sotring_size;
+	int min_value_stack;
 
+	if(check_arr_is_sort(a, a))
+		return ;
 	stack_a_sotring_size = get_stack_length(a, a);
 	stack_push_all_pb(&a, &b);
 	soft_sort(&a);
@@ -189,4 +253,6 @@ void algorithm_run(t_stack *a, t_stack *b)
 		cost_optimization(&cost);
 		excute_cost(&cost, &a, &b);
 	}
+	min_value_stack = find_min_value_stack(a, a);
+	end_sort_stack_a(a, a, min_value_stack, stack_a_sotring_size);
 }

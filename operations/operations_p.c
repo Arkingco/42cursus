@@ -36,7 +36,7 @@ void p_delete_node(t_stack **head)
 
 void p_pa(t_stack **a, t_stack **b)
 {
-	if(*b == NULL) 
+	if(b == NULL || *b == NULL) 
 		return;
 	stack_operations_add(a, (*b)->node_value);
 	p_delete_node(b);
@@ -45,7 +45,7 @@ void p_pa(t_stack **a, t_stack **b)
 
 void p_pb(t_stack **a, t_stack **b)
 {
-	if(*a == NULL)
+	if(*a == NULL || a == NULL)
 		return;
 	stack_operations_add(b, (*a)->node_value);
 	p_delete_node(a);

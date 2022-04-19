@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_atoi.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:50:14 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/05 17:43:46 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/04/19 15:26:32 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static long int	is_space(const char *str)
 	return (0);
 }
 
-static int	ft_isdigit(int c)
+static int	isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
@@ -44,7 +44,7 @@ long int	parse_atoi(const char *str)
 	}
 	if (*str == '+' && !minus_flag)
 		str++;
-	while (ft_isdigit(*str))
+	while (isdigit(*str))
 	{
 		temp = (temp * 10) + (*str - '0');
 		if(temp > INT32_MAX)

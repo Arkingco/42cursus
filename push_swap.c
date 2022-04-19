@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 21:11:23 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/19 15:10:52 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/19 15:51:58 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void check_argv_duplicate(long int *argv_arr)
 	}
 }
 
-void set_argv_arr(long int *argv_arr, int argc, char **argv, int *arr_length)
+void set_argv_int_arr(long int *argv_arr, int argc, char **argv, int *arr_length)
 {
 	int idx;
 	int arr_idx;
@@ -62,13 +62,6 @@ void set_argv_arr(long int *argv_arr, int argc, char **argv, int *arr_length)
 	*arr_length = arr_idx;
 }
 
-void push_swap_algorithm(long int *argv_arr)
-{
-	argv_arr = 0;
-}
-
-// exit()할때 malloc 알아서 풀어줌??
-// 프로세스에 할당되어있는 malloc들이 프로세스 자체를 없애버리니까 같이 날라간다 고 하네여~
 int main(int argc, char **argv)
 {
 	t_stack *a;
@@ -82,7 +75,7 @@ int main(int argc, char **argv)
 		return (0);
 	argv_arr = malloc(sizeof(long int) * (ARGV_ARR_SIZE + 1));
 	arr_length = 0;
-	set_argv_arr(argv_arr, argc, argv, &arr_length);
+	set_argv_int_arr(argv_arr, argc, argv, &arr_length);
 	check_argv_duplicate(argv_arr);
 	while(--arr_length != -1)
 	{

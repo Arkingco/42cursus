@@ -7,10 +7,11 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
  
-make: *** No rule to make target `all'.  Stop.
+make: *** No rule to make target `all'
+.  Stop.
 
 
-# Make data base, printed on Tue Apr 19 15:14:55 2022
+# Make data base, printed on Tue Apr 19 15:28:50 2022
 
 # Variables
 
@@ -85,7 +86,7 @@ AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
 # environment
 USER = kipark
 # makefile (from `Makefile', line 4)
-push_swap_dir = push_swap.c operations/push_swap_operations_stack.c operations/push_swap_operations_p.c operations/push_swap_operations_r.c operations/push_swap_operations_rr.c operations/push_swap_operations_s.c parser/parser_atoi.c parser/parser_error.c parser/parser_split.c parser/parser_util.c parser/parser.c algorithm/cost.c algorithm/run.c algorithm/sort_merge.c error.c push_swap_util.c
+push_swap_dir = push_swap.c operations/operations_stack.c operations/operations_p.c operations/operations_r.c operations/operations_rr.c operations/operations_s.c parser/parser_atoi.c parser/parser_error.c parser/parser_split.c parser/parser_util.c parser/parser.c algorithm/cost.c algorithm/run.c algorithm/sort_merge.c error.c push_swap_util.c
 # makefile
 .DEFAULT_GOAL := debug
 # environment
@@ -151,15 +152,14 @@ VSCODE_PID = 25286
 
 # Directories
 
-# . (device 16777225, inode 2325758): 18 files, no impossibilities.
+# . (device 16777225, inode 2325758): 17 files, no impossibilities.
 
-# 18 files, no impossibilities in 1 directories.
+# 17 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 # No implicit rules.
 
- 
 # Files
 
 # Not a target:
@@ -180,7 +180,7 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-19 15:10:59
+#  Last modified 2022-04-19 15:28:40
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -189,6 +189,7 @@ Makefile:
 debug:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 #  commands to execute (from `Makefile', line 22):
 	$(cc) $(cc_flags) -g $(push_swap_dir)
@@ -213,6 +214,6 @@ debug:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Tue Apr 19 15:14:55 2022
+# Finished Make data base on Tue Apr 19 15:28:50 2022
 
  
