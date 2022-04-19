@@ -1,7 +1,7 @@
 cc = gcc
 cc_flags = -Wall -Wextra -Werror
 
-push_swap_dir = main.c \
+push_swap_dir = push_swap.c \
 				operations/push_swap_operations_stack.c		\
 				operations/push_swap_operations_p.c 		\
 				operations/push_swap_operations_r.c 		\

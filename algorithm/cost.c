@@ -6,39 +6,11 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 16:22:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/18 20:15:14 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/19 15:22:36 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
-
-/*
-// wrong code 
-void check_stack_cost_b(t_cost *cost, t_stack *b)
-{
-	int top_depth;
-	int bottom_depth;
-	t_stack *head;
-	
-	top_depth = 1;
-	
-	head = b;
-	if (b->next == head)
-		cost->top_down[top_depth] = top_depth;
-	while(b->next != head)
-	{
-		cost->top_down[top_depth] = top_depth;
-		top_depth++;
-		b = b->next;
-	}
-	bottom_depth = top_depth;
-	while(bottom_depth != 0)
-	{
-		cost->bottom_up[bottom_depth] = bottom_depth + 1;
-		bottom_depth--;
-	}
-}
-*/
 
 int get_stack_length(t_stack *stack, t_stack *head_stack)
 {
@@ -96,11 +68,6 @@ int find_target_in_arr(int *arr, int array_size,int b_node)
 	return (-1);
 }
 
-// 스택 a에 top에 오게 하도록 만들어야 하는게 제일 효율적임
-// 이 아니라 그냥 무조건 위치가 정해 져 있음 
-// 이 위치를 특정하는게 사실상 불가능함 그냥 정렬을 하거나 가능하다면 나름 근사값으로 처리를 하는 수 밖에 없는데 일단 흐음..
-
-// drinking cording ~
 void set_new_cost(t_cost *new_cost)
 {
 	new_cost->ra = 0;
@@ -130,7 +97,6 @@ void find_min_cost(t_cost *cost, t_cost *new_cost)
 	}
 }
 
-// return target
 int return_target_in_a(t_stack *a, int b_node)
 {
 	int *arr;

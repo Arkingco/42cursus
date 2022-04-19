@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 21:27:34 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/18 22:19:38 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/19 15:22:53 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,12 +184,9 @@ void algorithm_run(t_stack *a, t_stack *b)
 	soft_sort(&a);
 	while(get_stack_length(a, a) != stack_a_sotring_size)
 	{
-		// printf("%d  %d \n", get_stack_length(a, a), get_stack_length(b, b));
-		// show_stack(a, b, "[in while]");
 		set_new_cost(&cost);
 		check_stack_cost(&cost, a, b);
 		cost_optimization(&cost);
 		excute_cost(&cost, &a, &b);
 	}
-	// show_stack(a, b, "[in while]");
 }
