@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:39:52 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/18 21:21:04 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/19 22:14:51 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,10 @@ int paser_error(char **need_parsed);
 void print_error();
 void error_exit();
 
+void push_swap_stack_free(t_stack **stack);
 void push_swap_memset(void *arr, int arr_length);
 void push_swap_free(void **pointer);
+void push_swap_double_arr_free(char **pointer);
 
 void algorithm_run(t_stack *a, t_stack *b);
 void sort_arr(int *arr, int arr_length);

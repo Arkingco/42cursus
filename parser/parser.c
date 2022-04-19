@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 15:36:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/19 15:48:51 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/19 22:18:24 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ long int	*parser(char *s)
 	if (return_arvg_to_int == NULL)
 		return (0);
 	set_return_paser_value(return_arvg_to_int, input_argv_to_str, parse_size);
+	push_swap_double_arr_free(input_argv_to_str);
 	return (return_arvg_to_int);
 }

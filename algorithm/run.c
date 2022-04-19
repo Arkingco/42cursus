@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 21:27:34 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/19 16:41:20 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/19 21:32:14 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void cost_optimization(t_cost *cost)
 		{
 			while(cost->rra != 0 && cost->rrb != 0)
 			{
-				cost->rra -= cost->rra - 1;
-				cost->rrb -= cost->rrb - 1;
+				cost->rra = cost->rra - 1;
+				cost->rrb = cost->rrb - 1;
 				cost->rrr = cost->rrr + 1;
 			}
 		}
@@ -194,6 +194,7 @@ void end_sort_stack_a(t_stack *a, t_stack *head, int target_a, int stack_length)
 		if(a->next == head)
 			break;
 		a = a->next;
+		length++;
 	}
 	if(cost.ra > cost.rra)
 		cost.ra = -1;

@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 21:11:23 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/19 15:51:58 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/19 22:22:31 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,10 @@ int main(int argc, char **argv)
 	}
 	algorithm_run(a, b);
 	free(argv_arr);
+	push_swap_stack_free(&a);
+	push_swap_stack_free(&b);
+	while(1)
+	{
+		
+	}
 }
