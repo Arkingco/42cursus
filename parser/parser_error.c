@@ -6,41 +6,41 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 15:32:28 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/19 15:37:01 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/20 20:50:27 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
 
-int paser_check_str_error(char *str)
+int	paser_check_str_error(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] < '0' || str[i] > '9')
-			if(str[i] != '-' && str[i] != '+')
+			if (str[i] != '-' && str[i] != '+')
 				return (1);
-		if (str[i] == '-' ||str[i] == '+')
-			if (i > 0 || str[i+1] == '\0')
+		if (str[i] == '-' || str[i] == '+')
+			if (i > 0 || str[i + 1] == '\0')
 				return (1);
 		++i;
 	}
 	return (0);
 }
 
-int paser_error(char **need_parsed)
+int	paser_error(char **need_parsed)
 {
-	int idx;
+	int	idx;
 
 	idx = 0;
-	if(*need_parsed == NULL)
-		error_exit();
-	while(need_parsed[idx] != NULL)
+	if (*need_parsed == NULL)
+		error_exit(1);
+	while (need_parsed[idx] != NULL)
 	{
-		if(paser_check_str_error(need_parsed[idx]))
-			error_exit();
+		if (paser_check_str_error(need_parsed[idx]))
+			error_exit(1);
 		idx++;
 	}
 	return (0);

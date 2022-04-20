@@ -12,25 +12,25 @@
 
 #include"../push_swap.h"
 
-static void rr_works(t_stack **head)
+static void	rr_works(t_stack **head)
 {
 	*head = (*head)->previous;
 	return ;
 }
 
-void rr_rra(t_stack **a)
+void	rra(t_stack **a)
 {
 	write(1, "rra\n", 4);
 	return (rr_works(a));
 }
 
-void rr_rrb(t_stack **b)
+void	rrb(t_stack **b)
 {
 	write(1, "rrb\n", 4);
 	return (rr_works(b));
 }
 
-void rr_rrr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b)
 {
 	rr_works(a);
 	rr_works(b);

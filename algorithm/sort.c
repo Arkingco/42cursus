@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_merge.c                                       :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 21:24:54 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/19 22:12:20 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/20 20:42:28 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
 // 	}
 
 // 	int tmp = i>mid ? j : i;
-	
 // 	while(k<=right) arr2[k++] = arr[tmp++];
 
 // 	for (int i=left;i<=right;i++) arr[i] = arr2[i];
@@ -49,22 +48,60 @@
 // 	}
 // }
 
-#include<stdio.h>
-
-void sort_arr(int *arr, int arr_length)
+void	stack_sort_third(t_stack **a)
 {
-	int i;
-	int j;
-	int temp;
+	int	top;
+	int	mid;
+	int	bottom;
+
+	top = (*a)->node_value;
+	mid = (*a)->next->node_value;
+	bottom = (*a)->next->next->node_value;
+	if (top > mid && mid > bottom && top > bottom)
+	{
+		sa(*a);
+		rra(a);
+	}
+	else if (top > mid && bottom > mid && top > bottom)
+		ra(a);
+	else if (mid > top && mid > bottom && bottom > top)
+	{
+		sa(*a);
+		ra(a);
+	}
+	else if (top > mid && bottom > mid && bottom > top)
+		sa(*a);
+	else if (mid > top && mid > bottom && top > bottom)
+		rra(a);
+}
+
+void	stack_sort_second(t_stack **a)
+{
+	int	top;
+	int	bottomtom;
+
+	top = (*a)->node_value;
+	bottomtom = (*a)->next->node_value;
+	if (top > bottomtom)
+	{
+		ra(a);
+	}
+}
+
+void	sort_arr(int *arr, int arr_length)
+{
+	int	i;
+	int	j;
+	int	temp;
 
 	i = 0;
 	j = 0;
-	while(i < arr_length)
+	while (i < arr_length)
 	{
-		j = i+1;
-		while(j < arr_length)
+		j = i + 1;
+		while (j < arr_length)
 		{
-			if(arr[i] > arr[j])
+			if (arr[i] > arr[j])
 			{
 				temp = arr[i];
 				arr[i] = arr[j];

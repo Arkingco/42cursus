@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_util.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 15:47:46 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/04 16:37:25 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/04/20 20:51:18 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	parse_row_length(char **input_argv)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(input_argv[i] != NULL)
+	while (input_argv[i] != NULL)
 		i++;
 	return (i);
 }

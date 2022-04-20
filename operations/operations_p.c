@@ -12,11 +12,11 @@
 
 #include"../push_swap.h"
 
-void p_delete_node(t_stack **head)
+void	delete_node(t_stack **head)
 {
-	t_stack *temp_head;
-	
-	if((*head)->next == *head)
+	t_stack	*temp_head;
+
+	if ((*head)->next == *head)
 	{
 		free(*head);
 		*head = NULL;
@@ -34,20 +34,20 @@ void p_delete_node(t_stack **head)
 	}
 }
 
-void p_pa(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b)
 {
-	if(b == NULL || *b == NULL) 
-		return;
+	if (b == NULL || *b == NULL)
+		return ;
 	stack_operations_add(a, (*b)->node_value);
-	p_delete_node(b);
+	delete_node(b);
 	write(1, "pa\n", 3);
 }
 
-void p_pb(t_stack **a, t_stack **b)
+void	pb(t_stack **a, t_stack **b)
 {
-	if(*a == NULL || a == NULL)
-		return;
+	if (*a == NULL || a == NULL)
+		return ;
 	stack_operations_add(b, (*a)->node_value);
-	p_delete_node(a);
-	write(1, "pb\n", 3);	
+	delete_node(a);
+	write(1, "pb\n", 3);
 }

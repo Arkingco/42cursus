@@ -12,30 +12,30 @@
 
 #include"../push_swap.h"
 
-static void s_swap(t_stack *ab)
+static void	s_swap(t_stack *ab)
 {
-	int temp;
-	
-	if(ab->next == NULL)
+	int	temp;
+
+	if (ab->next == NULL)
 		return ;
 	temp = ab->node_value;
 	ab->node_value = ab->next->node_value;
 	ab->next->node_value = temp;
 }
 
-void s_sa(t_stack *a)
+void	sa(t_stack *a)
 {
 	write(1, "sa\n", 3);
 	return (s_swap(a));
 }
 
-void s_sb(t_stack *b)
+void	sb(t_stack *b)
 {
 	write(1, "sb\n", 3);
 	return (s_swap(b));
 }
 
-void s_ss(t_stack *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b)
 {
 	s_swap(a);
 	s_swap(b);

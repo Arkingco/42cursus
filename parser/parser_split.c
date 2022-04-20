@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   parser_split.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:41:52 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/05 15:29:34 by kipark           ###   ########seoul.kr  */
+/*   Updated: 2022/04/20 20:51:09 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void str_free(char **str, int index)
+static void	str_free(char **str, int index)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < index)
@@ -25,10 +25,10 @@ static void str_free(char **str, int index)
 	free(str);
 }
 
-static int get_delimiter_s_length(char const *s, char c)
+static int	get_delimiter_s_length(char const *s, char c)
 {
-	int i;
-	int s_length;
+	int	i;
+	int	s_length;
 
 	i = 0;
 	s_length = 0;
@@ -45,11 +45,11 @@ static int get_delimiter_s_length(char const *s, char c)
 	return (s_length);
 }
 
-static int get_delimiter_size(char const *s, char c)
+static int	get_delimiter_size(char const *s, char c)
 {
-	int i;
-	int s_length;
-	int delimiter_size;
+	int	i;
+	int	s_length;
+	int	delimiter_size;
 
 	i = 0;
 	s_length = 0;
@@ -74,9 +74,9 @@ static int get_delimiter_size(char const *s, char c)
 	return (delimiter_size);
 }
 
-static void set_str_charter(char const *s, char *str, int s_length)
+static void	set_str_charter(char const *s, char *str, int s_length)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < s_length)
@@ -87,11 +87,11 @@ static void set_str_charter(char const *s, char *str, int s_length)
 	str[i] = '\0';
 }
 
-char **push_swap_parser_split(char const *s, char c)
+char	**push_swap_parser_split(char const *s, char c)
 {
-	char **str;
-	int i;
-	int dmt_size;
+	char	**str;
+	int		i;
+	int		dmt_size;
 
 	i = 0;
 	dmt_size = get_delimiter_size(s, c);
