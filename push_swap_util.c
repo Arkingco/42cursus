@@ -44,7 +44,7 @@ void	push_swap_stack_free(t_stack *stack, int stack_length)
 	{
 		temp_head = stack;
 		stack = stack->next;
-		free(stack);
+		free(temp_head);
 		length++;
 	}
 }

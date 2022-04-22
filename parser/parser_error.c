@@ -36,11 +36,11 @@ int	paser_error(char **need_parsed)
 
 	idx = 0;
 	if (*need_parsed == NULL)
-		error_exit(1);
+		return (1);
 	while (need_parsed[idx] != NULL)
 	{
 		if (paser_check_str_error(need_parsed[idx]))
-			error_exit(1);
+			return (1);
 		idx++;
 	}
 	return (0);

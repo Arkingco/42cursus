@@ -96,8 +96,8 @@ char	**push_swap_parser_split(char const *s, char c)
 	i = 0;
 	dmt_size = get_delimiter_size(s, c);
 	str = malloc(sizeof(char *) * (dmt_size + 1));
-	if (str == 0)
-		return (0);
+	if (str == NULL)
+		print_error(1);
 	while (i < dmt_size)
 	{
 		while (*s == c)
@@ -106,7 +106,7 @@ char	**push_swap_parser_split(char const *s, char c)
 		if (str[i] == 0)
 			str_free(str, i - 1);
 		if (str[i] == 0)
-			return (0);
+			print_error(1);
 		set_str_charter(s, str[i], get_delimiter_s_length(s, c));
 		s = s + get_delimiter_s_length(s, c) + 1;
 		++i;

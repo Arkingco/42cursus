@@ -64,23 +64,28 @@ void	set_argv_indexing(long int *argv_arr, int arr_length)
 	free(arr_temp);
 }
 
-long int	*set_new_argv_arr(long int *argv_arr, int *arr_length)
+long int	*set_new_argv_arr(long int *argv_arr, int *arr_length, int arr_idx)
 {
 	long int	*new_arr;
 	int			i;
+	int			new_arr_size;
 
-	new_arr = malloc(sizeof(long int) * ((*arr_length) * (*arr_length) + 1));
+	new_arr_size = (*arr_length) * 4 + 4;
+	*arr_length = new_arr_size;
+	new_arr = malloc(sizeof(long int) * new_arr_size);
+	if (new_arr == NULL)
+		print_error(1);
 	i = 0;
-	while (i < *arr_length)
+	while (i < arr_idx)
 	{
 		new_arr[i] = argv_arr[i];
 		i++;
 	}
-	free(argv_arr);
+	push_swap_free((void *)&argv_arr);
 	return (new_arr);
 }
 
-void	set_argv_int_arr(long int *argv_arr, int argc, char **argv, int *length)
+long int	*set_int_arr(long int *argv_arr, int argc, char **argv, int *length)
 {
 	int			i;
 	int			idx;
@@ -98,15 +103,15 @@ void	set_argv_int_arr(long int *argv_arr, int argc, char **argv, int *length)
 		while (parse_pointer[i] != INT64_MIN)
 		{
 			if (arr_idx >= arr_size_max)
-				argv_arr = set_new_argv_arr(argv_arr, &arr_size_max);
+				argv_arr = set_new_argv_arr(argv_arr, &arr_size_max, arr_idx);
 			argv_arr[arr_idx++] = parse_pointer[i++];
 		}
-		free(parse_pointer);
-		parse_pointer = 0;
+		push_swap_free((void *)&parse_pointer);
 		idx++;
 	}
 	argv_arr[arr_idx] = INT64_MIN;
 	*length = arr_idx;
+	return (argv_arr);
 }
 
 int	main(int argc, char **argv)
@@ -122,9 +127,7 @@ int	main(int argc, char **argv)
 		return (0);
 	arr_length = 0;
 	argv_arr = NULL;
-
-	// 가변 배열로 만들려고 했으나 굉장히 비효율 적으로 바뀌거나 문제가 생길 수 있음 
-	set_argv_int_arr(argv_arr, argc, argv, &arr_length);
+	argv_arr = set_int_arr(argv_arr, argc, argv, &arr_length);
 	check_argv_duplicate(argv_arr);
 	set_argv_indexing(argv_arr, arr_length);
 	while (--arr_length >= 0)

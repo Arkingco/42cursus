@@ -33,11 +33,11 @@ long int	*parser(char *s)
 
 	argv_to_str = push_swap_parser_split(s, ' ');
 	if (paser_error(argv_to_str))
-		return (0);
+		print_error(1);
 	arr_length = parse_row_length(argv_to_str);
 	arvg_to_int = malloc(sizeof(long int) * (arr_length + 1));
 	if (arvg_to_int == NULL)
-		return (0);
+		print_error(1);
 	set_paser(arvg_to_int, argv_to_str, arr_length);
 	push_swap_double_arr_free(argv_to_str);
 	return (arvg_to_int);
