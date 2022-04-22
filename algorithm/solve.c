@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 21:27:34 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/20 21:34:29 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/22 19:41:04 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,33 +29,33 @@ int	find_min_value_stack(t_stack *a, t_stack *head)
 	return ((int)min_value);
 }
 
-void	end_sort_stack_a(t_stack *a, t_stack *head, int stack_length)
+void	end_sort(t_stack **a, t_stack *a_a, t_stack *head, int stack_length)
 {
 	t_cost	cost;
 	int		length;
 	int		target_a;
 
 	length = 0;
-	target_a = find_min_value_stack(a, a);
+	target_a = find_min_value_stack(a_a, a_a);
 	set_new_cost(&cost);
 	while (1)
 	{
-		if (a->node_value == target_a)
+		if (a_a->node_value == target_a)
 		{
 			cost.ra = length;
 			cost.rra = stack_length - length;
 			break ;
 		}
-		if (a->next == head)
+		if (a_a->next == head)
 			break ;
-		a = a->next;
+		a_a = a_a->next;
 		length++;
 	}
 	if (cost.ra > cost.rra)
 		cost.ra = -1;
-	if (cost.rra > cost.ra)
+	else
 		cost.rra = -1;
-	excute_cost(&cost, &a, NULL);
+	excute_cost(&cost, a, NULL);
 }
 
 void	stack_push_all_pb(t_stack **a, t_stack **b)
@@ -106,7 +106,7 @@ void	algorithm_run(t_stack *a, t_stack *b)
 		cost_optimization(&cost);
 		excute_cost(&cost, &a, &b);
 	}
-	end_sort_stack_a(a, a, stack_a_sotring_size);
+	end_sort(&a, a, a, stack_a_sotring_size);
 	push_swap_stack_free(a, stack_a_sotring_size);
 	push_swap_stack_free(b, stack_a_sotring_size);
 }

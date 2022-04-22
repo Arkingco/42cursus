@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 16:22:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/20 21:56:49 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/22 16:24:52 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ void	set_cost_key(t_cost *new_cost, t_stack *stack, t_stack *head, int ab)
 	int		stack_length;
 	int		length;
 
-	if (stack == NULL)
-		return ;
 	stack_length = get_stack_length(stack, stack);
 	length = 0;
-	while (length++)
+	while (1)
 	{
 		if (stack->node_value == new_cost->target_a && ab)
 		{
@@ -38,6 +36,7 @@ void	set_cost_key(t_cost *new_cost, t_stack *stack, t_stack *head, int ab)
 		if (stack->next == head)
 			break ;
 		stack = stack->next;
+		length++;
 	}
 }
 
@@ -78,7 +77,7 @@ int	return_target_in_a(t_stack *a, int b_node)
 	if (arr == NULL)
 		print_error(1);
 	set_arr(a, arr, b_node);
-	sort_arr(arr, array_size);
+	sort_arr(arr, 0, array_size - 1);
 	target = find_target_in_arr(arr, array_size, b_node);
 	push_swap_free((void *)&arr);
 	return (target);
@@ -89,7 +88,7 @@ void	check_stack_cost(t_cost *cost, t_stack *a, t_stack *b)
 	t_stack	*b_head;
 	t_cost	new_cost;
 
-	if (b == NULL)
+	if (b == NULL || a == NULL)
 		return ;
 	b_head = b;
 	cost->cost_value = INT32_MAX;

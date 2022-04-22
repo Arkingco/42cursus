@@ -1,5 +1,22 @@
-cc = gcc
-cc_flags = -Wall -Wextra -Werror
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/04/22 15:01:44 by kipark            #+#    #+#              #
+#    Updated: 2022/04/22 19:02:12 by kipark           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME		= push_swap
+
+CC 			= gcc
+CFLAGS   	= -Wall -Wextra -Werror
+
+RM			= rm
+RM_FLAGS	= -rf
 
 push_swap_dir = push_swap.c 					\
 				operations/operations_stack.c	\
@@ -20,5 +37,19 @@ push_swap_dir = push_swap.c 					\
 				error.c							\
 				push_swap_util.c
 
-debug :
-	$(cc) $(cc_flags) -g $(push_swap_dir)
+all : $(NAME)
+
+$(NAME) : $(push_swap_dir)
+	$(CC) $(CFLAGS) -g -o $@ $^
+
+debug : $(push_swap_dir)
+	$(CC) $(CFLAGS) -g -o $@ $^
+
+clean	:
+	$(RM) $(RM_FLAGS) $(NAME)
+
+fclean	: clean
+
+re	: fclean all
+
+ .PHONY : all clean fclean re

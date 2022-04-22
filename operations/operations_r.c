@@ -40,8 +40,8 @@ void	rb(t_stack **b)
 
 void	rr(t_stack **a, t_stack **b)
 {
-	ra(a);
-	rb(b);
+	r_works(a);
+	r_works(b);
 	write(1, "rr\n", 3);
 	return ;
 }

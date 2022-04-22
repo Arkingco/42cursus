@@ -6,18 +6,11 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:50:14 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/20 20:49:28 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/22 20:27:30 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
-
-static long int	is_space(const char *str)
-{
-	if ((*str >= 9 && *str <= 13) || *str == ' ')
-		return (1);
-	return (0);
-}
 
 static int	isdigit(int c)
 {
@@ -35,8 +28,6 @@ long int	parse_atoi(const char *str)
 
 	minus_flag = 0;
 	temp = 0;
-	while (is_space(str))
-		str++;
 	if (*str == '-')
 	{
 		minus_flag++;
@@ -44,13 +35,14 @@ long int	parse_atoi(const char *str)
 	}
 	if (*str == '+' && !minus_flag)
 		str++;
-	while (isdigit(*str++))
+	while (isdigit(*str))
 	{
 		temp = (temp * 10) + (*str - '0');
-		if (temp > INT32_MAX)
+		if (!minus_flag && temp > INT32_MAX)
 			error_exit(1);
-		if (minus_flag && temp - 1 >= INT32_MAX)
+		if (minus_flag && temp - 1 > INT32_MAX)
 			error_exit(1);
+		str++;
 	}
 	if (minus_flag)
 		return (temp * -1);
