@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 15:01:44 by kipark            #+#    #+#              #
-#    Updated: 2022/04/22 19:02:12 by kipark           ###   ########.fr        #
+#    Updated: 2022/04/22 21:02:26 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,9 +40,6 @@ push_swap_dir = push_swap.c 					\
 all : $(NAME)
 
 $(NAME) : $(push_swap_dir)
-	$(CC) $(CFLAGS) -g -o $@ $^
-
-debug : $(push_swap_dir)
 	$(CC) $(CFLAGS) -g -o $@ $^
 
 clean	:

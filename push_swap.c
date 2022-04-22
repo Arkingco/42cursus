@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 21:11:23 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/22 20:20:49 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/22 21:21:52 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	check_argv_duplicate(long int *argv_arr)
 	}
 }
 
-void	set_argv_smaller(long int *argv_arr, int arr_length)
+void	set_argv_indexing(long int *argv_arr, int arr_length)
 {
 	int	i;
 	int	j;
@@ -78,9 +78,7 @@ void	set_argv_int_arr(long int *argv_arr, int argc, char **argv, int *length)
 		parse_pointer = parser(argv[idx]);
 		i = 0;
 		while (parse_pointer[i] != INT64_MIN)
-		{
 			argv_arr[arr_idx++] = parse_pointer[i++];
-		}
 		free(parse_pointer);
 		parse_pointer = 0;
 		idx++;
@@ -104,7 +102,7 @@ int	main(int argc, char **argv)
 	arr_length = 0;
 	set_argv_int_arr(argv_arr, argc, argv, &arr_length);
 	check_argv_duplicate(argv_arr);
-	set_argv_smaller(argv_arr, arr_length);
+	set_argv_indexing(argv_arr, arr_length);
 	while (--arr_length != -1)
 		stack_operations_add(&a, argv_arr[arr_length]);
 	algorithm_run(a, b);

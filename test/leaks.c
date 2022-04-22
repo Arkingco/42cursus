@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 20:58:09 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/22 15:52:02 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/22 21:05:46 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(void)
 {
 	while (1)
 	{
-		system("leaks a.out");
+		system("leaks push_swap");
 		sleep (1);
 	}
 }

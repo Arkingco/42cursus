@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 21:27:34 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/22 19:41:04 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/22 21:03:40 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,21 @@ void	end_sort(t_stack **a, t_stack *a_a, t_stack *head, int stack_length)
 void	stack_push_all_pb(t_stack **a, t_stack **b)
 {
 	int	stack_length;
+	int	pivot;
 
 	stack_length = get_stack_length(*a, *a);
 	if (stack_length <= 3)
 		return ;
 	while (1)
 	{
-		pb(a, b);
-		stack_length--;
+		pivot = (stack_length / 2);
+		if ((*a)->node_value < pivot)
+			ra(a);
+		else
+		{
+			pb(a, b);
+			stack_length--;
+		}
 		if (stack_length <= 3)
 			return ;
 	}
@@ -84,9 +91,7 @@ void	soft_sort(t_stack **a)
 	else if (stack_length == 3)
 		stack_sort_third(a);
 	else
-	{
 		return ;
-	}
 }
 
 void	algorithm_run(t_stack *a, t_stack *b)

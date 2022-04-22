@@ -44,7 +44,7 @@
 		{
 			"cwd": "/Users/kipark/workspace/push_swap",
 			"binaryPath": "/Users/kipark/workspace/push_swap/push_swap",
-			"binaryArgs": ["-2147483648"]
+			"binaryArgs": ["2 1 3 4 5"]
 		}
 	],
 }
