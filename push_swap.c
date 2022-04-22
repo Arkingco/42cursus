@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 21:11:23 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/22 21:21:52 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/22 22:24:48 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,21 +64,43 @@ void	set_argv_indexing(long int *argv_arr, int arr_length)
 	free(arr_temp);
 }
 
+long int	*set_new_argv_arr(long int *argv_arr, int *arr_length)
+{
+	long int	*new_arr;
+	int			i;
+
+	new_arr = malloc(sizeof(long int) * ((*arr_length) * (*arr_length) + 1));
+	i = 0;
+	while (i < *arr_length)
+	{
+		new_arr[i] = argv_arr[i];
+		i++;
+	}
+	free(argv_arr);
+	return (new_arr);
+}
+
 void	set_argv_int_arr(long int *argv_arr, int argc, char **argv, int *length)
 {
 	int			i;
 	int			idx;
 	int			arr_idx;
+	int			arr_size_max;
 	long int	*parse_pointer;
 
 	idx = 1;
 	arr_idx = 0;
+	arr_size_max = 0;
 	while (idx < argc)
 	{
 		parse_pointer = parser(argv[idx]);
 		i = 0;
 		while (parse_pointer[i] != INT64_MIN)
+		{
+			if (arr_idx >= arr_size_max)
+				argv_arr = set_new_argv_arr(argv_arr, &arr_size_max);
 			argv_arr[arr_idx++] = parse_pointer[i++];
+		}
 		free(parse_pointer);
 		parse_pointer = 0;
 		idx++;
@@ -98,12 +120,14 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (argc < 2)
 		return (0);
-	argv_arr = malloc(sizeof(long int) * (ARGV_ARR_SIZE + 1));
 	arr_length = 0;
+	argv_arr = NULL;
+
+	// 가변 배열로 만들려고 했으나 굉장히 비효율 적으로 바뀌거나 문제가 생길 수 있음 
 	set_argv_int_arr(argv_arr, argc, argv, &arr_length);
 	check_argv_duplicate(argv_arr);
 	set_argv_indexing(argv_arr, arr_length);
-	while (--arr_length != -1)
+	while (--arr_length >= 0)
 		stack_operations_add(&a, argv_arr[arr_length]);
 	algorithm_run(a, b);
 	free(argv_arr);
