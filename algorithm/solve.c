@@ -63,7 +63,7 @@ void	stack_push_all_pb(t_stack **a, t_stack **b)
 	int	stack_length;
 	int	pivot;
 
-	stack_length = get_stack_length(*a, *a);
+	stack_length = (*a)->stack_length;
 	if (stack_length <= 3)
 		return ;
 	while (1)
@@ -85,7 +85,7 @@ void	soft_sort(t_stack **a)
 {
 	int	stack_length;
 
-	stack_length = get_stack_length(*a, *a);
+	stack_length = (*a)->stack_length;
 	if (stack_length == 2)
 		stack_sort_second(a);
 	else if (stack_length == 3)
@@ -101,10 +101,10 @@ void	algorithm_run(t_stack *a, t_stack *b)
 
 	if (check_arr_is_sort(a, a))
 		return ;
-	stack_a_sotring_size = get_stack_length(a, a);
+	stack_a_sotring_size = a->stack_length;
 	stack_push_all_pb(&a, &b);
 	soft_sort(&a);
-	while (get_stack_length(a, a) != stack_a_sotring_size)
+	while (a->stack_length != stack_a_sotring_size)
 	{
 		set_new_cost(&cost);
 		check_stack_cost(&cost, a, b);

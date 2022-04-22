@@ -17,7 +17,7 @@ void	set_cost_key(t_cost *new_cost, t_stack *stack, t_stack *head, int ab)
 	int		stack_length;
 	int		length;
 
-	stack_length = get_stack_length(stack, stack);
+	stack_length = stack->stack_length;
 	length = 0;
 	while (1)
 	{
@@ -72,7 +72,7 @@ int	return_target_in_a(t_stack *a, int b_node)
 	int	target;
 	int	array_size;
 
-	array_size = get_stack_length(a, a) + 1;
+	array_size = a->stack_length + 1;
 	arr = malloc(sizeof(int) * array_size);
 	if (arr == NULL)
 		print_error(1);

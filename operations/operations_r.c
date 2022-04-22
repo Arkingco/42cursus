@@ -14,6 +14,7 @@
 
 static	void	r_works(t_stack **head)
 {
+	(*head)->next->stack_length = (*head)->stack_length;
 	*head = (*head)->next;
 	return ;
 }

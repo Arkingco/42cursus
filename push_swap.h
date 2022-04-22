@@ -24,6 +24,7 @@ typedef struct s_stack {
 	struct s_stack	*previous;
 	struct s_stack	*next;
 	long int		node_value;
+	int				stack_length;
 }	t_stack;
 
 typedef struct s_cost {

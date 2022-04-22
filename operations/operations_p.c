@@ -28,6 +28,7 @@ void	delete_node(t_stack **head)
 		temp_head = (*head);
 		(*head)->next->previous = (*head)->previous;
 		(*head)->previous->next = (*head)->next;
+		(*head)->next->stack_length = (*head)->stack_length - 1;
 		(*head) = (*head)->next;
 		free(temp_head);
 		temp_head = NULL;

@@ -29,7 +29,7 @@ void	push_swap_memset(void *arr, int arr_length)
 void	push_swap_free(void **pointer)
 {
 	free(*pointer);
-	*pointer = 0;
+	*pointer = NULL;
 }
 
 void	push_swap_stack_free(t_stack *stack, int stack_length)
