@@ -91,6 +91,5 @@ void	sort_arr(int *arr, int left, int right);
 void	show_stack(t_stack *a, t_stack *b, char *flag);
 void	check_stack_cost(t_cost *cost, t_stack *a, t_stack *b);
 void	heck_stack_cost_b(t_cost *cost, t_stack *b);
-int		get_stack_length(t_stack *stack, t_stack *head_stack);
 
 #endif

@@ -17,9 +17,3 @@ void	print_error(int exit_flag)
 	write(2, "Error\n", 6);
 	exit(exit_flag);
 }
-
-void	error_exit(int exit_flag)
-{
-	write(2, "Error\n", 6);
-	exit(exit_flag);
-}

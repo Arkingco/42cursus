@@ -12,25 +12,6 @@
 
 #include "../push_swap.h"
 
-int	get_stack_length(t_stack *stack, t_stack *head_stack)
-{
-	t_stack	*head;
-	int		length;
-
-	head = stack;
-	if (head == NULL)
-		return (0);
-	length = 0;
-	while (1)
-	{
-		length++;
-		if (stack->next == head_stack)
-			break ;
-		stack = stack->next;
-	}
-	return (length);
-}
-
 void	excute_cost(t_cost *cost, t_stack **a, t_stack **b)
 {
 	int	count;
