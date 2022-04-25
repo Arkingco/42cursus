@@ -6,13 +6,13 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 15:32:28 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/20 20:50:27 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/23 19:57:19 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
 
-int	paser_check_str_error(char *str)
+static int	paser_check_str_error(char *str)
 {
 	int	i;
 

@@ -6,37 +6,32 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 21:11:23 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/22 22:24:48 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/23 20:14:54 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-#include<unistd.h>
-#include<stdlib.h>
 #include"push_swap.h"
 
-#define ARGV_ARR_SIZE 500
-
-void	check_argv_duplicate(long int *argv_arr)
+static void	check_argv_duplicate(long int *arr)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (argv_arr[i] != INT64_MIN)
+	while (arr[i] != INT64_MIN)
 	{
 		j = i + 1;
-		while (argv_arr[j] != INT64_MIN)
+		while (arr[j] != INT64_MIN)
 		{
-			if (argv_arr[i] == argv_arr[j])
-				error_exit(1);
+			if (arr[i] == arr[j])
+				print_error(1);
 			++j;
 		}
 		++i;
 	}
 }
 
-void	set_argv_indexing(long int *argv_arr, int arr_length)
+static void	set_argv_indexing(long int *arr, int arr_length)
 {
 	int	i;
 	int	j;
@@ -45,13 +40,13 @@ void	set_argv_indexing(long int *argv_arr, int arr_length)
 
 	arr_temp = malloc(sizeof(long int) * (arr_length + 1));
 	i = 0;
-	while (argv_arr[i] != INT64_MIN)
+	while (arr[i] != INT64_MIN)
 	{
 		j = 0;
 		count = 1;
-		while (argv_arr[j] != INT64_MIN)
+		while (arr[j] != INT64_MIN)
 		{
-			if (i != j && argv_arr[i] > argv_arr[j])
+			if (i != j && arr[i] > arr[j])
 				count++;
 			++j;
 		}
@@ -60,11 +55,11 @@ void	set_argv_indexing(long int *argv_arr, int arr_length)
 	}
 	j = -1;
 	while (j++ < i)
-		argv_arr[j] = arr_temp[j];
-	free(arr_temp);
+		arr[j] = arr_temp[j];
+	push_swap_free((void *)&arr_temp);
 }
 
-long int	*set_new_argv_arr(long int *argv_arr, int *arr_length, int arr_idx)
+static long int	*set_new_arr(long int *arr, int *arr_length, int arr_idx)
 {
 	long int	*new_arr;
 	int			i;
@@ -78,14 +73,14 @@ long int	*set_new_argv_arr(long int *argv_arr, int *arr_length, int arr_idx)
 	i = 0;
 	while (i < arr_idx)
 	{
-		new_arr[i] = argv_arr[i];
+		new_arr[i] = arr[i];
 		i++;
 	}
-	push_swap_free((void *)&argv_arr);
+	push_swap_free((void *)&arr);
 	return (new_arr);
 }
 
-long int	*set_int_arr(long int *argv_arr, int argc, char **argv, int *length)
+static long int	*set_arr(long int *arr, int argc, char **argv, int *length)
 {
 	int			i;
 	int			idx;
@@ -102,23 +97,23 @@ long int	*set_int_arr(long int *argv_arr, int argc, char **argv, int *length)
 		i = 0;
 		while (parse_pointer[i] != INT64_MIN)
 		{
-			if (arr_idx >= arr_size_max)
-				argv_arr = set_new_argv_arr(argv_arr, &arr_size_max, arr_idx);
-			argv_arr[arr_idx++] = parse_pointer[i++];
+			if (arr_idx >= arr_size_max - 1)
+				arr = set_new_arr(arr, &arr_size_max, arr_idx);
+			arr[arr_idx++] = parse_pointer[i++];
 		}
 		push_swap_free((void *)&parse_pointer);
 		idx++;
 	}
-	argv_arr[arr_idx] = INT64_MIN;
+	arr[arr_idx] = INT64_MIN;
 	*length = arr_idx;
-	return (argv_arr);
+	return (arr);
 }
 
 int	main(int argc, char **argv)
 {
 	t_stack		*a;
 	t_stack		*b;
-	long int	*argv_arr;
+	long int	*arr;
 	int			arr_length;
 
 	a = NULL;
@@ -126,12 +121,12 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	arr_length = 0;
-	argv_arr = NULL;
-	argv_arr = set_int_arr(argv_arr, argc, argv, &arr_length);
-	check_argv_duplicate(argv_arr);
-	set_argv_indexing(argv_arr, arr_length);
+	arr = NULL;
+	arr = set_arr(arr, argc, argv, &arr_length);
+	check_argv_duplicate(arr);
+	set_argv_indexing(arr, arr_length);
 	while (--arr_length >= 0)
-		stack_operations_add(&a, argv_arr[arr_length]);
-	algorithm_run(a, b);
-	free(argv_arr);
+		stack_operations_add(&a, arr[arr_length]);
+	run_algorithm(a, b);
+	free(arr);
 }

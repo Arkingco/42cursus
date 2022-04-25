@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 21:24:54 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/22 17:17:37 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/23 20:07:30 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ void	stack_sort_third(t_stack **a)
 	}
 	else if (top > mid && bottom > mid && top > bottom)
 		ra(a);
+	else if (mid > top && mid > bottom && top > bottom)
+		rra(a);
+	else if (top > mid && bottom > mid && bottom > top)
+		sa(*a);
 	else if (mid > top && mid > bottom && bottom > top)
 	{
 		sa(*a);
 		ra(a);
 	}
-	else if (top > mid && bottom > mid && bottom > top)
-		sa(*a);
-	else if (mid > top && mid > bottom && top > bottom)
-		rra(a);
 }
 
 void	stack_sort_second(t_stack **a)
@@ -47,12 +47,10 @@ void	stack_sort_second(t_stack **a)
 	top = (*a)->node_value;
 	bottomtom = (*a)->next->node_value;
 	if (top > bottomtom)
-	{
 		ra(a);
-	}
 }
 
-void	swap(int *arr, int i, int j)
+static void	swap(int *arr, int i, int j)
 {
 	int	temp;
 
@@ -61,7 +59,7 @@ void	swap(int *arr, int i, int j)
 	arr[j] = temp;
 }
 
-int	partition(int *arr, int left, int right)
+static int	partition(int *arr, int left, int right)
 {
 	int	pivot_position;
 	int	pivot;

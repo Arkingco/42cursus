@@ -6,14 +6,14 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 21:27:34 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/22 22:07:03 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/23 20:07:52 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include <stdio.h>
 
-int	find_min_value_stack(t_stack *a, t_stack *head)
+static int	find_min_value_stack(t_stack *a, t_stack *head)
 {
 	long int	min_value;
 
@@ -29,7 +29,7 @@ int	find_min_value_stack(t_stack *a, t_stack *head)
 	return ((int)min_value);
 }
 
-void	end_sort(t_stack **a, t_stack *a_a, t_stack *head, int stack_length)
+static void	end_sort(t_stack **a, t_stack *a_a, t_stack *head, int stack_length)
 {
 	t_cost	cost;
 	int		length;
@@ -58,7 +58,7 @@ void	end_sort(t_stack **a, t_stack *a_a, t_stack *head, int stack_length)
 	excute_cost(&cost, a, NULL);
 }
 
-void	stack_push_all_pb(t_stack **a, t_stack **b)
+static void	stack_push_all_pb(t_stack **a, t_stack **b)
 {
 	int	stack_length;
 	int	pivot;
@@ -81,7 +81,7 @@ void	stack_push_all_pb(t_stack **a, t_stack **b)
 	}
 }
 
-void	soft_sort(t_stack **a)
+static void	soft_sort(t_stack **a)
 {
 	int	stack_length;
 
@@ -94,7 +94,7 @@ void	soft_sort(t_stack **a)
 		return ;
 }
 
-void	algorithm_run(t_stack *a, t_stack *b)
+void	run_algorithm(t_stack *a, t_stack *b)
 {
 	t_cost	cost;
 	int		stack_a_sotring_size;

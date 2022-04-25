@@ -6,13 +6,13 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 15:36:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/22 20:28:20 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/23 19:52:29 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
 
-void	set_paser(long int *arvg_to_int, char **argv_to_str, int arr_length)
+static void	set_paser(long int *arvg_to_int, char **argv_to_str, int arr_length)
 {
 	int	idx;
 

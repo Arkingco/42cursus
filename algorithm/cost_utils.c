@@ -6,13 +6,13 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 19:33:51 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/22 13:32:13 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/23 20:06:35 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	set_arr(t_stack *a, int *arr, int b_node)
+void	set_b_node_arr(t_stack *a, int *arr, int b_node)
 {
 	t_stack	*a_head;
 	int		i;

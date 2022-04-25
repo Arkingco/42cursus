@@ -6,13 +6,13 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 20:45:29 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/20 20:46:32 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/23 20:10:45 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
 
-t_stack	*new_node_set(long int node_value)
+static t_stack	*new_node_set(long int node_value)
 {
 	t_stack	*new_node;
 

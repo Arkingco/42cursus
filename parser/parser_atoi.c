@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:50:14 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/22 20:27:30 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/23 20:11:43 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ long int	parse_atoi(const char *str)
 	{
 		temp = (temp * 10) + (*str - '0');
 		if (!minus_flag && temp > INT32_MAX)
-			error_exit(1);
+			print_error(1);
 		if (minus_flag && temp - 1 > INT32_MAX)
-			error_exit(1);
+			print_error(1);
 		str++;
 	}
 	if (minus_flag)

@@ -6,13 +6,13 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 16:22:40 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/22 21:18:10 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/23 20:10:13 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
 
-void	set_cost_key(t_cost *new_cost, t_stack *stack, t_stack *head, int ab)
+static void	set_cost_key(t_cost *cost, t_stack *stack, t_stack *head, int ab)
 {
 	int		stack_length;
 	int		length;
@@ -21,16 +21,16 @@ void	set_cost_key(t_cost *new_cost, t_stack *stack, t_stack *head, int ab)
 	length = 0;
 	while (1)
 	{
-		if (stack->node_value == new_cost->target_a && ab)
+		if (stack->node_value == cost->target_a && ab)
 		{
-			new_cost->ra = length;
-			new_cost->rra = stack_length - length;
+			cost->ra = length;
+			cost->rra = stack_length - length;
 			break ;
 		}
-		else if (stack->node_value == new_cost->target_b && !ab)
+		else if (stack->node_value == cost->target_b && !ab)
 		{
-			new_cost->rb = length;
-			new_cost->rrb = stack_length - length;
+			cost->rb = length;
+			cost->rrb = stack_length - length;
 			break ;
 		}
 		if (stack->next == head)
@@ -40,7 +40,7 @@ void	set_cost_key(t_cost *new_cost, t_stack *stack, t_stack *head, int ab)
 	}
 }
 
-void	find_cost_a_b(t_cost *new_cost, t_stack *a, t_stack *b)
+static void	find_cost_a_b(t_cost *new_cost, t_stack *a, t_stack *b)
 {
 	set_cost_key(new_cost, a, a, STACK_A);
 	set_cost_key(new_cost, b, b, STACK_B);
@@ -66,7 +66,7 @@ void	find_cost_a_b(t_cost *new_cost, t_stack *a, t_stack *b)
 	}
 }
 
-int	return_target_in_a(t_stack *a, int b_node)
+static int	return_target_in_a(t_stack *a, int b_node)
 {
 	int	*arr;
 	int	target;
@@ -76,7 +76,7 @@ int	return_target_in_a(t_stack *a, int b_node)
 	arr = malloc(sizeof(int) * array_size);
 	if (arr == NULL)
 		print_error(1);
-	set_arr(a, arr, b_node);
+	set_b_node_arr(a, arr, b_node);
 	sort_arr(arr, 0, array_size - 1);
 	target = find_target_in_arr(arr, array_size, b_node);
 	push_swap_free((void *)&arr);
