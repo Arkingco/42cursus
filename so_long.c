@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 13:07:50 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/27 17:32:32 by kipark           ###   ########.fr       */
+/*   Created: 2022/04/27 15:01:26 by kipark            #+#    #+#             */
+/*   Updated: 2022/04/27 21:15:11 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
+#include "so_long.h"
+#include<stdio.h>
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	void	*mlx;
-	void	*mlx_win;
+	t_list	*str_head;
+	char	**pared_str;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-	mlx_loop(mlx);
+	if (argc < 2)
+		return (0);
+	str_head = malloc(sizeof(t_list) * 1);
+	if (str_head == NULL)
+		print_error(1);
+	pared_str = parse(str_head, argv);
+	pared_error_check(pared_str);
 }

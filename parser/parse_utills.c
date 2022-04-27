@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parse_utills.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 13:07:50 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/27 17:32:32 by kipark           ###   ########.fr       */
+/*   Created: 2022/04/27 19:27:11 by kipark            #+#    #+#             */
+/*   Updated: 2022/04/27 20:56:36 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
+#include "../so_long.h"
 
-int	main(void)
+int	get_list_head_colum(char *head_str)
 {
-	void	*mlx;
-	void	*mlx_win;
+	int length;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-	mlx_loop(mlx);
+    length = 0;
+    while(head_str[length] != '\0')
+        length++;
+    return (length);
+}
+
+int	get_list_head_row(t_list *list_head)
+{
+	int length;
+
+    length = 0;
+    while(list_head != NULL)
+    {
+        length++;
+        list_head = list_head->next;
+    }
+    return (length);
 }

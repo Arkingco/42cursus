@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 13:07:50 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/27 17:32:32 by kipark           ###   ########.fr       */
+/*   Created: 2022/04/27 16:58:52 by kipark            #+#    #+#             */
+/*   Updated: 2022/04/27 17:31:47 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
+#include "so_long.h"
 
-int	main(void)
+void	print_error(int exit_flag)
 {
-	void	*mlx;
-	void	*mlx_win;
-
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-	mlx_loop(mlx);
+    write(2, "Error\n", 6);
+    exit(exit_flag);
 }
