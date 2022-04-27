@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 14:57:19 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/27 21:11:13 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/27 21:34:55 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int		get_list_head_row(t_list *list_head);
 
 void	print_error(int exit_flag);
 
+int		parsed_str_error_check(char **parsed_str);
 int		get_colum_length(char *str);
 int		get_row_length(char **str);
 void	set_object(t_object *t_object);

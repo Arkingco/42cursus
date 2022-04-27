@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 19:54:19 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/27 21:11:17 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/27 21:27:00 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,7 @@ void	check_object_parsed(char **parsed_str, t_object *object)
 			else if (parsed_str[row][colum] != 'P')
 				object->player += 1;
 			else
-			{
 				object->error = 1;
-			}
 			colum++;
 		}
 		row++;

@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/27 15:13:41 by kipark            #+#    #+#              #
-#    Updated: 2022/04/27 16:51:42 by kipark           ###   ########.fr        #
+#    Updated: 2022/04/27 21:35:38 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,13 @@ OBJ = main.c
 OBJ_TEST =  so_long.c                       \
             gnl/get_next_line_bonus.c       \
             gnl/get_next_line_utils_bonus.c \
-            so_long.h                       
+            parser/error_utils.c            \
+            parser/error.c                  \
+            parser/parse_utils.c            \
+            parser/parse.c                  \
+            so_long.h                       \
+            error.c                         
+
             
 
 all : $(NAME)

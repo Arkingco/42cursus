@@ -7,9 +7,10 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
  
+make: *** No rule to make target `parser/parse_utils.c', needed by `so_long'.  Stop.
 
-# Make data base, printed on Wed Apr 27 18:52:36 2022
- 
+
+# Make data base, printed on Wed Apr 27 21:22:14 2022
 
 # Variables
 
@@ -50,7 +51,7 @@ PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # environment
 LaunchInstanceID = 6DABDD02-039E-4341-AC93-7E717637E503
 # makefile (from `Makefile', line 18)
-OBJ_TEST = so_long.c gnl/get_next_line_bonus.c gnl/get_next_line_utils_bonus.c so_long.h                       
+OBJ_TEST = so_long.c gnl/get_next_line_bonus.c gnl/get_next_line_utils_bonus.c parser/error_utils.c parser/error.c parser/parse_utils.c parser/parse.c so_long.h                       
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -146,7 +147,7 @@ LANG = C
 # environment
 VSCODE_PID = 2192
 # variable set hash-table stats:
-# Load=66/1024=6%, Rehash=0, Collisions=5/97=5%
+# Load=66/1024=6%, Rehash=0, Collisions=3/93=3%
 
 # Pattern-specific Variable Values
 
@@ -154,9 +155,9 @@ VSCODE_PID = 2192
 
 # Directories
 
-# . (device 16777225, inode 2516114): 16 files, no impossibilities.
+# . (device 16777225, inode 2516114): 15 files, no impossibilities.
 
-# 16 files, no impossibilities in 1 directories.
+# 15 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -164,19 +165,24 @@ VSCODE_PID = 2192
 
 # Files
 
+# Not a target:
+parser/parse.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 all: so_long
 #  Command-line target.
 #  Implicit rule search has been done.
 #  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
+#  File has not been updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 so_long.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-27 17:33:01
+#  Last modified 2022-04-27 21:20:57
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -191,7 +197,16 @@ so_long.c:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-27 16:51:42
+#  Last modified 2022-04-27 21:22:05
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+parser/error_utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-27 21:11:17
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -199,12 +214,9 @@ Makefile:
 
 # Not a target:
 so_long.h:
-#  Implicit rule search has been done.
-#  Last modified 2022-04-27 17:32:28
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 gnl/get_next_line_bonus.c:
@@ -230,36 +242,36 @@ gnl/get_next_line_utils_bonus.c:
 #  Modification time never checked.
 #  File has not been updated.
 
-so_long: so_long.c gnl/get_next_line_bonus.c gnl/get_next_line_utils_bonus.c so_long.h
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: `'
-#  File does not exist.
+# Not a target:
+parser/error.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-27 21:14:35
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := so_long
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := so_long.c gnl/get_next_line_bonus.c gnl/get_next_line_utils_bonus.c so_long.h
-# automatic
-# | := 
-# automatic
-# < := so_long.c
-# automatic
-# ^ := so_long.c gnl/get_next_line_bonus.c gnl/get_next_line_utils_bonus.c so_long.h
-# automatic
-# ? := so_long.c gnl/get_next_line_bonus.c gnl/get_next_line_utils_bonus.c so_long.h
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/13=8%
-#  commands to execute (from `Makefile', line 27):
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+parser/parse_utils.c:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+so_long: so_long.c gnl/get_next_line_bonus.c gnl/get_next_line_utils_bonus.c parser/error_utils.c parser/error.c parser/parse_utils.c parser/parse.c so_long.h
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+# variable set hash-table stats:
+ 
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 31):
 	$(CC) $(CFLAGS) $^
 	
 
 # files hash-table stats:
-# Load=9/1024=1%, Rehash=0, Collisions=2/28=7%
+# Load=13/1024=1%, Rehash=0, Collisions=2/35=6%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -271,7 +283,6 @@ so_long: so_long.c gnl/get_next_line_bonus.c gnl/get_next_line_utils_bonus.c so_
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
- 
-# Finished Make data base on Wed Apr 27 18:52:36 2022
+# Finished Make data base on Wed Apr 27 21:22:14 2022
 
  

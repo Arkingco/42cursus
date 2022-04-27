@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 15:01:26 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/27 21:18:45 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/27 21:20:57 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ int	main(int argc, char **argv)
 	if (str_head == NULL)
 		print_error(1);
 	pared_str = parse(str_head, argv);
-	pared_error_check(pared_str);
 }

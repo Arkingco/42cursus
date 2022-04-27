@@ -6,11 +6,11 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 14:57:05 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/27 21:18:40 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/27 21:34:29 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 static void	set_parsed_str(char *parsed_str, char *head_str)
 {
@@ -26,20 +26,24 @@ static void	set_parsed_str(char *parsed_str, char *head_str)
 
 static void	set_head_to_char(t_list *list_head, char **parsed_str)
 {
+	int	idx;
+
 	parsed_str = malloc(sizeof(char *) * get_list_head_row(list_head));
 	if (parsed_str == NULL)
 		print_error(1);
+	idx = 0;
 	while (list_head != NULL)
 	{
-		parsed_str = malloc(sizeof(char) * get_list_head_colum(list_head));
+		parsed_str = malloc(sizeof(char) * get_list_head_colum(list_head->str));
 		if (parsed_str != NULL)
 			print_error(1);
-		set_parsed_str(parsed_str, list_head->str);
+		set_parsed_str(parsed_str[idx], list_head->str);
 		list_head = list_head->next;
+		idx++;
 	}
 }
 
-static t_list	*set_parsing_head(t_list *list_head, char **argv)
+static void	set_parsing_head(t_list *list_head, char **argv)
 {
 	int		fd;
 	int		str_plag;
@@ -66,9 +70,10 @@ char	**parse(t_list *list_head, char **argv)
 {
 	char	**parsed_str;
 
+	parsed_str = NULL;
 	set_parsing_head(list_head, argv);
 	set_head_to_char(list_head, parsed_str);
-	if (parsed_str_error_check())
+	if (parsed_str_error_check(parsed_str))
 		print_error(1);
 	return (parsed_str);
 }
