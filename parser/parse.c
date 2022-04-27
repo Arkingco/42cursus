@@ -6,15 +6,15 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 14:57:05 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/27 21:14:48 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/27 21:18:40 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void set_parsed_str(char *parsed_str, char *head_str)
+static void	set_parsed_str(char *parsed_str, char *head_str)
 {
-	int idx;
+	int	idx;
 
 	idx = 0;
 	while (head_str[idx] != '\0')

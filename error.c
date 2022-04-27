@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 16:58:52 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/27 17:31:47 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/27 21:19:22 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	print_error(int exit_flag)
 {
-    write(2, "Error\n", 6);
-    exit(exit_flag);
+	write(2, "Error\n", 6);
+	exit(exit_flag);
 }
