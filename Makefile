@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/27 15:13:41 by kipark            #+#    #+#              #
-#    Updated: 2022/04/27 21:35:38 by kipark           ###   ########.fr        #
+#    Updated: 2022/04/28 11:30:45 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ CC = gcc
 OBJ = main.c
 
 OBJ_TEST =  so_long.c                       \
-            gnl/get_next_line_bonus.c       \
-            gnl/get_next_line_utils_bonus.c \
+            gnl/get_next_line.c       \
+            gnl/get_next_line_utils.c \
             parser/error_utils.c            \
             parser/error.c                  \
             parser/parse_utils.c            \
@@ -30,7 +30,8 @@ OBJ_TEST =  so_long.c                       \
 all : $(NAME)
 
 $(NAME) : $(OBJ_TEST)
-	$(CC) $(CFLAGS) $^
+	$(CC) $(CFLAGS) -g $^
+
 
 # clean	:
 # 	$(RM) $(RM_FLAGS) $(NAME)

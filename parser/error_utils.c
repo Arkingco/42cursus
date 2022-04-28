@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 19:54:19 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/27 21:27:00 by kipark           ###   ########.fr       */
+/*   Updated: 2022/04/28 19:52:05 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	get_colum_length(char *str)
 	int	idx;
 
 	idx = 0;
+	if(str == NULL)
+		return (0);
 	while (str[idx] != '\0')
 		idx++;
 	return (idx);
@@ -51,17 +53,18 @@ void	check_object_parsed(char **parsed_str, t_object *object)
 	colum = 0;
 	while (parsed_str[row] != NULL)
 	{
+		colum = 0;
 		while (parsed_str[row][colum] != '\0')
 		{
-			if (parsed_str[row][colum] != '0')
+			if (parsed_str[row][colum] == '0')
 			object->space += 1;
-			else if (parsed_str[row][colum] != '1')
+			else if (parsed_str[row][colum] == '1')
 				object->wall += 1;
-			else if (parsed_str[row][colum] != 'C')
+			else if (parsed_str[row][colum] == 'C')
 				object->item += 1;
-			else if (parsed_str[row][colum] != 'E')
+			else if (parsed_str[row][colum] == 'E')
 				object->exit += 1;
-			else if (parsed_str[row][colum] != 'P')
+			else if (parsed_str[row][colum] == 'P')
 				object->player += 1;
 			else
 				object->error = 1;

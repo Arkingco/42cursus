@@ -1,7 +1,6 @@
-make --dry-run --keep-going --print-directory
+make all --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/kipark/42_project/so_long'
+gcc -Wall -Wextra -Werror -g so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/error.c parser/parse_utils.c parser/parse.c so_long.h error.c
  
-make: *** No rule to make target `parser/parse_utils.c', needed by `so_long'.
-
 make: Leaving directory `/Users/kipark/42_project/so_long'
  
