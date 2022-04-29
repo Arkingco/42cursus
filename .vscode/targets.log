@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Thu Apr 28 19:12:49 2022
+# Make data base, printed on Fri Apr 29 21:13:28 2022
  
 
 # Variables
@@ -30,7 +30,7 @@ CURDIR := /Users/kipark/42_project/so_long
 # makefile
 SHELL = /bin/sh
 # environment
-VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
 # makefile (from `Makefile', line 14)
@@ -42,15 +42,15 @@ VSCODE_NODE_CACHED_DATA_DIR = /Users/kipark/Library/Application Support/Code/Cac
 # environment
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220428T191241
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220429T191322
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-d69d2bd2-5463-4f73-a0ed-3f2ef32d65d5.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-1cbdb1f1-5c78-40db-a6ff-4e4589ba57bd.sock
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # environment
-LaunchInstanceID = 8CABADF5-1F76-4D3E-B318-BBDE238C5783
+LaunchInstanceID = AAD84F21-37C4-40AB-8FCB-DDBF6B7E8347
 # makefile (from `Makefile', line 18)
-OBJ_TEST = so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/error.c parser/parse_utils.c parser/parse.c so_long.h error.c                         
+OBJ_TEST = so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/error.c parser/parse_utils.c parser/parse.c so_long.h event/key.c event/map.c error.c                         
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -58,7 +58,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.0RRVLVrAib/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.TvayNAh3GM/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -132,7 +132,7 @@ MAKEFILES :=
 # environment
 LC_ALL = C
 # environment
-SECURITYSESSIONID = 186a5
+SECURITYSESSIONID = 186a6
 # automatic
 ^F = $(notdir $^)
 # default
@@ -144,7 +144,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 2810
+VSCODE_PID = 7261
 # variable set hash-table stats:
 # Load=66/1024=6%, Rehash=0, Collisions=5/97=5%
 
@@ -154,9 +154,9 @@ VSCODE_PID = 2810
 
 # Directories
 
-# . (device 16777225, inode 2516114): 20 files, no impossibilities.
+# . (device 16777225, inode 2516114): 23 files, no impossibilities.
 
-# 20 files, no impossibilities in 1 directories.
+# 23 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -165,9 +165,18 @@ VSCODE_PID = 2810
 # Files
 
 # Not a target:
+event/key.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-29 20:58:44
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
 parser/parse.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-28 17:58:26
+#  Last modified 2022-04-29 16:44:32
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -194,7 +203,7 @@ gnl/get_next_line.c:
 # Not a target:
 so_long.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-28 17:18:19
+#  Last modified 2022-04-29 21:13:03
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -209,7 +218,7 @@ so_long.c:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-28 11:30:45
+#  Last modified 2022-04-29 21:13:17
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -218,7 +227,7 @@ Makefile:
 # Not a target:
 parser/error_utils.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-28 17:59:44
+#  Last modified 2022-04-29 14:17:00
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -227,7 +236,16 @@ parser/error_utils.c:
 # Not a target:
 so_long.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-28 17:34:43
+#  Last modified 2022-04-29 21:12:11
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+event/map.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-29 21:13:09
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -242,7 +260,7 @@ so_long.h:
 # Not a target:
 parser/error.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-28 18:00:12
+#  Last modified 2022-04-29 21:11:28
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -251,7 +269,7 @@ parser/error.c:
 # Not a target:
 parser/parse_utils.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-28 17:59:39
+#  Last modified 2022-04-28 20:08:26
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -260,7 +278,7 @@ parser/parse_utils.c:
 # Not a target:
 error.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-27 21:27:01
+#  Last modified 2022-04-29 21:10:21
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -275,7 +293,7 @@ gnl/get_next_line_utils.c:
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-so_long: so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/error.c parser/parse_utils.c parser/parse.c so_long.h error.c
+so_long: so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/error.c parser/parse_utils.c parser/parse.c so_long.h event/key.c event/map.c error.c
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `'
 #  File does not exist.
@@ -288,23 +306,24 @@ so_long: so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_ut
 # automatic
 # * := 
 # automatic
-# + := so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/error.c parser/parse_utils.c parser/parse.c so_long.h error.c
+# + := so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/error.c parser/parse_utils.c parser/parse.c so_long.h event/key.c event/map.c error.c
 # automatic
 # | := 
 # automatic
 # < := so_long.c
 # automatic
-# ^ := so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/error.c parser/parse_utils.c parser/parse.c so_long.h error.c
+# ^ := so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/error.c parser/parse_utils.c parser/parse.c so_long.h event/key.c event/map.c error.c
 # automatic
-# ? := so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/error.c parser/parse_utils.c parser/parse.c so_long.h error.c
+ 
+# ? := so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/error.c parser/parse_utils.c parser/parse.c so_long.h event/key.c event/map.c error.c
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/13=8%
 #  commands to execute (from `Makefile', line 33):
-	$(CC) $(CFLAGS) -g $^
+	$(CC) $(CFLAGS) -g $^ libmlx.dylib
 	
 
 # files hash-table stats:
-# Load=14/1024=1%, Rehash=0, Collisions=0/38=0%
+# Load=16/1024=2%, Rehash=0, Collisions=0/42=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -316,7 +335,6 @@ so_long: so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_ut
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
- 
-# Finished Make data base on Thu Apr 28 19:12:49 2022
+# Finished Make data base on Fri Apr 29 21:13:28 2022
 
  

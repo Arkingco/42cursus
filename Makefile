@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/27 15:13:41 by kipark            #+#    #+#              #
-#    Updated: 2022/04/28 11:30:45 by kipark           ###   ########.fr        #
+#    Updated: 2022/04/29 21:13:17 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,22 +16,21 @@ CC = gcc
 OBJ = main.c
 
 OBJ_TEST =  so_long.c                       \
-            gnl/get_next_line.c       \
-            gnl/get_next_line_utils.c \
+            gnl/get_next_line.c             \
+            gnl/get_next_line_utils.c       \
             parser/error_utils.c            \
             parser/error.c                  \
             parser/parse_utils.c            \
             parser/parse.c                  \
             so_long.h                       \
+            event/key.c                     \
+            event/map.c                     \
             error.c                         
-
-            
 
 all : $(NAME)
 
 $(NAME) : $(OBJ_TEST)
-	$(CC) $(CFLAGS) -g $^
-
+	$(CC) $(CFLAGS) -g $^ libmlx.dylib
 
 # clean	:
 # 	$(RM) $(RM_FLAGS) $(NAME)
