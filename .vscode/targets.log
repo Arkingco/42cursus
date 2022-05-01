@@ -8,17 +8,14 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Sun May  1 15:21:20 2022
+# Make data base, printed on Sun May  1 20:34:49 2022
 
 # Variables
 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
- 
 ?F = $(notdir $?)
-# makefile (from `Makefile', line 16)
-OBJ = main.c
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -29,26 +26,37 @@ OBJ = main.c
 CURDIR := /Users/kipark/42_project/so_long
 # makefile
 SHELL = /bin/sh
+# makefile (from `Makefile', line 16)
+RM = rm
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
 # makefile (from `Makefile', line 14)
+ 
 CFLAGS = -Wall -Wextra -Werror
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_NODE_CACHED_DATA_DIR = /Users/kipark/Library/Application Support/Code/CachedData/6ab598523be7a800d7f3eb4d92d7ab9a66069390
+# makefile (from `Makefile', line 31)
+OBJ_DIR = objs
 # environment
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220501T145710
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220501T185642
+# makefile (from `Makefile', line 30)
+INCS = so_long.h
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-489a17d7-232e-4dc3-9411-2ee6656a67d5.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-5a30d68a-f085-4cdf-89d6-f9a9c92e4e99.sock
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
-# makefile (from `Makefile', line 18)
-OBJ_TEST = so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/error.c parser/parse_utils.c parser/parse.c so_long.h event/key.c event/map.c event/key_event.c error.c                         
+# makefile (from `Makefile', line 35)
+VPATH = $(shell ls -R)
+# environment
+LaunchInstanceID = 6AE6B5B9-34C9-444F-B07C-073F8D8C5215
+# makefile (from `Makefile', line 33)
+OBJ_TEST = $(addprefix $(OBJ_DIR)/, $(SRC_TEST:.c=.o))
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -56,7 +64,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.rl0XzxN3KO/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.gyEaEmOquE/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -114,19 +122,25 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.microsoft.VSCode.2136
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
 __CF_USER_TEXT_ENCODING = 0x19390:0x0:0x0
+# environment
+COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # automatic
 <F = $(notdir $<)
+# makefile (from `Makefile', line 17)
+RM_FLAGS = -rf
 # environment
 LC_ALL = C
+# environment
+SECURITYSESSIONID = 186a6
 # automatic
 ^F = $(notdir $^)
 # default
@@ -138,9 +152,11 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 84109
+VSCODE_PID = 1562
+# makefile (from `Makefile', line 18)
+SRC_TEST = so_long.c get_next_line.c get_next_line_utils.c error_utils.c parse_error.c parse_utils.c key.c map.c key_event.c error.c parse.c
 # variable set hash-table stats:
-# Load=63/1024=6%, Rehash=0, Collisions=5/94=5%
+# Load=71/1024=7%, Rehash=0, Collisions=6/108=6%
 
 # Pattern-specific Variable Values
 
@@ -148,60 +164,152 @@ VSCODE_PID = 84109
 
 # Directories
 
-# . (device 16777226, inode 2516114): 21 files, no impossibilities.
+# ./map/objs: could not be stat'd.
+# get_next_line.c: could not be stat'd.
+# mlx/objs: could not be stat'd.
+# ./mlx (device 16777225, inode 2516752): 18 files, no impossibilities.
+# map.c: could not be stat'd.
+# mlx_loop.3: could not be stat'd.
+# mlx_new_image.3: could not be stat'd.
+# Makefile (device 16777225, inode 2611922): could not be opened.
+# ./mlx/objs: could not be stat'd.
+# parse.c: could not be stat'd.
+# ./images (device 16777225, inode 2586632): 10 files, no impossibilities.
+# ./mlx/man/man3/objs: could not be stat'd.
+# . (device 16777225, inode 2516114): 18 files, no impossibilities.
+# mlx_string_put.c: could not be stat'd.
+# mlx_png.c: could not be stat'd.
+# key.c: could not be stat'd.
+# ./event (device 16777225, inode 2591243): 5 files, no impossibilities.
+# ./map (device 16777225, inode 2534908): 9 files, no impossibilities.
+# map.ber: could not be stat'd.
+# mlx.h: could not be stat'd.
+# mlx_image.swift: could not be stat'd.
+# ./event/objs: could not be stat'd.
+# error_all: could not be stat'd.
+# man: could not be stat'd.
+# mlx_xpm.c: could not be stat'd.
+# mlx_init.swiftsourceinfo: could not be stat'd.
+# event (device 16777225, inode 2591243): 5 files, no impossibilities.
+# test.c (device 16777225, inode 2547478): could not be opened.
+# ./mlx/man/man3 (device 16777225, inode 2516765): 7 files, no impossibilities.
+# ./mlx/man/objs: could not be stat'd.
+# parser (device 16777225, inode 2532942): 6 files, no impossibilities.
+# ./leak/objs: could not be stat'd.
+# parse_error.c: could not be stat'd.
+# event/objs: could not be stat'd.
+# player42.xpm: could not be stat'd.
+# ./leak (device 16777225, inode 2598600): 4 files, no impossibilities.
+# parser/objs: could not be stat'd.
+# so_long.h (device 16777225, inode 2532961): could not be opened.
+# error_object.ber: could not be stat'd.
+# gnl (device 16777225, inode 2533387): 4 files, no impossibilities.
+# player.xpm: could not be stat'd.
+# exit.xpm: could not be stat'd.
+# mlx (device 16777225, inode 2516752): 18 files, no impossibilities.
+# error_under3.ber: could not be stat'd.
+# error_utils.c: could not be stat'd.
+# man3: could not be stat'd.
+# gnl/objs: could not be stat'd.
+# mlx.3: could not be stat'd.
+# error_wall.ber: could not be stat'd.
+# ./parser (device 16777225, inode 2532942): 6 files, no impossibilities.
+# libmlx.dylib (device 16777225, inode 2568970): could not be opened.
+# background.xpm: could not be stat'd.
+# error_rectangle.ber: could not be stat'd.
+# get_next_line_utils.c: could not be stat'd.
+# mlx_init.swift: could not be stat'd.
+# ./parser/objs: could not be stat'd.
+# floor.xpm: could not be stat'd.
+# mlx_window.swiftsourceinfo: could not be stat'd.
+# wall.xpm: could not be stat'd.
+# map (device 16777225, inode 2534908): 9 files, no impossibilities.
+# interface.swift: could not be stat'd.
+# mlx_pixel_put.3: could not be stat'd.
+# leaks.c: could not be stat'd.
+# font.c: could not be stat'd.
+# leak (device 16777225, inode 2598600): 4 files, no impossibilities.
+# parse_utils.c: could not be stat'd.
+# big_map.ber: could not be stat'd.
+# map/objs: could not be stat'd.
+# mlx_new_window.3: could not be stat'd.
+# ./images/objs: could not be stat'd.
+# leak/objs: could not be stat'd.
+# ./mlx/man (device 16777225, inode 2516753): 3 files, no impossibilities.
+# so_long.c (device 16777225, inode 2532958): could not be opened.
+# images (device 16777225, inode 2586632): 10 files, no impossibilities.
+# mlx_rgb.c: could not be stat'd.
+# images/objs: could not be stat'd.
+# mlx_window.swift: could not be stat'd.
+# error.c (device 16777225, inode 2537135): could not be opened.
+# ./gnl (device 16777225, inode 2533387): 4 files, no impossibilities.
+# leak.out: could not be stat'd.
+# key_event.c: could not be stat'd.
+# item.xpm: could not be stat'd.
+# mlx_image.swiftsourceinfo: could not be stat'd.
+# ./gnl/objs: could not be stat'd.
+ 
 
-# 21 files, no impossibilities in 1 directories.
+# 140 files, no impossibilities in 84 directories.
 
 # Implicit Rules
 
-# No implicit rules.
+objs/%.o: %.c objs
+#  commands to execute (from `Makefile', line 43):
+	$(CC) $(CFLAGS) -Imlx -c $< -o $@
+	
+
+# 1 implicit rules, 0 (0.0%) terminal.
 
 # Files
 
 # Not a target:
-event/key.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-01 15:20:49
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-parser/parse.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-04-29 16:44:32
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+objs/get_next_line.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 all: so_long
+#  Phony target (prerequisite of .PHONY).
 #  Command-line target.
-#  Implicit rule search has been done.
+#  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
 
 # Not a target:
-gnl/get_next_line.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-04-28 16:56:09
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+objs/error.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.PHONY: all clean fclean re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/parse_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 so_long.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-01 15:17:38
+#  Last modified 2022-05-01 20:05:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+objs/key.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .SUFFIXES:
@@ -211,40 +319,68 @@ so_long.c:
 
 # Not a target:
 Makefile:
- 
 #  Implicit rule search has been done.
-#  Last modified 2022-05-01 15:21:15
+#  Last modified 2022-05-01 20:34:48
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-# Not a target:
-parser/error_utils.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-04-29 14:17:00
+objs:
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `'
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := objs
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := 
+# automatic
+# | := 
+# automatic
+# < := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  commands to execute (from `Makefile', line 46):
+	mkdir $(OBJ_DIR)
+	
+
+fclean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 49):
+	$(RM) $(RM_FLAGS) $(NAME)
+	$(MAKE) clean
+	
+
+objs/so_long.o: so_long.c objs
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `so_long'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+#  commands to execute (from `Makefile', line 43):
+	$(CC) $(CFLAGS) -Imlx -c $< -o $@
+	
 
 # Not a target:
-so_long.h:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-01 15:18:56
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-event/map.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-01 15:02:57
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+objs/parse.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -252,92 +388,79 @@ event/map.c:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-parser/error.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-04-29 22:09:49
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-parser/parse_utils.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-04-28 20:08:26
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-event/key_event.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-01 15:20:58
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-error.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-04-29 21:10:21
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-gnl/get_next_line_utils.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-04-28 16:48:56
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-so_long: so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/error.c parser/parse_utils.c parser/parse.c so_long.h event/key.c event/map.c event/key_event.c error.c
+re: fclean
+#  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: `'
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 56):
+	$(MAKE)
+	
+
+# Not a target:
+objs/map.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 53):
+	$(RM) $(RM_FLAGS) $(OBJ_DIR)
+	
+
+# Not a target:
+objs/get_next_line_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/parse_error.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/error_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+so_long: objs/so_long.o objs/get_next_line.o objs/get_next_line_utils.o objs/error_utils.o objs/parse_error.o objs/parse_utils.o objs/key.o objs/map.o objs/key_event.o objs/error.o objs/parse.o
+#  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
-# automatic
-# @ := so_long
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/error.c parser/parse_utils.c parser/parse.c so_long.h event/key.c event/map.c event/key_event.c error.c
-# automatic
-# | := 
-# automatic
-# < := so_long.c
-# automatic
-# ^ := so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/error.c parser/parse_utils.c parser/parse.c so_long.h event/key.c event/map.c event/key_event.c error.c
-# automatic
-# ? := so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/error.c parser/parse_utils.c parser/parse.c so_long.h event/key.c event/map.c event/key_event.c error.c
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/13=8%
-#  commands to execute (from `Makefile', line 34):
-	$(CC) $(CFLAGS) -g $^ libmlx.dylib
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+#  commands to execute (from `Makefile', line 40):
+	$(CC) $(CFLAGS) -o $@ $^ libmlx.dylib
 	
 
+# Not a target:
+objs/key_event.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # files hash-table stats:
-# Load=17/1024=2%, Rehash=0, Collisions=0/44=0%
+# Load=22/1024=2%, Rehash=0, Collisions=11/109=10%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
-# No general (`VPATH' variable) search path.
+# General (`VPATH' variable) search path:
+# event:gnl:images:leak:map:mlx:parser:./event:./gnl:./images:./leak:./map:./mlx:./mlx/man:./mlx/man/man3:./parser
 
 # # of strings in strcache: 1
 # # of strcache buffers: 1
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sun May  1 15:21:20 2022
+# Finished Make data base on Sun May  1 20:34:49 2022
 
  

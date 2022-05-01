@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 14:57:19 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/01 16:37:40 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/01 20:39:44 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,16 @@
 
 # define PIXEL_SIZE				64
 
+# define EXIT_ERROR_PLAG		1
+
+typedef struct	s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
+
 typedef struct s_param {
 	int		x;
 	int		y;
@@ -50,14 +60,6 @@ typedef struct s_map {
 	int	img_width;
 	int img_height;
 }				t_map;
-
-typedef struct	s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
 
 typedef struct s_list {
 	struct s_list	*next;
@@ -96,6 +98,7 @@ char	*so_long_strjoin(char *buffer);
 
 char	**parse(t_list **str_head, char **argv);
 void 	show_image(void *mlx, void *mlx_win, char **pared_map);
+void	set_background(void *mlx, void *mlx_win);
 
 int		key_press(int keycode, t_param *param);
 void	key_event_meet_floor_item(t_param *param, int x, int y);

@@ -6,7 +6,8 @@
         "unistd.h": "c",
         "fcntl.h": "c",
         "sstream": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "__locale": "c"
     },
     "makefile.launchConfigurations": [
         {

@@ -1,5 +1,20 @@
 make all --dry-run --keep-going --print-directory
 make: Entering directory `/Users/kipark/42_project/so_long'
-gcc -Wall -Wextra -Werror -g so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/error.c parser/parse_utils.c parser/parse.c so_long.h event/key.c event/map.c event/key_event.c error.c libmlx.dylib
+mkdir objs
+gcc -Wall -Wextra -Werror -Imlx -c so_long.c -o objs/so_long.o
+ 
+gcc -Wall -Wextra -Werror -Imlx -c gnl/get_next_line.c -o objs/get_next_line.o
+gcc -Wall -Wextra -Werror -Imlx -c gnl/get_next_line_utils.c -o objs/get_next_line_utils.o
+ 
+gcc -Wall -Wextra -Werror -Imlx -c parser/error_utils.c -o objs/error_utils.o
+gcc -Wall -Wextra -Werror -Imlx -c parser/parse_error.c -o objs/parse_error.o
+gcc -Wall -Wextra -Werror -Imlx -c parser/parse_utils.c -o objs/parse_utils.o
+gcc -Wall -Wextra -Werror -Imlx -c event/key.c -o objs/key.o
+gcc -Wall -Wextra -Werror -Imlx -c event/map.c -o objs/map.o
+ 
+gcc -Wall -Wextra -Werror -Imlx -c event/key_event.c -o objs/key_event.o
+gcc -Wall -Wextra -Werror -Imlx -c error.c -o objs/error.o
+gcc -Wall -Wextra -Werror -Imlx -c parser/parse.c -o objs/parse.o
+gcc -Wall -Wextra -Werror -o so_long objs/so_long.o objs/get_next_line.o objs/get_next_line_utils.o objs/error_utils.o objs/parse_error.o objs/parse_utils.o objs/key.o objs/map.o objs/key_event.o objs/error.o objs/parse.o libmlx.dylib
 make: Leaving directory `/Users/kipark/42_project/so_long'
  

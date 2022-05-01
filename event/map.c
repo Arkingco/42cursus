@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 21:11:49 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/01 16:27:23 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/01 17:44:51 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,10 @@ void show_image(void *mlx, void *mlx_win, char **map)
 			else if (map[row][colum] == '1')
 				mlx_put_image_to_window(mlx, mlx_win, map_info.wall, colum * PIXEL_SIZE, row * PIXEL_SIZE);		
 			else if (map[row][colum] == 'C')
+			{
+				mlx_put_image_to_window(mlx, mlx_win, map_info.floor, colum * PIXEL_SIZE, row * PIXEL_SIZE);				
 				mlx_put_image_to_window(mlx, mlx_win, map_info.item, colum * PIXEL_SIZE, row * PIXEL_SIZE);
+			}
 			else if (map[row][colum] == 'E')
 				mlx_put_image_to_window(mlx, mlx_win, map_info.exit, colum * PIXEL_SIZE, row * PIXEL_SIZE);
 			else if (map[row][colum] == 'P')
@@ -53,3 +56,12 @@ void show_image(void *mlx, void *mlx_win, char **map)
 	}
 }
 
+void set_background(void *mlx, void *mlx_win)
+{
+	void	*background;
+	int		img_width;
+	int		img_height;
+
+	background = mlx_xpm_file_to_image(mlx, "./images/background.xpm", &img_width, &img_height);
+	mlx_put_image_to_window(mlx, mlx_win, background, 0, 0);
+}
