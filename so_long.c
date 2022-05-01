@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 15:01:26 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/01 15:17:38 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/01 16:29:22 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	main(int argc, char **argv)
 	map_width = get_row_length(map);
 	map_heidth = get_colum_length(map[0]);
 	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, map_heidth * PIXEL_SIZE, map_width * PIXEL_SIZE, "Hello world!");
+	mlx_win = mlx_new_window(mlx, map_heidth * PIXEL_SIZE, map_width * PIXEL_SIZE, "so_long");
 	show_image(mlx, mlx_win, map);
 	param_init(&param, map, mlx, mlx_win);
 	mlx_hook(mlx_win, X_EVENT_KEY_PRESS, 0, &key_press, &param);

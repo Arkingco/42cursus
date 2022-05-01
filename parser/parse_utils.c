@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 19:27:11 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/28 20:08:26 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/01 16:16:28 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int	get_list_head_colum(char *head_str)
 		return (0);
 	while (head_str[length] != '\0')
 		length++;
-	length--;
+	if(head_str[length-1] == '\n')
+		length--;
 	return (length);
 }
 

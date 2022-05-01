@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 17:31:52 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/29 22:09:49 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/01 16:15:06 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static int	check_str_row_length(char **parsed_str)
 	return (1);
 }
 
+#include<stdio.h>
 static int	check_str_rectangle(char **parsed_str)
 {
 	int	before_colum_length;
@@ -33,6 +34,7 @@ static int	check_str_rectangle(char **parsed_str)
 	idx = 1;
 	while (parsed_str[idx] != NULL)
 	{
+		printf("%s\n", parsed_str[idx]);
 		if (before_colum_length != get_colum_length(parsed_str[idx]))
 			return (1);
 		idx++;

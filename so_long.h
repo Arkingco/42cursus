@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 14:57:19 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/01 15:18:56 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/01 16:37:40 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,6 @@ typedef struct s_param {
 	void	*mlx;
 	void	*mlx_win;
 }				t_param;
-
-typedef struct s_player {
-	int	get_item;
-}				t_player;
 
 typedef struct s_map {
 	void *wall;

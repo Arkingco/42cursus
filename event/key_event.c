@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 15:08:39 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/01 15:25:30 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/01 16:38:43 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ void key_event_meet_exit(t_param *param, int x, int y)
 		row++;
 	}
 	if(clear == 1)
-		return ;
+		exit(0);
 }

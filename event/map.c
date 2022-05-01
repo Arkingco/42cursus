@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 21:11:49 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/01 15:28:39 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/01 16:27:23 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void set_t_map(void *mlx, t_map *map)
 	map->item = mlx_xpm_file_to_image(mlx, "./images/item.xpm", &map->img_width, &map->img_height);
 	map->exit = mlx_xpm_file_to_image(mlx, "./images/exit.xpm", &map->img_width, &map->img_height);
 	map->floor = mlx_xpm_file_to_image(mlx, "./images/floor.xpm", &map->img_width, &map->img_height);
-	map->player = mlx_xpm_file_to_image(mlx, "./images/player.xpm",&map->img_width, &map->img_height);
+	map->player = mlx_xpm_file_to_image(mlx, "./images/player42.xpm",&map->img_width, &map->img_height);
 	map->wall = mlx_xpm_file_to_image(mlx, "./images/wall.xpm", &map->img_width, &map->img_height);
 }
 
@@ -43,7 +43,10 @@ void show_image(void *mlx, void *mlx_win, char **map)
 			else if (map[row][colum] == 'E')
 				mlx_put_image_to_window(mlx, mlx_win, map_info.exit, colum * PIXEL_SIZE, row * PIXEL_SIZE);
 			else if (map[row][colum] == 'P')
-				mlx_put_image_to_window(mlx, mlx_win, map_info.player, colum * PIXEL_SIZE, row * PIXEL_SIZE);
+			{
+				mlx_put_image_to_window(mlx, mlx_win, map_info.floor, colum * PIXEL_SIZE, row * PIXEL_SIZE);
+				mlx_put_image_to_window(mlx, mlx_win, map_info.player, colum * PIXEL_SIZE + 8, row * PIXEL_SIZE + 8);				
+			}
 			colum++;
 		}
 		row++;
