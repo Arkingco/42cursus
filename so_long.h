@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 14:57:19 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/29 22:15:57 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/01 15:18:56 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ int		gnl_strlen(char *s);
 char	*gnl_strjoin(char *static_line, char *buffer, int buffer_length);
 void	gnl_free_char_pointer(char **pointer);
 
-
 char	*get_next_line(int fd);
 
 int		get_list_head_colum(char *head_str);
@@ -103,4 +102,7 @@ char	**parse(t_list **str_head, char **argv);
 void 	show_image(void *mlx, void *mlx_win, char **pared_map);
 
 int		key_press(int keycode, t_param *param);
+void	key_event_meet_floor_item(t_param *param, int x, int y);
+void	key_event_meet_exit(t_param *param, int x, int y);
+
 #endif

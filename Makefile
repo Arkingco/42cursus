@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/27 15:13:41 by kipark            #+#    #+#              #
-#    Updated: 2022/04/29 21:13:17 by kipark           ###   ########.fr        #
+#    Updated: 2022/05/01 15:21:15 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ OBJ_TEST =  so_long.c                       \
             so_long.h                       \
             event/key.c                     \
             event/map.c                     \
+            event/key_event.c               \
             error.c                         
 
 all : $(NAME)

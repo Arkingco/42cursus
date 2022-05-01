@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 21:11:49 by kipark            #+#    #+#             */
-/*   Updated: 2022/04/29 22:10:18 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/01 15:28:39 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ void show_image(void *mlx, void *mlx_win, char **map)
 
 	set_t_map(mlx, &map_info);
 	row = 0;
-	while(row < get_row_length(map))
+	while(map[row] != NULL)
 	{
 		colum = 0;
-		while(colum < get_colum_length(map[0]))
+		while(map[row][colum] != '\0')
 		{
 			if (map[row][colum] == '0')
 				mlx_put_image_to_window(mlx, mlx_win, map_info.floor, colum * PIXEL_SIZE, row * PIXEL_SIZE);
