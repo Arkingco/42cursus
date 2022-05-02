@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 14:57:19 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/02 17:13:03 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/02 17:18:16 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,6 @@ void	map_init(void *mlx, t_map *map);
 int		key_press(int keycode, t_param *param);
 void	key_event_meet_floor_item(t_param *param, int x, int y);
 void	key_event_meet_exit(t_param *param, int x, int y);
-void	exit_window(void *not_use);
+int		exit_window(void *not_use);
 
 #endif

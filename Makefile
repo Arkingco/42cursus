@@ -6,14 +6,14 @@
 #    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/27 15:13:41 by kipark            #+#    #+#              #
-#    Updated: 2022/05/02 17:13:22 by kipark           ###   ########.fr        #
+#    Updated: 2022/05/02 17:27:50 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 	= so_long
 
 CFLAGS 	= -Wall -Wextra -Werror
-CC 		= gcc
+CC 		= cc
 
 RM 		= rm
 RM_FLAGS = -rf

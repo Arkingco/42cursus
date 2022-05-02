@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:57:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/02 17:11:53 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/02 17:33:31 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ static int	check_play_move(t_param *param, int x, int y)
 	else if (param->map[x][y] == 'C')
 		key_event_meet_floor_item(param, x, y);
 	else if (param->map[x][y] == 'E')
+	{
 		key_event_meet_exit(param, x, y);
+		return (0);
+	}
 	return (1);
 }
 
