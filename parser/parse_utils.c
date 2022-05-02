@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 19:27:11 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/01 16:16:28 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/02 10:46:48 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ int	get_list_head_colum(char *head_str)
 	int	length;
 
 	length = 0;
-	if(head_str == 0)
+	if (head_str == 0)
 		return (0);
 	while (head_str[length] != '\0')
 		length++;
-	if(head_str[length-1] == '\n')
+	if (head_str[length - 1] == '\n')
 		length--;
 	return (length);
 }
@@ -60,7 +60,7 @@ char	*so_long_strjoin(char *buffer)
 
 	i = 0;
 	buffer_length = get_list_head_colum(buffer);
-	if(buffer_length == 0)
+	if (buffer_length == 0)
 		return (NULL);
 	new_line = malloc(sizeof(char) * buffer_length + 1);
 	if (new_line == NULL)

@@ -7,7 +7,8 @@
         "fcntl.h": "c",
         "sstream": "c",
         "stdio.h": "c",
-        "__locale": "c"
+        "__locale": "c",
+        "stdlib.h": "c"
     },
     "makefile.launchConfigurations": [
         {
@@ -21,6 +22,11 @@
             "cwd": "/Users/kipark/42_project/so_long",
             "binaryPath": "/Users/kipark/42_project/so_long/a.out",
             "binaryArgs": []
+        },
+        {
+            "cwd": "/Users/kipark/42_project/so_long",
+            "binaryPath": "/Users/kipark/42_project/so_long/so_long",
+            "binaryArgs": ["map/big_map.ber"]
         }
     ]
 }

@@ -6,62 +6,66 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 21:11:49 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/01 17:44:51 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/02 17:12:08 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void set_t_map(void *mlx, t_map *map)
+void	map_init(void *mlx, t_map *map)
 {
-	map->item = mlx_xpm_file_to_image(mlx, "./images/item.xpm", &map->img_width, &map->img_height);
-	map->exit = mlx_xpm_file_to_image(mlx, "./images/exit.xpm", &map->img_width, &map->img_height);
-	map->floor = mlx_xpm_file_to_image(mlx, "./images/floor.xpm", &map->img_width, &map->img_height);
-	map->player = mlx_xpm_file_to_image(mlx, "./images/player42.xpm",&map->img_width, &map->img_height);
-	map->wall = mlx_xpm_file_to_image(mlx, "./images/wall.xpm", &map->img_width, &map->img_height);
+	int	img_w;
+	int	img_h;
+
+	map->y = 0;
+	map->x = 0;
+	map->i = mlx_xpm_file_to_image(mlx, "./img/i.xpm", &img_w, &img_h);
+	map->e = mlx_xpm_file_to_image(mlx, "./img/e.xpm", &img_w, &img_h);
+	map->f = mlx_xpm_file_to_image(mlx, "./img/f.xpm", &img_w, &img_h);
+	map->p = mlx_xpm_file_to_image(mlx, "./img/p.xpm", &img_w, &img_h);
+	map->w = mlx_xpm_file_to_image(mlx, "./img/w.xpm", &img_w, &img_h);
 }
 
-void show_image(void *mlx, void *mlx_win, char **map)
+static void	put_image(void *mlx, void *win, t_map in, char object)
 {
-	t_map	map_info;
-	int		row;
-	int		colum;
-
-	set_t_map(mlx, &map_info);
-	row = 0;
-	while(map[row] != NULL)
+	if (object == '0')
+		mlx_put_image_to_window(mlx, win, in.f, in.x * PX, in.y * PX);
+	else if (object == '1')
+		mlx_put_image_to_window(mlx, win, in.w, in.x * PX, in.y * PX);
+	else if (object == 'C')
 	{
-		colum = 0;
-		while(map[row][colum] != '\0')
-		{
-			if (map[row][colum] == '0')
-				mlx_put_image_to_window(mlx, mlx_win, map_info.floor, colum * PIXEL_SIZE, row * PIXEL_SIZE);
-			else if (map[row][colum] == '1')
-				mlx_put_image_to_window(mlx, mlx_win, map_info.wall, colum * PIXEL_SIZE, row * PIXEL_SIZE);		
-			else if (map[row][colum] == 'C')
-			{
-				mlx_put_image_to_window(mlx, mlx_win, map_info.floor, colum * PIXEL_SIZE, row * PIXEL_SIZE);				
-				mlx_put_image_to_window(mlx, mlx_win, map_info.item, colum * PIXEL_SIZE, row * PIXEL_SIZE);
-			}
-			else if (map[row][colum] == 'E')
-				mlx_put_image_to_window(mlx, mlx_win, map_info.exit, colum * PIXEL_SIZE, row * PIXEL_SIZE);
-			else if (map[row][colum] == 'P')
-			{
-				mlx_put_image_to_window(mlx, mlx_win, map_info.floor, colum * PIXEL_SIZE, row * PIXEL_SIZE);
-				mlx_put_image_to_window(mlx, mlx_win, map_info.player, colum * PIXEL_SIZE + 8, row * PIXEL_SIZE + 8);				
-			}
-			colum++;
-		}
-		row++;
+		mlx_put_image_to_window(mlx, win, in.f, in.x * PX, in.y * PX);
+		mlx_put_image_to_window(mlx, win, in.i, in.x * PX, in.y * PX);
+	}
+	else if (object == 'E')
+		mlx_put_image_to_window(mlx, win, in.e, in.x * PX, in.y * PX);
+	else if (object == 'P')
+	{
+		mlx_put_image_to_window(mlx, win, in.f, in.x * PX, in.y * PX);
+		mlx_put_image_to_window(mlx, win, in.p, in.x * PX + 8, in.y * PX + 8);
 	}
 }
 
-void set_background(void *mlx, void *mlx_win)
+void	show_image(void *mlx, void *win, char **map, t_map in)
+{
+	while (map[in.y] != NULL)
+	{
+		in.x = 0;
+		while (map[in.y][in.x] != '\0')
+		{
+			put_image(mlx, win, in, map[in.y][in.x]);
+			in.x += 1;
+		}
+		in.y += 1;
+	}
+}
+
+void	set_background(void *mlx, void *win)
 {
 	void	*background;
-	int		img_width;
-	int		img_height;
+	int		img_w;
+	int		img_h;
 
-	background = mlx_xpm_file_to_image(mlx, "./images/background.xpm", &img_width, &img_height);
-	mlx_put_image_to_window(mlx, mlx_win, background, 0, 0);
+	background = mlx_xpm_file_to_image(mlx, "./img/b.xpm", &img_w, &img_h);
+	mlx_put_image_to_window(mlx, win, background, 0, 0);
 }

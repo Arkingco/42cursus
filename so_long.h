@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 14:57:19 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/01 20:39:44 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/02 17:13:03 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,20 @@
 #  define BUFFER_SIZE 42
 # endif
 
-# define X_EVENT_KEY_PRESS		2
-# define X_EVENT_KEY_RELEASE	3
-
+# define EVENT_KEY_PRESS		2
+# define X_EVENT_EXIT			17
 # define KEY_ESC				53
 # define KEY_W					13
 # define KEY_A					0
 # define KEY_S					1
 # define KEY_D					2
-
-# define PIXEL_SIZE				64
+# define WRITE_ERROR_FD			2
+# define PX						64
 
 # define EXIT_ERROR_PLAG		1
 
-typedef struct	s_data {
+typedef struct s_data
+{
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
@@ -43,37 +43,42 @@ typedef struct	s_data {
 	int		endian;
 }				t_data;
 
-typedef struct s_param {
-	int		x;
+typedef struct s_map
+{
+	void	*w;
+	void	*f;
+	void	*i;
+	void	*e;
+	void	*p;
 	int		y;
-	char 	**map;
-	void	*mlx;
-	void	*mlx_win;
-}				t_param;
-
-typedef struct s_map {
-	void *wall;
-	void *floor;
-	void *item;
-	void *exit;
-	void *player;
-	int	img_width;
-	int img_height;
+	int		x;
 }				t_map;
 
-typedef struct s_list {
+typedef struct s_param
+{
+	int		x;
+	int		y;
+	char	**map;
+	void	*mlx;
+	void	*mlx_win;
+	t_map	map_info;
+}				t_param;
+
+typedef struct s_list
+{
 	struct s_list	*next;
 	char			*str;
-}	t_list;
+}				t_list;
 
-typedef struct s_object {
+typedef struct s_object
+{
 	int	space;
 	int	player;
 	int	wall;
 	int	item;
 	int	exit;
 	int	error;
-}	t_object;
+}				t_object;
 
 int		gnl_strchr(char *s, char word);
 int		gnl_strlen(char *s);
@@ -90,18 +95,20 @@ void	print_error_str(int exit_flag, char *str);
 void	set_parsed_str(char *parsed_str, char *head_str);
 
 int		parsed_str_error_check(char **parsed_str);
-int		get_colum_length(char *str);
+int		get_column_length(char *str);
 int		get_row_length(char **str);
 void	set_object(t_object *t_object);
-void	check_object_parsed(char **parsed_str, t_object *object);
+void	check_object_parsed(char **map, t_object *object, int row, int column);
 char	*so_long_strjoin(char *buffer);
 
 char	**parse(t_list **str_head, char **argv);
-void 	show_image(void *mlx, void *mlx_win, char **pared_map);
+void	show_image(void *mlx, void *mlx_win, char **pared_map, t_map map_info);
 void	set_background(void *mlx, void *mlx_win);
+void	map_init(void *mlx, t_map *map);
 
 int		key_press(int keycode, t_param *param);
 void	key_event_meet_floor_item(t_param *param, int x, int y);
 void	key_event_meet_exit(t_param *param, int x, int y);
+void	exit_window(void *not_use);
 
 #endif
