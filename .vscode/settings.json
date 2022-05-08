@@ -2,6 +2,7 @@
     "makefile.extensionOutputFolder": "./.vscode",
     "files.associations": {
         "stdio.h": "c",
-        "wait.h": "c"
+        "wait.h": "c",
+        "__config": "c"
     }
 }

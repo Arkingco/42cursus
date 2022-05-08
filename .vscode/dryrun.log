@@ -1,7 +1,6 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory `/Users/kipark/42_project/42pipex'
-cc    -c -o pipex.o pipex.c
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/baggiseon/workspace/pipex'
+make: Nothing to be done for `all'.
  
-cc -Wextra -Wall -Werror -o pipex pipex.o
-make: Leaving directory `/Users/kipark/42_project/42pipex'
+make: Leaving directory `/Users/baggiseon/workspace/pipex'
  

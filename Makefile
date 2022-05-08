@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
+#    By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/04 09:04:34 by kipark            #+#    #+#              #
-#    Updated: 2022/05/07 14:02:22 by kipark           ###   ########.fr        #
+#    Updated: 2022/05/08 18:44:49 by baggiseon        ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,10 @@ CC_FLAG = -Wextra -Wall -Werror
 RM		= rm
 RM_FLAG	= -rf
 
-SRC			= pipex.c
+SRC			= 	pipex.c			\
+				error.c
+VPATH		=	$(ls -l)
+
 OBJ_FILE	= $(SRC:.c=.o)
 
 all : $(NAME)
@@ -30,6 +33,7 @@ clean :
 
 fclean : clean
 	$(RM) $(RM_FLAG) $^ $(NAME)
+
 re :
 	make fclean
 	make

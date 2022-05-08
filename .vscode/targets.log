@@ -6,8 +6,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
+ 
 
-# Make data base, printed on Sun May  8 06:54:00 2022
+# Make data base, printed on Sun May  8 18:45:01 2022
 
 # Variables
 
@@ -16,7 +17,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # automatic
 ?F = $(notdir $?)
 # makefile (from `Makefile', line 20)
-SRC = pipex.c
+SRC = pipex.c error.c
+# environment
+VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -24,33 +27,37 @@ SRC = pipex.c
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /Users/kipark/42_project/42pipex
+CURDIR := /Users/baggiseon/workspace/pipex
 # makefile
 SHELL = /bin/sh
 # makefile (from `Makefile', line 17)
 RM = rm
 # environment
-VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
-# environment
-VSCODE_NODE_CACHED_DATA_DIR = /Users/kipark/Library/Application Support/Code/CachedData/6ab598523be7a800d7f3eb4d92d7ab9a66069390
-# makefile (from `Makefile', line 21)
+# makefile (from `Makefile', line 24)
 OBJ_FILE = $(SRC:.c=.o)
 # environment
-VERBOSE_LOGGING = true
+VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220508T065353
+__CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-e9cea0cc-41d6-4aaa-a336-d412e9534846.sock
+INFOPATH = /opt/homebrew/share/info:
 # environment
-PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/5x/l039kxn57qn3d_rjl10609g00000gn/T/vscode-ipc-d8ae39cd-883b-43ad-8d9d-b94e882fbf11.sock
+# environment
+VSCODE_CWD = /Users/baggiseon/workspace/pipex
+# environment
+PATH = /opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 # makefile (from `Makefile', line 18)
 RM_FLAG = -rf
+# makefile (from `Makefile', line 22)
+VPATH = $(ls -l)
 # environment
-LaunchInstanceID = F9EF65A5-E2BF-4263-9F8D-5B471396FB5C
+LaunchInstanceID = 6282905C-4FFB-4EB3-8FC5-A042BFFA16E5
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -58,19 +65,31 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.1IrCLpGDUU/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.Fa4OP9unPn/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
-PWD = /Users/kipark/42_project/42pipex
+VSCODE_PIPE_LOGGING = true
 # environment
-HOME = /Users/kipark
+PWD = /Users/baggiseon/workspace/pipex
+# environment
+HOMEBREW_CELLAR = /opt/homebrew/Cellar
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+MANPATH = /opt/homebrew/share/man::
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
+# environment
+HOME = /Users/baggiseon
 # default
-MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
+MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-LOGNAME = kipark
+VSCODE_CODE_CACHE_PATH = /Users/baggiseon/Library/Application Support/Code/CachedData/f80445acd5a3dadef24aa209168452a3d97cc326
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+LOGNAME = baggiseon
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -82,33 +101,33 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-SHLVL = 1
+SHLVL = 2
 # makefile (from `Makefile', line 15)
 CC = cc
 # default
 MAKE_VERSION := 3.81
 # environment
-AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
-# environment
-USER = kipark
+USER = baggiseon
 # makefile
 .DEFAULT_GOAL := all
+# environment
+TERM_SESSION_ID = B210DC95-6F52-42A5-B3C2-B0989AE34E48
 # makefile (from `Makefile', line 13)
 NAME = pipex
-# environment
-PIPE_LOGGING = true
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
-MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
+MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
+# environment
+TERM_PROGRAM = Apple_Terminal
 # default
 .VARIABLES := 
 # environment
-TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/
+TMPDIR = /var/folders/5x/l039kxn57qn3d_rjl10609g00000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/kipark/Library/Application Support/Code/1.39.2-main.sock
+VSCODE_IPC_HOOK = /Users/baggiseon/Library/Application Support/Code/1.64.2-main.sock
 # makefile
 MAKEFLAGS = Rrqp
 # environment
@@ -116,13 +135,19 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000003.Electron
+TERM_PROGRAM_VERSION = 443
+# environment
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.589463.589469.D8947837-165C-4354-B46D-26571201407C
+# environment
+HOMEBREW_PREFIX = /opt/homebrew
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
-__CF_USER_TEXT_ENCODING = 0x19390:0x0:0x0
+HOMEBREW_REPOSITORY = /opt/homebrew
+# environment
+__CF_USER_TEXT_ENCODING = 0x1F5:0x3:0x33
 # environment
 COMMAND_MODE = unix2003
 # default
@@ -134,21 +159,21 @@ CC_FLAG = -Wextra -Wall -Werror
 # environment
 LC_ALL = C
 # environment
-SECURITYSESSIONID = 186a6
+SECURITYSESSIONID = 186b1
 # automatic
 ^F = $(notdir $^)
 # default
 SUFFIXES := 
-# default
-.INCLUDE_DIRS = /usr/local/include
 # environment
 MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 1178
+TERM = xterm-256color
+# environment
+VSCODE_PID = 923
 # variable set hash-table stats:
-# Load=68/1024=7%, Rehash=0, Collisions=4/96=4%
+# Load=80/1024=8%, Rehash=0, Collisions=3/108=3%
 
 # Pattern-specific Variable Values
 
@@ -156,7 +181,7 @@ VSCODE_PID = 1178
 
 # Directories
 
-# . (device 16777225, inode 2683052): 12 files, no impossibilities.
+# . (device 16777232, inode 1505578): 12 files, no impossibilities.
 
 # 12 files, no impossibilities in 1 directories.
 
@@ -175,6 +200,7 @@ all: pipex
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
+ 
 .Phony: all clean fclean re
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -189,7 +215,16 @@ all: pipex
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-07 14:02:22
+#  Last modified 2022-05-08 18:44:49
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+error.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-08 18:44:11
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -199,7 +234,7 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 32):
+#  commands to execute (from `Makefile', line 35):
 	$(RM) $(RM_FLAG) $^ $(NAME)
 	
 
@@ -213,7 +248,7 @@ re:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 34):
+#  commands to execute (from `Makefile', line 38):
 	make fclean
 	make
 	
@@ -222,32 +257,32 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 29):
+#  commands to execute (from `Makefile', line 32):
 	$(RM) $(RM_FLAG) $(OBJ_FILE)
 	
 
 # Not a target:
 pipex.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-08 05:31:17
+#  Last modified 2022-05-08 18:43:06
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-pipex: pipex.o
+pipex: pipex.o error.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-08 05:31:17
+#  Last modified 2022-05-08 18:44:11
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 26):
+#  commands to execute (from `Makefile', line 29):
 	$(CC) $(CC_FLAG) -o $@ $^
 	
 
 # files hash-table stats:
-# Load=10/1024=1%, Rehash=0, Collisions=0/30=0%
+# Load=11/1024=1%, Rehash=0, Collisions=0/32=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -259,6 +294,6 @@ pipex: pipex.o
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sun May  8 06:54:00 2022
+# Finished Make data base on Sun May  8 18:45:01 2022
 
  
