@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 09:13:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/09 11:02:11 by kipark           ###   ########.fr       */
+/*   Created: 2022/05/09 09:18:29 by kipark            #+#    #+#             */
+/*   Updated: 2022/05/09 11:02:42 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include"../pipex.h"
 
-#ifndef PIPEX_H
-# define PIPEX_H
+int	is_slash(char *str)
+{
+	return (1);
+}
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include "libft/libft.h"
+void	find_path_cmd(char **cmd)
+{
 
-#define NOT_PIPE_ARG_COUNT 3
+}
 
-#define ARGC_ERROR		1
-#define DUP2_ERROR		2
-#define PIPE_ERROR		3
-#define OPEN_ERROR		4
-#define FORK_ERROR		5
-#define EXECVE_ERROR	6
+char	**cmd_parse(char *cmd_str, char **envp)
+{
+	char **cmd;
 
-void	print_error(char *str);
-void	error_exit(int flag);
-
-char	**pipex_parser_split(char const *s, char c);
-# endif
+	cmd = pipex_parser_split(cmd_str, ' ');
+	if(is_slash(cmd[0]))
+		return (cmd);
+	else
+		find_path_cmd(cmd);
+	return (cmd);
+}
