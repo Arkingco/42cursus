@@ -6,13 +6,27 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 09:18:29 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/09 11:42:58 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/09 11:50:45 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../pipex.h"
 
-int	is_slash(char *str)
+static void	str_free(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != NULL)
+	{
+		free(str[i]);
+		++i;
+	}
+	free(str[i]);
+	free(str);
+}
+
+static int	is_slash(char *str)
 {
 	int i;
 
@@ -45,7 +59,7 @@ char	*find_path_cmd(char *cmd, char **envp)
 	char	**path_split;
 	char	*path_str;
 	char	*cmd_path;
-	int		status_path;
+	int		patt_status;
 
 	path_str = find_path_str(cmd, envp);
 	path_split = pipex_parser_split(path_str, ':');
@@ -53,14 +67,17 @@ char	*find_path_cmd(char *cmd, char **envp)
 	while(path_split[idx] != NULL)
 	{
 		cmd_path = ft_strjoin(path_split[idx], cmd);
-		status_path = access(cmd_path, F_OK);
-		if(status_path == -1)
+		patt_status = access(cmd_path, F_OK);
+		if(patt_status == -1)
 			free(cmd_path);
-		if(status_path == 0)
+		if(patt_status == 0)
 			break;
 		idx++;
 	}
-	// have to frere = path_str 	path_split 
+	str_free(path_split);
+	free(path_str);
+	if (patt_status == -1)
+		return (0);
 	return (cmd_path);
 }
 
