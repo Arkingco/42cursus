@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 05:58:29 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/09 10:27:49 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/09 11:40:16 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	error_exit(int flag)
 		print_error("Error : not enough arg\n");
 	if (flag == EXECVE_ERROR)
 		print_error("Error : execve return -1\n");
+	if (flag == ACCESS_ERROR)
+		print_error("Error : access return -1 \n");
 	return ;
 }
 

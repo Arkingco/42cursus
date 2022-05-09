@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 09:13:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/09 11:02:11 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/09 11:39:47 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@
 #define OPEN_ERROR		4
 #define FORK_ERROR		5
 #define EXECVE_ERROR	6
+#define ACCESS_ERROR	7
 
+#define	PATH_POINTER	5
 void	print_error(char *str);
 void	error_exit(int flag);
 
