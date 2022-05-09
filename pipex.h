@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 09:13:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/09 11:49:06 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/09 15:26:09 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@
 #define ACCESS_ERROR	7
 
 #define	PATH_POINTER	5
+
 void	print_error(char *str);
-void	error_exit(int flag);void
+void	error_exit(int flag);
 void    str_free(char **str, int index);
 
-char	**pipex_parser_split(char const *s, char c);
+char	**cmd_parse(char *cmd_str, char **envp);
+
 # endif

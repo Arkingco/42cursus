@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 09:18:29 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/09 11:50:45 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/09 15:48:40 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*find_path_str(char *cmd, char **envp)
 	idx = 0;
 	while (envp[idx] != NULL)
 	{
-		if(ft_strncmp("PATH=", cmd, PATH_POINTER))
+		if(ft_strncmp("PATH=", envp[idx], PATH_POINTER))
 			return ft_strdup(cmd + PATH_POINTER);
 		++idx;
 	}
@@ -59,36 +59,43 @@ char	*find_path_cmd(char *cmd, char **envp)
 	char	**path_split;
 	char	*path_str;
 	char	*cmd_path;
-	int		patt_status;
+	int		path_status;
 
 	path_str = find_path_str(cmd, envp);
-	path_split = pipex_parser_split(path_str, ':');
+	path_split = ft_split(path_str, ':');
 	idx = 0;
 	while(path_split[idx] != NULL)
 	{
 		cmd_path = ft_strjoin(path_split[idx], cmd);
-		patt_status = access(cmd_path, F_OK);
-		if(patt_status == -1)
-			free(cmd_path);
-		if(patt_status == 0)
+		path_status = access(cmd_path, F_OK);
+		if(path_status == 0)
 			break;
+		else
+			free(cmd_path);
 		idx++;
 	}
 	str_free(path_split);
 	free(path_str);
-	if (patt_status == -1)
+	if (path_status == -1)
 		return (0);
 	return (cmd_path);
 }
 
-char	**cmd_parse(char *cmd_str, char **envp)
+char	**cmd_parse(char *stdin_cmd_str, char **envp)
 {
-	char **cmd;
+	char	**cmd;
+	char	*find_path;
 
-	cmd = pipex_parser_split(cmd_str, ' ');
+	cmd = pipex_parser_split(stdin_cmd_str, ' ');
 	if(is_slash(cmd[0]))
 		return (cmd);
 	else
-		find_path_cmd(cmd, envp);
+	{
+		find_path = find_path_cmd(cmd, envp);
+		if (find_path == NULL)
+			print_error("COMMAND NOT FOUND");
+		free(cmd[0]);
+		cmd[0] = find_path;
+	}
 	return (cmd);
 }

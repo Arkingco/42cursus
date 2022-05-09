@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 09:12:59 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/09 11:29:49 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/09 15:23:27 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void child_pipe(int pipe_fd[2], int infile_fd, char *file_path, char **cmd_argv)
 	if (dup2(pipe_fd[1], STDOUT_FILENO) == -1)
 		error_exit(DUP2_ERROR);
 	close(pipe_fd[1]);
-	// access 함수 사용해서 file_path 가 존재 하는지 확인 해야함
 	if(execve(file_path, cmd_argv, NULL) == -1)
 		error_exit(EXECVE_ERROR);
 	perror(NULL);
