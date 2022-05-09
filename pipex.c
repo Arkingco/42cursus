@@ -6,14 +6,14 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 09:12:59 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/09 15:23:27 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/09 20:00:27 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
 #include<stdio.h>
-void child_pipe(int pipe_fd[2], int infile_fd, char *file_path, char **cmd_argv)
+void child_pipe(int pipe_fd[2], int infile_fd, char **cmd)
 {
 	if (dup2(infile_fd, STDIN_FILENO) == -1)
 		error_exit(DUP2_ERROR);
@@ -22,7 +22,7 @@ void child_pipe(int pipe_fd[2], int infile_fd, char *file_path, char **cmd_argv)
 	if (dup2(pipe_fd[1], STDOUT_FILENO) == -1)
 		error_exit(DUP2_ERROR);
 	close(pipe_fd[1]);
-	if(execve(file_path, cmd_argv, NULL) == -1)
+	if(execve(cmd[0], cmd, NULL) == -1)
 		error_exit(EXECVE_ERROR);
 	perror(NULL);
 	exit(1);
@@ -37,19 +37,18 @@ void	redirect_outfile(int read_only_pipe, char *output_file)
 		error_exit(DUP2_ERROR);
 }
 
-void	parent_pipe(int count_pipe, char **argv)
+void	parent_pipe(int count_pipe, int total_pipe, char **argv, char **envp)
 {
 	int	pid;
 	int	pipe_fd[2];
 	int infile_fd;
 
-	count_pipe = 0;
 	infile_fd = open(argv[1], O_RDONLY | O_CREAT, 0644);
 	if (infile_fd == -1)
 		error_exit(OPEN_ERROR);
 	if (pipe(pipe_fd) == -1)
 		error_exit(PIPE_ERROR);
-	while(count_pipe--)
+	while(count_pipe <= total_pipe)
 	{
 		pid = fork();
 		// 만약에 제대로 fork 받지 못했을 경우
@@ -57,22 +56,41 @@ void	parent_pipe(int count_pipe, char **argv)
 			error_exit(FORK_ERROR);
 		// 자식 프로세스 일 때
 		if(pid == 0)
-			child_pipe();
-		if(count_pipe != 1)
+		{
+			char **cmd_pa;
+			cmd_pa = cmd_parse(argv[count_pipe + 2], envp);
+			printf("\n");
+			for (int i=0; cmd_pa[i]; ++i)
+			{
+				printf("%s\n", cmd_pa[i]);
+			}
+			child_pipe(pipe_fd, infile_fd, cmd_parse(argv[count_pipe + 2], envp));
+		}
+		char **cmd_pa;
+			cmd_pa = cmd_parse(argv[count_pipe + 2], envp);
+			printf("\n");
+			for (int i=0; cmd_pa[i]; ++i)
+			{
+				printf("%s\n", cmd_pa[i]);
+			}
+		if(count_pipe != total_pipe)
 			infile_fd = pipe_fd[0];
+		count_pipe++;
 	}
 	close(pipe_fd[1]);
 	// 프로세스 끝내기
-	redirect_outfile(pipe_fd, argv[2]);
+	// redirect_outfile(pipe_fd, argv[2]);
 }
 
 // 파서 만들기
 int main(int argc, char **argv, char **envp)
 {
 	int count_pipe;
+	int	total_pipe;
 
 	if(argc < 4)
 		error_exit(ARGC_ERROR);
-	count_pipe = argv - NOT_PIPE_ARG_COUNT;
-	parent_pipe(count_pipe, argv);
+	count_pipe = 1;
+	total_pipe = argc - NOT_PIPE_ARG_COUNT;
+	parent_pipe(count_pipe, total_pipe, argv, envp);
 }

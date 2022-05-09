@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 09:18:29 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/09 15:48:40 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/09 20:58:50 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,18 @@ static int	is_slash(char *str)
 	return (0);
 }
 
-char	*find_path_str(char *cmd, char **envp)
+char	*find_path_str(char **envp)
 {
 	int idx;
 
 	idx = 0;
 	while (envp[idx] != NULL)
 	{
-		if(ft_strncmp("PATH=", envp[idx], PATH_POINTER))
-			return ft_strdup(cmd + PATH_POINTER);
+		if(ft_strncmp("PATH=", envp[idx], PATH_POINTER) == 0)
+			return ft_strdup(envp[idx] + PATH_POINTER);
 		++idx;
 	}
+	return (0);
 }
 
 char	*find_path_cmd(char *cmd, char **envp)
@@ -61,7 +62,7 @@ char	*find_path_cmd(char *cmd, char **envp)
 	char	*cmd_path;
 	int		path_status;
 
-	path_str = find_path_str(cmd, envp);
+	path_str = find_path_str(envp);
 	path_split = ft_split(path_str, ':');
 	idx = 0;
 	while(path_split[idx] != NULL)
@@ -86,14 +87,14 @@ char	**cmd_parse(char *stdin_cmd_str, char **envp)
 	char	**cmd;
 	char	*find_path;
 
-	cmd = pipex_parser_split(stdin_cmd_str, ' ');
+	cmd = ft_split(stdin_cmd_str, ' ');
 	if(is_slash(cmd[0]))
 		return (cmd);
 	else
 	{
-		find_path = find_path_cmd(cmd, envp);
+		find_path = find_path_cmd(cmd[0], envp);
 		if (find_path == NULL)
-			print_error("COMMAND NOT FOUND");
+			print_error("COMMAND NOT FOUND\n");
 		free(cmd[0]);
 		cmd[0] = find_path;
 	}
