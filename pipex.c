@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 09:12:59 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/09 20:00:27 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/10 12:10:48 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,23 +56,7 @@ void	parent_pipe(int count_pipe, int total_pipe, char **argv, char **envp)
 			error_exit(FORK_ERROR);
 		// 자식 프로세스 일 때
 		if(pid == 0)
-		{
-			char **cmd_pa;
-			cmd_pa = cmd_parse(argv[count_pipe + 2], envp);
-			printf("\n");
-			for (int i=0; cmd_pa[i]; ++i)
-			{
-				printf("%s\n", cmd_pa[i]);
-			}
 			child_pipe(pipe_fd, infile_fd, cmd_parse(argv[count_pipe + 2], envp));
-		}
-		char **cmd_pa;
-			cmd_pa = cmd_parse(argv[count_pipe + 2], envp);
-			printf("\n");
-			for (int i=0; cmd_pa[i]; ++i)
-			{
-				printf("%s\n", cmd_pa[i]);
-			}
 		if(count_pipe != total_pipe)
 			infile_fd = pipe_fd[0];
 		count_pipe++;
@@ -83,6 +67,7 @@ void	parent_pipe(int count_pipe, int total_pipe, char **argv, char **envp)
 }
 
 // 파서 만들기
+// 파일 널처리 해야함 파서 대충 완료
 int main(int argc, char **argv, char **envp)
 {
 	int count_pipe;

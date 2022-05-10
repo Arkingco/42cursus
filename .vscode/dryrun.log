@@ -1,5 +1,6 @@
-make debug --dry-run --always-make --keep-going --print-directory
+make debug --dry-run --keep-going --print-directory
 make: Entering directory `/Users/kipark/42_project/pipex'
+ 
 cc -Wextra -Wall -Werror -g -o pipex pipex.c error.c paser/parse.c libft.a
 make: Leaving directory `/Users/kipark/42_project/pipex'
  
