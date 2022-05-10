@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 09:12:59 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/10 12:10:48 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/10 12:25:53 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void child_pipe(int pipe_fd[2], int infile_fd, char **cmd)
 	if (dup2(pipe_fd[1], STDOUT_FILENO) == -1)
 		error_exit(DUP2_ERROR);
 	close(pipe_fd[1]);
+	// for(int i=0; cmd[i] != NULL; ++i)
+	// 	fprintf(stderr, "child : %s\n", cmd[i]);
 	if(execve(cmd[0], cmd, NULL) == -1)
 		error_exit(EXECVE_ERROR);
 	perror(NULL);
@@ -51,23 +53,24 @@ void	parent_pipe(int count_pipe, int total_pipe, char **argv, char **envp)
 	while(count_pipe <= total_pipe)
 	{
 		pid = fork();
-		// 만약에 제대로 fork 받지 못했을 경우
 		if (pid == -1)
 			error_exit(FORK_ERROR);
-		// 자식 프로세스 일 때
 		if(pid == 0)
-			child_pipe(pipe_fd, infile_fd, cmd_parse(argv[count_pipe + 2], envp));
+			child_pipe(pipe_fd, infile_fd, cmd_parse(argv[count_pipe + 1], envp));
 		if(count_pipe != total_pipe)
 			infile_fd = pipe_fd[0];
 		count_pipe++;
 	}
 	close(pipe_fd[1]);
+	char buffer[4000];
+	read(pipe_fd[0], buffer, 4000);
+	printf("%s", buffer);
 	// 프로세스 끝내기
 	// redirect_outfile(pipe_fd, argv[2]);
 }
 
 // 파서 만들기
-// 파일 널처리 해야함 파서 대충 완료
+// 명령어 널처리 파일 널처리 해야함 파서 대충 완료
 int main(int argc, char **argv, char **envp)
 {
 	int count_pipe;
