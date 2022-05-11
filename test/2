@@ -1,0 +1,14 @@
+Makefile
+error.c
+error.o
+infile
+libft
+libft.a
+outfile
+paser
+pipex
+pipex.c
+pipex.dSYM
+pipex.h
+pipex.o
+test

@@ -6,23 +6,40 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 09:12:59 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/10 16:58:29 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/11 11:35:27 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
+#include<string.h>
 #include<stdio.h>
 void child_pipe(int pipe_fd[2], int infile_fd, char **cmd, int count_pipe)
 {
-	fprintf(stderr, "\n %d %d\n", infile_fd, count_pipe);
+	// fprintf(stderr, "\n %d %d\n", infile_fd, count_pipe);
+	// if (dup2(infile_fd, STDIN_FILENO) == -1)
+	// 	error_exit(DUP2_ERROR);
+	// close(infile_fd);
+	// close(pipe_fd[0]);
+	// if (dup2(pipe_fd[1], STDOUT_FILENO) == -1)
+	// 	error_exit(DUP2_ERROR);
+	// close(pipe_fd[1]);
+	// if(execve(cmd[0], cmd, NULL) == -1)
+	// 	error_exit(EXECVE_ERROR);
+	// perror(NULL);
+	// exit(1);
 	if (dup2(infile_fd, STDIN_FILENO) == -1)
 		error_exit(DUP2_ERROR);
 	close(infile_fd);
 	close(pipe_fd[0]);
-	if (dup2(pipe_fd[1], STDOUT_FILENO) == -1)
+	int fd = open(ft_strjoin("test", ft_itoa(count_pipe)), O_WRONLY | O_CREAT, 0644);
+	if (dup2(fd, STDOUT_FILENO) == -1)
 		error_exit(DUP2_ERROR);
 	close(pipe_fd[1]);
+	for (int i=0; cmd[i] != NULL; ++i)
+	{
+		fprintf(stderr, "%d: %s\n", count_pipe, cmd[i]);
+	}
 	if(execve(cmd[0], cmd, NULL) == -1)
 		error_exit(EXECVE_ERROR);
 	perror(NULL);
@@ -38,7 +55,7 @@ void	redirect_outfile(int pipe_fd[2], char *output_file)
 	write(out_fd, buffer, ft_strlen(buffer));
 }
 
-void	parent_pipe(int count_pipe, int total_pipe, char **argv, char **envp)
+void	parent_pipe(int count_pipe, char **argv, char **envp)
 {
 	int	pid;
 	int	pipe_fd[2];
@@ -46,8 +63,6 @@ void	parent_pipe(int count_pipe, int total_pipe, char **argv, char **envp)
 	int	status;
 	pid_t wait_id;
 
-	if (infile_fd == -1)
-		error_exit(OPEN_ERROR);
 	if (pipe(pipe_fd) == -1)
 		error_exit(PIPE_ERROR);
 	while(count_pipe <= 2)
@@ -60,23 +75,20 @@ void	parent_pipe(int count_pipe, int total_pipe, char **argv, char **envp)
 			if (count_pipe == 1)
 			{
 				infile_fd = open(argv[1], O_RDONLY | O_CREAT, 0644);
-				fprintf(stderr, "first child");
+				if (infile_fd == -1)
+					error_exit(OPEN_ERROR);
+				fprintf(stderr, "first child \n");
 			}
 			else
 			{
 				infile_fd = pipe_fd[0];
-				fprintf(stderr, "second child");
+				fprintf(stderr, "second child \n");
 			}
 			child_pipe(pipe_fd, infile_fd, cmd_parse(argv[count_pipe + 1], envp), count_pipe);
 		}
 		count_pipe++;
-		wait_id = waitpid(pid, &status, 0);
+		wait_id = waitpid(pid, &status, WNOHANG);
 	}
-	// // 0번 파이프 확인
-	// char buffer[4000];
-	// read(pipe_fd[0], buffer, 4000);
-	// 프로세스 끝내기
-	redirect_outfile(pipe_fd, argv[count_pipe + 1]);
 	close(pipe_fd[1]);
 	close(pipe_fd[0]);
 }
@@ -92,5 +104,5 @@ int main(int argc, char **argv, char **envp)
 		error_exit(ARGC_ERROR);
 	count_pipe = 1;
 	total_pipe = argc - NOT_PIPE_ARG_COUNT;
-	parent_pipe(count_pipe, total_pipe, argv, envp);
+	parent_pipe(count_pipe, argv, envp);
 }
