@@ -9,7 +9,7 @@
         {
             "cwd": "/Users/kipark/42_project/pipex",
             "binaryPath": "/Users/kipark/42_project/pipex/pipex",
-            "binaryArgs": ["./pipex", "infile.txt", "ls", "wc", "outfile.txt"]
+            "binaryArgs": ["./pipex", "infile", "ls", "wc", "outfile.txt"]
         }
     ]
 }

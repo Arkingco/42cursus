@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/04 09:04:34 by kipark            #+#    #+#              #
-#    Updated: 2022/05/10 14:34:25 by kipark           ###   ########.fr        #
+#    Updated: 2022/05/12 13:44:40 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ RM		= rm
 RM_FLAG	= -rf
 LIBFT_DIR = libft
 LIBFT_LIB = libft.a
-SRC			= 	pipex.c			\
+SRC			= 	new_pipex.c			\
 				error.c			\
 				paser/parse.c
 VPATH		=	$(ls -l)
@@ -46,6 +46,8 @@ fclean : clean
 	@make -sC $(LIBFT_DIR) fclean
 	$(RM) $(RM_FLAG) $^ $(NAME)
 	$(RM) $(RM_FLAG) $(LIBFT_LIB)
+	$(RM) $(RM_FLAG) out*
+
 re :
 	make fclean
 	make
