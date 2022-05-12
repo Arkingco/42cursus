@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 20:47:34 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/12 16:06:32 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/12 16:24:01 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,6 @@ void child_pipe(int pipe_fd[2], int infile_fd, char **cmd, int count_pipe)
 	{
 		fprintf(stderr, "cmd [%d] : %s\n",i ,cmd[i]);
 	}
-	char buffer[4000];
-	read(infile_fd, buffer, 4000);
-	fprintf(stderr, " ininin child :%d\n%s\n",count_pipe, buffer);
-	fprintf(stderr, " ininin child end -------------------- \n");
 	if (dup2(infile_fd, STDIN_FILENO) == -1)
 		error_exit(DUP2_ERROR);
 	close(infile_fd);
