@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 09:18:29 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/10 11:52:39 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/13 21:19:12 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ char	**cmd_parse(char *stdin_cmd_str, char **envp)
 	{
 		find_path = find_path_cmd(cmd[0], envp);
 		if (find_path == NULL)
-			print_error("COMMAND NOT FOUND\n");
+			print_warring("zsh: command not found: ", cmd[0]);
 		free(cmd[0]);
 		cmd[0] = find_path;
 	}

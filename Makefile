@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/04 09:04:34 by kipark            #+#    #+#              #
-#    Updated: 2022/05/13 15:41:55 by kipark           ###   ########.fr        #
+#    Updated: 2022/05/13 16:11:28 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ $(NAME) : $(OBJ_FILE)
 
 debug :
 	$(CC) $(CC_FLAG) -g -o $(NAME) $(SRC) $(LIBFT_LIB)
+
 
 clean :
 	$(RM) $(RM_FLAG) $(OBJ_FILE)
