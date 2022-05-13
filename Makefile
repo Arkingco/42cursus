@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/04 09:04:34 by kipark            #+#    #+#              #
-#    Updated: 2022/05/12 13:44:40 by kipark           ###   ########.fr        #
+#    Updated: 2022/05/13 15:41:55 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,10 @@ RM		= rm
 RM_FLAG	= -rf
 LIBFT_DIR = libft
 LIBFT_LIB = libft.a
-SRC			= 	new_pipex.c			\
-				error.c			\
-				paser/parse.c
+SRC			= 	pipex.c				\
+				error.c				\
+				paser/parse.c		\
+				system_call_utils.c
 VPATH		=	$(ls -l)
 
 OBJ_FILE	= $(SRC:.c=.o)
@@ -37,7 +38,6 @@ $(NAME) : $(OBJ_FILE)
 
 debug :
 	$(CC) $(CC_FLAG) -g -o $(NAME) $(SRC) $(LIBFT_LIB)
-
 
 clean :
 	$(RM) $(RM_FLAG) $(OBJ_FILE)

@@ -3,7 +3,8 @@
     "files.associations": {
         "stdio.h": "c",
         "wait.h": "c",
-        "__config": "c"
+        "__config": "c",
+        "sstream": "c"
     },
     "makefile.launchConfigurations": [
         {

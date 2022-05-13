@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 05:58:29 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/11 12:51:18 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/13 13:50:17 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,17 @@ void	error_exit(int flag)
 		print_error("Error : execve return -1\n");
 	if (flag == ACCESS_ERROR)
 		print_error("Error : access return -1 \n");
-	return ;
 }
 
 void	print_error(char *str)
 {
 	write(2, str, str_len(str));
 	exit(1);
+}
+
+void	print_warring(char *str, char *file_name)
+{
+	write(2, str, str_len(str));
+	write(2, file_name, str_len(file_name));
+	write(2, "\n", 1);
 }
