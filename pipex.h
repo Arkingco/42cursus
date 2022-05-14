@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 09:13:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/13 21:46:01 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/14 16:55:29 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	error_exit(int flag);
 char	**cmd_parse(char *cmd_str, char **envp);
 
 // system_call_utils
-int	open_infile_fd(char *file_name);
-int	set_infile_fd(int count_pipe, int pipe_fd, char *file_name);
+int 	open_infile_fd(char *file_name);
+int 	set_infile_fd(int count_pipe, int pipe_fd, char *file_name);
 void	dup2_and_close(int fd1, int fd2);
 # endif

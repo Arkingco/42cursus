@@ -1,0 +1,12 @@
+make all --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/kipark/42_project/pipex'
+cc    -c -o pipex.o pipex.c
+ 
+cc    -c -o error.o error.c
+cc    -c -o paser/parse.o paser/parse.c
+cc    -c -o system_call_utils.o system_call_utils.c
+make -C libft
+cp libft/libft.a .
+cc -Wextra -Wall -Werror -g -o pipex pipex.o error.o paser/parse.o system_call_utils.o libft.a
+make: Leaving directory `/Users/kipark/42_project/pipex'
+ 
