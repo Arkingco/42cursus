@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/04 09:04:34 by kipark            #+#    #+#              #
-#    Updated: 2022/05/13 16:11:28 by kipark           ###   ########.fr        #
+#    Updated: 2022/05/16 21:07:38 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,11 +28,11 @@ OBJ_FILE	= $(SRC:.c=.o)
 
 all : $(NAME)
 
-# %.o : %.c
-# 	$(CC) $(CC_FLAG) -o $@ $^ 
+%.o : %.c
+	$(CC) $(CC_FLAG) -c $< -o $@
 
 $(NAME) : $(OBJ_FILE)
-	@make -C $(LIBFT_DIR)
+	@make -sC $(LIBFT_DIR)
 	@cp $(LIBFT_DIR)/$(LIBFT_LIB) .
 	$(CC) $(CC_FLAG) -g -o $@ $^ $(LIBFT_LIB)
 

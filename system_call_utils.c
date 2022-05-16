@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:23:12 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/13 21:45:54 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/16 17:00:41 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void dup2_and_close(int fd1, int fd2)
 	close(fd1);
 }
 
-int open_infile_fd(char *file_name)
+static int open_infile_fd(char *file_name)
 {
 	int infile_fd;
 
