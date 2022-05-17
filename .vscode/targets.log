@@ -8,8 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Mon May 16 21:08:19 2022
- 
+# Make data base, printed on Tue May 17 17:06:15 2022
 
 # Variables
 
@@ -17,11 +16,12 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
-# makefile (from `Makefile', line 21)
+# makefile (from `Makefile', line 23)
 SRC = pipex.c error.c paser/parse.c system_call_utils.c
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
+ 
 @D = $(patsubst %/,%,$(dir $@))
 # automatic
 @F = $(notdir $@)
@@ -39,22 +39,20 @@ _ = /usr/bin/make
 MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_NODE_CACHED_DATA_DIR = 
-# makefile (from `Makefile', line 27)
+# makefile (from `Makefile', line 29)
 OBJ_FILE = $(SRC:.c=.o)
 # environment
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220516T195912
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220517T170024
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-5bbc7b3d-fa64-4852-9cdd-a4831bb9941d.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-ecd17d7c-d2ea-4e87-9c5f-609efeeb6baa.sock
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # makefile (from `Makefile', line 18)
 RM_FLAG = -rf
-# makefile (from `Makefile', line 25)
+# makefile (from `Makefile', line 27)
 VPATH = $(ls -l)
-# environment
-LaunchInstanceID = DEB37DA1-62A4-4755-97AE-D234A2714299
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -64,7 +62,7 @@ ELECTRON_RUN_AS_NODE = 1
 # makefile (from `Makefile', line 19)
 LIBFT_DIR = libft
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.0dA5VcKOt3/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.IU90Yhc5O7/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -81,6 +79,8 @@ APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
+# makefile (from `Makefile', line 21)
+TEST = -fsanitize=address -g3
 # environment
 XPC_FLAGS = 0x0
 # default
@@ -122,15 +122,13 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x1000000a.Electron
+XPC_SERVICE_NAME = com.microsoft.VSCode.3556
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
 __CF_USER_TEXT_ENCODING = 0x19390:0x0:0x0
-# environment
-COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # makefile (from `Makefile', line 16)
@@ -139,8 +137,6 @@ CC_FLAG = -Wextra -Wall -Werror
 <F = $(notdir $<)
 # environment
 LC_ALL = C
-# environment
-SECURITYSESSIONID = 186c5
 # automatic
 ^F = $(notdir $^)
 # default
@@ -152,12 +148,11 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 22159
+VSCODE_PID = 11758
 # makefile (from `Makefile', line 20)
 LIBFT_LIB = libft.a
 # variable set hash-table stats:
- 
-# Load=71/1024=7%, Rehash=0, Collisions=5/100=5%
+# Load=69/1024=7%, Rehash=0, Collisions=7/102=7%
 
 # Pattern-specific Variable Values
 
@@ -165,15 +160,14 @@ LIBFT_LIB = libft.a
 
 # Directories
 
-# . (device 16777225, inode 2736574): 21 files, no impossibilities.
-# paser (device 16777225, inode 2737690): 3 files, no impossibilities so far.
+# . (device 16777225, inode 2736574): 18 files, no impossibilities.
 
-# 24 files, no impossibilities in 2 directories.
+# 18 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 %.o: %.c
-#  commands to execute (from `Makefile', line 32):
+#  commands to execute (from `Makefile', line 34):
 	$(CC) $(CC_FLAG) -c $< -o $@
 	
 
@@ -186,26 +180,21 @@ all: pipex
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
 
 .Phony: all clean fclean re
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 
-paser/parse.o: paser/parse.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `paser/parse'
-#  Last modified 2022-05-16 21:07:33
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 32):
-	$(CC) $(CC_FLAG) -c $< -o $@
-	
+# Not a target:
+paser/parse.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .SUFFIXES:
@@ -216,7 +205,7 @@ paser/parse.o: paser/parse.c
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-16 21:07:38
+#  Last modified 2022-05-17 17:06:13
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -226,36 +215,30 @@ debug:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 40):
+#  commands to execute (from `Makefile', line 42):
 	$(CC) $(CC_FLAG) -g -o $(NAME) $(SRC) $(LIBFT_LIB)
 	
 
 # Not a target:
 pipex.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-16 21:06:57
+#  Last modified 2022-05-17 17:01:40
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-error.o: error.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `error'
-#  Last modified 2022-05-16 21:07:33
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 32):
-	$(CC) $(CC_FLAG) -c $< -o $@
-	
+# Not a target:
+error.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 fclean: clean
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 47):
+#  commands to execute (from `Makefile', line 49):
 	@make -sC $(LIBFT_DIR) fclean
 	$(RM) $(RM_FLAG) $^ $(NAME)
 	$(RM) $(RM_FLAG) $(LIBFT_LIB)
@@ -263,25 +246,10 @@ fclean: clean
 	
 
 # Not a target:
-paser/parse.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-16 21:02:21
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-system_call_utils.o: system_call_utils.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `system_call_utils'
-#  Last modified 2022-05-16 21:07:33
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 32):
-	$(CC) $(CC_FLAG) -c $< -o $@
-	
+system_call_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -293,7 +261,7 @@ re:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 53):
+#  commands to execute (from `Makefile', line 55):
 	make fclean
 	make
 	
@@ -302,55 +270,53 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 44):
+#  commands to execute (from `Makefile', line 46):
 	$(RM) $(RM_FLAG) $(OBJ_FILE)
 	
-
-# Not a target:
-error.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-16 21:01:28
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-system_call_utils.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-16 17:00:41
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 pipex.o: pipex.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `pipex'
-#  Last modified 2022-05-16 21:07:33
+#  Last modified 2022-05-17 17:00:54
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := pipex.o
+# automatic
+# % := 
+# automatic
+# * := pipex
+# automatic
+# + := pipex.c
+# automatic
+# | := 
+# automatic
+# < := pipex.c
+# automatic
+# ^ := pipex.c
+# automatic
+# ? := pipex.c
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 32):
+# Load=8/32=25%, Rehash=0, Collisions=1/14=7%
+#  commands to execute (from `Makefile', line 34):
 	$(CC) $(CC_FLAG) -c $< -o $@
 	
 
 pipex: pipex.o error.o paser/parse.o system_call_utils.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-16 21:07:34
+#  Last modified 2022-05-17 17:00:54
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 35):
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+#  commands to execute (from `Makefile', line 37):
 	@make -sC $(LIBFT_DIR)
 	@cp $(LIBFT_DIR)/$(LIBFT_LIB) .
 	$(CC) $(CC_FLAG) -g -o $@ $^ $(LIBFT_LIB)
 	
 
 # files hash-table stats:
-# Load=18/1024=2%, Rehash=0, Collisions=0/53=0%
+# Load=15/1024=1%, Rehash=0, Collisions=0/41=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -362,6 +328,6 @@ pipex: pipex.o error.o paser/parse.o system_call_utils.o
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon May 16 21:08:19 2022
+# Finished Make data base on Tue May 17 17:06:15 2022
 
  

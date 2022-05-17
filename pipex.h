@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 09:13:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/16 21:03:20 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/17 15:32:36 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,18 @@
 
 #define	PATH_POINTER	5
 
+#define PIPE_SIZE		4
+
 void	print_warring(char *str, char *file_name);
-void	error_exit(int flag);
 void	print_error(char *str);
+void	error_exit(int flag);
+void	wait_exit(int count_pipe, int error_flag);
 
 char	**cmd_parse(char *cmd_str, char **envp);
 
 // system_call_utils
-int 	set_infile_fd(int count_pipe, int pipe_fd, char *file_name);
+int		set_infile_fd(int count_pipe, int pipe_fd, char *file_name);
 void	dup2_and_close(int fd1, int fd2);
+void	outfile_open(char *file_name);
+
 # endif

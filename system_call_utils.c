@@ -6,11 +6,23 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:23:12 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/16 17:00:41 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/17 17:31:40 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+void outfile_open(char *file_name)
+{
+	int out_fd;
+
+	out_fd = open(file_name, O_WRONLY | O_CREAT | O_TRUNC , 0644);
+	if (out_fd == -1)
+		error_exit(OPEN_ERROR);
+	if (dup2(out_fd, STDOUT_FILENO) == -1)
+		error_exit(DUP2_ERROR);
+	close(out_fd);
+}
 
 void dup2_and_close(int fd1, int fd2)
 {
@@ -25,7 +37,7 @@ static int open_infile_fd(char *file_name)
 
 	infile_fd = open(file_name, O_RDONLY, 0644);
 	if (infile_fd == -1)
-		print_warring("zsh: no such file or directory : ", file_name);
+		print_warring("zsh: no such file or directory: ", file_name);
 	return (infile_fd);
 }
 

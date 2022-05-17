@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/04 09:04:34 by kipark            #+#    #+#              #
-#    Updated: 2022/05/16 21:07:38 by kipark           ###   ########.fr        #
+#    Updated: 2022/05/17 17:35:05 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ RM		= rm
 RM_FLAG	= -rf
 LIBFT_DIR = libft
 LIBFT_LIB = libft.a
+TEST =  -fsanitize=address -g3
+
 SRC			= 	pipex.c				\
 				error.c				\
 				paser/parse.c		\

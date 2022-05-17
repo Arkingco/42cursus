@@ -6,20 +6,19 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 05:58:29 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/16 21:01:28 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/17 17:12:38 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-static size_t str_len(char *str)
+void	wait_exit(int count_pipe, int error_flag)
 {
-	int length;
+	int wait_process;
 
-	length = 0;
-	while(str[length] != '\0')
-		length++;
-	return (length);
+	while(count_pipe--)
+		wait_process = waitpid(-1, NULL, 0);
+	error_exit(error_flag);
 }
 
 void	error_exit(int flag)
@@ -42,13 +41,13 @@ void	error_exit(int flag)
 
 void	print_error(char *str)
 {
-	write(2, str, str_len(str));
+	write(2, str, ft_strlen(str));
 	exit(1);
 }
 
 void	print_warring(char *str, char *file_name)
 {
-	write(2, str, str_len(str));
-	write(2, file_name, str_len(file_name));
+	write(2, str, ft_strlen(str));
+	write(2, file_name, ft_strlen(file_name));
 	write(2, "\n", 1);
 }
