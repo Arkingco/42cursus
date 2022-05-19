@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 05:58:29 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/19 19:48:47 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/19 21:20:00 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	wait_exit(int count_pipe, int error_flag)
 {
-	int wait_process;
+	int	wait_process;
 
-	while(count_pipe--)
+	while (count_pipe--)
 		wait_process = waitpid(-1, NULL, 0);
 	error_exit(error_flag);
 }

@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 09:18:29 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/19 17:47:36 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/19 21:46:40 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ void	str_free(char **str)
 
 static int	is_slash(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(str[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if(str[i] == '/')
+		if (str[i] == '/')
 			return (1);
 		++i;
 	}
@@ -42,13 +42,13 @@ static int	is_slash(char *str)
 
 char	*find_path_str(char **envp)
 {
-	int idx;
+	int	idx;
 
 	idx = 0;
 	while (envp[idx] != NULL)
 	{
-		if(ft_strncmp("PATH=", envp[idx], PATH_POINTER) == 0)
-			return ft_strdup(envp[idx] + PATH_POINTER);
+		if (ft_strncmp("PATH=", envp[idx], PATH_POINTER) == 0)
+			return (ft_strdup(envp[idx] + PATH_POINTER));
 		++idx;
 	}
 	return (0);
@@ -65,17 +65,16 @@ char	*find_path_cmd(char *cmd, char **envp)
 	path_str = find_path_str(envp);
 	path_split = ft_split(path_str, ':');
 	idx = 0;
-	while(path_split[idx] != NULL)
+	while (path_split[idx++] != NULL)
 	{
 		cmd_path = ft_strjoin(path_split[idx], cmd);
-		if(cmd_path == NULL)
+		if (cmd_path == NULL)
 			print_error("ft_strjoin error");
 		path_status = access(cmd_path, X_OK);
-		if(path_status == 0)
-			break;
+		if (path_status == 0)
+			break ;
 		else
 			free(cmd_path);
-		idx++;
 	}
 	str_free(path_split);
 	free(path_str);

@@ -8,9 +8,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Thu May 19 19:15:55 2022
+# Make data base, printed on Thu May 19 21:14:22 2022
 
- 
 # Variables
 
 # automatic
@@ -44,9 +43,9 @@ OBJ_FILE = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 # environment
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220519T191542
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220519T211413
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-95be662a-cb81-4a38-a3f0-eea0291126c1.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-e1777af2-95d8-4a62-b5e8-ae7438e350b8.sock
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # makefile (from `Makefile', line 18)
@@ -54,7 +53,7 @@ RM_FLAG = -rf
 # makefile (from `Makefile', line 27)
 VPATH = $(ls -l)
 # environment
-LaunchInstanceID = 1E1CC0E8-6F12-485B-9603-40A5CDC06B35
+LaunchInstanceID = E9132211-A244-479A-8063-9EB2E62DFF8F
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -64,7 +63,7 @@ ELECTRON_RUN_AS_NODE = 1
 # makefile (from `Makefile', line 19)
 LIBFT_DIR = libft
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.YoEJHXQrTi/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.NyqnSbAeJt/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -156,7 +155,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 2561
+VSCODE_PID = 2343
 # makefile (from `Makefile', line 20)
 LIBFT_LIB = libft.a
 # variable set hash-table stats:
@@ -168,9 +167,9 @@ LIBFT_LIB = libft.a
 
 # Directories
 
-# . (device 16777225, inode 2933448): 16 files, no impossibilities.
+# . (device 16777225, inode 2933448): 11 files, no impossibilities.
 
-# 16 files, no impossibilities in 1 directories.
+# 11 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -222,7 +221,6 @@ obj/error.o:
 debug:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 #  commands to execute (from `Makefile', line 44):
 	@make -sC $(LIBFT_DIR)
@@ -233,7 +231,7 @@ debug:
 # Not a target:
 pipex.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-19 18:06:16
+#  Last modified 2022-05-19 20:04:43
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -248,7 +246,7 @@ obj/system_call_utils.o:
 obj/pipex.o: pipex.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `pipex'
-#  Last modified 2022-05-19 17:54:32
+#  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
@@ -316,7 +314,7 @@ clean:
 
 pipex: obj/pipex.o obj/error.o obj/parse.o obj/system_call_utils.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-19 17:54:34
+#  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -340,6 +338,6 @@ pipex: obj/pipex.o obj/error.o obj/parse.o obj/system_call_utils.o
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Thu May 19 19:15:55 2022
+# Finished Make data base on Thu May 19 21:14:22 2022
 
  
