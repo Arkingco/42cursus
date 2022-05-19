@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 20:47:34 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/19 17:50:41 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/19 19:55:59 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,9 @@ void child_pipe(int pipe_fd[4], char **cmd, int cnt_pipe, char *file_name, int t
 			error_exit(DUP2_ERROR);
 	close(pipe_fd[0]);
 	close(pipe_fd[1]);
-	fprintf(stderr, "%d %d\n",cnt_pipe, access(cmd[0], X_OK));
 	if(access(cmd[0], X_OK) != 0)
 	{
-		print_warring("command not found: \n", cmd[0]);
+		print_warring("command not found: ", cmd[0]);
 	 	exit(1);
 	}
 	if(execve(cmd[0], cmd, NULL) == -1)

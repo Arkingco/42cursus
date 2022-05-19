@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 05:58:29 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/19 16:30:12 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/19 19:48:47 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,11 @@ void	print_error(char *str)
 	exit(1);
 }
 
-void	print_warring(char *str, char *file_name)
+void	print_warring(char *str1, char *str2)
 {
-	write(2, str, ft_strlen(str));
-	write(2, file_name, ft_strlen(file_name));
+	if (str1 != NULL)
+		write(2, str1, ft_strlen(str1));
+	if (str2 != NULL)
+		write(2, str2, ft_strlen(str2));
 	write(2, "\n", 1);
 }
