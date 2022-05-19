@@ -6,11 +6,20 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:23:12 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/17 17:31:40 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/19 15:32:40 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+void	close_pipe_2(int fd1, int fd2)
+{
+	if (fd1 != -1)
+		close(fd1);
+	if (fd2 != -1)
+		close(fd2);
+	return ;
+}
 
 void outfile_open(char *file_name)
 {

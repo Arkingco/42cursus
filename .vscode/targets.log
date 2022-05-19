@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Tue May 17 17:06:15 2022
+# Make data base, printed on Thu May 19 17:27:53 2022
 
 # Variables
 
@@ -16,12 +16,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
-# makefile (from `Makefile', line 23)
-SRC = pipex.c error.c paser/parse.c system_call_utils.c
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
- 
 @D = $(patsubst %/,%,$(dir $@))
 # automatic
 @F = $(notdir $@)
@@ -40,19 +37,23 @@ MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_NODE_CACHED_DATA_DIR = 
 # makefile (from `Makefile', line 29)
-OBJ_FILE = $(SRC:.c=.o)
+OBJ_DIR = ./obj
+# makefile (from `Makefile', line 30)
+OBJ_FILE = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 # environment
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220517T170024
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220519T172743
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-ecd17d7c-d2ea-4e87-9c5f-609efeeb6baa.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-f6bc9af6-aca2-4e9c-9183-45b12b1a4acf.sock
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # makefile (from `Makefile', line 18)
 RM_FLAG = -rf
 # makefile (from `Makefile', line 27)
 VPATH = $(ls -l)
+# environment
+LaunchInstanceID = 3E699078-E96D-4298-968C-124BEE4F96E8
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -62,7 +63,7 @@ ELECTRON_RUN_AS_NODE = 1
 # makefile (from `Makefile', line 19)
 LIBFT_DIR = libft
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.IU90Yhc5O7/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.9OiRib09LE/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -87,6 +88,8 @@ XPC_FLAGS = 0x0
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
+# makefile (from `Makefile', line 23)
+SRCS = pipex.c error.c parse.c system_call_utils.c
 # environment
 SHLVL = 1
 # makefile (from `Makefile', line 15)
@@ -122,13 +125,15 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.microsoft.VSCode.3556
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
 __CF_USER_TEXT_ENCODING = 0x19390:0x0:0x0
+# environment
+COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # makefile (from `Makefile', line 16)
@@ -137,6 +142,8 @@ CC_FLAG = -Wextra -Wall -Werror
 <F = $(notdir $<)
 # environment
 LC_ALL = C
+# environment
+SECURITYSESSIONID = 186a4
 # automatic
 ^F = $(notdir $^)
 # default
@@ -148,11 +155,11 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 11758
+VSCODE_PID = 1357
 # makefile (from `Makefile', line 20)
 LIBFT_LIB = libft.a
 # variable set hash-table stats:
-# Load=69/1024=7%, Rehash=0, Collisions=7/102=7%
+# Load=73/1024=7%, Rehash=0, Collisions=5/104=5%
 
 # Pattern-specific Variable Values
 
@@ -160,14 +167,15 @@ LIBFT_LIB = libft.a
 
 # Directories
 
-# . (device 16777225, inode 2736574): 18 files, no impossibilities.
+# . (device 16777225, inode 2933448): 16 files, no impossibilities.
 
-# 18 files, no impossibilities in 1 directories.
+# 16 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
-%.o: %.c
-#  commands to execute (from `Makefile', line 34):
+obj/%.o: %.c
+#  commands to execute (from `Makefile', line 33):
+	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CC_FLAG) -c $< -o $@
 	
 
@@ -180,18 +188,11 @@ all: pipex
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
-#  Needs to be updated (-q is set).
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 .Phony: all clean fclean re
-#  Implicit rule search has not been done.
-#  Modification time never checked.
- 
-#  File has not been updated.
-
-# Not a target:
-paser/parse.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -205,51 +206,89 @@ paser/parse.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-17 17:06:13
+#  Last modified 2022-05-19 15:16:08
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/error.o: error.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `error'
+#  Last modified 2022-05-19 16:33:00
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 33):
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CC_FLAG) -c $< -o $@
+	
 
 debug:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 42):
-	$(CC) $(CC_FLAG) -g -o $(NAME) $(SRC) $(LIBFT_LIB)
+#  commands to execute (from `Makefile', line 44):
+	@make -sC $(LIBFT_DIR)
+	@cp $(LIBFT_DIR)/$(LIBFT_LIB) .
+	@$(CC) $(CC_FLAG) -g -o $(NAME) $(SRCS) $(LIBFT_LIB)
 	
 
 # Not a target:
 pipex.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-17 17:01:40
+#  Last modified 2022-05-19 16:33:37
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-# Not a target:
-error.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/system_call_utils.o: system_call_utils.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `system_call_utils'
+#  Last modified 2022-05-19 15:32:53
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 33):
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CC_FLAG) -c $< -o $@
+	
+
+obj/pipex.o: pipex.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `pipex'
+#  Last modified 2022-05-19 16:33:39
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 33):
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CC_FLAG) -c $< -o $@
+	
 
 fclean: clean
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 49):
+#  commands to execute (from `Makefile', line 52):
 	@make -sC $(LIBFT_DIR) fclean
 	$(RM) $(RM_FLAG) $^ $(NAME)
 	$(RM) $(RM_FLAG) $(LIBFT_LIB)
-	$(RM) $(RM_FLAG) out*
+	@$(RM) $(RM_FLAG) out*
 	
 
 # Not a target:
-system_call_utils.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+parse.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-19 16:17:07
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 .DEFAULT:
@@ -261,62 +300,66 @@ re:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 55):
+#  commands to execute (from `Makefile', line 58):
 	make fclean
 	make
+	
+
+obj/parse.o: parse.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `parse'
+#  Last modified 2022-05-19 16:17:32
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 33):
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CC_FLAG) -c $< -o $@
 	
 
 clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 46):
-	$(RM) $(RM_FLAG) $(OBJ_FILE)
+#  commands to execute (from `Makefile', line 49):
+	@$(RM) $(RM_FLAG) $(OBJ_DIR)
 	
 
-pipex.o: pipex.c
+# Not a target:
+error.c:
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `pipex'
-#  Last modified 2022-05-17 17:00:54
+#  Last modified 2022-05-19 16:30:12
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := pipex.o
-# automatic
-# % := 
-# automatic
-# * := pipex
-# automatic
-# + := pipex.c
-# automatic
-# | := 
-# automatic
-# < := pipex.c
-# automatic
-# ^ := pipex.c
-# automatic
-# ? := pipex.c
+#  Successfully updated.
+ 
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/14=7%
-#  commands to execute (from `Makefile', line 34):
-	$(CC) $(CC_FLAG) -c $< -o $@
-	
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-pipex: pipex.o error.o paser/parse.o system_call_utils.o
-#  Implicit rule search has not been done.
-#  Last modified 2022-05-17 17:00:54
+# Not a target:
+system_call_utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-19 15:32:40
 #  File has been updated.
-#  Needs to be updated (-q is set).
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
-#  commands to execute (from `Makefile', line 37):
-	@make -sC $(LIBFT_DIR)
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+pipex: obj/pipex.o obj/error.o obj/parse.o obj/system_call_utils.o
+#  Implicit rule search has not been done.
+#  Last modified 2022-05-19 16:33:39
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 39):
+	@make -sC $(LIBFT_DIR) bonus
 	@cp $(LIBFT_DIR)/$(LIBFT_LIB) .
-	$(CC) $(CC_FLAG) -g -o $@ $^ $(LIBFT_LIB)
+	@$(CC) $(CC_FLAG) -g -o $@ $^ $(LIBFT_LIB)
 	
 
 # files hash-table stats:
-# Load=15/1024=1%, Rehash=0, Collisions=0/41=0%
+# Load=18/1024=2%, Rehash=0, Collisions=0/53=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -328,6 +371,6 @@ pipex: pipex.o error.o paser/parse.o system_call_utils.o
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Tue May 17 17:06:15 2022
+# Finished Make data base on Thu May 19 17:27:53 2022
 
  

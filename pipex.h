@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 09:13:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/17 15:32:36 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/19 16:19:54 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <stdio.h>
 #include "libft/libft.h"
 
 #define NOT_PIPE_ARG_COUNT 3
@@ -44,5 +45,7 @@ char	**cmd_parse(char *cmd_str, char **envp);
 int		set_infile_fd(int count_pipe, int pipe_fd, char *file_name);
 void	dup2_and_close(int fd1, int fd2);
 void	outfile_open(char *file_name);
+void	close_pipe_2(int fd1, int fd2);
 
+void	str_free(char **str);
 # endif

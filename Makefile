@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/04 09:04:34 by kipark            #+#    #+#              #
-#    Updated: 2022/05/17 17:35:05 by kipark           ###   ########.fr        #
+#    Updated: 2022/05/19 15:16:08 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,37 +20,40 @@ LIBFT_DIR = libft
 LIBFT_LIB = libft.a
 TEST =  -fsanitize=address -g3
 
-SRC			= 	pipex.c				\
+SRCS		= 	pipex.c				\
 				error.c				\
-				paser/parse.c		\
+				parse.c				\
 				system_call_utils.c
 VPATH		=	$(ls -l)
 
-OBJ_FILE	= $(SRC:.c=.o)
+OBJ_DIR = ./obj
+OBJ_FILE = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
+
+$(OBJ_DIR)/%.o : %.c
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CC_FLAG) -c $< -o $@
 
 all : $(NAME)
 
-%.o : %.c
-	$(CC) $(CC_FLAG) -c $< -o $@
-
 $(NAME) : $(OBJ_FILE)
-	@make -sC $(LIBFT_DIR)
+	@make -sC $(LIBFT_DIR) bonus
 	@cp $(LIBFT_DIR)/$(LIBFT_LIB) .
-	$(CC) $(CC_FLAG) -g -o $@ $^ $(LIBFT_LIB)
+	@$(CC) $(CC_FLAG) -g -o $@ $^ $(LIBFT_LIB)
 
 debug :
-	$(CC) $(CC_FLAG) -g -o $(NAME) $(SRC) $(LIBFT_LIB)
-
+	@make -sC $(LIBFT_DIR)
+	@cp $(LIBFT_DIR)/$(LIBFT_LIB) .
+	@$(CC) $(CC_FLAG) -g -o $(NAME) $(SRCS) $(LIBFT_LIB)
 
 clean :
-	$(RM) $(RM_FLAG) $(OBJ_FILE)
+	@$(RM) $(RM_FLAG) $(OBJ_DIR)
 
 fclean : clean
 	@make -sC $(LIBFT_DIR) fclean
 	$(RM) $(RM_FLAG) $^ $(NAME)
 	$(RM) $(RM_FLAG) $(LIBFT_LIB)
-	$(RM) $(RM_FLAG) out*
-
+	@$(RM) $(RM_FLAG) out*
+	
 re :
 	make fclean
 	make

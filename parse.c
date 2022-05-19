@@ -6,13 +6,13 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 09:18:29 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/17 17:27:21 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/19 17:47:36 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../pipex.h"
+#include"pipex.h"
 
-static void	str_free(char **str)
+void	str_free(char **str)
 {
 	int	i;
 
@@ -68,7 +68,9 @@ char	*find_path_cmd(char *cmd, char **envp)
 	while(path_split[idx] != NULL)
 	{
 		cmd_path = ft_strjoin(path_split[idx], cmd);
-		path_status = access(cmd_path, F_OK);
+		if(cmd_path == NULL)
+			print_error("ft_strjoin error");
+		path_status = access(cmd_path, X_OK);
 		if(path_status == 0)
 			break;
 		else
@@ -78,7 +80,7 @@ char	*find_path_cmd(char *cmd, char **envp)
 	str_free(path_split);
 	free(path_str);
 	if (path_status == -1)
-		return (0);
+		cmd_path = NULL;
 	return (cmd_path);
 }
 
@@ -88,24 +90,15 @@ char	**cmd_parse(char *stdin_cmd_str, char **envp)
 	char	*find_path;
 
 	cmd = ft_split(stdin_cmd_str, ' ');
-	if(is_slash(cmd[0]))
-	{
-		if(access(cmd[0], X_OK) == 0)
-			return (cmd);
-		else
-		{
-			print_warring("zsh: command not found: ", cmd[0]);
-			return (NULL);
-		}
-	}
+	if (cmd[0] == NULL)
+		return (cmd);
+	if (is_slash(cmd[0]))
+		return (cmd);
 	else
 	{
 		find_path = find_path_cmd(cmd[0], envp);
 		if (find_path == NULL)
-		{
-			str_free(cmd);
-			print_warring("zsh: command not found: ", cmd[0]);
-		}
+			return (cmd);
 		free(cmd[0]);
 		cmd[0] = 0;
 		cmd[0] = find_path;
