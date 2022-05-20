@@ -1,8 +1,8 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/kipark/42_project/pipex'
 mkdir -p ./obj
- 
 cc -Wextra -Wall -Werror -c pipex.c -o obj/pipex.o
+ 
 mkdir -p ./obj
 cc -Wextra -Wall -Werror -c error.c -o obj/error.o
 mkdir -p ./obj

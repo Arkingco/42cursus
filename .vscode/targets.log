@@ -6,9 +6,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
 
-# Make data base, printed on Thu May 19 21:14:22 2022
+# Make data base, printed on Fri May 20 22:08:59 2022
 
 # Variables
 
@@ -35,7 +34,7 @@ _ = /usr/bin/make
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # environment
-VSCODE_NODE_CACHED_DATA_DIR = 
+VSCODE_NODE_CACHED_DATA_DIR = /Users/kipark/Library/Application Support/Code/CachedData/6ab598523be7a800d7f3eb4d92d7ab9a66069390
 # makefile (from `Makefile', line 29)
 OBJ_DIR = ./obj
 # makefile (from `Makefile', line 30)
@@ -43,9 +42,9 @@ OBJ_FILE = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 # environment
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220519T211413
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220520T220845
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-e1777af2-95d8-4a62-b5e8-ae7438e350b8.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-d3a10a91-12b5-4112-ba6c-14651504c3af.sock
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # makefile (from `Makefile', line 18)
@@ -53,7 +52,7 @@ RM_FLAG = -rf
 # makefile (from `Makefile', line 27)
 VPATH = $(ls -l)
 # environment
-LaunchInstanceID = E9132211-A244-479A-8063-9EB2E62DFF8F
+LaunchInstanceID = 759409AB-0B51-4BF3-BD2D-C770865C16AA
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -63,7 +62,7 @@ ELECTRON_RUN_AS_NODE = 1
 # makefile (from `Makefile', line 19)
 LIBFT_DIR = libft
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.NyqnSbAeJt/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.2Q563aLVJb/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -125,7 +124,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000004.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -155,7 +154,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 2343
+VSCODE_PID = 18032
 # makefile (from `Makefile', line 20)
 LIBFT_LIB = libft.a
 # variable set hash-table stats:
@@ -231,7 +230,7 @@ debug:
 # Not a target:
 pipex.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-19 20:04:43
+#  Last modified 2022-05-19 22:17:02
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -327,6 +326,7 @@ pipex: obj/pipex.o obj/error.o obj/parse.o obj/system_call_utils.o
 
 # files hash-table stats:
 # Load=15/1024=1%, Rehash=0, Collisions=0/41=0%
+ 
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -338,6 +338,6 @@ pipex: obj/pipex.o obj/error.o obj/parse.o obj/system_call_utils.o
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Thu May 19 21:14:22 2022
+# Finished Make data base on Fri May 20 22:08:59 2022
 
  
