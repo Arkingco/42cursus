@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 09:18:29 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/19 21:46:40 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/21 15:28:58 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ char	*find_path_cmd(char *cmd, char **envp)
 
 	path_str = find_path_str(envp);
 	path_split = ft_split(path_str, ':');
-	idx = 0;
-	while (path_split[idx++] != NULL)
+	idx = -1;
+	while (path_split[++idx] != NULL)
 	{
 		cmd_path = ft_strjoin(path_split[idx], cmd);
 		if (cmd_path == NULL)
@@ -89,7 +89,7 @@ char	**cmd_parse(char *stdin_cmd_str, char **envp)
 	char	*find_path;
 
 	cmd = ft_split(stdin_cmd_str, ' ');
-	if (cmd[0] == NULL)
+	if (stdin_cmd_str[0] == '\0')
 		return (cmd);
 	if (is_slash(cmd[0]))
 		return (cmd);

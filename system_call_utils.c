@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:23:12 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/20 14:58:50 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/21 15:31:49 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ static int	open_infile_fd(char *file_name)
 	int	infile_fd;
 
 	infile_fd = open(file_name, O_RDONLY, 0644);
-	if (infile_fd == -1)
-		print_warring("zsh: no such file or directory: ", file_name);
 	return (infile_fd);
 }
 

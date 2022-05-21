@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/04 09:04:34 by kipark            #+#    #+#              #
-#    Updated: 2022/05/19 15:16:08 by kipark           ###   ########.fr        #
+#    Updated: 2022/05/21 15:08:14 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ TEST =  -fsanitize=address -g3
 SRCS		= 	pipex.c				\
 				error.c				\
 				parse.c				\
-				system_call_utils.c
+				child.c				\
+				system_call_utils.c	
 VPATH		=	$(ls -l)
 
 OBJ_DIR = ./obj

@@ -5,6 +5,8 @@
         "__string": "c",
         "string": "c",
         "string_view": "c",
-        "pipex.h": "c"
+        "pipex.h": "c",
+        "stdio.h": "c",
+        "fcntl.h": "c"
     }
 }

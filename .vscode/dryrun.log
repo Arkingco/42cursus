@@ -1,16 +1,8 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/kipark/42_project/pipex'
-mkdir -p ./obj
-cc -Wextra -Wall -Werror -c pipex.c -o obj/pipex.o
  
-mkdir -p ./obj
-cc -Wextra -Wall -Werror -c error.c -o obj/error.o
-mkdir -p ./obj
-cc -Wextra -Wall -Werror -c parse.c -o obj/parse.o
-mkdir -p ./obj
-cc -Wextra -Wall -Werror -c system_call_utils.c -o obj/system_call_utils.o
 make -sC libft bonus
 cp libft/libft.a .
-cc -Wextra -Wall -Werror -g -o pipex obj/pipex.o obj/error.o obj/parse.o obj/system_call_utils.o libft.a
+cc -Wextra -Wall -Werror -g -o pipex obj/pipex.o obj/error.o obj/parse.o obj/child.o obj/system_call_utils.o libft.a
 make: Leaving directory `/Users/kipark/42_project/pipex'
  
