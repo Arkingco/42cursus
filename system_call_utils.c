@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   system_call_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
+/*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:23:12 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/21 15:31:49 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/22 22:13:24 by baggiseon        ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 

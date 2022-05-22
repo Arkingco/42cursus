@@ -6,7 +6,7 @@
 /*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 20:47:34 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/22 20:41:44 by baggiseon        ###   ########seoul.kr  */
+/*   Updated: 2022/05/22 20:53:51 by baggiseon        ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,5 @@ int	main(int argc, char **argv, char **envp)
 	pipes.infile = argv[INFILE_INDEX];
 	pipes.outfile = argv[argc - 1];
 	exit_status = parent_process(argv, envp, pipes);
-	// return (exit_status);
-	exit (42);
+	return (exit_status);
 }
