@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
+#    By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/04 09:04:34 by kipark            #+#    #+#              #
-#    Updated: 2022/05/21 15:08:14 by kipark           ###   ########.fr        #
+#    Updated: 2022/05/22 20:13:02 by baggiseon        ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ $(OBJ_DIR)/%.o : %.c
 all : $(NAME)
 
 $(NAME) : $(OBJ_FILE)
-	@make -sC $(LIBFT_DIR) bonus
+	@make -sC $(LIBFT_DIR)
 	@cp $(LIBFT_DIR)/$(LIBFT_LIB) .
 	@$(CC) $(CC_FLAG) -g -o $@ $^ $(LIBFT_LIB)
 

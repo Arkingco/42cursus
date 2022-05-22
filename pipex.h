@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
+/*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 09:13:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/21 15:32:20 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/22 20:42:23 by baggiseon        ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,9 @@
 # include "libft/libft.h"
 # include "error.h"
 
-# define INFILE 1
-
+# define INFILE_INDEX 1
 # define NOT_PIPE_ARG_COUNT 3
-
 # define PATH_POINTER	5
-
-# define PIPE_SIZE		4
 
 typedef struct s_pipe_info {
 	int		count_pipe;
@@ -48,6 +44,6 @@ void	outfile_open(char *file_name);
 void	close_pipe_2(int fd1, int fd2);
 void	str_free(char **str);
 
-void	child_pipe(int pipe_fd[4], char **cmd, t_pipe_info pipes);
+void	child_process(int pipe_fd[4], char **cmd, t_pipe_info pipes);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   child.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
+/*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 12:04:17 by kipark            #+#    #+#             */
-/*   Updated: 2022/05/21 15:32:59 by kipark           ###   ########.fr       */
+/*   Updated: 2022/05/22 20:45:56 by baggiseon        ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void	redirect_file(int pipe_fd[4], t_pipe_info pipes)
 	else
 		if (dup2(pipe_fd[1], STDOUT_FILENO) == -1)
 			error_exit(DUP2_ERROR);
+	close_pipe_2(pipe_fd[0], pipe_fd[1]);
 }
 
 static void	excute_cmd(char **cmd)
@@ -45,12 +46,11 @@ static void	excute_cmd(char **cmd)
 		error_exit(EXECVE_ERROR);
 }
 
-void	child_pipe(int pipe_fd[4], char **cmd, t_pipe_info pipes)
+void	child_process(int pipe_fd[4], char **cmd, t_pipe_info pipes)
 {
 	check_pipe_fd(pipe_fd, pipes);
 	redirect_file(pipe_fd, pipes);
-	close_pipe_2(pipe_fd[0], pipe_fd[1]);
 	excute_cmd(cmd);
 	perror(NULL);
-	exit(1);
+	exit(0);
 }
