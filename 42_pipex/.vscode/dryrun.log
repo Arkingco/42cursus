@@ -1,0 +1,5 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/baggiseon/workspace/42project/pipex'
+make: Nothing to be done for `all'.
+make: Leaving directory `/Users/baggiseon/workspace/42project/pipex'
+ 

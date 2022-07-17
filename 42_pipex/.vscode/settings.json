@@ -1,0 +1,12 @@
+{
+    "makefile.extensionOutputFolder": "./.vscode",
+    "files.associations": {
+        "__locale": "c",
+        "__string": "c",
+        "string": "c",
+        "string_view": "c",
+        "pipex.h": "c",
+        "stdio.h": "c",
+        "fcntl.h": "c"
+    }
+}
