@@ -1,0 +1,7 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/kipark/42_project/so_long'
+make -sC ./mlx
+cp ./mlx/libmlx.dylib .
+gcc -Wall -Wextra -Werror -o so_long so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/parse_error.c parser/parse_utils.c event/key.c event/map.c event/key_event.c error.c parser/parse.c libmlx.dylib
+make: Leaving directory `/Users/kipark/42_project/so_long'
+ 

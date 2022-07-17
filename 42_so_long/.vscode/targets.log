@@ -1,0 +1,442 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+# This program built for i386-apple-darwin11.3.0
+
+# Make data base, printed on Mon May  2 22:11:25 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# makefile (from `Makefile', line 24)
+SRC = so_long.c get_next_line.c get_next_line_utils.c error_utils.c parse_error.c parse_utils.c key.c map.c key_event.c error.c parse.c
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /Users/kipark/42_project/so_long
+# makefile
+SHELL = /bin/sh
+# makefile (from `Makefile', line 18)
+RM = rm
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# environment
+_ = /usr/bin/make
+# makefile (from `Makefile', line 15)
+CFLAGS = -Wall -Wextra -Werror
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# environment
+VSCODE_NODE_CACHED_DATA_DIR = /Users/kipark/Library/Application Support/Code/CachedData/6ab598523be7a800d7f3eb4d92d7ab9a66069390
+# environment
+VERBOSE_LOGGING = true
+# environment
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220502T212907
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-342ef6a4-4463-4658-9204-43fb12efd9dc.sock
+# environment
+PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
+# makefile (from `Makefile', line 36)
+VPATH = $(shell ls -R)
+# environment
+VSCODE_LOG_STACK = false
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# makefile (from `Makefile', line 21)
+MLXLIB = libmlx.dylib
+# default
+.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+# environment
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.EnXK3dtNlk/Listeners
+# automatic
+%F = $(notdir $%)
+# environment
+PWD = /Users/kipark/42_project/so_long
+# environment
+HOME = /Users/kipark
+# default
+MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
+# environment
+LOGNAME = kipark
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+XPC_FLAGS = 0x0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 1
+# makefile (from `Makefile', line 16)
+CC = gcc
+# default
+MAKE_VERSION := 3.81
+# environment
+AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
+# environment
+USER = kipark
+# makefile
+.DEFAULT_GOAL := all
+# makefile (from `Makefile', line 13)
+NAME = so_long
+# environment
+PIPE_LOGGING = true
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /Users/kipark/Library/Application Support/Code/1.39.2-main.sock
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+XPC_SERVICE_NAME = com.microsoft.VSCode.3544
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+__CF_USER_TEXT_ENCODING = 0x19390:0x0:0x0
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# makefile (from `Makefile', line 19)
+RM_FLAGS = -rf
+# makefile (from `Makefile', line 22)
+MLX_DIR = ./mlx
+# environment
+LC_ALL = C
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# default
+.INCLUDE_DIRS = /usr/local/include
+# environment
+MAKELEVEL := 0
+# environment
+LANG = C
+# environment
+VSCODE_PID = 20508
+# variable set hash-table stats:
+# Load=67/1024=7%, Rehash=0, Collisions=6/104=6%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# get_next_line.c: could not be stat'd.
+# f.xpm: could not be stat'd.
+# ./mlx (device 16777225, inode 2516752): 18 files, no impossibilities.
+# map.c: could not be stat'd.
+# mlx_loop.3: could not be stat'd.
+# mlx_new_image.3: could not be stat'd.
+# Makefile (device 16777225, inode 2611922): could not be opened.
+# parse.c: could not be stat'd.
+# . (device 16777225, inode 2516114): 15 files, no impossibilities.
+# mlx_png.c: could not be stat'd.
+# key.c: could not be stat'd.
+# ./event (device 16777225, inode 2591243): 5 files, no impossibilities.
+# ./map (device 16777225, inode 2534908): 9 files, no impossibilities.
+# e.xpm: could not be stat'd.
+# map.ber: could not be stat'd.
+# mlx.h: could not be stat'd.
+# mlx_image.swift: could not be stat'd.
+# man: could not be stat'd.
+# mlx_xpm.c: could not be stat'd.
+# ./img (device 16777225, inode 2586632): 9 files, no impossibilities.
+# mlx_init.swiftsourceinfo: could not be stat'd.
+# event (device 16777225, inode 2591243): 5 files, no impossibilities.
+# ./mlx/man/man3 (device 16777225, inode 2516765): 7 files, no impossibilities.
+# parser (device 16777225, inode 2532942): 6 files, no impossibilities.
+# parse_error.c: could not be stat'd.
+# so_long.h (device 16777225, inode 2532961): could not be opened.
+# error_object.ber: could not be stat'd.
+# gnl (device 16777225, inode 2533387): 4 files, no impossibilities.
+# mlx (device 16777225, inode 2516752): 18 files, no impossibilities.
+# error_under3.ber: could not be stat'd.
+# error_utils.c: could not be stat'd.
+# man3: could not be stat'd.
+# mlx.3: could not be stat'd.
+# error_wall.ber: could not be stat'd.
+# ./parser (device 16777225, inode 2532942): 6 files, no impossibilities.
+# i.xpm: could not be stat'd.
+# error_rectangle.ber: could not be stat'd.
+# get_next_line_utils.c: could not be stat'd.
+# mlx_init.swift: could not be stat'd.
+# mlx_window.swiftsourceinfo: could not be stat'd.
+# map (device 16777225, inode 2534908): 9 files, no impossibilities.
+# interface.swift: could not be stat'd.
+# mlx_pixel_put.3: could not be stat'd.
+# font.c: could not be stat'd.
+# parse_utils.c: could not be stat'd.
+# w.xpm: could not be stat'd.
+# big_map.ber: could not be stat'd.
+# mlx_new_window.3: could not be stat'd.
+# ./mlx/man (device 16777225, inode 2516753): 3 files, no impossibilities.
+# so_long.c (device 16777225, inode 2532958): could not be opened.
+# error_all.ber: could not be stat'd.
+# mlx_string_put.c: could not be stat'd.
+# mlx_rgb.c: could not be stat'd.
+# mlx_window.swift: could not be stat'd.
+# b.xpm: could not be stat'd.
+# img (device 16777225, inode 2586632): 9 files, no impossibilities.
+# error.c (device 16777225, inode 2537135): could not be opened.
+# ./gnl (device 16777225, inode 2533387): 4 files, no impossibilities.
+# key_event.c: could not be stat'd.
+# p.xpm: could not be stat'd.
+# mlx_image.swiftsourceinfo: could not be stat'd.
+
+# 127 files, no impossibilities in 61 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+# Not a target:
+event/key.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-02 17:11:53
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+parser/parse.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-02 17:10:26
+#  File has been updated.
+ 
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+all: so_long
+#  Phony target (prerequisite of .PHONY).
+#  Command-line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/8=0%
+
+# Not a target:
+gnl/get_next_line.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-02 10:29:31
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+.PHONY: all clean fclean re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+so_long.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-02 17:13:46
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-02 17:13:22
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+parser/parse_error.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-02 17:10:17
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+parser/error_utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-02 10:47:10
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+fclean: clean mclean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+event/map.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-02 17:12:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+mclean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 51):
+	$(RM) $(RM_FLAGS) $(MLXLIB)
+	@make -sC $(MLX_DIR) clean
+	
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+re: fclean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 55):
+	make
+	
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 48):
+	$(RM) $(RM_FLAGS) $(NAME)
+	
+
+# Not a target:
+parser/parse_utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-02 10:46:48
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+event/key_event.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-02 10:22:45
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+error.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-02 17:13:12
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+gnl/get_next_line_utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-02 10:29:53
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+so_long: so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/parse_error.c parser/parse_utils.c event/key.c event/map.c event/key_event.c error.c parser/parse.c
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := so_long
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/parse_error.c parser/parse_utils.c event/key.c event/map.c event/key_event.c error.c parser/parse.c
+# automatic
+# | := 
+# automatic
+# < := so_long.c
+# automatic
+# ^ := so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/parse_error.c parser/parse_utils.c event/key.c event/map.c event/key_event.c error.c parser/parse.c
+# automatic
+# ? := so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c parser/error_utils.c parser/parse_error.c parser/parse_utils.c event/key.c event/map.c event/key_event.c error.c parser/parse.c
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/18=6%
+#  commands to execute (from `Makefile', line 41):
+	@make -sC $(MLX_DIR)
+	@cp $(MLX_DIR)/$(MLXLIB) .
+	$(CC) $(CFLAGS) -o $@ $^ $(MLXLIB)
+	
+
+# files hash-table stats:
+# Load=21/1024=2%, Rehash=0, Collisions=2/127=2%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# General (`VPATH' variable) search path:
+# event:gnl:img:map:mlx:parser:./event:./gnl:./img:./map:./mlx:./mlx/man:./mlx/man/man3:./parser
+
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+
+# Finished Make data base on Mon May  2 22:11:25 2022
+
+ 

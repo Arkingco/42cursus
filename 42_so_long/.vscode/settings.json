@@ -1,0 +1,32 @@
+{
+    "makefile.extensionOutputFolder": "./.vscode",
+    "files.associations": {
+        "so_long.h": "c",
+        "get_next_line_bonus.h": "c",
+        "unistd.h": "c",
+        "fcntl.h": "c",
+        "sstream": "c",
+        "stdio.h": "c",
+        "__locale": "c",
+        "stdlib.h": "c"
+    },
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/Users/kipark/42_project/so_long",
+            "binaryPath": "/Users/kipark/42_project/so_long/a.out",
+            "binaryArgs": [
+                "map/map.ber"
+            ]
+        },
+        {
+            "cwd": "/Users/kipark/42_project/so_long",
+            "binaryPath": "/Users/kipark/42_project/so_long/a.out",
+            "binaryArgs": []
+        },
+        {
+            "cwd": "/Users/kipark/42_project/so_long",
+            "binaryPath": "/Users/kipark/42_project/so_long/so_long",
+            "binaryArgs": ["map/big_map.ber"]
+        }
+    ]
+}
