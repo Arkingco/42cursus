@@ -1,0 +1,5 @@
+make all --dry-run --keep-going --print-directory
+make: Entering directory `/Users/kipark/workspace/gnl/gnl'
+gcc -Wextra -Werror -Wall -g get_next_line_bonus.c get_next_line_utils_bonus.c get_next_line.h main.c
+make: Leaving directory `/Users/kipark/workspace/gnl/gnl'
+ 

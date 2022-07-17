@@ -1,0 +1,39 @@
+{
+    "makefile.launchConfigurations" : [
+        {
+            "cwd": "/Users/kipark/workspace/gnl/gnl",
+            "binaryPath": "/Users/kipark/workspace/gnl/gnl/a.out",
+            "binaryArgs": [
+                "countingStar",
+                "hangang_gang",
+                "we_are_young"
+            ]
+        },
+        {
+            "cwd": "/Users/kipark/workspace/gnl/gnl",
+            "binaryPath": "/Users/kipark/workspace/gnl/gnl/a.out",
+            "binaryArgs": [
+                "hi"
+            ]
+        }
+    ],
+    "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
+    "files.associations": {
+        "stdio.h": "c",
+        "get_next_line.h": "c",
+        "istream": "c",
+        "__bit_reference": "c",
+        "__hash_table": "c",
+        "__split_buffer": "c",
+        "array": "c",
+        "iterator": "c",
+        "memory": "c",
+        "string": "c",
+        "string_view": "c",
+        "unordered_map": "c",
+        "vector": "c",
+        "string.h": "c",
+        "get_next_line_bonus.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
+}
