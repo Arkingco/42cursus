@@ -1,0 +1,15 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/kipark/workspace/printf/42_ft_printf'
+gcc -Wall -Wextra -Werror -c -o format/ft_printf_format_c.o format/ft_printf_format_c.c -I inc
+gcc -Wall -Wextra -Werror -c -o format/ft_printf_format_d.o format/ft_printf_format_d.c -I inc
+gcc -Wall -Wextra -Werror -c -o format/ft_printf_format_i.o format/ft_printf_format_i.c -I inc
+gcc -Wall -Wextra -Werror -c -o format/ft_printf_format_p.o format/ft_printf_format_p.c -I inc
+gcc -Wall -Wextra -Werror -c -o format/ft_printf_format_s.o format/ft_printf_format_s.c -I inc
+gcc -Wall -Wextra -Werror -c -o format/ft_printf_format_u.o format/ft_printf_format_u.c -I inc
+gcc -Wall -Wextra -Werror -c -o format/ft_printf_format_x_x.o format/ft_printf_format_x_x.c -I inc
+gcc -Wall -Wextra -Werror -c -o format/ft_printf_format_x.o format/ft_printf_format_x.c -I inc
+gcc -Wall -Wextra -Werror -c -o util/ft_printf_str_util.o util/ft_printf_str_util.c -I inc
+gcc -Wall -Wextra -Werror -c -o ft_printf.o ft_printf.c -I inc
+ar crs libftprintf.a format/ft_printf_format_c.o format/ft_printf_format_d.o format/ft_printf_format_i.o format/ft_printf_format_p.o format/ft_printf_format_s.o format/ft_printf_format_u.o format/ft_printf_format_x_x.o format/ft_printf_format_x.o util/ft_printf_str_util.o ft_printf.o
+make: Leaving directory `/Users/kipark/workspace/printf/42_ft_printf'
+ 
