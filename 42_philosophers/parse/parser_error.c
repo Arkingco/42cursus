@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
+/*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 15:32:28 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/18 21:24:57 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/18 21:49:25 by baggiseon        ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	paser_error(char **need_parsed)
 	int	i;
 
 	i = 0;
-	while (need_parsed[i] != (void *)0)
+	while (need_parsed[i] != NULL)
 	{
 		if (paser_check_str_error(need_parsed[i]))
 			return (1);
