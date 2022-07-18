@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+         #
+#    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 15:58:45 by kipark            #+#    #+#              #
-#    Updated: 2022/07/18 21:50:44 by baggiseon        ###   ########seoul.kr   #
+#    Updated: 2022/07/18 22:04:37 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRCS		= 	philo.c			\
 				parser.c		\
 				parser_atoi.c	\
 				parser_error.c	\
-				error.c
+				error.c			\
+				utils.c
 VPATH		= $(shell ls -R)
 
 OBJ_DIR = ./obj

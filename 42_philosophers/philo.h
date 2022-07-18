@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
+/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/18 21:49:37 by baggiseon        ###   ########seoul.kr  */
+/*   Updated: 2022/07/18 22:05:17 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 # define TIME_TO_SLEEP 3
 # define MUST_EAT_NUMBER 4
 
-void	print_error(int exit_flag);
-int		*parse(int argc, char **argv);
-int		paser_error(char **need_parsed);
+void		print_error(int exit_flag);
+int			*parse(int argc, char **argv);
+int			paser_error(char **need_parsed);
 long int	parse_atoi(const char *str);
-
+void		*ft_calloc(size_t count, size_t size);
 
 # endif
