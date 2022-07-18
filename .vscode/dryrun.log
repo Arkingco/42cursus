@@ -1,0 +1,7 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/kipark/42_project/42cursus'
+ 
+make: Leaving directory `/Users/kipark/42_project/42cursus'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
