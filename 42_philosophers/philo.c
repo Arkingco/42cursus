@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
+/*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/18 21:20:27 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/18 21:40:44 by baggiseon        ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,8 @@ int	main(int argc, char **argv)
 	if (argc != 5 && argc != 6)
 		return (1);
 	int *get_paser = parse(argc - 1, ++argv);
+	for(int i=0; i < argc-1; ++i)
+	{
+		printf("%d\n", get_paser[i]);
+	}
 }
