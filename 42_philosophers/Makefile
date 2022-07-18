@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 15:58:45 by kipark            #+#    #+#              #
-#    Updated: 2022/07/18 16:12:18 by kipark           ###   ########.fr        #
+#    Updated: 2022/07/18 21:24:59 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,10 @@ RM		= rm
 RM_FLAG	= -rf
 TEST =  -fsanitize=address -g3
 
-SRCS		= 	philo.c
-# 				pipex.c				\
-# 				error.c				\
-# 				parse.c				\
-# 				child.c				\
-# 				system_call_utils.c	
+SRCS		= 	philo.c						\
+				parse/parser.c				\
+				parse/parser_atoi.c			\
+				parse/parser_error.c								
 
 VPATH		=	$(ls -l)
 
@@ -39,10 +37,6 @@ all : $(NAME)
 $(NAME) : $(OBJ_FILE)
 	$(CC) $(CC_FLAG) -o $@ $^
 
-debug :
-	make -C $(LIBFT_DIR)
-	$(CC) $(CC_FLAG) -g -o $(NAME) $(SRCS) $(LIBFT_LIB)
-
 clean :
 	$(RM) $(RM_FLAG) $(OBJ_DIR)
 
@@ -53,5 +47,9 @@ fclean :
 re :
 	make fclean
 	make
+
+debug :
+	make -C $(LIBFT_DIR)
+	$(CC) $(CC_FLAG) -g -o $(NAME) $(SRCS) $(LIBFT_LIB)
 
 .Phony : all clean fclean re
