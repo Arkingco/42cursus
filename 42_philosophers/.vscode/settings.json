@@ -1,8 +1,9 @@
 {
-	"makefile.extensionOutputFolder": "./.vscode",
-	"files.associations": {
-		"philo.h": "c",
-		"__stddef_max_align_t.h": "c",
-		"stdio.h": "c"
-	}
+  "makefile.extensionOutputFolder": "./.vscode",
+  "files.associations": {
+    "philo.h": "c",
+    "__stddef_max_align_t.h": "c",
+    "stdio.h": "c",
+    "string.h": "c"
+  }
 }
