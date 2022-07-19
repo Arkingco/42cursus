@@ -5,19 +5,18 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE.
 
- 
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Mon Jul 18 22:04:38 2022
+# Make data base, printed on Wed Jul 20 02:59:55 2022
 
 # Variables
 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
- 
 ?F = $(notdir $?)
+ 
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -25,55 +24,61 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /Users/kipark/42_project/42cursus/42_philosophers
+CURDIR := /Users/baggiseon/42project/42cursus/42_philosophers
 # makefile
 SHELL = /bin/sh
 # makefile (from `Makefile', line 17)
 RM = rm
 # environment
-VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
-# environment
-VSCODE_NODE_CACHED_DATA_DIR = 
-# makefile (from `Makefile', line 29)
+# makefile (from `Makefile', line 31)
 OBJ_DIR = ./obj
-# makefile (from `Makefile', line 30)
+# makefile (from `Makefile', line 32)
 OBJ_FILE = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 # environment
-VERBOSE_LOGGING = true
+__CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220718T212836
+INFOPATH = /opt/homebrew/share/info:/opt/homebrew/share/info:
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-5d8bb0e5-45eb-4a79-acf4-251af98c335d.sock
+VSCODE_CWD = /
 # environment
-PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
+PATH = /opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/opt/homebrew/sbin
 # makefile (from `Makefile', line 18)
 RM_FLAG = -rf
-# makefile (from `Makefile', line 27)
+# makefile (from `Makefile', line 29)
 VPATH = $(shell ls -R)
-# environment
-VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.OWRjef7Ag1/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.S4jbLjVpqL/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
-PWD = /Users/kipark/42_project/42cursus/42_philosophers
+PWD = /Users/baggiseon/42project/42cursus/42_philosophers
 # environment
-HOME = /Users/kipark
+HOMEBREW_CELLAR = /opt/homebrew/Cellar
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+MANPATH = /opt/homebrew/share/man:/usr/share/man:/usr/local/share/man:/opt/homebrew/share/man:
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /Users/baggiseon
 # default
-MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
+MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-LOGNAME = kipark
+VSCODE_CODE_CACHE_PATH = /Users/baggiseon/Library/Application Support/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+LOGNAME = baggiseon
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -82,40 +87,42 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 TEST = -fsanitize=address -g3
 # environment
 XPC_FLAGS = 0x0
+# environment
+COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # makefile (from `Makefile', line 21)
-SRCS = philo.c parser.c parser_atoi.c parser_error.c error.c utils.c
+SRCS = philo.c parser.c parser_atoi.c parser_error.c error.c utils.c thread.c 
 # environment
-SHLVL = 1
+SHLVL = 2
 # makefile (from `Makefile', line 15)
 CC = cc
 # default
 MAKE_VERSION := 3.81
 # environment
-AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
-# environment
-USER = kipark
+USER = baggiseon
 # makefile
 .DEFAULT_GOAL := all
 # makefile (from `Makefile', line 13)
 NAME = philo
-# environment
-PIPE_LOGGING = true
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
-MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
+MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
+# environment
+TERM_PROGRAM = vscode
 # default
 .VARIABLES := 
 # environment
-TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/
+TMPDIR = /var/folders/5x/l039kxn57qn3d_rjl10609g00000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/kipark/Library/Application Support/Code/1.39.2-main.sock
+VSCODE_IPC_HOOK = /Users/baggiseon/Library/Application Support/Code/1.69.2-main.sock
+# environment
+MallocNanoZone = 0
 # makefile
 MAKEFLAGS = Rrqp
 # environment
@@ -123,13 +130,21 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.microsoft.VSCode.4640
+TERM_PROGRAM_VERSION = 1.69.2
+# environment
+XPC_SERVICE_NAME = 0
+# environment
+HOMEBREW_PREFIX = /opt/homebrew
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
-__CF_USER_TEXT_ENCODING = 0x19390:0x0:0x0
+HOMEBREW_REPOSITORY = /opt/homebrew
+# environment
+__CF_USER_TEXT_ENCODING = 0x1F5:0x3:0x33
+# environment
+COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # makefile (from `Makefile', line 16)
@@ -149,9 +164,11 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 56485
+TERM = xterm-256color
+# environment
+VSCODE_PID = 22824
 # variable set hash-table stats:
-# Load=68/1024=7%, Rehash=0, Collisions=8/105=8%
+# Load=77/1024=8%, Rehash=0, Collisions=3/109=3%
 
 # Pattern-specific Variable Values
 
@@ -159,33 +176,36 @@ VSCODE_PID = 56485
 
 # Directories
 
-# Makefile (device 16777225, inode 3520180): could not be opened.
+# Makefile (device 16777233, inode 4769857): could not be opened.
 # parser_atoi.o: could not be stat'd.
-# obj (device 16777225, inode 3520588): 7 files, no impossibilities.
-# . (device 16777225, inode 3508242): 11 files, no impossibilities.
+# obj (device 16777233, inode 4790237): 9 files, no impossibilities.
+# thread.o: could not be stat'd.
+# . (device 16777233, inode 4762011): 12 files, no impossibilities.
 # parser_error.o: could not be stat'd.
-# ./obj (device 16777225, inode 3520588): 7 files, no impossibilities.
+# ./obj (device 16777233, inode 4790237): 9 files, no impossibilities.
 # parser.o: could not be stat'd.
-# philo.h (device 16777225, inode 3520191): could not be opened.
+# philo.h (device 16777233, inode 4769869): could not be opened.
 # philo.o: could not be stat'd.
-# philo (device 16777225, inode 3520601): could not be opened.
-# utils.c (device 16777225, inode 3520787): could not be opened.
+# philo (device 16777233, inode 4790249): could not be opened.
+# utils.o: could not be stat'd.
+# utils.c (device 16777233, inode 4769871): could not be opened.
 # error.o: could not be stat'd.
 # parser_atoi.c: could not be stat'd.
+# thread.c (device 16777233, inode 4769870): could not be opened.
 # parser_error.c: could not be stat'd.
-# parse (device 16777225, inode 3514646): 5 files, no impossibilities.
+# parse (device 16777233, inode 4762022): 5 files, no impossibilities.
 # parser.c: could not be stat'd.
-# philo.c (device 16777225, inode 3520190): could not be opened.
-# ./parse (device 16777225, inode 3514646): 5 files, no impossibilities.
-# error.c (device 16777225, inode 3520181): could not be opened.
+# philo.c (device 16777233, inode 4769868): could not be opened.
+# ./parse (device 16777233, inode 4762022): 5 files, no impossibilities.
+# error.c (device 16777233, inode 4762019): could not be opened.
 
- 
-# 35 files, no impossibilities in 19 directories.
+# 40 files, no impossibilities in 22 directories.
 
 # Implicit Rules
 
 obj/%.o: %.c
-#  commands to execute (from `Makefile', line 33):
+ 
+#  commands to execute (from `Makefile', line 35):
 	mkdir -p $(OBJ_DIR)
 	$(CC) $(CC_FLAG) -c $< -o $@
 	
@@ -195,30 +215,64 @@ obj/%.o: %.c
 # Files
 
 # Not a target:
-obj/parser.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+parse/parser.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-19 19:57:15
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/parser.o: parse/parser.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `parser'
+#  Last modified 2022-07-20 02:59:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 35):
+	mkdir -p $(OBJ_DIR)
+	$(CC) $(CC_FLAG) -c $< -o $@
+	
 
 all: philo
 #  Command-line target.
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
-#  Needs to be updated (-q is set).
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-philo: obj/philo.o obj/parser.o obj/parser_atoi.o obj/parser_error.o obj/error.o obj/utils.o
+philo: obj/philo.o obj/parser.o obj/parser_atoi.o obj/parser_error.o obj/error.o obj/utils.o obj/thread.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-18 22:00:06
+#  Last modified 2022-07-20 02:59:44
 #  File has been updated.
-#  Needs to be updated (-q is set).
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
-#  commands to execute (from `Makefile', line 39):
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 41):
 	$(CC) $(CC_FLAG) -o $@ $^
 	
+
+# Not a target:
+utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-19 19:57:15
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+thread.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-20 02:59:22
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 .Phony: all clean fclean re
 #  Implicit rule search has not been done.
@@ -232,37 +286,76 @@ philo: obj/philo.o obj/parser.o obj/parser_atoi.o obj/parser_error.o obj/error.o
 #  File has not been updated.
 
 # Not a target:
-obj/parser_atoi.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-Makefile:
+parse/parser_atoi.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-18 22:04:37
+#  Last modified 2022-07-19 19:57:15
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-# Not a target:
-obj/error.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/parser_atoi.o: parse/parser_atoi.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `parser_atoi'
+#  Last modified 2022-07-20 02:59:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 35):
+	mkdir -p $(OBJ_DIR)
+	$(CC) $(CC_FLAG) -c $< -o $@
+	
 
 # Not a target:
-obj/parser_error.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-20 02:59:54
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/error.o: error.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `error'
+#  Last modified 2022-07-20 02:59:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 35):
+	mkdir -p $(OBJ_DIR)
+	$(CC) $(CC_FLAG) -c $< -o $@
+	
+
+# Not a target:
+parse/parser_error.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-18 21:49:25
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/parser_error.o: parse/parser_error.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `parser_error'
+#  Last modified 2022-07-20 02:59:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 35):
+	mkdir -p $(OBJ_DIR)
+	$(CC) $(CC_FLAG) -c $< -o $@
+	
 
 debug:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 53):
+#  commands to execute (from `Makefile', line 55):
 	make -C $(LIBFT_DIR)
 	$(CC) $(CC_FLAG) -g -o $(NAME) $(SRCS) $(LIBFT_LIB)
 	
@@ -270,7 +363,7 @@ debug:
 # Not a target:
 philo.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-18 22:01:39
+#  Last modified 2022-07-19 20:47:39
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -280,7 +373,7 @@ fclean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 45):
+#  commands to execute (from `Makefile', line 47):
 	make clean
 	$(RM) $(RM_FLAG) $^ $(NAME)
 	
@@ -288,28 +381,12 @@ fclean:
 obj/philo.o: philo.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `philo'
-#  Last modified 2022-07-18 22:00:06
+#  Last modified 2022-07-20 02:59:43
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := obj/philo.o
-# automatic
-# % := 
-# automatic
-# * := philo
-# automatic
-# + := philo.c
-# automatic
-# | := 
-# automatic
-# < := philo.c
-# automatic
-# ^ := philo.c
-# automatic
-# ? := philo.c
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/15=7%
-#  commands to execute (from `Makefile', line 33):
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 35):
 	mkdir -p $(OBJ_DIR)
 	$(CC) $(CC_FLAG) -c $< -o $@
 	
@@ -324,7 +401,7 @@ re:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 49):
+#  commands to execute (from `Makefile', line 51):
 	make fclean
 	make
 	
@@ -333,20 +410,50 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 42):
+#  commands to execute (from `Makefile', line 44):
 	$(RM) $(RM_FLAG) $(OBJ_DIR)
 	
 
+obj/utils.o: utils.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils'
+#  Last modified 2022-07-20 02:59:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 35):
+	mkdir -p $(OBJ_DIR)
+	$(CC) $(CC_FLAG) -c $< -o $@
+	
+
 # Not a target:
-obj/utils.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+error.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-18 21:49:28
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/thread.o: thread.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `thread'
+#  Last modified 2022-07-20 02:59:44
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 35):
+	mkdir -p $(OBJ_DIR)
+	$(CC) $(CC_FLAG) -c $< -o $@
+	
 
 # files hash-table stats:
-# Load=17/1024=2%, Rehash=0, Collisions=0/49=0%
+# Load=24/1024=2%, Rehash=0, Collisions=0/99=0%
 # VPATH Search Paths
 
+ 
 # No `vpath' search paths.
 
 # General (`VPATH' variable) search path:
@@ -357,6 +464,6 @@ obj/utils.o:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Jul 18 22:04:38 2022
+# Finished Make data base on Wed Jul 20 02:59:55 2022
 
  

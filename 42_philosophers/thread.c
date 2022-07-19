@@ -3,46 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   thread.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
+/*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/19 15:51:28 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/20 05:14:20 by baggiseon        ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <string.h>
 
-void	*print_thread()
+static void	philo_init(int philo_index, int all_number_of_philo, t_philo_info *philo_info, pthread_mutex_t *forks)
 {
-	pthread_t	tid;
-	int			i;
+	philo_info->my_philo_index = philo_index;
+	philo_info->fork_left = forks[philo_index];
+	philo_info->fork_left = forks[all_number_of_philo % (philo_index + 1)];
+}
 
-	i = 0;
-	tid = pthread_self();
-	printf("tid : %x \n", (int)tid);
-	while(i < 10)
-	{
-		printf("	tid: %x %d\n", (int)tid, i);
-		++i;
-		sleep(1);
-	}
+static void	*print_thread_function(void *philos)
+{
+	t_philo_info *this_philo = (t_philo_info *)philos;
+	printf("%d \n", this_philo->my_philo_index);
 	return NULL;
 }
 
-void	run_thread()
+void	run_thread(int *get_parse)
 {
-	pthread_t	thread_join;
-	pthread_t	thread_detach;
+	pthread_t		*philpsophers_thread;
+	t_philo_info	*philpsophers;
+	pthread_mutex_t *forks;
+	int				i;
 
-	pthread_create(&thread_join, NULL, print_thread, NULL);
-	pthread_create(&thread_detach, NULL, print_thread, NULL);
-	int i = 0;
-	printf("tid : %x \n", (int)pthread_self());
-	while(i < 5)
+	philpsophers_thread = ft_calloc(get_parse[ALL_PHILO_NUMBER], sizeof(pthread_t));
+	philpsophers = ft_calloc(get_parse[ALL_PHILO_NUMBER], sizeof(t_philo_info));
+	forks = ft_calloc(get_parse[ALL_PHILO_NUMBER], sizeof(pthread_mutex_t));
+	i = -1;
+	while (++i < get_parse[ALL_PHILO_NUMBER])
+		philo_init(i, get_parse[ALL_PHILO_NUMBER], &philpsophers[i], forks);
+	i = -1;
+	while (++i < get_parse[ALL_PHILO_NUMBER])
+		pthread_create(&philpsophers_thread[i], NULL, print_thread_function, &philpsophers[i]);
+	i = -1;
+	while (++i < get_parse[ALL_PHILO_NUMBER])
 	{
-		printf("main:%x %d\n", (int)pthread_self(), i);
-		++i;
-		sleep(1);
-	} 
-	pthread_detach(thread_detach);
+		if(pthread_join(philpsophers_thread[i], NULL) == 0)
+			printf("[%d thread is return !! ]\n", i);
+	}
 }
