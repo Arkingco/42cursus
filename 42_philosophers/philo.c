@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/18 22:09:04 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/19 15:22:27 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,5 @@ int	main(int argc, char **argv)
 	if (argc != 5 && argc != 6)
 		print_error(1);
 	get_parse = parse(argc - 1, ++argv);
+	run_thread();
 }
