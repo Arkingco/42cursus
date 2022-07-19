@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 15:58:45 by kipark            #+#    #+#              #
-#    Updated: 2022/07/18 22:04:37 by kipark           ###   ########.fr        #
+#    Updated: 2022/07/19 15:23:00 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,9 @@ SRCS		= 	philo.c			\
 				parser_atoi.c	\
 				parser_error.c	\
 				error.c			\
-				utils.c
+				utils.c			\
+				thread.c		\
+				
 VPATH		= $(shell ls -R)
 
 OBJ_DIR = ./obj

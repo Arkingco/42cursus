@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/18 22:05:17 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/19 15:22:05 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int			*parse(int argc, char **argv);
 int			paser_error(char **need_parsed);
 long int	parse_atoi(const char *str);
 void		*ft_calloc(size_t count, size_t size);
+void		run_thread();
 
 # endif
