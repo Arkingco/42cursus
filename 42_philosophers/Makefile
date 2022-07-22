@@ -6,7 +6,7 @@
 #    By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 15:58:45 by kipark            #+#    #+#              #
-#    Updated: 2022/07/20 02:59:54 by baggiseon        ###   ########seoul.kr   #
+#    Updated: 2022/07/20 15:02:33 by baggiseon        ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,14 @@ SRCS		= 	philo.c			\
 				error.c			\
 				utils.c			\
 				thread.c		\
-				
+
+DEBUG_SRCS		= 	philo.c			\
+				parse/parser.c		\
+				parse/parser_atoi.c	\
+				parse/parser_error.c	\
+				error.c			\
+				utils.c			\
+				thread.c		\		
 VPATH		= $(shell ls -R)
 
 OBJ_DIR = ./obj
@@ -52,7 +59,6 @@ re :
 	make
 
 debug :
-	make -C $(LIBFT_DIR)
-	$(CC) $(CC_FLAG) -g -o $(NAME) $(SRCS) $(LIBFT_LIB)
+	$(CC) $(CC_FLAG) -g -o $(NAME) $(DEBUG_SRCS)
 
 .Phony : all clean fclean re
