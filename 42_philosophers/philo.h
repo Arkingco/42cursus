@@ -6,7 +6,7 @@
 /*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/20 05:05:21 by baggiseon        ###   ########seoul.kr  */
+/*   Updated: 2022/07/21 19:52:09 by baggiseon        ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <pthread.h>
+# include <sys/time.h>
 
 # define ALL_PHILO_NUMBER 0
 # define TIME_TO_DIE 1
@@ -26,8 +27,8 @@
 
 typedef struct s_philo_info
 {
-    pthread_mutex_t fork_left;
-    pthread_mutex_t fork_right;
+    pthread_mutex_t *fork_left;
+    pthread_mutex_t *fork_right;
     int             my_philo_index;
 }   t_philo_info;
 
