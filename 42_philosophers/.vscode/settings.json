@@ -5,6 +5,7 @@
     "__stddef_max_align_t.h": "c",
     "stdio.h": "c",
     "string.h": "c",
-    "_types.h": "c"
+    "_types.h": "c",
+    "_pthread_types.h": "c"
   }
 }

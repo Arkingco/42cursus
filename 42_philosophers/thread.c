@@ -6,7 +6,7 @@
 /*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/22 18:01:16 by baggiseon        ###   ########seoul.kr  */
+/*   Updated: 2022/07/22 18:22:01 by baggiseon        ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,14 @@ static void	*philo_run(void *philos)
 	pthread_mutex_lock(this_philo->fork_left);
 	pthread_mutex_lock(this_philo->fork_right);
     //======== start critical section =============
-
+	usleep(1500000);
 	struct timeval startTime, endTime;
    	double diffTime;
 	gettimeofday(&startTime, NULL);
-      // 특정 작업 수행
-	sleep(1);
-	printf("number of %d philosophers is run", this_philo->my_philo_index);
+	printf("number of %d philosophers is run   ", this_philo->my_philo_index);
     gettimeofday(&endTime, NULL);
-    diffTime = ( endTime.tv_sec - startTime.tv_sec ) + (( endTime.tv_usec - startTime.tv_usec ) / 1000000);
-    printf("%lf s    diff time to second = %ld    ---   diff time to usec = %d \n", diffTime,( endTime.tv_sec - startTime.tv_sec ), endTime.tv_usec);
+    diffTime = ( endTime.tv_sec - startTime.tv_sec ) * 1000 + (( endTime.tv_usec - startTime.tv_usec ) / 1000);
+    printf("%f s    diff time to second = %ld    ---   diff time to usec = %d \n", diffTime,( endTime.tv_sec - startTime.tv_sec ), endTime.tv_usec);
     //========= end   critical section ============
     pthread_mutex_unlock(this_philo->fork_left);
 	pthread_mutex_unlock(this_philo->fork_right);
