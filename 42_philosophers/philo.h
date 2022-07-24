@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/23 16:32:37 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/24 16:56:08 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ typedef struct s_philo_info
 	int				my_philo_index;
 	int				*get_parse;
 }  	t_philo_info;
+// typedef	struct s_philo_monitor
+// {
+// 	pthread_t		*philpsophers_thread;
+// 	t_philo_info	*philpsophers;
+// 	pthread_mutex_t *forks;
+// }
 
 // error*
 int			paser_error(char **need_parsed);
