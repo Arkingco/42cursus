@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/24 20:17:29 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/24 20:32:29 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	philo_init(int philo_index, int *get_parse, t_philo_info *philo_info, pthread_mutex_t *forks)
 {
-	philo_info->my_philo_index = philo_index;
+	philo_info->index = philo_index;
 	philo_info->fork_left = &forks[philo_index];
 	philo_info->fork_right = &forks[(philo_index + 1) % get_parse[ALL_PHILO_NUMBER]];
 	philo_info->get_parse = get_parse;
@@ -32,43 +32,54 @@ static void philo_unlock_forks(pthread_mutex_t *fork_left, pthread_mutex_t *fork
 	pthread_mutex_unlock(fork_right);
 }
 
-static int get_diff_time(timeval start_time, timeval end_time)
+static int get_diff_time(timeval start_time)
 {
+	timeval end_time;
+
 	gettimeofday(&end_time, NULL);
 	return	(int)(end_time.tv_sec - start_time.tv_sec) * 1000 + ((end_time.tv_usec - start_time.tv_usec) / 1000);
+}
+
+void philo_action_and_print(timeval start_time, int philo_index, char *strs, int ms_sleep_time)
+{
+	printf("%04d %d %s", get_diff_time(start_time), philo_index, strs);
+	if(ms_sleep_time != 0)
+		ms_usleep(ms_sleep_time);
 }
 
 static void	*philo_run(void *philos)
 {
 	t_philo_info	*this_philo;
 	timeval			start_time;
-	timeval			end_time;
 
 	this_philo = (t_philo_info *)philos;
 	gettimeofday(&start_time, NULL);
-	gettimeofday(&end_time, NULL); 
-	if (this_philo->my_philo_index % 2 == 0)
+	if (this_philo->index % 2 == 0)
 		usleep(1000);
 	//----------------- start --------------------------------------//
-	// while (this_philo->get_parse[TIME_TO_DIE] > get_diff_time(start_time, end_time))
-	// {
+	while (this_philo->get_parse[TIME_TO_DIE] > get_diff_time(start_time))
+	{
 		philo_lock_forks(this_philo->fork_left, this_philo->fork_right);
-		//======== start critical section =============
-			// get fork
-		printf("%04d %d has taken a fork\n", get_diff_time(start_time, end_time),this_philo->my_philo_index);
-			// eat food 
-		printf("%04d %d is eating\n", get_diff_time(start_time, end_time),this_philo->my_philo_index);
-		ms_usleep(this_philo->get_parse[TIME_TO_EAT]);
+		
+		philo_action_and_print(start_time, this_philo->index, "has taken a fork\n", 0);
+				// printf("%04d %d has taken a fork\n", get_diff_time(start_time, end_time),this_philo->index);
+
+		philo_action_and_print(start_time, this_philo->index, "is eating\n", this_philo->get_parse[TIME_TO_EAT]);
+				// printf("%04d %d is eating\n", get_diff_time(start_time, end_time),this_philo->index);
+				// ms_usleep(this_philo->get_parse[TIME_TO_EAT]);
+
 		philo_unlock_forks(this_philo->fork_left, this_philo->fork_right);
-		//========= end   critical section ============
-			// 밥을 다 먹었다면 포크를 내려 놓고 sleep and wait
-		printf("%04d %d is sleeping\n", get_diff_time(start_time, end_time),this_philo->my_philo_index);
-		ms_usleep(this_philo->get_parse[TIME_TO_SLEEP]);
-			// 잠을 다 잤다면 생각하기
-		printf("%04d %d is thinking\n", get_diff_time(start_time, end_time),this_philo->my_philo_index);
-	// }
+
+		philo_action_and_print(start_time, this_philo->index, "is sleeping\n", this_philo->get_parse[TIME_TO_SLEEP]);
+				// printf("%04d %d is sleeping\n", get_diff_time(start_time, end_time),this_philo->index);
+				// ms_usleep(this_philo->get_parse[TIME_TO_SLEEP]);
+		
+		philo_action_and_print(start_time, this_philo->index, "is thinking\n", 0);
+		// printf("%04d %d is thinking\n", get_diff_time(start_time, end_time),this_philo->index);
+	}
 	// ---------------- end	---------------------------------------//
-	printf("%04d %d is died\n", get_diff_time(start_time, end_time),this_philo->my_philo_index);
+	philo_action_and_print(start_time, this_philo->index, "is died\n", 0);
+	// printf("%04d %d is died\n", get_diff_time(start_time, end_time),this_philo->index);
 	return NULL;
 }
 
