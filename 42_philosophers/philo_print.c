@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   philo_print.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/20 14:56:55 by baggiseon         #+#    #+#             */
-/*   Updated: 2022/07/24 15:54:40 by kipark           ###   ########.fr       */
+/*   Created: 2022/07/23 15:59:37 by kipark            #+#    #+#             */
+/*   Updated: 2022/07/24 15:45:43 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "philo.h"
+// timestamp_in_ms X has taken a fork
 
-int	main(int argc, char **argv)
-{
-	int *get_parse;
+// timestamp_in_ms X is eating
 
-	if (argc != 5 && argc != 6)
-		print_error(1);
-	get_parse = parse(argc - 1, ++argv);
-	run_thread(get_parse);
-}
+// timestamp_in_ms X is sleeping
+
+// timestamp_in_ms X is thinking
+
+// timestamp_in_ms X died
