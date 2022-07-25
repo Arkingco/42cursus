@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/24 20:26:34 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/25 18:01:10 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,11 @@ typedef struct s_philo_info
 {
 	pthread_mutex_t *fork_left;
 	pthread_mutex_t *fork_right;
+	timeval			last_eat;
 	int				index;
 	int				*get_parse;
+	int				first_eat;
+	int				die_flag;
 }  	t_philo_info;
 // typedef	struct s_philo_monitor
 // {
