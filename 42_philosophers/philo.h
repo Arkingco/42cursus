@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
+/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/21 19:52:09 by baggiseon        ###   ########seoul.kr  */
+/*   Updated: 2022/07/25 18:01:10 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,23 @@
 # define TIME_TO_SLEEP 3
 # define MUST_EAT_NUMBER 4
 
+typedef struct timeval timeval;
 typedef struct s_philo_info
 {
-    pthread_mutex_t *fork_left;
-    pthread_mutex_t *fork_right;
-    int             my_philo_index;
-}   t_philo_info;
+	pthread_mutex_t *fork_left;
+	pthread_mutex_t *fork_right;
+	timeval			last_eat;
+	int				index;
+	int				*get_parse;
+	int				first_eat;
+	int				die_flag;
+}  	t_philo_info;
+// typedef	struct s_philo_monitor
+// {
+// 	pthread_t		*philpsophers_thread;
+// 	t_philo_info	*philpsophers;
+// 	pthread_mutex_t *forks;
+// }
 
 // error*
 int			paser_error(char **need_parsed);
@@ -39,9 +50,10 @@ void		print_error(int exit_flag);
 // utils
 long int	parse_atoi(const char *str);
 void		*ft_calloc(size_t count, size_t size);
+void		ms_usleep(unsigned int ms_second);
 
 // main
-void    	run_thread(int *get_parse);
+void		run_thread(int *get_parse);
 int			*parse(int argc, char **argv);
 
 # endif
