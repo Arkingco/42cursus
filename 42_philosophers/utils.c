@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 22:02:29 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/23 16:22:04 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/27 17:31:06 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,4 @@ void	*ft_calloc(size_t count, size_t size)
 		print_error(1);
 	ft_memset(ptr, 0, count * size);
 	return (ptr);
-}
-
-void ms_usleep(unsigned int ms_second)
-{
-	usleep(ms_second * 1000);
 }

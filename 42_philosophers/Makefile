@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+         #
+#    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 15:58:45 by kipark            #+#    #+#              #
-#    Updated: 2022/07/20 15:02:33 by baggiseon        ###   ########seoul.kr   #
+#    Updated: 2022/07/27 22:12:06 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,8 @@ RM_FLAG	= -rf
 TEST =  -fsanitize=address -g3
 
 SRCS		= 	philo.c			\
+				philo_init.c	\
+				philo_utils.c	\
 				parser.c		\
 				parser_atoi.c	\
 				parser_error.c	\
@@ -40,7 +42,7 @@ OBJ_FILE = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
 $(OBJ_DIR)/%.o : %.c
 	mkdir -p $(OBJ_DIR)
-	$(CC) $(CC_FLAG) -c $< -o $@
+	$(CC) $(CC_FLAG) -g -c $< -o $@
 
 all : $(NAME)
 

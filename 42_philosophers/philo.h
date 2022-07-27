@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/25 18:01:10 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/27 22:14:11 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <pthread.h>
 # include <sys/time.h>
 
+
+# define ONE_MALLOC 1
 # define ALL_PHILO_NUMBER 0
 # define TIME_TO_DIE 1
 # define TIME_TO_EAT 2
@@ -26,22 +28,28 @@
 # define MUST_EAT_NUMBER 4
 
 typedef struct timeval timeval;
+
 typedef struct s_philo_info
 {
 	pthread_mutex_t *fork_left;
 	pthread_mutex_t *fork_right;
+	pthread_mutex_t	*die_mutex;
+	int				*die_flag;
 	timeval			last_eat;
 	int				index;
 	int				*get_parse;
 	int				first_eat;
-	int				die_flag;
 }  	t_philo_info;
-// typedef	struct s_philo_monitor
-// {
-// 	pthread_t		*philpsophers_thread;
-// 	t_philo_info	*philpsophers;
-// 	pthread_mutex_t *forks;
-// }
+
+typedef	struct	s_philo_monitor_info
+{
+	pthread_t		*philosophers_thread;
+	t_philo_info	*philosophers;
+	pthread_mutex_t *forks;
+	pthread_mutex_t	*die_mutex;
+	int				*die_flag;
+	int				*get_parse;
+}	t_philo_monitor_info;
 
 // error*
 int			paser_error(char **need_parsed);
@@ -50,10 +58,22 @@ void		print_error(int exit_flag);
 // utils
 long int	parse_atoi(const char *str);
 void		*ft_calloc(size_t count, size_t size);
-void		ms_usleep(unsigned int ms_second);
 
 // main
 void		run_thread(int *get_parse);
 int			*parse(int argc, char **argv);
+
+void		*philo_run(void *philos);
+
+// philo_init
+void		philo_malloc(t_philo_monitor_info *monitor, void *philos);
+void		philo_init(t_philo_monitor_info *monitor);
+void		philo_wait_and_free(t_philo_monitor_info *monitor);
+
+// philo_utils
+void		philo_lock_forks(pthread_mutex_t *fork_left, pthread_mutex_t *fork_right);
+void		philo_unlock_forks(pthread_mutex_t *fork_left, pthread_mutex_t *fork_right);
+int			get_diff_time(timeval start_time);
+void		ms_usleep(int ms_second);
 
 # endif
