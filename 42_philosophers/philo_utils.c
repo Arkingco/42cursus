@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:59:54 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/27 21:58:23 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/27 22:24:24 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ int get_diff_time(timeval start_time)
 
 void philo_lock_forks(pthread_mutex_t *fork_left, pthread_mutex_t *fork_right)
 {
-	pthread_mutex_lock(fork_left); 
+	pthread_mutex_lock(fork_left);
+	printf("get fork left \n");
 	pthread_mutex_lock(fork_right);
+	printf("get fork right \n");
 }
 
 void philo_unlock_forks(pthread_mutex_t *fork_left, pthread_mutex_t *fork_right)
