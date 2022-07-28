@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
+/*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/28 18:25:21 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/29 03:04:05 by baggiseon        ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <pthread.h>
 # include <sys/time.h>
 
-
+# define NOTTING_ACTION -1
 # define ONE_MALLOC 1
 # define ALL_PHILO_NUMBER 0
 # define TIME_TO_DIE 1
@@ -34,11 +34,10 @@ typedef struct s_philo_info
 	pthread_mutex_t *fork_left;
 	pthread_mutex_t *fork_right;
 	pthread_mutex_t	*die_mutex;
-	int				*die_flag;
+	int				die_flag;
 	timeval			last_eat;
 	int				index;
 	int				*get_parse;
-	int				first_eat;
 }  	t_philo_info;
 
 typedef	struct	s_philo_monitor_info
@@ -73,7 +72,13 @@ void		philo_wait_and_free(t_philo_monitor_info *monitor);
 // philo_utils
 void		philo_lock_forks(pthread_mutex_t *fork_left, pthread_mutex_t *fork_right, timeval start_time, int philo_index);
 void		philo_unlock_forks(pthread_mutex_t *fork_left, pthread_mutex_t *fork_right);
-int			get_diff_time(timeval start_time);
 void		ms_usleep(int ms_second);
+void		philo_print(timeval start_time, t_philo_info *this_philo, char *strs);
+int			get_diff_time(timeval start_time);
+
+// philo_die
+void		set_die_mutex_flag(pthread_mutex_t *die_mutex, int *die_flag);
+int			check_philo_die(t_philo_info *this_philo, int action_flag);
+int			check_die_mutex_flag(pthread_mutex_t *die_mutex, int *die_flag);
 
 # endif

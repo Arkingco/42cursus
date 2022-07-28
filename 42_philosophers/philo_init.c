@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
+/*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:50:36 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/27 22:13:56 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/29 03:31:25 by baggiseon        ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void philo_malloc(t_philo_monitor_info *monitor, void *philos)
 	monitor->philosophers = ft_calloc(monitor->get_parse[ALL_PHILO_NUMBER], sizeof(t_philo_info));
 	monitor->forks = ft_calloc(monitor->get_parse[ALL_PHILO_NUMBER], sizeof(pthread_mutex_t));
 	monitor->die_mutex = ft_calloc(ONE_MALLOC, sizeof(pthread_mutex_t));
-	monitor->die_flag = ft_calloc(ONE_MALLOC, sizeof(int));
 }
 
 
@@ -29,8 +28,7 @@ static void	philo_info_init(int philo_index, t_philo_info *philo_info, t_philo_m
 	philo_info->fork_left = &monitor->forks[philo_index];
 	philo_info->fork_right = &monitor->forks[(philo_index + 1) % monitor->get_parse[ALL_PHILO_NUMBER]];
 	philo_info->get_parse = monitor->get_parse;
-	philo_info->die_flag = monitor->die_flag;
-	philo_info->first_eat = 1;
+	philo_info->die_flag = 0;
 	philo_info->die_mutex = monitor->die_mutex;
 }
 
@@ -48,7 +46,6 @@ void philo_init(t_philo_monitor_info *monitor)
 	i = -1;
 	while (++i < monitor->get_parse[ALL_PHILO_NUMBER])
 		pthread_create(&monitor->philosophers_thread[i], NULL, philo_run, &monitor->philosophers[i]);
-	i = 0;
 }
 
 void philo_wait_and_free(t_philo_monitor_info *monitor)

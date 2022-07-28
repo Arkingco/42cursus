@@ -3,65 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   thread.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
+/*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/28 18:25:56 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/29 03:30:42 by baggiseon        ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	set_die_mutex_flag(pthread_mutex_t *die_mutex, int *die_flag)
-{
-	pthread_mutex_lock(die_mutex);
-	*die_flag = 1;
-	pthread_mutex_unlock(die_mutex);
-}
-
-int		check_die_mutex_flag(pthread_mutex_t *die_mutex, int *die_flag)
-{
-	pthread_mutex_lock(die_mutex);
-	if (*die_flag == 1)
-		return (0);
-	pthread_mutex_unlock(die_mutex);
-	return (1);
-}
-
-void	philo_print(timeval start_time, t_philo_info *this_philo, char *strs)
-{
-	int diff_time;
-
-	diff_time = get_diff_time(start_time);
-	printf("%04d %d %s", diff_time, this_philo->index, strs);
-}
-
-int		check_philo_die(t_philo_info *this_philo, int action_flag)
-{
-	int	before_lats_time;
-
-	before_lats_time = get_diff_time(this_philo->last_eat);
-	if (before_lats_time >= this_philo->get_parse[TIME_TO_DIE])
-	{
-		set_die_mutex_flag(this_philo->die_mutex, this_philo->die_flag);
-		if (action_flag == TIME_TO_EAT)
-			philo_unlock_forks(this_philo->fork_left, this_philo->fork_right);
-		printf("%d is died diff time to %d \n", this_philo->index, before_lats_time);
-		return (1);
-	}
-	return (0);
-}
-
 void	philo_action_and_print(timeval start_time, t_philo_info *this_philo, char *strs, int action_flag)
 {
-	// die 플래그 만들어서 처리하고 모니터링 에서는 다이 플래그 체크만 하기
 	if (check_philo_die(this_philo, action_flag))
 		return ;
+	if (action_flag == TIME_TO_EAT)
+		gettimeofday(&this_philo->last_eat, NULL);
 	philo_print(start_time, this_philo, strs);
 	if (action_flag != 0)
 		ms_usleep(this_philo->get_parse[action_flag]);
-	if (action_flag == TIME_TO_EAT)
-		gettimeofday(&this_philo->last_eat, NULL);
 }
 
 void	*philo_run(void *philos)
@@ -73,8 +32,8 @@ void	*philo_run(void *philos)
 	gettimeofday(&this_philo->last_eat, NULL);
 	gettimeofday(&start_time, NULL);
 	if (this_philo->index % 2 == 0)
-		usleep(200);
-	while (check_die_mutex_flag(this_philo->die_mutex, this_philo->die_flag))
+		usleep(1000);
+	while (check_philo_die(this_philo, NOTTING_ACTION) == 0)
 	{
 		philo_lock_forks(this_philo->fork_left, this_philo->fork_right, start_time, this_philo->index);
 		philo_action_and_print(start_time, this_philo, "is eating\n", TIME_TO_EAT);
@@ -89,11 +48,16 @@ void	*philo_run(void *philos)
 static void *philo_monitor_run(void *philos)
 {
 	t_philo_monitor_info	*monitor;
-
+	unsigned int			i;
 	monitor = calloc(ONE_MALLOC, sizeof(t_philo_monitor_info));
 	philo_malloc(monitor, philos);
 	philo_init(monitor);
 	philo_wait_and_free(monitor);
+	i = 0;
+	while (1)
+	{
+		if (check_die_mutex_flag(monitor[i % ]))
+	}
 	return (NULL);
 }
 
@@ -108,7 +72,5 @@ void	run_thread(int *get_parse)
 	{
 		if (pthread_join(philo_monitor, NULL) == 0)
 			printf("[%d monitor thread is return !! ]\n", i);
-		else
-			print_error(1);
 	}
 }
