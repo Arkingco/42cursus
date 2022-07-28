@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/28 17:06:27 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/28 18:25:56 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,26 @@ void	philo_print(timeval start_time, t_philo_info *this_philo, char *strs)
 	printf("%04d %d %s", diff_time, this_philo->index, strs);
 }
 
-
-void	philo_action_and_print(timeval start_time, t_philo_info *this_philo, char *strs, int action_flag)
+int		check_philo_die(t_philo_info *this_philo, int action_flag)
 {
 	int	before_lats_time;
 
 	before_lats_time = get_diff_time(this_philo->last_eat);
-	
 	if (before_lats_time >= this_philo->get_parse[TIME_TO_DIE])
-			set_die_mutex_flag(this_philo->die_mutex, this_philo->die_flag);
-	if (check_die_mutex_flag(this_philo->die_mutex, this_philo->die_flag) == 0)
+	{
+		set_die_mutex_flag(this_philo->die_mutex, this_philo->die_flag);
+		if (action_flag == TIME_TO_EAT)
+			philo_unlock_forks(this_philo->fork_left, this_philo->fork_right);
+		printf("%d is died diff time to %d \n", this_philo->index, before_lats_time);
+		return (1);
+	}
+	return (0);
+}
+
+void	philo_action_and_print(timeval start_time, t_philo_info *this_philo, char *strs, int action_flag)
+{
+	// die 플래그 만들어서 처리하고 모니터링 에서는 다이 플래그 체크만 하기
+	if (check_philo_die(this_philo, action_flag))
 		return ;
 	philo_print(start_time, this_philo, strs);
 	if (action_flag != 0)
@@ -53,8 +63,6 @@ void	philo_action_and_print(timeval start_time, t_philo_info *this_philo, char *
 	if (action_flag == TIME_TO_EAT)
 		gettimeofday(&this_philo->last_eat, NULL);
 }
-
-
 
 void	*philo_run(void *philos)
 {
