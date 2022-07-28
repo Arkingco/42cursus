@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/27 22:44:05 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/28 17:06:27 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,27 +28,33 @@ int		check_die_mutex_flag(pthread_mutex_t *die_mutex, int *die_flag)
 	return (1);
 }
 
-void	philo_action_and_print(timeval start_time, t_philo_info *this_philo, char *strs, int action_flag)
+void	philo_print(timeval start_time, t_philo_info *this_philo, char *strs)
 {
-	int		diff_time;
+	int diff_time;
 
-	if (this_philo->first_eat == 1 || action_flag == TIME_TO_EAT)
-	{
-		gettimeofday(&this_philo->last_eat, NULL);
-		this_philo->first_eat = 0;
-	}
-	else
-	{
-		if (get_diff_time(this_philo->last_eat) >= this_philo->get_parse[TIME_TO_DIE])
-		{
-			printf("%d philo is dead !!! ", this_philo->index);
-		}
-	}
 	diff_time = get_diff_time(start_time);
 	printf("%04d %d %s", diff_time, this_philo->index, strs);
+}
+
+
+void	philo_action_and_print(timeval start_time, t_philo_info *this_philo, char *strs, int action_flag)
+{
+	int	before_lats_time;
+
+	before_lats_time = get_diff_time(this_philo->last_eat);
+	
+	if (before_lats_time >= this_philo->get_parse[TIME_TO_DIE])
+			set_die_mutex_flag(this_philo->die_mutex, this_philo->die_flag);
+	if (check_die_mutex_flag(this_philo->die_mutex, this_philo->die_flag) == 0)
+		return ;
+	philo_print(start_time, this_philo, strs);
 	if (action_flag != 0)
 		ms_usleep(this_philo->get_parse[action_flag]);
+	if (action_flag == TIME_TO_EAT)
+		gettimeofday(&this_philo->last_eat, NULL);
 }
+
+
 
 void	*philo_run(void *philos)
 {
@@ -56,12 +62,13 @@ void	*philo_run(void *philos)
 	timeval			start_time;
 
 	this_philo = (t_philo_info *)philos;
+	gettimeofday(&this_philo->last_eat, NULL);
 	gettimeofday(&start_time, NULL);
 	if (this_philo->index % 2 == 0)
 		usleep(200);
 	while (check_die_mutex_flag(this_philo->die_mutex, this_philo->die_flag))
 	{
-		philo_lock_forks(this_philo->fork_left, this_philo->fork_right);
+		philo_lock_forks(this_philo->fork_left, this_philo->fork_right, start_time, this_philo->index);
 		philo_action_and_print(start_time, this_philo, "is eating\n", TIME_TO_EAT);
 		philo_unlock_forks(this_philo->fork_left, this_philo->fork_right);
 		philo_action_and_print(start_time, this_philo, "is sleeping\n", TIME_TO_SLEEP);

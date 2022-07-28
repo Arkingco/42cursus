@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:59:54 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/27 22:24:24 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/28 16:17:35 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void ms_usleep(int ms_second)
 	timeval	start_time;
 
 	gettimeofday(&start_time, NULL);
-	while(get_diff_time(start_time) <= ms_second)
-		usleep(1000);
+	while(get_diff_time(start_time) < ms_second)
+		usleep(300);
 }
 
 int get_diff_time(timeval start_time)
@@ -29,12 +29,12 @@ int get_diff_time(timeval start_time)
 	return	(int)(end_time.tv_sec - start_time.tv_sec) * 1000 + ((end_time.tv_usec - start_time.tv_usec) / 1000);
 }
 
-void philo_lock_forks(pthread_mutex_t *fork_left, pthread_mutex_t *fork_right)
+void philo_lock_forks(pthread_mutex_t *fork_left, pthread_mutex_t *fork_right, timeval start_time, int philo_index)
 {
 	pthread_mutex_lock(fork_left);
-	printf("get fork left \n");
+	printf("%04d %d has taken a fork \n", get_diff_time(start_time), philo_index);
 	pthread_mutex_lock(fork_right);
-	printf("get fork right \n");
+	printf("%04d %d has taken a fork \n", get_diff_time(start_time), philo_index);
 }
 
 void philo_unlock_forks(pthread_mutex_t *fork_left, pthread_mutex_t *fork_right)

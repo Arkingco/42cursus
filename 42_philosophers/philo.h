@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/27 22:14:11 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/28 15:04:44 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void		philo_init(t_philo_monitor_info *monitor);
 void		philo_wait_and_free(t_philo_monitor_info *monitor);
 
 // philo_utils
-void		philo_lock_forks(pthread_mutex_t *fork_left, pthread_mutex_t *fork_right);
+void		philo_lock_forks(pthread_mutex_t *fork_left, pthread_mutex_t *fork_right, timeval start_time, int philo_index);
 void		philo_unlock_forks(pthread_mutex_t *fork_left, pthread_mutex_t *fork_right);
 int			get_diff_time(timeval start_time);
 void		ms_usleep(int ms_second);
