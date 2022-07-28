@@ -6,18 +6,21 @@
 /*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:50:36 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/29 03:31:25 by baggiseon        ###   ########seoul.kr  */
+/*   Updated: 2022/07/29 03:38:08 by baggiseon        ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void philo_malloc(t_philo_monitor_info *monitor, void *philos)
+void	philo_malloc(t_philo_monitor_info *monitor, void *philos)
 {
 	monitor->get_parse = (int *)philos;
-	monitor->philosophers_thread = ft_calloc(monitor->get_parse[ALL_PHILO_NUMBER], sizeof(pthread_t));
-	monitor->philosophers = ft_calloc(monitor->get_parse[ALL_PHILO_NUMBER], sizeof(t_philo_info));
-	monitor->forks = ft_calloc(monitor->get_parse[ALL_PHILO_NUMBER], sizeof(pthread_mutex_t));
+	monitor->philosophers_thread = \
+		ft_calloc(monitor->get_parse[ALL_PHILO_NUMBER], sizeof(pthread_t));
+	monitor->philosophers = \
+		ft_calloc(monitor->get_parse[ALL_PHILO_NUMBER], sizeof(t_philo_info));
+	monitor->forks = \
+		ft_calloc(monitor->get_parse[ALL_PHILO_NUMBER], sizeof(pthread_mutex_t));
 	monitor->die_mutex = ft_calloc(ONE_MALLOC, sizeof(pthread_mutex_t));
 }
 

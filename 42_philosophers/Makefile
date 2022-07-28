@@ -6,7 +6,7 @@
 #    By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 15:58:45 by kipark            #+#    #+#              #
-#    Updated: 2022/07/29 03:25:16 by baggiseon        ###   ########seoul.kr   #
+#    Updated: 2022/07/29 05:23:27 by baggiseon        ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ fclean :
 re :
 	make fclean
 	make
-	./$(NAME) 5 220 100 100
+	./$(NAME) 190 300 100 100
 
 debug :
 	$(CC) $(CC_FLAG) -g -o $(NAME) $(DEBUG_SRCS)

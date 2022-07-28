@@ -6,7 +6,7 @@
 /*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/29 03:30:42 by baggiseon        ###   ########seoul.kr  */
+/*   Updated: 2022/07/29 05:12:01 by baggiseon        ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	philo_action_and_print(timeval start_time, t_philo_info *this_philo, char *
 		return ;
 	if (action_flag == TIME_TO_EAT)
 		gettimeofday(&this_philo->last_eat, NULL);
-	philo_print(start_time, this_philo, strs);
+	philo_print(start_time, this_philo->index, strs);
 	if (action_flag != 0)
 		ms_usleep(this_philo->get_parse[action_flag]);
 }
@@ -35,13 +35,14 @@ void	*philo_run(void *philos)
 		usleep(1000);
 	while (check_philo_die(this_philo, NOTTING_ACTION) == 0)
 	{
-		philo_lock_forks(this_philo->fork_left, this_philo->fork_right, start_time, this_philo->index);
+		philo_lock_forks(this_philo, start_time, this_philo->index);
 		philo_action_and_print(start_time, this_philo, "is eating\n", TIME_TO_EAT);
-		philo_unlock_forks(this_philo->fork_left, this_philo->fork_right);
+		philo_unlock_forks(this_philo);
 		philo_action_and_print(start_time, this_philo, "is sleeping\n", TIME_TO_SLEEP);
 		philo_action_and_print(start_time, this_philo, "is thinking\n", 0);
+		usleep(200);
 	}
-	philo_action_and_print(start_time, this_philo, "is died\n", 0);
+	philo_print(start_time, this_philo->index, "is died\n");
 	return (NULL);
 }
 
@@ -52,12 +53,14 @@ static void *philo_monitor_run(void *philos)
 	monitor = calloc(ONE_MALLOC, sizeof(t_philo_monitor_info));
 	philo_malloc(monitor, philos);
 	philo_init(monitor);
-	philo_wait_and_free(monitor);
-	i = 0;
+	i = -1;
 	while (1)
-	{
-		if (check_die_mutex_flag(monitor[i % ]))
-	}
+		if (check_die_mutex_flag(monitor->die_mutex, &monitor->philosophers[++i % monitor->get_parse[ALL_PHILO_NUMBER]].die_flag))
+			break;
+	i = -1;
+	while(++i < (unsigned int)monitor->get_parse[ALL_PHILO_NUMBER])
+		set_die_mutex_flag(monitor->die_mutex, &monitor->philosophers[i % monitor->get_parse[ALL_PHILO_NUMBER]].die_flag);
+	philo_wait_and_free(monitor);
 	return (NULL);
 }
 

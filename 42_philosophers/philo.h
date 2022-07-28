@@ -6,7 +6,7 @@
 /*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/29 03:04:05 by baggiseon        ###   ########seoul.kr  */
+/*   Updated: 2022/07/29 04:18:46 by baggiseon        ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,10 @@ void		philo_init(t_philo_monitor_info *monitor);
 void		philo_wait_and_free(t_philo_monitor_info *monitor);
 
 // philo_utils
-void		philo_lock_forks(pthread_mutex_t *fork_left, pthread_mutex_t *fork_right, timeval start_time, int philo_index);
-void		philo_unlock_forks(pthread_mutex_t *fork_left, pthread_mutex_t *fork_right);
+void		philo_lock_forks(t_philo_info *this_philo, timeval start_time, int philo_index);
+void		philo_unlock_forks(t_philo_info *this_philo);
 void		ms_usleep(int ms_second);
-void		philo_print(timeval start_time, t_philo_info *this_philo, char *strs);
+void		philo_print(timeval start_time, int index, char *strs);
 int			get_diff_time(timeval start_time);
 
 // philo_die
