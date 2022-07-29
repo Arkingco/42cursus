@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Thu Jul 28 17:05:54 2022
+# Make data base, printed on Fri Jul 29 23:12:03 2022
 
 # Variables
 
@@ -39,13 +39,11 @@ VSCODE_NODE_CACHED_DATA_DIR =
 # environment
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220728T170547
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220729T231155
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-c3968f96-7a6b-48a8-8dca-cbcfe0a0f6f3.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-e097b66b-a9ed-4094-94ed-ddfedc587efc.sock
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
-# environment
-LaunchInstanceID = 8C796433-4AAF-44ED-8D6E-E06405E97FDD
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -53,7 +51,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.XMnslSULg3/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.DbXAX2vRgG/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -107,23 +105,19 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000005.Electron
+XPC_SERVICE_NAME = com.microsoft.VSCode.5188
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
 __CF_USER_TEXT_ENCODING = 0x19390:0x0:0x0
-# environment
-COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # automatic
 <F = $(notdir $<)
 # environment
 LC_ALL = C
-# environment
-SECURITYSESSIONID = 186d1
 # automatic
 ^F = $(notdir $^)
 # default
@@ -135,9 +129,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 79106
+VSCODE_PID = 9160
 # variable set hash-table stats:
-# Load=61/1024=6%, Rehash=0, Collisions=2/82=2%
+# Load=58/1024=6%, Rehash=0, Collisions=2/79=3%
 
 # Pattern-specific Variable Values
 
@@ -219,6 +213,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Thu Jul 28 17:05:54 2022
+# Finished Make data base on Fri Jul 29 23:12:03 2022
 
  

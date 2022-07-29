@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/29 16:55:23 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/29 17:29:43 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define TIME_TO_EAT 2
 # define TIME_TO_SLEEP 3
 # define MUST_EAT_NUMBER 4
-
+# define MAX_ARGC_SIZE 5
 typedef struct timeval timeval;
 
 typedef struct s_philo_info
@@ -34,10 +34,11 @@ typedef struct s_philo_info
 	pthread_mutex_t *fork_left;
 	pthread_mutex_t *fork_right;
 	pthread_mutex_t	*die_mutex;
-	int				die_flag;
 	timeval			start_time;
 	timeval			last_eat;
+	int				die_flag;
 	int				index;
+	int				eat_count;
 	int				*get_parse;
 }  	t_philo_info;
 

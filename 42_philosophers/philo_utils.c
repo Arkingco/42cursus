@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:59:54 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/29 16:36:55 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/29 17:33:13 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,8 @@ void	philo_lock_forks(t_philo_info *this_philo, timeval start_time, int philo_in
 
 void	philo_unlock_forks(t_philo_info *this_philo)
 {
-	if (this_philo->index % 2 == 0)
-	{
-		pthread_mutex_unlock(this_philo->fork_left);
-		pthread_mutex_unlock(this_philo->fork_right);
-	}
-	else
-	{
-		pthread_mutex_unlock(this_philo->fork_left);
-		pthread_mutex_unlock(this_philo->fork_right);
-	}
-	
+	pthread_mutex_unlock(this_philo->fork_left);
+	pthread_mutex_unlock(this_philo->fork_right);
 }
 
 void	philo_print(timeval start_time, int index, char *strs)

@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:50:36 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/29 16:40:53 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/29 17:52:14 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static void	philo_info_init(int philo_index, t_philo_info *philo_info, t_philo_m
 	philo_info->die_flag = 0;
 	philo_info->die_mutex = monitor->die_mutex;
 	philo_info->start_time = monitor->start_time;
+	philo_info->eat_count = monitor->get_parse[MUST_EAT_NUMBER];
 }
 
 void philo_init(t_philo_monitor_info *monitor)
