@@ -6,7 +6,7 @@
 /*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/29 05:12:01 by baggiseon        ###   ########seoul.kr  */
+/*   Updated: 2022/07/29 05:59:54 by baggiseon        ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	*philo_run(void *philos)
 	gettimeofday(&this_philo->last_eat, NULL);
 	gettimeofday(&start_time, NULL);
 	if (this_philo->index % 2 == 0)
-		usleep(1000);
+		usleep(300);
 	while (check_philo_die(this_philo, NOTTING_ACTION) == 0)
 	{
 		philo_lock_forks(this_philo, start_time, this_philo->index);
@@ -72,8 +72,6 @@ void	run_thread(int *get_parse)
 	pthread_create(&philo_monitor, NULL, philo_monitor_run, get_parse);
 	i = -1;
 	while (++i < get_parse[ALL_PHILO_NUMBER])
-	{
 		if (pthread_join(philo_monitor, NULL) == 0)
-			printf("[%d monitor thread is return !! ]\n", i);
-	}
+			break;
 }
