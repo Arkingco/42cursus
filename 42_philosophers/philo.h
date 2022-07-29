@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
+/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/29 15:25:17 by baggiseon        ###   ########seoul.kr  */
+/*   Updated: 2022/07/29 16:55:23 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,9 @@ void		philo_wait_and_free(t_philo_monitor_info *monitor);
 // philo_utils
 void		philo_lock_forks(t_philo_info *this_philo, timeval start_time, int philo_index);
 void		philo_unlock_forks(t_philo_info *this_philo);
-void		ms_usleep(int ms_second);
+void		ms_usleep(t_philo_info *this_philo, int ms_second);
 void		philo_print(timeval start_time, int index, char *strs);
-int			get_diff_time(int start_time);
-int			get_time_to_int(timeval time);
-
+long		get_diff_time(timeval start_time);
 
 // philo_die
 void		set_die_mutex_flag(pthread_mutex_t *die_mutex, int *die_flag);

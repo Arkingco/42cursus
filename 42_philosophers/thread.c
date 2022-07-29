@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   thread.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
+/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/29 05:59:54 by baggiseon        ###   ########seoul.kr  */
+/*   Updated: 2022/07/29 16:39:16 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	philo_action_and_print(timeval start_time, t_philo_info *this_philo, char *
 		gettimeofday(&this_philo->last_eat, NULL);
 	philo_print(start_time, this_philo->index, strs);
 	if (action_flag != 0)
-		ms_usleep(this_philo->get_parse[action_flag]);
+		ms_usleep(this_philo, this_philo->get_parse[action_flag]);
 }
 
 void	*philo_run(void *philos)
@@ -29,8 +29,8 @@ void	*philo_run(void *philos)
 	timeval			start_time;
 
 	this_philo = (t_philo_info *)philos;
+	start_time = this_philo->start_time;
 	gettimeofday(&this_philo->last_eat, NULL);
-	gettimeofday(&start_time, NULL);
 	if (this_philo->index % 2 == 0)
 		usleep(300);
 	while (check_philo_die(this_philo, NOTTING_ACTION) == 0)
@@ -42,7 +42,6 @@ void	*philo_run(void *philos)
 		philo_action_and_print(start_time, this_philo, "is thinking\n", 0);
 		usleep(200);
 	}
-	philo_print(start_time, this_philo->index, "is died\n");
 	return (NULL);
 }
 

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+         #
+#    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 15:58:45 by kipark            #+#    #+#              #
-#    Updated: 2022/07/29 05:23:27 by baggiseon        ###   ########seoul.kr   #
+#    Updated: 2022/07/29 16:55:24 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ fclean :
 re :
 	make fclean
 	make
-	./$(NAME) 190 300 100 100
+	./$(NAME) 200 500 200 200
 
 debug :
 	$(CC) $(CC_FLAG) -g -o $(NAME) $(DEBUG_SRCS)
