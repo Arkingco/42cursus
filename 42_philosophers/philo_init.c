@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
+/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:50:36 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/29 06:19:24 by baggiseon        ###   ########seoul.kr  */
+/*   Updated: 2022/07/29 17:52:14 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,14 @@ void	philo_malloc(t_philo_monitor_info *monitor, void *philos)
 
 static void	philo_info_init(int philo_index, t_philo_info *philo_info, t_philo_monitor_info *monitor)
 {
-	philo_info->index = philo_index;
+	philo_info->index = philo_index + 1;
 	philo_info->fork_left = &monitor->forks[philo_index];
 	philo_info->fork_right = &monitor->forks[(philo_index + 1) % monitor->get_parse[ALL_PHILO_NUMBER]];
 	philo_info->get_parse = monitor->get_parse;
 	philo_info->die_flag = 0;
 	philo_info->die_mutex = monitor->die_mutex;
+	philo_info->start_time = monitor->start_time;
+	philo_info->eat_count = monitor->get_parse[MUST_EAT_NUMBER];
 }
 
 void philo_init(t_philo_monitor_info *monitor)
@@ -43,6 +45,7 @@ void philo_init(t_philo_monitor_info *monitor)
 	while (++i < monitor->get_parse[ALL_PHILO_NUMBER])
 		pthread_mutex_init(&monitor->forks[i], NULL);
 	pthread_mutex_init(monitor->die_mutex, NULL);
+	gettimeofday(&monitor->start_time, NULL);
 	i = -1;
 	while (++i < monitor->get_parse[ALL_PHILO_NUMBER])
 		philo_info_init(i, &monitor->philosophers[i], monitor);

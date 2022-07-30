@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   thread.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baggiseon <baggiseon@student.42seoul.kr    +#+  +:+       +#+        */
+/*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/29 05:59:54 by baggiseon        ###   ########seoul.kr  */
+/*   Updated: 2022/07/29 18:06:38 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,34 @@ void	philo_action_and_print(timeval start_time, t_philo_info *this_philo, char *
 		gettimeofday(&this_philo->last_eat, NULL);
 	philo_print(start_time, this_philo->index, strs);
 	if (action_flag != 0)
-		ms_usleep(this_philo->get_parse[action_flag]);
+		ms_usleep(this_philo, this_philo->get_parse[action_flag]);
 }
 
 void	*philo_run(void *philos)
 {
 	t_philo_info	*this_philo;
 	timeval			start_time;
+	int				eat_count;
 
 	this_philo = (t_philo_info *)philos;
+	start_time = this_philo->start_time;
+	eat_count = 0;
 	gettimeofday(&this_philo->last_eat, NULL);
-	gettimeofday(&start_time, NULL);
 	if (this_philo->index % 2 == 0)
 		usleep(300);
-	while (check_philo_die(this_philo, NOTTING_ACTION) == 0)
-	{
+	while (check_philo_die(this_philo, NOTTING_ACTION) == 0&& \
+			(eat_count < this_philo->eat_count || this_philo->eat_count == -1))
+	{ 
 		philo_lock_forks(this_philo, start_time, this_philo->index);
 		philo_action_and_print(start_time, this_philo, "is eating\n", TIME_TO_EAT);
 		philo_unlock_forks(this_philo);
 		philo_action_and_print(start_time, this_philo, "is sleeping\n", TIME_TO_SLEEP);
 		philo_action_and_print(start_time, this_philo, "is thinking\n", 0);
-		usleep(200);
+		usleep(300);
+		eat_count++;
 	}
-	philo_print(start_time, this_philo->index, "is died\n");
+	if (eat_count >= this_philo->eat_count)
+		set_die_mutex_flag(this_philo->die_mutex, &this_philo->die_flag);
 	return (NULL);
 }
 
