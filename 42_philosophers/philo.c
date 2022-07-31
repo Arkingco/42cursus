@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 14:56:55 by baggiseon         #+#    #+#             */
-/*   Updated: 2022/07/29 17:33:29 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/31 19:34:23 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,5 @@ int	main(int argc, char **argv)
 		print_error(1);
 	get_parse = parse(argc - 1, ++argv);
 	run_thread(get_parse);
+	system("leaks philo");
 }

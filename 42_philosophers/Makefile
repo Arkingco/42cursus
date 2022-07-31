@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 15:58:45 by kipark            #+#    #+#              #
-#    Updated: 2022/07/31 19:27:40 by kipark           ###   ########.fr        #
+#    Updated: 2022/07/31 19:30:58 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ clean :
 
 fclean :
 	make clean
-	$(RM) $(RM_FLAG) $^ $(NAME)
+	$(RM) $(RM_FLAG) $(NAME)
 	
 re :
 	make fclean

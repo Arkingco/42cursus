@@ -6,13 +6,13 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:36:24 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/29 17:52:40 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/31 19:31:41 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-static void set_return_parse(int *return_parse, int argc, char **argv)
+static void	set_return_parse(int *return_parse, int argc, char **argv)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ static void set_return_parse(int *return_parse, int argc, char **argv)
 
 int	*parse(int argc, char **argv)
 {
-	int *return_parse;
+	int	*return_parse;
 
 	return_parse = ft_calloc(MAX_ARGC_SIZE, sizeof(int));
 	if (paser_error(argv))

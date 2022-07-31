@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:50:36 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/29 17:52:14 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/31 19:34:04 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,10 @@ void philo_wait_and_free(t_philo_monitor_info *monitor)
 	i = -1;
 	while (++i < monitor->get_parse[ALL_PHILO_NUMBER])
 		pthread_mutex_destroy(&monitor->forks[i]);
-	// some monitor free code 
+	free(monitor->get_parse);
+	free(monitor->philosophers_thread);
+	free(monitor->philosophers);
+	free(monitor->forks);
+	free(monitor->die_mutex);
+	free(monitor);
 }
