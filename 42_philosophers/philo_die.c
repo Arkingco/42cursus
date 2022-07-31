@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:11:57 by baggiseon         #+#    #+#             */
-/*   Updated: 2022/07/31 19:32:23 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/31 20:00:13 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,16 @@ int	check_philo_die(t_philo_info *this_philo, int action_flag)
 		if (action_flag == TIME_TO_EAT)
 			philo_unlock_forks(this_philo);
 		philo_print(this_philo->start_time, this_philo->index, "is died\n");
+		return (1);
+	}
+	return (0);
+}
+
+int	check_solo_philo(t_philo_monitor_info *monitor)
+{
+	if (monitor->all_philo_number == 1)
+	{
+		printf("philo is solo\n");
 		return (1);
 	}
 	return (0);
