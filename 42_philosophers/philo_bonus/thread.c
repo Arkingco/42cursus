@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/31 20:15:53 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/31 20:04:19 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	*philo_run(void *philos)
 	eat_count = 0;
 	gettimeofday(&this_philo->last_eat, NULL);
 	if (this_philo->index % 2 == 0)
-		ms_usleep(this_philo, this_philo->get_parse[TIME_TO_EAT] * 0.1);
+		usleep(300);
 	while (check_philo_die(this_philo, NOTTING_ACTION) == 0 && \
 			(eat_count < this_philo->eat_count || this_philo->eat_count == -1))
 	{

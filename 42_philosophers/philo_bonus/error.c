@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/20 14:56:55 by baggiseon         #+#    #+#             */
-/*   Updated: 2022/08/01 21:08:13 by kipark           ###   ########.fr       */
+/*   Created: 2022/07/18 20:41:13 by kipark            #+#    #+#             */
+/*   Updated: 2022/07/31 19:53:48 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include"philo.h"
 
-int	main(int argc, char **argv)
+void	print_error(int exit_flag)
 {
-	int	*get_parse;
-
-	if (argc != 5 && argc != 6)
-		print_error(1);
-	get_parse = parse(argc - 1, ++argv);
-	run_thread(get_parse);
+	printf("Error\n");
+	exit(exit_flag);
 }

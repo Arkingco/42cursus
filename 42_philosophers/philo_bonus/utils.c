@@ -1,23 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/20 14:56:55 by baggiseon         #+#    #+#             */
-/*   Updated: 2022/08/01 21:08:13 by kipark           ###   ########.fr       */
+/*   Created: 2022/07/18 22:02:29 by kipark            #+#    #+#             */
+/*   Updated: 2022/07/31 20:04:27 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char **argv)
+static void	*ft_memset(void *b, int c, size_t len)
 {
-	int	*get_parse;
+	size_t			i;
+	unsigned char	*pointer;
 
-	if (argc != 5 && argc != 6)
+	i = 0;
+	pointer = (unsigned char *)b;
+	while (i < len)
+	{
+		pointer[i] = (unsigned char)c;
+		++i;
+	}
+	return ((void *)pointer);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*ptr;
+
+	ptr = malloc(count * size);
+	if (ptr == 0)
 		print_error(1);
-	get_parse = parse(argc - 1, ++argv);
-	run_thread(get_parse);
+	ft_memset(ptr, -1, count * size);
+	return (ptr);
 }

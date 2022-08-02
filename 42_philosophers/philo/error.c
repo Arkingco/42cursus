@@ -6,14 +6,14 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:41:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/31 19:53:48 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/31 20:14:38 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"philo.h"
 
-void	print_error(int exit_flag)
+int	print_error(int exit_flag)
 {
 	printf("Error\n");
-	exit(exit_flag);
+	return (exit_flag);
 }
