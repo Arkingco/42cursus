@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/31 20:14:46 by kipark           ###   ########.fr       */
+/*   Updated: 2022/07/31 20:03:45 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_philo_monitor_info
 
 // error*
 int			paser_error(char **need_parsed);
-int			print_error(int exit_flag);
+void		print_error(int exit_flag);
 
 // utils
 long int	parse_atoi(const char *str);
