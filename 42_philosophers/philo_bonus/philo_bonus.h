@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/03 14:37:30 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/03 20:31:02 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,35 +32,34 @@ typedef struct timeval	t_timeval;
 
 typedef struct s_philo_info
 {
-	pthread_mutex_t	*fork_left;
-	pthread_mutex_t	*fork_right;
-	pthread_mutex_t	*die_mutex;
-	pthread_mutex_t	*eat_mutex;
-	pthread_mutex_t	*print_mutex;
-	t_timeval		start_time;
-	t_timeval		last_eat;
-	int				*die_flag;
-	int				index;
-	int				eat_count;
-	int				*get_parse;
+	sem_t		*fork_left;
+	sem_t		*fork_right;
+	sem_t		*die_sem;
+	sem_t		*eat_sem;
+	t_timeval	start_time;
+	t_timeval	last_eat;
+	int			*die_flag;
+	int			index;
+	int			eat_count;
+	int			*get_parse;
 }	t_philo_info;
 
 typedef struct s_philo_monitor_info
 {
 	pthread_t		*philosophers_thread;
 	t_philo_info	*philosophers;
-	pthread_mutex_t	*forks;
-	pthread_mutex_t	*die_mutex;
-	pthread_mutex_t	*eat_mutex;
-	pthread_mutex_t	*print_mutex;
+	sem_t			*forks;
+	sem_t			*die_sem;
+	sem_t			*eat_sem;
 	int				*die_flag;
 	int				*get_parse;
+	int				index;
 	int				all_philo_number;
 	t_timeval		start_time;
 }	t_philo_monitor_info;
 
 
-void	set_last_eat(pthread_mutex_t *eat_mutex, t_timeval *last_eat);
+void	set_last_eat(sem_t *eat_sem, t_timeval *last_eat);
 int		check_philo_last_eat(t_philo_monitor_info *monitor, t_timeval *last_eat, int time_to_die);
 
 // error*
@@ -79,8 +78,8 @@ void		*philo_run(void *philos);
 int			*parse(int argc, char **argv);
 
 // philo_init
-void		philo_malloc(t_philo_monitor_info *monitor, void *philos);
-void		philo_init(t_philo_monitor_info *monitor);
+void		philo_malloc(t_philo_monitor_info *monitor, int index, void *philos);
+void		philo_init(t_philo_monitor_info *monitor, int index);
 void		philo_wait_and_free(t_philo_monitor_info *monitor);
 
 // philo_utils
@@ -91,8 +90,8 @@ void		philo_print(t_philo_info *this_philo, char *strs);
 long		get_diff_time(t_timeval start_time);
 
 // philo_die
-void		set_die_mutex_flag(pthread_mutex_t *die_mutex, int *die_flag);
+void		set_die_sem_flag(sem_t *die_sem, int *die_flag);
 int			check_philo_die(t_philo_info *this_philo);
-int			check_die_mutex_flag(pthread_mutex_t *die_mutex, int *die_flag);
+int			check_die_sem_flag(sem_t *die_sem, int *die_flag);
 
 #endif

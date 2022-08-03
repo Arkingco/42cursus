@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:59:54 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/03 14:47:39 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/03 19:59:22 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,24 +41,25 @@ void	philo_lock_forks(t_philo_info *this_philo, int philo_index)
 			return ;
 	if (philo_index % 2 == 0)
 	{
-		pthread_mutex_lock(this_philo->fork_left);
+		// pthread_mutex_lock(this_philo->fork_left);
 		philo_print(this_philo, "has taken a fork \n");
-		pthread_mutex_lock(this_philo->fork_right);
+		// pthread_mutex_lock(this_philo->fork_right);
 		philo_print(this_philo, "has taken a fork \n");
 	}
 	else
 	{
-		pthread_mutex_lock(this_philo->fork_right);
+		// pthread_mutex_lock(this_philo->fork_right);
 		philo_print(this_philo, "has taken a fork \n");
-		pthread_mutex_lock(this_philo->fork_left);
+		// pthread_mutex_lock(this_philo->fork_left);
 		philo_print(this_philo, "has taken a fork \n");
 	}
 }
 
 void	philo_unlock_forks(t_philo_info *this_philo)
 {
-	pthread_mutex_unlock(this_philo->fork_left);
-	pthread_mutex_unlock(this_philo->fork_right);
+	printf("unlock %p\n", this_philo);
+	// pthread_mutex_unlock(this_philo->fork_left);
+	// pthread_mutex_unlock(this_philo->fork_right);
 }
 
 void	philo_print(t_philo_info *this_philo, char *strs)
