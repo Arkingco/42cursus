@@ -1,0 +1,11 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/kipark/42_project/42cursus/42_philosophers/philo_bonus'
+ 
+make: *** No rule to make target `obj/error_bonus.o', needed by `philo_bonus'.
+
+mkdir -p ./obj
+cc -Wextra -Wall -Werror -g -c utils_bonus.c -o obj/utils_bonus.o
+mkdir -p ./obj
+cc -Wextra -Wall -Werror -g -c thread_bonus.c -o obj/thread_bonus.o
+make: Leaving directory `/Users/kipark/42_project/42cursus/42_philosophers/philo_bonus'
+ 
