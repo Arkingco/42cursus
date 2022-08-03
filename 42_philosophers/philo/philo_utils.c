@@ -6,23 +6,19 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:59:54 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/01 21:08:22 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/03 13:04:08 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	ms_usleep(t_philo_info *this_philo, int ms_second)
+void	ms_usleep(int ms_second)
 {
 	t_timeval	start_time;
 
 	gettimeofday(&start_time, NULL);
 	while (get_diff_time(start_time) < ms_second)
-	{
-		if (check_philo_die(this_philo, NOTTING_ACTION))
-			break ;
-		usleep(100);
-	}
+		usleep(500);
 }
 
 long	get_diff_time(t_timeval start_time)
@@ -41,21 +37,21 @@ long	get_diff_time(t_timeval start_time)
 
 void	philo_lock_forks(t_philo_info *this_philo, int philo_index)
 {
-	if (check_philo_die(this_philo, NOTTING_ACTION))
-		return ;
+	if (check_philo_die(this_philo))
+			return ;
 	if (philo_index % 2 == 0)
 	{
 		pthread_mutex_lock(this_philo->fork_left);
-		philo_print(this_philo->start_time, philo_index, "has taken a fork \n");
+		philo_print(this_philo, "has taken a fork \n");
 		pthread_mutex_lock(this_philo->fork_right);
-		philo_print(this_philo->start_time, philo_index, "has taken a fork \n");
+		philo_print(this_philo, "has taken a fork \n");
 	}
 	else
 	{
 		pthread_mutex_lock(this_philo->fork_right);
-		philo_print(this_philo->start_time, philo_index, "has taken a fork \n");
+		philo_print(this_philo, "has taken a fork \n");
 		pthread_mutex_lock(this_philo->fork_left);
-		philo_print(this_philo->start_time, philo_index, "has taken a fork \n");
+		philo_print(this_philo, "has taken a fork \n");
 	}
 }
 
@@ -65,7 +61,10 @@ void	philo_unlock_forks(t_philo_info *this_philo)
 	pthread_mutex_unlock(this_philo->fork_right);
 }
 
-void	philo_print(t_timeval start_time, int index, char *strs)
+void	philo_print(t_philo_info *this_philo, char *strs)
 {
-	printf("%04ld %d %s", get_diff_time(start_time), index, strs);
+	pthread_mutex_lock(this_philo->print_mutex);
+	printf("%04ld %d %s", \
+				get_diff_time(this_philo->start_time), this_philo->index, strs);
+	pthread_mutex_unlock(this_philo->print_mutex);
 }
