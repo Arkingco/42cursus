@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   parser_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/20 14:56:55 by baggiseon         #+#    #+#             */
-/*   Updated: 2022/07/31 20:03:16 by kipark           ###   ########.fr       */
+/*   Created: 2022/07/18 20:36:24 by kipark            #+#    #+#             */
+/*   Updated: 2022/08/03 14:47:10 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../philo_bonus.h"
 
-int	main(int argc, char **argv)
+static void	set_return_parse(int *return_parse, int argc, char **argv)
 {
-	int	*get_parse;
+	int	i;
 
-	if (argc != 5 && argc != 6)
+	i = 0;
+	while (i < argc)
+	{
+		return_parse[i] = parse_atoi(argv[i]);
+		++i;
+	}
+}
+
+int	*parse(int argc, char **argv)
+{
+	int	*return_parse;
+
+	return_parse = ft_calloc(MAX_ARGC_SIZE, sizeof(int));
+	if (paser_error(argv))
 		print_error(1);
-	get_parse = parse(argc - 1, ++argv);
-	run_thread(get_parse);
+	set_return_parse(return_parse, argc, argv);
+	return (return_parse);
 }

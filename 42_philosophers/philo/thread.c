@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/31 20:15:53 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/03 15:26:08 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 static void	philo_action_and_print( \
 	t_philo_info *this_philo, char *strs, int action_flag)
 {
-	if (check_philo_die(this_philo, action_flag))
+	if (check_philo_die(this_philo))
 		return ;
 	if (action_flag == TIME_TO_EAT)
 		gettimeofday(&this_philo->last_eat, NULL);
-	philo_print(this_philo->start_time, this_philo->index, strs);
+	philo_print(this_philo, strs);
 	if (action_flag != 0)
-		ms_usleep(this_philo, this_philo->get_parse[action_flag]);
+		ms_usleep(this_philo->get_parse[action_flag]);
 }
 
 void	*philo_run(void *philos)
@@ -31,10 +31,10 @@ void	*philo_run(void *philos)
 
 	this_philo = (t_philo_info *)philos;
 	eat_count = 0;
-	gettimeofday(&this_philo->last_eat, NULL);
+	set_last_eat(this_philo->eat_mutex, &this_philo->last_eat);
 	if (this_philo->index % 2 == 0)
-		ms_usleep(this_philo, this_philo->get_parse[TIME_TO_EAT] * 0.1);
-	while (check_philo_die(this_philo, NOTTING_ACTION) == 0 && \
+		ms_usleep(this_philo->get_parse[TIME_TO_EAT] * 0.1);
+	while (check_philo_die(this_philo) == 0 && \
 			(eat_count < this_philo->eat_count || this_philo->eat_count == -1))
 	{
 		philo_lock_forks(this_philo, this_philo->index);
@@ -45,8 +45,6 @@ void	*philo_run(void *philos)
 		usleep(300);
 		eat_count++;
 	}
-	if (eat_count >= this_philo->eat_count)
-		set_die_mutex_flag(this_philo->die_mutex, &this_philo->die_flag);
 	return (NULL);
 }
 
@@ -57,18 +55,18 @@ static void	*philo_monitor_run(void *philos)
 
 	monitor = calloc(ONE_MALLOC, sizeof(t_philo_monitor_info));
 	philo_malloc(monitor, philos);
-	if (check_solo_philo(monitor))
-		return (NULL);
 	philo_init(monitor);
+	ms_usleep(monitor->get_parse[TIME_TO_EAT] * 0.1);
 	i = -1;
 	while (1)
-		if (check_die_mutex_flag(monitor->die_mutex, \
-			&monitor->philosophers[++i % monitor->all_philo_number].die_flag))
-			break ;
-	i = -1;
-	while (++i < (unsigned int)monitor->all_philo_number)
-		set_die_mutex_flag(monitor->die_mutex, \
-			&monitor->philosophers[i % monitor->all_philo_number].die_flag);
+		if (check_philo_last_eat(monitor, \
+			&monitor->philosophers[++i % monitor->all_philo_number].last_eat, \
+			monitor->get_parse[TIME_TO_DIE]))
+	{
+		philo_print(&monitor->philosophers[i % monitor->all_philo_number], "is died\n");
+		set_die_mutex_flag(monitor->die_mutex, monitor->die_flag);
+		break;
+	}
 	philo_wait_and_free(monitor);
 	return (NULL);
 }
