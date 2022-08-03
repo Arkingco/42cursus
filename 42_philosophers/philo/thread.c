@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/03 13:02:39 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/03 13:29:21 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,18 +58,17 @@ static void	*philo_monitor_run(void *philos)
 	monitor = calloc(ONE_MALLOC, sizeof(t_philo_monitor_info));
 	philo_malloc(monitor, philos);
 	philo_init(monitor);
+	ms_usleep(monitor->get_parse[TIME_TO_EAT] * 0.1);
 	i = -1;
-	ms_usleep(monitor->get_parse[TIME_TO_EAT] * 0.3);
 	while (1)
 		if (check_philo_last_eat(monitor, \
 			&monitor->philosophers[++i % monitor->all_philo_number].last_eat, \
 			monitor->get_parse[TIME_TO_DIE]))
 	{
 		philo_print(&monitor->philosophers[i % monitor->all_philo_number], "is died\n");
-		pthread_mutex_lock(monitor->print_mutex);
+		set_die_mutex_flag(monitor->die_mutex, monitor->die_flag);
 		break;
 	}
-	set_die_mutex_flag(monitor->die_mutex, monitor->die_flag);
 	philo_wait_and_free(monitor);
 	return (NULL);
 }

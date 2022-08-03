@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:59:54 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/03 13:04:08 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/03 13:24:57 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ void	philo_unlock_forks(t_philo_info *this_philo)
 
 void	philo_print(t_philo_info *this_philo, char *strs)
 {
-	pthread_mutex_lock(this_philo->print_mutex);
+	if (check_philo_die(this_philo))
+		return ;
 	printf("%04ld %d %s", \
 				get_diff_time(this_philo->start_time), this_philo->index, strs);
-	pthread_mutex_unlock(this_philo->print_mutex);
 }
