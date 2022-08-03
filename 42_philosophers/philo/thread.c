@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/03 13:29:21 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/03 15:26:08 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ void	*philo_run(void *philos)
 		usleep(300);
 		eat_count++;
 	}
-	if (eat_count >= this_philo->eat_count)
-		set_die_mutex_flag(this_philo->die_mutex, this_philo->die_flag);
 	return (NULL);
 }
 
