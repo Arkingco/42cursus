@@ -6,9 +6,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
 
-# Make data base, printed on Thu Aug  4 22:05:42 2022
+# Make data base, printed on Thu Aug  4 22:09:23 2022
 
 # Variables
 
@@ -40,7 +39,6 @@ MAKEFILE_LIST :=  Makefile
 OBJ_DIR = ./obj
 # makefile (from `Makefile', line 43)
 OBJ_FILE = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
- 
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
@@ -198,18 +196,18 @@ VSCODE_PID = 8721
 # ./philo_bonus (device 16777225, inode 3771528): 16 files, no impossibilities.
 # Makefile (device 16777225, inode 3711393): could not be opened.
 # parser_atoi.o: could not be stat'd.
-# obj (device 16777225, inode 3801741): 12 files, no impossibilities.
+# obj (device 16777225, inode 3802921): 12 files, no impossibilities.
 # thread.o: could not be stat'd.
 # . (device 16777225, inode 3508242): 7 files, no impossibilities.
 # parser_error_bonus.o: could not be stat'd.
-# ./philo_bonus/obj (device 16777225, inode 3802756): 12 files, no impossibilities.
+# ./philo_bonus/obj (device 16777225, inode 3802936): 12 files, no impossibilities.
 # parser_bonus.o: could not be stat'd.
 # philo_init_bonus.c: could not be stat'd.
 # philo_bonus.h: could not be stat'd.
 # philo_utils.c: could not be stat'd.
 # parser_error.o: could not be stat'd.
 # philo_bonus.o: could not be stat'd.
-# ./obj (device 16777225, inode 3801741): 12 files, no impossibilities.
+# ./obj (device 16777225, inode 3802921): 12 files, no impossibilities.
 # philo_utils_bonus.c: could not be stat'd.
 # philo_bonus (device 16777225, inode 3771528): 16 files, no impossibilities.
 # philo_init.c: could not be stat'd.
@@ -263,8 +261,7 @@ obj/%.o: %.c
 obj/parser.o: ./philo/parse/parser.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `parser'
-#  Last modified 2022-08-04 21:39:50
- 
+#  Last modified 2022-08-04 22:08:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -278,6 +275,7 @@ all: philo/philo
 #  Command-line target.
 #  Implicit rule search has been done.
 #  File does not exist.
+ 
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -303,7 +301,7 @@ philo/philo_utils.c:
 
 philo/philo: obj/philo.o obj/philo_init.o obj/philo_utils.o obj/philo_die.o obj/parser.o obj/parser_atoi.o obj/parser_error.o obj/error.o obj/utils.o obj/thread.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-04 21:39:50
+#  Last modified 2022-08-04 22:08:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -329,7 +327,7 @@ philo/error.c:
 obj/philo_utils.o: philo/philo_utils.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `philo_utils'
-#  Last modified 2022-08-04 21:39:50
+#  Last modified 2022-08-04 22:08:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -348,7 +346,7 @@ obj/philo_utils.o: philo/philo_utils.c
 obj/parser_atoi.o: ./philo/parse/parser_atoi.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `parser_atoi'
-#  Last modified 2022-08-04 21:39:50
+#  Last modified 2022-08-04 22:08:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -379,7 +377,7 @@ Makefile:
 obj/error.o: philo/error.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `error'
-#  Last modified 2022-08-04 21:39:50
+#  Last modified 2022-08-04 22:08:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -392,7 +390,7 @@ obj/error.o: philo/error.c
 obj/parser_error.o: ./philo/parse/parser_error.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `parser_error'
-#  Last modified 2022-08-04 21:39:50
+#  Last modified 2022-08-04 22:08:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -413,7 +411,7 @@ debug:
 obj/philo_die.o: philo/philo_die.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `philo_die'
-#  Last modified 2022-08-04 21:39:50
+#  Last modified 2022-08-04 22:08:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -462,7 +460,7 @@ philo/philo.c:
 obj/philo.o: philo/philo.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `philo'
-#  Last modified 2022-08-04 21:39:50
+#  Last modified 2022-08-04 22:08:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -516,10 +514,11 @@ clean:
 obj/utils.o: philo/utils.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `utils'
-#  Last modified 2022-08-04 21:39:50
+#  Last modified 2022-08-04 22:08:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
+ 
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 46):
 	mkdir -p $(OBJ_DIR)
@@ -529,7 +528,7 @@ obj/utils.o: philo/utils.c
 obj/philo_init.o: philo/philo_init.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `philo_init'
-#  Last modified 2022-08-04 21:39:50
+#  Last modified 2022-08-04 22:08:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -551,11 +550,10 @@ philo/thread.c:
 obj/thread.o: philo/thread.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `thread'
-#  Last modified 2022-08-04 21:39:50
+#  Last modified 2022-08-04 22:08:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
- 
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 46):
 	mkdir -p $(OBJ_DIR)
@@ -576,6 +574,6 @@ obj/thread.o: philo/thread.c
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Thu Aug  4 22:05:42 2022
+# Finished Make data base on Thu Aug  4 22:09:23 2022
 
  
