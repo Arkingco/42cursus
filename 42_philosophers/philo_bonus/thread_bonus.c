@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/04 21:07:51 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/04 21:55:42 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	*philo_run(void *philos)
 
 	this_philo = (t_philo_info *)philos;
 	eat_count = 0;
-	// set_last_eat(this_philo->eat_mutex, &this_philo->last_eat);
+	set_last_eat(this_philo->eat_sem, &this_philo->last_eat);
 	if (this_philo->index % 2 == 0)
 		ms_usleep(this_philo->get_parse[TIME_TO_EAT] * 0.1);
 	while (1)
@@ -60,12 +60,12 @@ void	philo_process_run(int index, int *get_parse, t_philo_main_monitor_info * ma
 	ms_usleep(monitor->get_parse[TIME_TO_EAT] * 0.1);
 	i = -1;
 	while (1)
-		if (check_philo_last_eat(
+		if (check_philo_last_eat(monitor, \
 			&monitor->philosophers[++i % monitor->all_philo_number].last_eat, \
 			monitor->get_parse[TIME_TO_DIE]))
 	{
 		philo_print(&monitor->philosophers[i % monitor->all_philo_number], "is died\n");
-		set_die_sem_flag(monitor->die_sem, monitor->die_flag);
+		// set_die_sem_flag(monitor->die_sem, monitor->die_flag);
 		break;
 	}
 	philo_wait_and_free(monitor);
@@ -81,7 +81,8 @@ void	main_monitor_info_init(t_philo_main_monitor_info *main_monitor, \
 																int *get_parse)
 {
 	main_monitor->forks = make_semaphore("forks", get_parse[ALL_PHILO_NUMBER]);
-	main_monitor->die_sem = make_semaphore("die_sem", 200);
+	main_monitor->die_sem = make_semaphore("die_sem", 1);
+	main_monitor->eat_sem = make_semaphore("eat_sem", 1);
 	main_monitor->all_eat_sem = make_semaphore("all_eat_sem", 0);
 }
 

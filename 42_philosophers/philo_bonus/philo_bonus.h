@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/04 20:51:35 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/04 22:02:43 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <pthread.h>
 # include <sys/time.h>
 # include <semaphore.h>
+# include <string.h>
 
 # define ONE_MALLOC 1
 # define ALL_PHILO_NUMBER 0
@@ -34,7 +35,7 @@ typedef struct s_philo_info
 {
 	sem_t		*forks;
 	sem_t		*die_sem;
-	// sem_t		*eat_sem;
+	sem_t		*eat_sem;
 	t_timeval	start_time;
 	t_timeval	last_eat;
 	int			*die_flag;
@@ -49,7 +50,7 @@ typedef struct s_philo_monitor_info
 	t_philo_info	*philosophers;
 	sem_t			*forks;
 	sem_t			*die_sem;
-	// sem_t			*eat_sem;
+	sem_t			*eat_sem;
 	sem_t			*all_eat_sem;
 	int				*die_flag;
 	int				*get_parse;
@@ -62,12 +63,14 @@ typedef struct s_philo_main_monitor_info
 {
 	sem_t			*forks;
 	sem_t			*die_sem;
+	sem_t			*eat_sem;
 	sem_t			*all_eat_sem;
 }	t_philo_main_monitor_info;
 
 
 void	set_last_eat(sem_t *eat_sem, t_timeval *last_eat);
-int		check_philo_last_eat(t_timeval *last_eat, int time_to_die);
+int		check_philo_last_eat(t_philo_monitor_info *monitor, t_timeval *last_eat, int time_to_die);
+
 
 
 // error*
@@ -77,6 +80,8 @@ int			print_error(int exit_flag);
 // utils
 long int	parse_atoi(const char *str);
 void		*ft_calloc(size_t count, size_t size);
+// char		*ft_itoa(int n);
+// char		*ft_strjoin(char const *s1, char const *s2);
 
 // thread
 void		run_thread(int *get_parse);
@@ -98,7 +103,7 @@ void		ms_usleep(int ms_second);
 void		philo_print(t_philo_info *this_philo, char *strs);
 long		get_diff_time(t_timeval start_time);
 sem_t		*make_semaphore(char *str, int count);
-void printf_test(char * str);
+void 		printf_test(char * str);
 
 // philo_die
 void		set_die_sem_flag(sem_t *die_sem, int *die_flag);

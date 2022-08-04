@@ -7,10 +7,12 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Thu Aug  4 21:07:07 2022
+# Make data base, printed on Thu Aug  4 21:49:07 2022
 
 # Variables
 
+# environment
+VSCODE_GIT_ASKPASS_MAIN = /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
@@ -42,9 +44,9 @@ OBJ_FILE = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-d41c9080-2b72-4832-bc8b-e36744323e94.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-ab54302f-8dab-4cbb-9875-384276d5e29a.sock
 # environment
-VSCODE_CWD = /
+VSCODE_CWD = /Users/kipark/42_project/42cursus/42_philosophers/philo_bonus
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # makefile (from `Makefile', line 18)
@@ -80,7 +82,7 @@ VSCODE_CODE_CACHE_PATH = /Users/kipark/Library/Application Support/Code/CachedDa
 # environment
 LOGNAME = kipark
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -88,15 +90,19 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # makefile (from `Makefile', line 19)
 TEST = -fsanitize=address -g3
 # environment
+MAKELEVEL := 0
+# environment
 XPC_FLAGS = 0x0
+# environment
+COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
-# default
-MAKECMDGOALS := all
+# environment
+LC_TERMINAL = iTerm2
 # makefile (from `Makefile', line 21)
 SRCS = philo_bonus.c philo_init_bonus.c philo_utils_bonus.c philo_die_bonus.c parser_bonus.c parser_atoi_bonus.c parser_error_bonus.c error_bonus.c utils_bonus.c thread_bonus.c 
 # environment
-SHLVL = 1
+SHLVL = 3
 # makefile (from `Makefile', line 15)
 CC = cc
 # default
@@ -105,12 +111,20 @@ MAKE_VERSION := 3.81
 USER = kipark
 # makefile
 .DEFAULT_GOAL := all
+# default
+MAKECMDGOALS := all
+# environment
+TERM_SESSION_ID = w0t0p0:31F5883D-141A-40C1-8E06-5E2B5EB4251D
 # makefile (from `Makefile', line 13)
 NAME = philo_bonus
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
+# environment
+VSCODE_GIT_ASKPASS_EXTRA_ARGS = --ms-enable-electron-run-as-node
+# environment
+TERM_PROGRAM = vscode
 # default
 .VARIABLES := 
 # environment
@@ -119,6 +133,8 @@ TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/
 *F = $(notdir $*)
 # environment
 VSCODE_IPC_HOOK = /Users/kipark/Library/Application Support/Code/1.67.2-main.sock
+# environment
+VSCODE_GIT_ASKPASS_NODE = /Applications/Visual Studio Code.app/Contents/MacOS/Electron
 # makefile
 MAKEFLAGS = Rrqp
 # environment
@@ -126,21 +142,33 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
+TERM_PROGRAM_VERSION = 1.67.2
+# environment
+XPC_SERVICE_NAME = com.microsoft.VSCode.2164.7CF5C7B7-463B-4D72-84D6-BD75D93CC650
+# environment
+LC_TERMINAL_VERSION = 3.3.7
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
+ITERM_SESSION_ID = w0t0p0:31F5883D-141A-40C1-8E06-5E2B5EB4251D
+# environment
+COLORFGBG = 7;0
+# environment
 __CF_USER_TEXT_ENCODING = 0x19390:0x0:0x0
 # environment
 COMMAND_MODE = unix2003
+# environment
+GIT_ASKPASS = /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass.sh
 # default
 MAKEFILES := 
 # makefile (from `Makefile', line 16)
-CC_FLAG = -Wextra -Wall -Werror -fsanitize=thread -g3
+CC_FLAG = -Wextra -Wall -Werror  -g3
 # automatic
 <F = $(notdir $<)
+# environment
+ITERM_PROFILE = Default
 # environment
 LC_ALL = C
 # environment
@@ -152,13 +180,15 @@ SUFFIXES :=
 # default
 .INCLUDE_DIRS = /usr/local/include
 # environment
-MAKELEVEL := 0
+VSCODE_GIT_IPC_HANDLE = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-git-6a28c1491b.sock
 # environment
 LANG = C
 # environment
+TERM = xterm-256color
+# environment
 VSCODE_PID = 8721
 # variable set hash-table stats:
-# Load=73/1024=7%, Rehash=0, Collisions=3/105=3%
+# Load=88/1024=9%, Rehash=0, Collisions=8/120=7%
 
 # Pattern-specific Variable Values
 
@@ -170,16 +200,16 @@ VSCODE_PID = 8721
 # parser_atoi_bonus.o: could not be stat'd.
 # thread_bonus.o: could not be stat'd.
 # Makefile (device 16777225, inode 3771529): could not be opened.
-# obj (device 16777225, inode 3801090): 12 files, no impossibilities.
+# obj (device 16777225, inode 3801973): 12 files, no impossibilities.
 # . (device 16777225, inode 3771528): 16 files, no impossibilities.
 # parser_error_bonus.o: could not be stat'd.
 # parser_bonus.o: could not be stat'd.
 # philo_init_bonus.c (device 16777225, inode 3771538): could not be opened.
 # philo_bonus.h (device 16777225, inode 3771536): could not be opened.
 # philo_bonus.o: could not be stat'd.
-# ./obj (device 16777225, inode 3801090): 12 files, no impossibilities.
+# ./obj (device 16777225, inode 3801973): 12 files, no impossibilities.
 # philo_utils_bonus.c (device 16777225, inode 3771539): could not be opened.
-# philo_bonus (device 16777225, inode 3801101): could not be opened.
+# philo_bonus (device 16777225, inode 3801984): could not be opened.
 # philo_die_bonus.o: could not be stat'd.
 # utils_bonus.c (device 16777225, inode 3771541): could not be opened.
 # error_bonus.o: could not be stat'd.
@@ -213,7 +243,7 @@ obj/%.o: %.c
 obj/error_bonus.o: error_bonus.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `error_bonus'
-#  Last modified 2022-08-04 21:06:59
+#  Last modified 2022-08-04 21:49:00
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -235,7 +265,8 @@ parse/parser_error_bonus.c:
 obj/parser_error_bonus.o: parse/parser_error_bonus.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `parser_error_bonus'
-#  Last modified 2022-08-04 21:06:59
+ 
+#  Last modified 2022-08-04 21:49:00
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -248,7 +279,7 @@ obj/parser_error_bonus.o: parse/parser_error_bonus.c
 obj/philo_die_bonus.o: philo_die_bonus.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `philo_die_bonus'
-#  Last modified 2022-08-04 21:06:59
+#  Last modified 2022-08-04 21:49:00
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -273,7 +304,6 @@ all: philo_bonus
 #  File has not been updated.
 
 # Not a target:
- 
 philo_bonus.c:
 #  Implicit rule search has been done.
 #  Last modified 2022-08-04 17:15:21
@@ -291,7 +321,7 @@ philo_bonus.c:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-04 21:07:02
+#  Last modified 2022-08-04 21:48:58
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -308,7 +338,7 @@ debug:
 obj/philo_bonus.o: philo_bonus.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `philo_bonus'
-#  Last modified 2022-08-04 21:06:59
+#  Last modified 2022-08-04 21:49:00
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -321,7 +351,7 @@ obj/philo_bonus.o: philo_bonus.c
 # Not a target:
 philo_init_bonus.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-04 20:55:33
+#  Last modified 2022-08-04 21:36:11
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -330,7 +360,7 @@ philo_init_bonus.c:
 obj/utils_bonus.o: utils_bonus.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `utils_bonus'
-#  Last modified 2022-08-04 21:06:59
+#  Last modified 2022-08-04 21:49:00
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -343,7 +373,7 @@ obj/utils_bonus.o: utils_bonus.c
 obj/philo_init_bonus.o: philo_init_bonus.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `philo_init_bonus'
-#  Last modified 2022-08-04 21:06:59
+#  Last modified 2022-08-04 21:49:00
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -384,7 +414,7 @@ re:
 #  commands to execute (from `Makefile', line 54):
 	make fclean
 	make
-	./philo_bonus 5 620 200 200
+	./philo_bonus 3 620 200 200
 	
 
 clean:
@@ -398,7 +428,7 @@ clean:
 obj/thread_bonus.o: thread_bonus.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `thread_bonus'
-#  Last modified 2022-08-04 21:06:59
+#  Last modified 2022-08-04 21:49:00
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -420,7 +450,7 @@ parse/parser_bonus.c:
 obj/parser_bonus.o: parse/parser_bonus.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `parser_bonus'
-#  Last modified 2022-08-04 21:06:59
+#  Last modified 2022-08-04 21:49:00
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -441,7 +471,7 @@ philo_utils_bonus.c:
 
 philo_bonus: obj/philo_bonus.o obj/philo_init_bonus.o obj/philo_utils_bonus.o obj/philo_die_bonus.o obj/parser_bonus.o obj/parser_atoi_bonus.o obj/parser_error_bonus.o obj/error_bonus.o obj/utils_bonus.o obj/thread_bonus.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-04 21:06:59
+#  Last modified 2022-08-04 21:49:00
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -462,7 +492,7 @@ utils_bonus.c:
 # Not a target:
 thread_bonus.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-04 21:05:29
+#  Last modified 2022-08-04 21:48:44
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -471,7 +501,7 @@ thread_bonus.c:
 # Not a target:
 philo_die_bonus.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-04 21:00:42
+#  Last modified 2022-08-04 21:42:14
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -480,7 +510,7 @@ philo_die_bonus.c:
 obj/philo_utils_bonus.o: philo_utils_bonus.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `philo_utils_bonus'
-#  Last modified 2022-08-04 21:06:59
+#  Last modified 2022-08-04 21:49:00
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -502,7 +532,7 @@ parse/parser_atoi_bonus.c:
 obj/parser_atoi_bonus.o: parse/parser_atoi_bonus.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `parser_atoi_bonus'
-#  Last modified 2022-08-04 21:06:59
+#  Last modified 2022-08-04 21:49:00
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -512,6 +542,7 @@ obj/parser_atoi_bonus.o: parse/parser_atoi_bonus.c
 	$(CC) $(CC_FLAG) -g -c $< -o $@
 	
 
+ 
 # files hash-table stats:
 # Load=30/1024=3%, Rehash=0, Collisions=0/117=0%
 # VPATH Search Paths
@@ -526,6 +557,6 @@ obj/parser_atoi_bonus.o: parse/parser_atoi_bonus.c
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Thu Aug  4 21:07:07 2022
+# Finished Make data base on Thu Aug  4 21:49:07 2022
 
  

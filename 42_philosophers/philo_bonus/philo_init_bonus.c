@@ -6,13 +6,12 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:50:36 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/04 20:55:33 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/04 21:57:59 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
 
-#include <string.h>
 void	philo_malloc(t_philo_main_monitor_info *main_monitor, \
 						t_philo_monitor_info *monitor, int index, void *philos)
 {
@@ -24,6 +23,7 @@ void	philo_malloc(t_philo_main_monitor_info *main_monitor, \
 		ft_calloc(monitor->all_philo_number, sizeof(t_philo_info));
 	monitor->forks = main_monitor->forks;
 	monitor->die_sem = main_monitor->die_sem;
+	monitor->eat_sem = main_monitor->eat_sem;
 	monitor->all_eat_sem = main_monitor->all_eat_sem;
 	monitor->die_flag = ft_calloc(ONE_MALLOC, sizeof(int));
 	*monitor->die_flag = 0;
@@ -38,6 +38,7 @@ static void	philo_info_init(int philo_index, \
 	philo_info->get_parse = monitor->get_parse;
 	philo_info->die_flag = monitor->die_flag;
 	philo_info->die_sem = monitor->die_sem;
+	philo_info->eat_sem = monitor->eat_sem;
 	philo_info->start_time = monitor->start_time;
 	philo_info->eat_count = monitor->get_parse[MUST_EAT_NUMBER];
 }
