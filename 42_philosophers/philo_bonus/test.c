@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 14:13:51 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/03 21:30:24 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/04 20:37:37 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,24 @@
 
 int main()
 {
-	sem_t *sem;
-	int ret;
-	sem = sem_open("test_seme", O_CREAT, 0644, 1); 
-	printf("%p\n", sem);
-	pid_t pid;
-	pid_t wait_pid;
+	sem_t 	*sem;
+	pid_t 	pid;
+	pid_t	wait_pid;
+	int 	ret;
+	sem_t 	*sem;
+	sem = sem_open("test_sem", O_CREAT | O_EXCL , 0644, 200); 
+	if (sem == (sem_t *)-1)
+	{
+		sem_unlink("test_sem");
+		sem = sem_open("test_sem", O_CREAT | O_EXCL , 0644, 200); 
+	}
 
-	for (int i=0 ; i<10; ++i)
+
+	for (int i=0 ; i<1000; ++i)
 	{
 		pid = fork();
-		
+		if (pid == -1)
+			break ;
 		if (pid == 0)
 		{
 			sem_wait(sem);
@@ -34,7 +41,7 @@ int main()
 			exit(1);
 		}
 	}
-	for(int i=0; i<10; ++i)
+	for(int i=0; i<1000; ++i)
 	{
 		wait_pid = wait(0);
 	}
