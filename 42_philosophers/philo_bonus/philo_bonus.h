@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/05 19:26:58 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/05 20:54:10 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_philo_info
 	sem_t		*forks;
 	sem_t		*die_sem;
 	sem_t		*eat_sem;
+	sem_t		*all_eat_sem;
 	t_timeval	start_time;
 	t_timeval	last_eat;
 	int			*die_flag;
@@ -63,6 +64,7 @@ typedef struct s_philo_monitor_info
 
 typedef struct s_philo_main_monitor_info
 {
+	int				all_philo_number;
 	sem_t			*forks;
 	sem_t			*die_sem;
 	sem_t			*eat_sem;
@@ -84,8 +86,6 @@ int			print_error(int exit_flag);
 // utils
 long int	parse_atoi(const char *str);
 void		*ft_calloc(size_t count, size_t size);
-// char		*ft_itoa(int n);
-// char		*ft_strjoin(char const *s1, char const *s2);
 
 // thread
 void		run_thread(int *get_parse);

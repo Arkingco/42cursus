@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/05 19:27:04 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/05 21:16:03 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,20 @@ void	*philo_run(void *philos)
 	this_philo = (t_philo_info *)philos;
 	eat_count = 0;
 	set_last_eat(this_philo->eat_sem, &this_philo->last_eat);
-	while (check_philo_die(this_philo) == 0 && \
-			(eat_count < this_philo->eat_count || this_philo->eat_count == -1))
+	while (check_philo_die(this_philo) == 0)
 	{
 		philo_lock_forks(this_philo);
 		philo_action_and_print(this_philo, "is eating\n", TIME_TO_EAT);
 		philo_unlock_forks(this_philo);
+		eat_count++;
+		if (eat_count == this_philo->eat_count)
+			sem_post(this_philo->all_eat_sem);
 		philo_action_and_print(this_philo, "is sleeping\n", TIME_TO_SLEEP);
 		philo_action_and_print(this_philo, "is thinking\n", 0);
 		usleep(300);
-		eat_count++;
+		
 	}
+	exit(1);
 	return (NULL);
 }
 
@@ -78,12 +81,26 @@ void get_parse_set_to_fork(int *get_parse)
 void	main_monitor_info_init(t_philo_main_monitor_info *main_monitor, \
 																int *get_parse)
 {
+	main_monitor->all_philo_number = get_parse[ALL_PHILO_NUMBER];
 	main_monitor->forks = make_semaphore("forks", get_parse[ALL_PHILO_NUMBER]);
 	main_monitor->die_sem = make_semaphore("die_sem", 1);
 	main_monitor->eat_sem = make_semaphore("eat_sem", 1);
 	main_monitor->all_die_sem = make_semaphore("all_die_sem", 0);
 	main_monitor->all_eat_sem = make_semaphore("all_eat_sem", 0);
 	gettimeofday(&main_monitor->start_time, NULL);
+}
+
+void *wait_all_philo_eat(void *arg)
+{
+	int	i;
+	t_philo_main_monitor_info *main_monitor;
+
+	main_monitor = (t_philo_main_monitor_info *)arg;
+	i = -1;
+	while (++i < main_monitor->all_philo_number)
+		sem_wait(main_monitor->all_eat_sem);
+	sem_post(main_monitor->all_die_sem);
+	return (NULL);
 }
 
 void	run_thread(int *get_parse)
@@ -93,6 +110,7 @@ void	run_thread(int *get_parse)
 	int		all_philo_number;
 	pid_t	wait_id;
 	t_philo_main_monitor_info	main_monitor;
+	pthread_t wait_all_eat;
 
 	main_monitor_info_init(&main_monitor, get_parse);
 	i = -1;
@@ -104,13 +122,15 @@ void	run_thread(int *get_parse)
 		if (pid[i] == -1)
 			break ;
 		if (pid[i] == 0)
-		{
 			philo_process_run(i, get_parse, &main_monitor);
-		}
 	}
-	i = -1;
+	pthread_create(&wait_all_eat, \
+		NULL, \
+		wait_all_philo_eat, \
+		&main_monitor);
 	sem_wait(main_monitor.all_die_sem);
 	sem_wait(main_monitor.die_sem);
+	i = -1;
 	while (++i < get_parse[ALL_PHILO_NUMBER])
 		kill(pid[i], SIGKILL);
 	while (++i < get_parse[ALL_PHILO_NUMBER])

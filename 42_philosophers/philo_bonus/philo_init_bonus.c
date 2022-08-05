@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:50:36 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/05 19:26:44 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/05 20:56:25 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static void	philo_info_init(int philo_index, \
 	philo_info->die_flag = monitor->die_flag;
 	philo_info->die_sem = monitor->die_sem;
 	philo_info->eat_sem = monitor->eat_sem;
+	philo_info->all_eat_sem = monitor->all_eat_sem;
 	philo_info->start_time = monitor->start_time;
 	philo_info->eat_count = monitor->get_parse[MUST_EAT_NUMBER];
 }
