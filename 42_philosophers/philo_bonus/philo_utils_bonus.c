@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:59:54 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/04 21:00:43 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/05 19:22:35 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ms_usleep(int ms_second)
 
 	gettimeofday(&start_time, NULL);
 	while (get_diff_time(start_time) < ms_second)
-		usleep(500);
+		usleep(300);
 }
 
 sem_t	*make_semaphore(char *str, int count)
@@ -68,7 +68,7 @@ void	philo_print(t_philo_info *this_philo, char *strs)
 {
 	if (check_philo_die(this_philo))
 		return ;
-	printf("%04ld %d %s", \
+	printf("%ld %d %s", \
 				get_diff_time(this_philo->start_time), this_philo->index, strs);
 }
 

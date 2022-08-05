@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/04 22:02:43 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/05 19:26:58 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <pthread.h>
 # include <sys/time.h>
 # include <semaphore.h>
+# include <signal.h>
 # include <string.h>
 
 # define ONE_MALLOC 1
@@ -51,6 +52,7 @@ typedef struct s_philo_monitor_info
 	sem_t			*forks;
 	sem_t			*die_sem;
 	sem_t			*eat_sem;
+	sem_t			*all_die_sem;
 	sem_t			*all_eat_sem;
 	int				*die_flag;
 	int				*get_parse;
@@ -64,7 +66,9 @@ typedef struct s_philo_main_monitor_info
 	sem_t			*forks;
 	sem_t			*die_sem;
 	sem_t			*eat_sem;
+	sem_t			*all_die_sem;
 	sem_t			*all_eat_sem;
+	t_timeval		start_time;
 }	t_philo_main_monitor_info;
 
 
@@ -93,7 +97,7 @@ int			*parse(int argc, char **argv);
 // philo_init
 void		philo_malloc(t_philo_main_monitor_info *main_monitor, \
 						t_philo_monitor_info *monitor, int index, void *philos);
-void		philo_init(t_philo_monitor_info *monitor, int index);
+void		philo_init(t_philo_main_monitor_info *main_monitor, t_philo_monitor_info *monitor, int index);
 void		philo_wait_and_free(t_philo_monitor_info *monitor);
 
 // philo_utils

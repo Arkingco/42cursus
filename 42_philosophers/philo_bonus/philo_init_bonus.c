@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:50:36 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/04 21:57:59 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/05 19:26:44 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	philo_malloc(t_philo_main_monitor_info *main_monitor, \
 	monitor->forks = main_monitor->forks;
 	monitor->die_sem = main_monitor->die_sem;
 	monitor->eat_sem = main_monitor->eat_sem;
+	monitor->all_die_sem = main_monitor->all_die_sem;
 	monitor->all_eat_sem = main_monitor->all_eat_sem;
 	monitor->die_flag = ft_calloc(ONE_MALLOC, sizeof(int));
 	*monitor->die_flag = 0;
@@ -43,11 +44,11 @@ static void	philo_info_init(int philo_index, \
 	philo_info->eat_count = monitor->get_parse[MUST_EAT_NUMBER];
 }
 
-void	philo_init(t_philo_monitor_info *monitor, int index)
+void	philo_init(t_philo_main_monitor_info *main_monitor, t_philo_monitor_info *monitor, int index)
 {
 	int	i;
 
-	gettimeofday(&monitor->start_time, NULL);
+	monitor->start_time = main_monitor->start_time;
 	i = -1;
 	while (++i < monitor->all_philo_number)
 		philo_info_init(index, &monitor->philosophers[i], monitor);
@@ -68,15 +69,9 @@ void	philo_wait_and_free(t_philo_monitor_info *monitor)
 		if (pthread_join(monitor->philosophers_thread[i], NULL) != 0)
 			print_error(1);
 	i = -1;
-	// while (++i < monitor->all_philo_number)
-	// 	pthread_mutex_destroy(&monitor->forks[i]);
 	free(monitor->get_parse);
 	free(monitor->philosophers_thread);
 	free(monitor->philosophers);
-	free(monitor->forks);
-	// free(monitor->die_sem);
 	free(monitor->die_flag);
-	// free(monitor->eat_sem);
-	// free(monitor->print_mutex);
 	free(monitor);
 }
