@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/03 20:31:02 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/07 15:11:14 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <pthread.h>
 # include <sys/time.h>
 # include <semaphore.h>
+# include <signal.h>
+# include <string.h>
 
 # define ONE_MALLOC 1
 # define ALL_PHILO_NUMBER 0
@@ -32,10 +34,10 @@ typedef struct timeval	t_timeval;
 
 typedef struct s_philo_info
 {
-	sem_t		*fork_left;
-	sem_t		*fork_right;
+	sem_t		*forks;
 	sem_t		*die_sem;
 	sem_t		*eat_sem;
+	sem_t		*all_eat_sem;
 	t_timeval	start_time;
 	t_timeval	last_eat;
 	int			*die_flag;
@@ -51,6 +53,8 @@ typedef struct s_philo_monitor_info
 	sem_t			*forks;
 	sem_t			*die_sem;
 	sem_t			*eat_sem;
+	sem_t			*all_die_sem;
+	sem_t			*all_eat_sem;
 	int				*die_flag;
 	int				*get_parse;
 	int				index;
@@ -58,10 +62,20 @@ typedef struct s_philo_monitor_info
 	t_timeval		start_time;
 }	t_philo_monitor_info;
 
+typedef struct s_philo_main_monitor_info
+{
+	int				all_philo_number;
+	sem_t			*forks;
+	sem_t			*die_sem;
+	sem_t			*eat_sem;
+	sem_t			*all_die_sem;
+	sem_t			*all_eat_sem;
+	t_timeval		start_time;
+}	t_philo_main_monitor_info;
 
-void	set_last_eat(sem_t *eat_sem, t_timeval *last_eat);
-int		check_philo_last_eat(t_philo_monitor_info *monitor, t_timeval *last_eat, int time_to_die);
-
+void		set_last_eat(sem_t *eat_sem, t_timeval *last_eat);
+int			check_philo_last_eat(t_philo_monitor_info *monitor, \
+						t_timeval *last_eat, int time_to_die);
 // error*
 int			paser_error(char **need_parsed);
 int			print_error(int exit_flag);
@@ -78,16 +92,26 @@ void		*philo_run(void *philos);
 int			*parse(int argc, char **argv);
 
 // philo_init
-void		philo_malloc(t_philo_monitor_info *monitor, int index, void *philos);
-void		philo_init(t_philo_monitor_info *monitor, int index);
+void		philo_malloc(t_philo_main_monitor_info *main_monitor, \
+						t_philo_monitor_info *monitor, int index, void *philos);
+void		philo_init(t_philo_main_monitor_info *main_monitor, \
+						t_philo_monitor_info *monitor, int index);
 void		philo_wait_and_free(t_philo_monitor_info *monitor);
 
 // philo_utils
-void		philo_lock_forks(t_philo_info *this_philo, int philo_index);
+void		philo_lock_forks(t_philo_info *this_philo);
 void		philo_unlock_forks(t_philo_info *this_philo);
 void		ms_usleep(int ms_second);
 void		philo_print(t_philo_info *this_philo, char *strs);
 long		get_diff_time(t_timeval start_time);
+
+// philo_utils2
+void		main_monitor_info_init(t_philo_main_monitor_info *main_monitor, \
+						int *get_parse);
+void		get_parse_set_to_fork(int *get_parse);
+sem_t		*make_semaphore(char *str, int count);
+void		unlinks_sem(t_philo_main_monitor_info *main_monitor);
+void		kill_philos(int i, int all_philo_number, int *pid);
 
 // philo_die
 void		set_die_sem_flag(sem_t *die_sem, int *die_flag);

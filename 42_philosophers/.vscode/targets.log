@@ -7,8 +7,10 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
  
+make: *** No rule to make target `all'.  Stop.
 
-# Make data base, printed on Wed Aug  3 15:23:21 2022
+
+# Make data base, printed on Sun Aug  7 17:03:21 2022
 
 # Variables
 
@@ -26,32 +28,24 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 CURDIR := /Users/kipark/42_project/42cursus/42_philosophers
 # makefile
 SHELL = /bin/sh
-# makefile (from `Makefile', line 17)
-RM = rm
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
-# makefile (from `Makefile', line 1)
-MAKEFILE_LIST :=  Makefile
+# makefile
+MAKEFILE_LIST := 
 # environment
 VSCODE_NODE_CACHED_DATA_DIR = 
-# makefile (from `Makefile', line 42)
-OBJ_DIR = ./obj
-# makefile (from `Makefile', line 43)
-OBJ_FILE = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 # environment
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220803T135442
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220807T141438
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-1edd2a03-7db8-4754-bba0-7e8efbd0babd.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-99b8cdf1-5a0b-4f62-8999-fb7350ac9d42.sock
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
-# makefile (from `Makefile', line 18)
-RM_FLAG = -rf
-# makefile (from `Makefile', line 40)
-VPATH = $(shell ls -R)
+# environment
+LaunchInstanceID = 5200D740-9BA1-4D22-9F21-D972244A748D
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -59,11 +53,9 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.AgsSsO28lQ/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.nWQLkZ0n2r/Listeners
 # automatic
 %F = $(notdir $%)
-# makefile (from `Makefile', line 32)
-DEBUG_SRCS = philo.c parse/parser.c parse/parser_atoi.c parse/parser_error.c error.c utils.c thread.c 
 # environment
 PWD = /Users/kipark/42_project/42cursus/42_philosophers
 # environment
@@ -78,20 +70,14 @@ APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
-# makefile (from `Makefile', line 19)
-TEST = -fsanitize=address -g3
 # environment
 XPC_FLAGS = 0x0
 # default
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
-# makefile (from `Makefile', line 21)
-SRCS = philo.c philo_init.c philo_utils.c philo_die.c parser.c parser_atoi.c parser_error.c error.c utils.c thread.c 
 # environment
 SHLVL = 1
-# makefile (from `Makefile', line 15)
-CC = cc
 # default
 MAKE_VERSION := 3.81
 # environment
@@ -99,9 +85,7 @@ AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
 # environment
 USER = kipark
 # makefile
-.DEFAULT_GOAL := all
-# makefile (from `Makefile', line 13)
-NAME = philo/philo
+.DEFAULT_GOAL := 
 # environment
 PIPE_LOGGING = true
 # automatic
@@ -123,21 +107,23 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.microsoft.VSCode.2152
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000011.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
 __CF_USER_TEXT_ENCODING = 0x19390:0x0:0x0
+# environment
+COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
-# makefile (from `Makefile', line 16)
-CC_FLAG = -Wextra -Wall -Werror
 # automatic
 <F = $(notdir $<)
 # environment
 LC_ALL = C
+# environment
+SECURITYSESSIONID = 18703
 # automatic
 ^F = $(notdir $^)
 # default
@@ -149,9 +135,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 30395
+VSCODE_PID = 97785
 # variable set hash-table stats:
-# Load=69/1024=7%, Rehash=0, Collisions=8/106=8%
+# Load=61/1024=6%, Rehash=0, Collisions=2/82=2%
 
 # Pattern-specific Variable Values
 
@@ -159,115 +145,24 @@ VSCODE_PID = 30395
 
 # Directories
 
-# utils_bonus.o: could not be stat'd.
-# parser_atoi_bonus.o: could not be stat'd.
-# philo_bonus/obj (device 16777225, inode 3775635): 12 files, no impossibilities.
-# thread_bonus.o: could not be stat'd.
-# ./philo/parse (device 16777225, inode 3712132): 5 files, no impossibilities.
-# Makefile (device 16777225, inode 3711393): could not be opened.
-# obj: could not be stat'd.
 # . (device 16777225, inode 3508242): 6 files, no impossibilities.
-# parser_error_bonus.o: could not be stat'd.
-# ./philo_bonus/parse/philo: could not be stat'd.
-# ./philo_bonus/obj (device 16777225, inode 3775635): 12 files, no impossibilities.
-# parser_bonus.o: could not be stat'd.
-# ./philo_bonus/obj/philo: could not be stat'd.
-# philo_init_bonus.c: could not be stat'd.
-# philo_bonus.h: could not be stat'd.
-# philo_utils.c: could not be stat'd.
-# ./philo/parse/philo: could not be stat'd.
-# philo_bonus.o: could not be stat'd.
-# ./philo/obj: could not be stat'd.
-# philo_utils_bonus.c: could not be stat'd.
-# philo_bonus (device 16777225, inode 3771528): 17 files, no impossibilities.
-# philo/philo: could not be stat'd.
-# philo_init.c: could not be stat'd.
-# utils_bonus.c: could not be stat'd.
-# philo.h: could not be stat'd.
-# error_bonus.o: could not be stat'd.
-# parser_atoi_bonus.c: could not be stat'd.
-# philo (device 16777225, inode 3712129): 12 files, no impossibilities.
-# philo_init_bonus.o: could not be stat'd.
-# thread_bonus.c: could not be stat'd.
-# philo_bonus/philo: could not be stat'd.
-# utils.c: could not be stat'd.
-# ./philo_bonus (device 16777225, inode 3771528): 17 files, no impossibilities.
-# parser_atoi.c: could not be stat'd.
-# thread.c: could not be stat'd.
-# philo_utils_bonus.o: could not be stat'd.
-# parser_error_bonus.c: could not be stat'd.
-# ./philo (device 16777225, inode 3712129): 12 files, no impossibilities.
-# parser_bonus.c: could not be stat'd.
-# a.out: could not be stat'd.
-# philo/obj: could not be stat'd.
-# test.c: could not be stat'd.
-# ./philo_bonus/philo: could not be stat'd.
-# parser_error.c: could not be stat'd.
-# philo_bonus.c: could not be stat'd.
-# parse: could not be stat'd.
-# parser.c: could not be stat'd.
-# ./philo_bonus/parse/obj: could not be stat'd.
-# philo_die_bonus.c: could not be stat'd.
-# ./philo/philo: could not be stat'd.
-# error_bonus.c: could not be stat'd.
-# philo.c: could not be stat'd.
-# ./philo/parse/obj: could not be stat'd.
-# philo_die_bonus.o: could not be stat'd.
-# philo_die.c: could not be stat'd.
-# error.c: could not be stat'd.
-# ./philo_bonus/obj/obj: could not be stat'd.
-# ./philo_bonus/parse (device 16777225, inode 3771531): 5 files, no impossibilities.
 
-# 98 files, no impossibilities in 58 directories.
+# 6 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
-obj/%.o: %.c
-#  commands to execute (from `Makefile', line 46):
-	mkdir -p $(OBJ_DIR)
-	$(CC) $(CC_FLAG) -g -c $< -o $@
-	
-
-# 1 implicit rules, 0 (0.0%) terminal.
+# No implicit rules.
 
 # Files
 
 # Not a target:
-obj/parser.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-all: philo/philo
+all:
 #  Command-line target.
 #  Implicit rule search has been done.
 #  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
-
-philo/philo: obj/philo.o obj/philo_init.o obj/philo_utils.o obj/philo_die.o obj/parser.o obj/parser_atoi.o obj/parser_error.o obj/error.o obj/utils.o obj/thread.o
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
-#  commands to execute (from `Makefile', line 52):
-	$(CC) $(CC_FLAG) -o $@ $^
-	
-
-.Phony: all clean fclean re
-#  Implicit rule search has not been done.
-#  Modification time never checked.
 #  File has not been updated.
-
-# Not a target:
-obj/philo_utils.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 .SUFFIXES:
@@ -276,93 +171,24 @@ obj/philo_utils.o:
 #  File has not been updated.
 
 # Not a target:
-obj/parser_atoi.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
 Makefile:
- 
+#  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-08-03 13:28:27
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-obj/error.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/parser_error.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-debug:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 66):
-	$(CC) $(CC_FLAG) -g -o $(NAME) $(DEBUG_SRCS)
-	
-
-# Not a target:
-obj/philo_die.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-fclean:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 58):
-	make clean
-	$(RM) $(RM_FLAG) $(NAME)
-	
-
-# Not a target:
-philo/philo.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-03 12:30:54
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-obj/philo.o: philo/philo.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `philo'
 #  File does not exist.
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := obj/philo.o
-# automatic
-# % := 
-# automatic
-# * := philo
-# automatic
-# + := philo/philo.c
-# automatic
-# | := 
-# automatic
-# < := philo/philo.c
-# automatic
-# ^ := philo/philo.c
-# automatic
-# ? := philo/philo.c
+#  Failed to be updated.
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/15=7%
-#  commands to execute (from `Makefile', line 46):
-	mkdir -p $(OBJ_DIR)
-	$(CC) $(CC_FLAG) -g -c $< -o $@
-	
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+makefile:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 .DEFAULT:
@@ -370,55 +196,29 @@ obj/philo.o: philo/philo.c
 #  Modification time never checked.
 #  File has not been updated.
 
-re:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 62):
-	make fclean
-	make
-	
-
-clean:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 55):
-	$(RM) $(RM_FLAG) $(OBJ_DIR)
-	
-
 # Not a target:
-obj/utils.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/philo_init.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/thread.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+GNUmakefile:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # files hash-table stats:
-# Load=21/1024=2%, Rehash=0, Collisions=3/85=4%
+# Load=6/1024=1%, Rehash=0, Collisions=0/17=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
-# General (`VPATH' variable) search path:
-# philo:philo_bonus:./philo:./philo/parse:./philo_bonus:philo_bonus:./philo_bonus/obj:./philo_bonus/parse
+# No general (`VPATH' variable) search path.
 
-# # of strings in strcache: 1
-# # of strcache buffers: 1
-# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
-# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+# # of strings in strcache: 0
+# # of strcache buffers: 0
+# strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
+# strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Wed Aug  3 15:23:21 2022
+# Finished Make data base on Sun Aug  7 17:03:21 2022
 
  
