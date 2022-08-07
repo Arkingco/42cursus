@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/07 17:01:21 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/07 17:12:23 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ void	*philo_all_eat_wait(void *philos)
 	while (1)
 	{
 		if (check_count_all_eat_mutex_flag(this_monitor->all_eat_mutex, \
-			this_monitor->all_eat_count, this_monitor->all_philo_number))
+			this_monitor->all_eat_count, this_monitor->all_philo_number) || \
+			check_philo_die(&this_monitor->philosophers[0]))
 			break ;
 	}
 	set_die_mutex_flag(this_monitor->die_mutex, this_monitor->die_flag);
