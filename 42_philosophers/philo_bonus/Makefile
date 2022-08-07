@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 15:58:45 by kipark            #+#    #+#              #
-#    Updated: 2022/08/05 21:07:04 by kipark           ###   ########.fr        #
+#    Updated: 2022/08/07 15:13:28 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ TEST 	= -fsanitize=thread -g3
 SRCS		= 	philo_bonus.c			\
 				philo_init_bonus.c		\
 				philo_utils_bonus.c		\
+				philo_utils_bonus2.c		\
 				philo_die_bonus.c		\
 				parser_bonus.c			\
 				parser_atoi_bonus.c		\
@@ -53,7 +54,6 @@ fclean :
 re :
 	make fclean
 	make
-	./philo_bonus 41 620 200 200
 
 debug :
 	$(CC) $(CC_FLAG) -g -o $(NAME) $(DEBUG_SRCS)

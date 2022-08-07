@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:50:36 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/05 20:56:25 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/07 14:51:09 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ static void	philo_info_init(int philo_index, \
 	philo_info->eat_count = monitor->get_parse[MUST_EAT_NUMBER];
 }
 
-void	philo_init(t_philo_main_monitor_info *main_monitor, t_philo_monitor_info *monitor, int index)
+void	philo_init(t_philo_main_monitor_info *main_monitor, \
+									t_philo_monitor_info *monitor, int index)
 {
 	int	i;
 

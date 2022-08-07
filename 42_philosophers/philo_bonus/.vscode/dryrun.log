@@ -1,25 +1,7 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/kipark/42_project/42cursus/42_philosophers/philo_bonus'
 mkdir -p ./obj
-cc -Wextra -Wall -Werror -g -c philo_bonus.c -o obj/philo_bonus.o
-mkdir -p ./obj
-cc -Wextra -Wall -Werror -g -c philo_init_bonus.c -o obj/philo_init_bonus.o
-mkdir -p ./obj
-cc -Wextra -Wall -Werror -g -c philo_utils_bonus.c -o obj/philo_utils_bonus.o
-mkdir -p ./obj
-cc -Wextra -Wall -Werror -g -c philo_die_bonus.c -o obj/philo_die_bonus.o
-mkdir -p ./obj
-cc -Wextra -Wall -Werror -g -c parse/parser_bonus.c -o obj/parser_bonus.o
-mkdir -p ./obj
-cc -Wextra -Wall -Werror -g -c parse/parser_atoi_bonus.c -o obj/parser_atoi_bonus.o
-mkdir -p ./obj
-cc -Wextra -Wall -Werror -g -c parse/parser_error_bonus.c -o obj/parser_error_bonus.o
-mkdir -p ./obj
-cc -Wextra -Wall -Werror -g -c error_bonus.c -o obj/error_bonus.o
-mkdir -p ./obj
-cc -Wextra -Wall -Werror -g -c utils_bonus.c -o obj/utils_bonus.o
-mkdir -p ./obj
-cc -Wextra -Wall -Werror -g -c thread_bonus.c -o obj/thread_bonus.o
-cc -Wextra -Wall -Werror -o philo_bonus obj/philo_bonus.o obj/philo_init_bonus.o obj/philo_utils_bonus.o obj/philo_die_bonus.o obj/parser_bonus.o obj/parser_atoi_bonus.o obj/parser_error_bonus.o obj/error_bonus.o obj/utils_bonus.o obj/thread_bonus.o
+cc -Wextra -Wall -Werror -g -c philo_utils_bonus2.c -o obj/philo_utils_bonus2.o
+cc -Wextra -Wall -Werror -o philo_bonus obj/philo_bonus.o obj/philo_init_bonus.o obj/philo_utils_bonus.o obj/philo_utils_bonus2.o obj/philo_die_bonus.o obj/parser_bonus.o obj/parser_atoi_bonus.o obj/parser_error_bonus.o obj/error_bonus.o obj/utils_bonus.o obj/thread_bonus.o
 make: Leaving directory `/Users/kipark/42_project/42cursus/42_philosophers/philo_bonus'
  

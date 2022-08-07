@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:11:57 by baggiseon         #+#    #+#             */
-/*   Updated: 2022/08/05 10:40:14 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/07 14:51:01 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	set_last_eat(sem_t *eat_sem, t_timeval *last_eat)
 	sem_post(eat_sem);
 }
 
-int	check_philo_last_eat(t_philo_monitor_info *monitor, t_timeval *last_eat, int time_to_die)
+int	check_philo_last_eat(t_philo_monitor_info *monitor, \
+										t_timeval *last_eat, int time_to_die)
 {
 	sem_wait(monitor->eat_sem);
 	if (get_diff_time(*last_eat) >= time_to_die)
@@ -53,4 +54,3 @@ int	check_philo_die(t_philo_info *this_philo)
 		return (1);
 	return (0);
 }
-

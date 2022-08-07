@@ -1,6 +1,6 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/kipark/42_project/42cursus/42_philosophers'
-make: Nothing to be done for `all'.
- 
 make: Leaving directory `/Users/kipark/42_project/42cursus/42_philosophers'
  
+make: *** No targets specified and no makefile found.  Stop.
+

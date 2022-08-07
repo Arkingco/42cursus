@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:41:13 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/03 14:48:22 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/07 14:22:20 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 int	print_error(int exit_flag)
 {
 	printf("Error\n");
-	return (exit_flag);
+	exit(exit_flag);
 }
