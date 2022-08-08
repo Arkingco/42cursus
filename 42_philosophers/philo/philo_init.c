@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:50:36 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/08 16:59:22 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/08 21:06:59 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	philo_init(t_philo_monitor_info *monitor)
 		NULL, \
 		philo_run, \
 		&monitor->philosophers[i]);
+	usleep(1000);	
 }
 
 void	philo_wait_and_free(t_philo_monitor_info *monitor, \

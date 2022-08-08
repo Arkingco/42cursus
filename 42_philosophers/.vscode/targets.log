@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Mon Aug  8 16:56:16 2022
+# Make data base, printed on Mon Aug  8 21:00:55 2022
 
 # Variables
 
@@ -39,13 +39,13 @@ VSCODE_NODE_CACHED_DATA_DIR =
 # environment
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220808T122636
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220808T205337
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-b290ed42-46ab-4f83-b537-a040d33bb39b.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-14e7f23d-56f9-4c7d-8f81-328a8dcf1e65.sock
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # environment
-LaunchInstanceID = F6CA7644-675C-446A-9433-7F7C64F70C30
+LaunchInstanceID = 6A54244A-DEAD-418F-9AEF-6207930C9E86
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -53,7 +53,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.tnfGDImk3r/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.DtxyeqlVc0/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -107,7 +107,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x1000000f.Electron
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -123,7 +123,7 @@ MAKEFILES :=
 # environment
 LC_ALL = C
 # environment
-SECURITYSESSIONID = 186f4
+SECURITYSESSIONID = 186a6
 # automatic
 ^F = $(notdir $^)
 # default
@@ -135,7 +135,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 85027
+VSCODE_PID = 4481
 # variable set hash-table stats:
 # Load=61/1024=6%, Rehash=0, Collisions=2/82=2%
 
@@ -162,6 +162,7 @@ all:
 #  File does not exist.
 #  File has not been updated.
 # variable set hash-table stats:
+ 
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
@@ -219,6 +220,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Mon Aug  8 16:56:16 2022
+# Finished Make data base on Mon Aug  8 21:00:55 2022
 
  
