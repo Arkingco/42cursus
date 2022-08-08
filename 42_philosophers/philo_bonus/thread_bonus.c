@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/07 15:21:23 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/08 16:55:01 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,5 @@ void	run_thread(int *get_parse)
 			philo_process_run(i, get_parse, &main_monitor);
 	}
 	pthread_create(&wait_all_eat, NULL, wait_all_philo_eat, &main_monitor);
-	sem_wait(main_monitor.all_die_sem);
-	sem_wait(main_monitor.die_sem);
-	unlinks_sem(&main_monitor);
-	kill_philos(i, all_philo_number, pid);
+	kill_philos(&main_monitor, &wait_all_eat, all_philo_number, pid);
 }

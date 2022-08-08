@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:59:54 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/07 15:13:11 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/08 16:54:22 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,18 @@ void	unlinks_sem(t_philo_main_monitor_info *main_monitor)
 	sem_unlink("all_eat_sem");
 }
 
-void	kill_philos(int i, int all_philo_number, int *pid)
+void	kill_philos(t_philo_main_monitor_info *main_monitor, \
+					pthread_t *wait_all_eat, int all_philo_number, int *pid)
 {
+	int	i;
+
+	sem_wait(main_monitor->all_die_sem);
+	sem_wait(main_monitor->die_sem);
+	unlinks_sem(main_monitor);
+	i = -1;
+	while (++i < all_philo_number)
+		sem_post(main_monitor->all_eat_sem);
+	pthread_join(*wait_all_eat, NULL);
 	i = -1;
 	while (++i < all_philo_number)
 		kill(pid[i], SIGKILL);

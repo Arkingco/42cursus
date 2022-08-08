@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/07 17:04:20 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/08 16:58:38 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,14 @@ typedef struct s_philo_info
 	pthread_mutex_t	*fork_right;
 	pthread_mutex_t	*die_mutex;
 	pthread_mutex_t	*eat_mutex;
-	pthread_mutex_t	*print_mutex;
 	pthread_mutex_t	*all_eat_mutex;
 	t_timeval		start_time;
 	t_timeval		last_eat;
 	int				*die_flag;
 	int				index;
+	int				*get_parse;
 	int				eat_count;
 	int				*all_eat_count;
-	int				*get_parse;
 }	t_philo_info;
 
 typedef struct s_philo_monitor_info
@@ -53,7 +52,6 @@ typedef struct s_philo_monitor_info
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	*die_mutex;
 	pthread_mutex_t	*eat_mutex;
-	pthread_mutex_t	*print_mutex;
 	pthread_mutex_t	*all_eat_mutex;
 	int				*die_flag;
 	int				*get_parse;
