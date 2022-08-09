@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Mon Aug  8 21:00:55 2022
+# Make data base, printed on Tue Aug  9 14:27:41 2022
 
 # Variables
 
@@ -29,7 +29,7 @@ CURDIR := /Users/kipark/42_project/42cursus/42_philosophers
 # makefile
 SHELL = /bin/sh
 # environment
-VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{},"_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
 # makefile
@@ -39,13 +39,13 @@ VSCODE_NODE_CACHED_DATA_DIR =
 # environment
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220808T205337
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220809T123456
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-14e7f23d-56f9-4c7d-8f81-328a8dcf1e65.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-fd199b37-cc09-44c5-910f-5cd7ee7bde64.sock
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # environment
-LaunchInstanceID = 6A54244A-DEAD-418F-9AEF-6207930C9E86
+LaunchInstanceID = BC41F896-B1C4-4195-81FF-50ADA09D12F4
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -53,7 +53,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.DtxyeqlVc0/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.ZHhDAIrmaU/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -107,7 +107,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000009.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -123,7 +123,7 @@ MAKEFILES :=
 # environment
 LC_ALL = C
 # environment
-SECURITYSESSIONID = 186a6
+SECURITYSESSIONID = 186f7
 # automatic
 ^F = $(notdir $^)
 # default
@@ -135,7 +135,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 4481
+VSCODE_PID = 30750
 # variable set hash-table stats:
 # Load=61/1024=6%, Rehash=0, Collisions=2/82=2%
 
@@ -145,9 +145,9 @@ VSCODE_PID = 4481
 
 # Directories
 
-# . (device 16777225, inode 3508242): 5 files, no impossibilities.
+# . (device 16777225, inode 3508242): 6 files, no impossibilities.
 
-# 5 files, no impossibilities in 1 directories.
+# 6 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -162,7 +162,6 @@ all:
 #  File does not exist.
 #  File has not been updated.
 # variable set hash-table stats:
- 
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
@@ -220,6 +219,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Mon Aug  8 21:00:55 2022
+# Finished Make data base on Tue Aug  9 14:27:41 2022
 
  

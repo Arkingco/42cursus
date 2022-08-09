@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/08 16:58:38 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/09 14:29:47 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void		philo_malloc(t_philo_monitor_info *monitor, void *philos);
 void		philo_init(t_philo_monitor_info *monitor);
 void		philo_wait_and_free(t_philo_monitor_info *monitor, \
 													pthread_t *all_eat_wait);
+void		philo_all_mutex_unlock(t_philo_info *philo);
 
 // philo_utils
 void		philo_lock_forks(t_philo_info *this_philo, int philo_index);

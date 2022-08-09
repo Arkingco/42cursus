@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/08 21:22:03 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/09 14:30:03 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,6 @@ static void	philo_action_and_print( \
 	philo_print(this_philo, strs);
 	if (action_flag != 0)
 		ms_usleep(this_philo->get_parse[action_flag]);
-}
-
-void philo_all_mutex_unlock(t_philo_info *philo)
-{
-	t_philo_info *this_philo;
-
-	this_philo = philo;
-	pthread_mutex_unlock(this_philo->die_mutex);
-	pthread_mutex_unlock(this_philo->eat_mutex);
-	pthread_mutex_unlock(this_philo->all_eat_mutex);
-	pthread_mutex_unlock(this_philo->fork_left);
-	pthread_mutex_unlock(this_philo->fork_right);
 }
 
 void	*philo_run(void *philos)
@@ -74,7 +62,7 @@ void	*philo_all_eat_wait(void *philos)
 			this_monitor->all_eat_count, this_monitor->all_philo_number) || \
 			check_philo_die(&this_monitor->philosophers[0]))
 			break ;
-		usleep(300);		
+		usleep(300);
 	}
 	set_die_mutex_flag(this_monitor->die_mutex, this_monitor->die_flag);
 	return (NULL);
@@ -100,7 +88,7 @@ static void	*philo_monitor_run(void *philos)
 			philo_print(&monitor->philosophers[i % monitor->all_philo_number], \
 																"is died\n");
 			set_die_mutex_flag(monitor->die_mutex, monitor->die_flag);
-			break;
+			break ;
 		}
 		usleep(300);
 	}
