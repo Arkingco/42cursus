@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/09 14:30:03 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/09 15:35:30 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static void	*philo_monitor_run(void *philos)
 	pthread_t				all_eat_wait;
 	unsigned int			i;
 
-	monitor = calloc(ONE_MALLOC, sizeof(t_philo_monitor_info));
+	monitor = ft_calloc(ONE_MALLOC, sizeof(t_philo_monitor_info));
 	philo_malloc(monitor, philos);
 	philo_init(monitor);
 	pthread_create(&all_eat_wait, NULL, philo_all_eat_wait, monitor);
