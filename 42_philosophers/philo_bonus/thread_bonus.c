@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/09 13:28:41 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/09 19:33:05 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	philo_process_run(int index, int *get_parse, \
 	t_philo_monitor_info	*monitor;
 	unsigned int			i;
 
-	monitor = calloc(ONE_MALLOC, sizeof(t_philo_monitor_info));
+	monitor = ft_calloc(ONE_MALLOC, sizeof(t_philo_monitor_info));
 	philo_malloc(main_monitor, monitor, index, get_parse);
 	philo_init(main_monitor, monitor, index);
 	usleep(monitor->get_parse[TIME_TO_EAT] * 0.8);
