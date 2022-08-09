@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/07 17:12:23 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/09 15:35:30 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	*philo_run(void *philos)
 	set_last_eat(this_philo->eat_mutex, &this_philo->last_eat);
 	if (this_philo->index % 2 == 0)
 		ms_usleep(this_philo->get_parse[TIME_TO_EAT] * 0.1);
-	while (check_philo_die(this_philo) == 0)
+	while (check_philo_die(this_philo) == 0 && \
+				this_philo->eat_count != 0)
 	{
 		philo_lock_forks(this_philo, this_philo->index);
 		philo_action_and_print(this_philo, "is eating\n", TIME_TO_EAT);
@@ -45,8 +46,8 @@ void	*philo_run(void *philos)
 													this_philo->all_eat_count);
 		philo_action_and_print(this_philo, "is sleeping\n", TIME_TO_SLEEP);
 		philo_action_and_print(this_philo, "is thinking\n", 0);
-		usleep(300);
 	}
+	philo_all_mutex_unlock(this_philo);
 	return (NULL);
 }
 
@@ -61,6 +62,7 @@ void	*philo_all_eat_wait(void *philos)
 			this_monitor->all_eat_count, this_monitor->all_philo_number) || \
 			check_philo_die(&this_monitor->philosophers[0]))
 			break ;
+		usleep(300);
 	}
 	set_die_mutex_flag(this_monitor->die_mutex, this_monitor->die_flag);
 	return (NULL);
@@ -72,10 +74,9 @@ static void	*philo_monitor_run(void *philos)
 	pthread_t				all_eat_wait;
 	unsigned int			i;
 
-	monitor = calloc(ONE_MALLOC, sizeof(t_philo_monitor_info));
+	monitor = ft_calloc(ONE_MALLOC, sizeof(t_philo_monitor_info));
 	philo_malloc(monitor, philos);
 	philo_init(monitor);
-	usleep(1000);
 	pthread_create(&all_eat_wait, NULL, philo_all_eat_wait, monitor);
 	i = -1;
 	while (1)
@@ -89,6 +90,7 @@ static void	*philo_monitor_run(void *philos)
 			set_die_mutex_flag(monitor->die_mutex, monitor->die_flag);
 			break ;
 		}
+		usleep(300);
 	}
 	philo_wait_and_free(monitor, &all_eat_wait);
 	return (NULL);

@@ -6,17 +6,16 @@
 #    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 15:58:45 by kipark            #+#    #+#              #
-#    Updated: 2022/08/07 17:03:20 by kipark           ###   ########.fr        #
+#    Updated: 2022/08/08 21:00:41 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= philo
 
 CC		= cc
-CC_FLAG = -Wextra -Wall -Werror
+# CC_FLAG = -Wextra -Wall -Werror
 RM		= rm
 RM_FLAG	= -rf
-TEST =  -fsanitize=address -g3
 
 SRCS		= 	philo.c					\
 				philo_init.c			\
@@ -37,7 +36,7 @@ OBJ_FILE = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
 $(OBJ_DIR)/%.o : %.c
 	mkdir -p $(OBJ_DIR)
-	$(CC) $(CC_FLAG) -g -c $< -o $@
+	$(CC) $(CC_FLAG) -c $< -o $@
 
 all : $(NAME)
 

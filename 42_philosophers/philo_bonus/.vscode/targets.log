@@ -8,12 +8,12 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Sun Aug  7 15:13:29 2022
+# Make data base, printed on Mon Aug  8 12:26:44 2022
 
 # Variables
 
-# automatic
  
+# automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
@@ -30,7 +30,7 @@ SHELL = /bin/sh
 # makefile (from `Makefile', line 17)
 RM = rm
 # environment
-VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
 # makefile (from `Makefile', line 1)
@@ -44,9 +44,9 @@ OBJ_FILE = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 # environment
 VERBOSE_LOGGING = true
 # environment
-VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220807T141438
+VSCODE_LOGS = /Users/kipark/Library/Application Support/Code/logs/20220808T122636
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-9c4e34fd-dcc0-4231-a140-3d2309cc25cd.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clk00034wh/T/vscode-ipc-28eeb1da-7c43-4e4a-a18d-d0f707072470.sock
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # makefile (from `Makefile', line 18)
@@ -54,7 +54,7 @@ RM_FLAG = -rf
 # makefile (from `Makefile', line 33)
 VPATH = $(shell ls -R)
 # environment
-LaunchInstanceID = 5200D740-9BA1-4D22-9F21-D972244A748D
+LaunchInstanceID = F6CA7644-675C-446A-9433-7F7C64F70C30
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -62,7 +62,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.nWQLkZ0n2r/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.tnfGDImk3r/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -124,7 +124,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000011.Electron
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x1000000f.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -142,7 +142,7 @@ CC_FLAG = -Wextra -Wall -Werror
 # environment
 LC_ALL = C
 # environment
-SECURITYSESSIONID = 18703
+SECURITYSESSIONID = 186f4
 # automatic
 ^F = $(notdir $^)
 # default
@@ -154,7 +154,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 97785
+VSCODE_PID = 85027
 # variable set hash-table stats:
 # Load=71/1024=7%, Rehash=0, Collisions=8/108=7%
 
@@ -164,38 +164,26 @@ VSCODE_PID = 97785
 
 # Directories
 
-# utils_bonus.o: could not be stat'd.
-# parser_atoi_bonus.o: could not be stat'd.
-# thread_bonus.o: could not be stat'd.
 # philo_utils_bonus2.c (device 16777225, inode 3884677): could not be opened.
 # Makefile (device 16777225, inode 3818235): could not be opened.
-# obj (device 16777225, inode 3897001): 13 files, no impossibilities.
-# . (device 16777225, inode 3771528): 16 files, no impossibilities.
-# parser_error_bonus.o: could not be stat'd.
-# parser_bonus.o: could not be stat'd.
+# . (device 16777225, inode 3771528): 14 files, no impossibilities.
 # philo_init_bonus.c (device 16777225, inode 3771538): could not be opened.
 # philo_bonus.h (device 16777225, inode 3771536): could not be opened.
-# philo_bonus.o: could not be stat'd.
-# ./obj (device 16777225, inode 3897001): 13 files, no impossibilities.
 # philo_utils_bonus.c (device 16777225, inode 3807409): could not be opened.
-# philo_bonus (device 16777225, inode 3897013): could not be opened.
-# philo_die_bonus.o: could not be stat'd.
 # utils_bonus.c (device 16777225, inode 3771541): could not be opened.
-# error_bonus.o: could not be stat'd.
 # parser_atoi_bonus.c: could not be stat'd.
 # thread_bonus.c (device 16777225, inode 3771540): could not be opened.
-# philo_utils_bonus.o: could not be stat'd.
+# parse/obj: could not be stat'd.
 # parser_error_bonus.c: could not be stat'd.
 # parser_bonus.c: could not be stat'd.
-# philo_utils_bonus2.o: could not be stat'd.
+# ./parse/obj: could not be stat'd.
 # philo_bonus.c (device 16777225, inode 3771535): could not be opened.
 # parse (device 16777225, inode 3771531): 5 files, no impossibilities.
 # philo_die_bonus.c (device 16777225, inode 3771537): could not be opened.
 # error_bonus.c (device 16777225, inode 3771530): could not be opened.
-# philo_init_bonus.o: could not be stat'd.
 # ./parse (device 16777225, inode 3771531): 5 files, no impossibilities.
 
-# 52 files, no impossibilities in 30 directories.
+# 24 files, no impossibilities in 18 directories.
 
 # Implicit Rules
 
@@ -211,7 +199,6 @@ obj/%.o: %.c
 
 # Not a target:
 obj/error_bonus.o:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -258,15 +245,6 @@ philo_bonus.c:
 #  File has not been updated.
 
 # Not a target:
-philo_utils_bonus2.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-07 15:13:11
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
 Makefile:
 #  Implicit rule search has been done.
 #  Last modified 2022-08-07 15:13:28
@@ -286,47 +264,25 @@ debug:
 obj/philo_bonus.o: philo_bonus.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `philo_bonus'
-#  Last modified 2022-08-07 15:13:07
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 39):
-	mkdir -p $(OBJ_DIR)
-	$(CC) $(CC_FLAG) -g -c $< -o $@
-	
-
-# Not a target:
-philo_init_bonus.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-07 14:51:09
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-obj/philo_utils_bonus2.o: philo_utils_bonus2.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `philo_utils_bonus2'
-#  Last modified 2022-08-07 15:13:07
+#  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
-# @ := obj/philo_utils_bonus2.o
+# @ := obj/philo_bonus.o
 # automatic
 # % := 
 # automatic
-# * := philo_utils_bonus2
+# * := philo_bonus
 # automatic
-# + := philo_utils_bonus2.c
+# + := philo_bonus.c
 # automatic
 # | := 
 # automatic
-# < := philo_utils_bonus2.c
+# < := philo_bonus.c
 # automatic
-# ^ := philo_utils_bonus2.c
+# ^ := philo_bonus.c
 # automatic
-# ? := philo_utils_bonus2.c
+# ? := philo_bonus.c
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/15=7%
 #  commands to execute (from `Makefile', line 39):
@@ -335,28 +291,28 @@ obj/philo_utils_bonus2.o: philo_utils_bonus2.c
 	
 
 # Not a target:
+obj/philo_utils_bonus2.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 obj/utils_bonus.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-obj/philo_init_bonus.o: philo_init_bonus.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `philo_init_bonus'
-#  Last modified 2022-08-07 15:13:07
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 39):
-	mkdir -p $(OBJ_DIR)
-	$(CC) $(CC_FLAG) -g -c $< -o $@
-	
+# Not a target:
+obj/philo_init_bonus.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 fclean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+ 
 #  commands to execute (from `Makefile', line 51):
 	make clean
 	$(RM) $(RM_FLAG) $(NAME)
@@ -397,18 +353,9 @@ obj/parser_bonus.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-philo_utils_bonus.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-07 14:57:53
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
 philo_bonus: obj/philo_bonus.o obj/philo_init_bonus.o obj/philo_utils_bonus.o obj/philo_utils_bonus2.o obj/philo_die_bonus.o obj/parser_bonus.o obj/parser_atoi_bonus.o obj/parser_error_bonus.o obj/error_bonus.o obj/utils_bonus.o obj/thread_bonus.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-07 15:13:08
+#  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -417,18 +364,11 @@ philo_bonus: obj/philo_bonus.o obj/philo_init_bonus.o obj/philo_utils_bonus.o ob
 	$(CC) $(CC_FLAG) -o $@ $^
 	
 
-obj/philo_utils_bonus.o: philo_utils_bonus.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `philo_utils_bonus'
-#  Last modified 2022-08-07 15:13:07
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 39):
-	mkdir -p $(OBJ_DIR)
-	$(CC) $(CC_FLAG) -g -c $< -o $@
-	
+# Not a target:
+obj/philo_utils_bonus.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 obj/parser_atoi_bonus.o:
@@ -437,19 +377,19 @@ obj/parser_atoi_bonus.o:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=25/1024=2%, Rehash=0, Collisions=0/71=0%
+# Load=22/1024=2%, Rehash=0, Collisions=0/63=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
 # General (`VPATH' variable) search path:
-# obj:parse:./obj:./parse
+# parse:./parse
 
 # # of strings in strcache: 1
 # # of strcache buffers: 1
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sun Aug  7 15:13:29 2022
+# Finished Make data base on Mon Aug  8 12:26:44 2022
 
  

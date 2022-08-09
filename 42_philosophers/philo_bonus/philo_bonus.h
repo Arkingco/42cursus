@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/07 15:11:14 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/09 14:30:25 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,8 @@ void		main_monitor_info_init(t_philo_main_monitor_info *main_monitor, \
 void		get_parse_set_to_fork(int *get_parse);
 sem_t		*make_semaphore(char *str, int count);
 void		unlinks_sem(t_philo_main_monitor_info *main_monitor);
-void		kill_philos(int i, int all_philo_number, int *pid);
+void		kill_philos(t_philo_main_monitor_info *main_monitor, \
+					pthread_t *wait_all_eat, int all_philo_number, int *pid);
 
 // philo_die
 void		set_die_sem_flag(sem_t *die_sem, int *die_flag);

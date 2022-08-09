@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:50:36 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/07 17:00:26 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/09 14:30:12 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	philo_malloc(t_philo_monitor_info *monitor, void *philos)
 	monitor->eat_mutex = ft_calloc(ONE_MALLOC, sizeof(pthread_mutex_t));
 	monitor->all_eat_count = ft_calloc(ONE_MALLOC, sizeof(int));
 	monitor->all_eat_mutex = ft_calloc(ONE_MALLOC, sizeof(pthread_mutex_t));
-	monitor->print_mutex = ft_calloc(ONE_MALLOC, sizeof(pthread_mutex_t));
 }
 
 static void	philo_info_init(int philo_index, \
@@ -37,12 +36,11 @@ static void	philo_info_init(int philo_index, \
 	philo_info->fork_left = &monitor->forks[philo_index];
 	philo_info->fork_right = \
 				&monitor->forks[(philo_index + 1) % monitor->all_philo_number];
-	philo_info->get_parse = monitor->get_parse;
 	philo_info->die_flag = monitor->die_flag;
 	philo_info->die_mutex = monitor->die_mutex;
 	philo_info->eat_mutex = monitor->eat_mutex;
-	philo_info->print_mutex = monitor->print_mutex;
 	philo_info->start_time = monitor->start_time;
+	philo_info->get_parse = monitor->get_parse;
 	philo_info->all_eat_count = monitor->all_eat_count;
 	philo_info->all_eat_mutex = monitor->all_eat_mutex;
 	philo_info->eat_count = monitor->get_parse[MUST_EAT_NUMBER];
@@ -57,7 +55,6 @@ void	philo_init(t_philo_monitor_info *monitor)
 		pthread_mutex_init(&monitor->forks[i], NULL);
 	pthread_mutex_init(monitor->die_mutex, NULL);
 	pthread_mutex_init(monitor->eat_mutex, NULL);
-	pthread_mutex_init(monitor->print_mutex, NULL);
 	pthread_mutex_init(monitor->all_eat_mutex, NULL);
 	gettimeofday(&monitor->start_time, NULL);
 	i = -1;
@@ -69,6 +66,7 @@ void	philo_init(t_philo_monitor_info *monitor)
 		NULL, \
 		philo_run, \
 		&monitor->philosophers[i]);
+	usleep(1000);
 }
 
 void	philo_wait_and_free(t_philo_monitor_info *monitor, \
@@ -86,7 +84,6 @@ void	philo_wait_and_free(t_philo_monitor_info *monitor, \
 	pthread_join(*all_eat_wait, NULL);
 	pthread_mutex_destroy(monitor->die_mutex);
 	pthread_mutex_destroy(monitor->eat_mutex);
-	pthread_mutex_destroy(monitor->print_mutex);
 	pthread_mutex_destroy(monitor->all_eat_mutex);
 	free(monitor->get_parse);
 	free(monitor->philosophers_thread);
@@ -95,6 +92,19 @@ void	philo_wait_and_free(t_philo_monitor_info *monitor, \
 	free(monitor->die_mutex);
 	free(monitor->die_flag);
 	free(monitor->eat_mutex);
-	free(monitor->print_mutex);
+	free(monitor->all_eat_count);
+	free(monitor->all_eat_mutex);
 	free(monitor);
+}
+
+void	philo_all_mutex_unlock(t_philo_info *philo)
+{
+	t_philo_info	*this_philo;
+
+	this_philo = philo;
+	pthread_mutex_unlock(this_philo->die_mutex);
+	pthread_mutex_unlock(this_philo->eat_mutex);
+	pthread_mutex_unlock(this_philo->all_eat_mutex);
+	pthread_mutex_unlock(this_philo->fork_left);
+	pthread_mutex_unlock(this_philo->fork_right);
 }
