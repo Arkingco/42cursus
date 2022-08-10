@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:50:36 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/09 14:30:12 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/10 11:55:26 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,15 @@ void	philo_init(t_philo_monitor_info *monitor)
 		philo_info_init(i, &monitor->philosophers[i], monitor);
 	i = -1;
 	while (++i < monitor->all_philo_number)
-		pthread_create(&monitor->philosophers_thread[i], \
+	{
+		if (pthread_create(&monitor->philosophers_thread[i], \
 		NULL, \
 		philo_run, \
-		&monitor->philosophers[i]);
+		&monitor->philosophers[i]))
+		{
+			print_error(1);
+		}
+	}
 	usleep(1000);
 }
 

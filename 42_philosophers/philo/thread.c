@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/09 15:35:30 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/10 11:56:01 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ static void	*philo_monitor_run(void *philos)
 	monitor = ft_calloc(ONE_MALLOC, sizeof(t_philo_monitor_info));
 	philo_malloc(monitor, philos);
 	philo_init(monitor);
-	pthread_create(&all_eat_wait, NULL, philo_all_eat_wait, monitor);
+	if (pthread_create(&all_eat_wait, NULL, philo_all_eat_wait, monitor) != 0)
+		print_error(1);
 	i = -1;
 	while (1)
 	{
@@ -101,7 +102,8 @@ void	run_thread(int *get_parse)
 	pthread_t		philo_monitor;
 	int				i;
 
-	pthread_create(&philo_monitor, NULL, philo_monitor_run, get_parse);
+	if (pthread_create(&philo_monitor, NULL, philo_monitor_run, get_parse))
+		print_error(1);
 	i = -1;
 	while (++i < get_parse[ALL_PHILO_NUMBER])
 		if (pthread_join(philo_monitor, NULL) == 0)
