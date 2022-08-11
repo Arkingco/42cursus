@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/09 14:29:47 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/10 16:01:01 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_philo_info
 	pthread_mutex_t	*die_mutex;
 	pthread_mutex_t	*eat_mutex;
 	pthread_mutex_t	*all_eat_mutex;
+	pthread_mutex_t	*print_mutex;
 	t_timeval		start_time;
 	t_timeval		last_eat;
 	int				*die_flag;
@@ -53,6 +54,7 @@ typedef struct s_philo_monitor_info
 	pthread_mutex_t	*die_mutex;
 	pthread_mutex_t	*eat_mutex;
 	pthread_mutex_t	*all_eat_mutex;
+	pthread_mutex_t	*print_mutex;
 	int				*die_flag;
 	int				*get_parse;
 	int				*all_eat_count;
@@ -85,14 +87,13 @@ void		*philo_all_eat_wait(void *philos);
 int			*parse(int argc, char **argv);
 
 // philo_init
-void		philo_malloc(t_philo_monitor_info *monitor, void *philos);
+void		philo_monitor_malloc(t_philo_monitor_info *monitor, void *parse);
 void		philo_init(t_philo_monitor_info *monitor);
-void		philo_wait_and_free(t_philo_monitor_info *monitor, \
-													pthread_t *all_eat_wait);
+void		philo_wait_and_free(t_philo_monitor_info *monitor);
 void		philo_all_mutex_unlock(t_philo_info *philo);
 
 // philo_utils
-void		philo_lock_forks(t_philo_info *this_philo, int philo_index);
+void		philo_lock_forks(t_philo_info *this_philo);
 void		philo_unlock_forks(t_philo_info *this_philo);
 void		ms_usleep(int ms_second);
 void		philo_print(t_philo_info *this_philo, char *strs);

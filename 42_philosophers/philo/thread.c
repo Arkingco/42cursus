@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/10 11:56:01 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/11 12:12:34 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 static void	philo_action_and_print( \
 	t_philo_info *this_philo, char *strs, int action_flag)
 {
-	if (check_philo_die(this_philo))
-		return ;
 	if (action_flag == TIME_TO_EAT)
 		set_last_eat(this_philo->eat_mutex, &this_philo->last_eat);
 	philo_print(this_philo, strs);
@@ -31,13 +29,12 @@ void	*philo_run(void *philos)
 
 	this_philo = (t_philo_info *)philos;
 	eat_count = 0;
-	set_last_eat(this_philo->eat_mutex, &this_philo->last_eat);
 	if (this_philo->index % 2 == 0)
 		ms_usleep(this_philo->get_parse[TIME_TO_EAT] * 0.1);
 	while (check_philo_die(this_philo) == 0 && \
 				this_philo->eat_count != 0)
 	{
-		philo_lock_forks(this_philo, this_philo->index);
+		philo_lock_forks(this_philo);
 		philo_action_and_print(this_philo, "is eating\n", TIME_TO_EAT);
 		philo_unlock_forks(this_philo);
 		eat_count++;
@@ -51,49 +48,31 @@ void	*philo_run(void *philos)
 	return (NULL);
 }
 
-void	*philo_all_eat_wait(void *philos)
-{
-	t_philo_monitor_info	*this_monitor;
-
-	this_monitor = (t_philo_monitor_info *)philos;
-	while (1)
-	{
-		if (check_count_all_eat_mutex_flag(this_monitor->all_eat_mutex, \
-			this_monitor->all_eat_count, this_monitor->all_philo_number) || \
-			check_philo_die(&this_monitor->philosophers[0]))
-			break ;
-		usleep(300);
-	}
-	set_die_mutex_flag(this_monitor->die_mutex, this_monitor->die_flag);
-	return (NULL);
-}
-
-static void	*philo_monitor_run(void *philos)
+static void	*philo_monitor_run(void *parse)
 {
 	t_philo_monitor_info	*monitor;
-	pthread_t				all_eat_wait;
 	unsigned int			i;
 
 	monitor = ft_calloc(ONE_MALLOC, sizeof(t_philo_monitor_info));
-	philo_malloc(monitor, philos);
+	philo_monitor_malloc(monitor, parse);
 	philo_init(monitor);
-	if (pthread_create(&all_eat_wait, NULL, philo_all_eat_wait, monitor) != 0)
-		print_error(1);
 	i = -1;
 	while (1)
 	{
 		if (check_philo_last_eat(monitor, \
 			&monitor->philosophers[++i % monitor->all_philo_number].last_eat, \
-			monitor->get_parse[TIME_TO_DIE]))
+			monitor->get_parse[TIME_TO_DIE]) || \
+			check_count_all_eat_mutex_flag(monitor->all_eat_mutex, \
+			monitor->all_eat_count, monitor->all_philo_number))
 		{
 			philo_print(&monitor->philosophers[i % monitor->all_philo_number], \
 																"is died\n");
+			pthread_mutex_lock(monitor->print_mutex);
 			set_die_mutex_flag(monitor->die_mutex, monitor->die_flag);
 			break ;
 		}
-		usleep(300);
 	}
-	philo_wait_and_free(monitor, &all_eat_wait);
+	philo_wait_and_free(monitor);
 	return (NULL);
 }
 
@@ -103,9 +82,9 @@ void	run_thread(int *get_parse)
 	int				i;
 
 	if (pthread_create(&philo_monitor, NULL, philo_monitor_run, get_parse))
-		print_error(1);
+		if (print_error(1))
+			return ;
 	i = -1;
-	while (++i < get_parse[ALL_PHILO_NUMBER])
-		if (pthread_join(philo_monitor, NULL) == 0)
-			break ;
+	if (pthread_join(philo_monitor, NULL) != 0)
+		return ;
 }

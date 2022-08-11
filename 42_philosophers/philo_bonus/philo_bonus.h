@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/09 14:30:25 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/10 16:27:01 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ typedef struct s_philo_main_monitor_info
 void		set_last_eat(sem_t *eat_sem, t_timeval *last_eat);
 int			check_philo_last_eat(t_philo_monitor_info *monitor, \
 						t_timeval *last_eat, int time_to_die);
+
 // error*
 int			paser_error(char **need_parsed);
 int			print_error(int exit_flag);
@@ -92,7 +93,7 @@ void		*philo_run(void *philos);
 int			*parse(int argc, char **argv);
 
 // philo_init
-void		philo_malloc(t_philo_main_monitor_info *main_monitor, \
+void		philo_monitor_malloc(t_philo_main_monitor_info *main_monitor, \
 						t_philo_monitor_info *monitor, int index, void *philos);
 void		philo_init(t_philo_main_monitor_info *main_monitor, \
 						t_philo_monitor_info *monitor, int index);

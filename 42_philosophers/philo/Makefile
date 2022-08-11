@@ -6,14 +6,14 @@
 #    By: kipark <kipark@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 15:58:45 by kipark            #+#    #+#              #
-#    Updated: 2022/08/08 21:00:41 by kipark           ###   ########.fr        #
+#    Updated: 2022/08/11 12:13:41 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= philo
 
 CC		= cc
-# CC_FLAG = -Wextra -Wall -Werror
+CC_FLAG = -Wextra -Wall -Werror
 RM		= rm
 RM_FLAG	= -rf
 

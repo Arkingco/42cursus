@@ -6,13 +6,13 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:50:36 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/10 11:54:26 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/10 16:05:12 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
 
-void	philo_malloc(t_philo_main_monitor_info *main_monitor, \
+void	philo_monitor_malloc(t_philo_main_monitor_info *main_monitor, \
 						t_philo_monitor_info *monitor, int index, void *philos)
 {
 	monitor->get_parse = (int *)philos;
