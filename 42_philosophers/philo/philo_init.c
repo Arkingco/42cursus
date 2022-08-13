@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:50:36 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/13 12:15:10 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/13 12:31:32 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	philo_monitor_malloc(t_philo_monitor_info *monitor, void *philos)
 	monitor->forks = \
 		ft_calloc(monitor->all_philo_number, sizeof(pthread_mutex_t));
 	monitor->die_mutex = ft_calloc(ONE_MALLOC, sizeof(pthread_mutex_t));
-	monitor->	 = ft_calloc(ONE_MALLOC, sizeof(int));
+	monitor->die_flag = ft_calloc(ONE_MALLOC, sizeof(int));
 	monitor->eat_mutex = ft_calloc(ONE_MALLOC, sizeof(pthread_mutex_t));
 	monitor->print_mutex = ft_calloc(ONE_MALLOC, sizeof(pthread_mutex_t));
 	monitor->all_eat_count = ft_calloc(ONE_MALLOC, sizeof(int));
@@ -81,7 +81,7 @@ void	philo_wait_and_free(t_philo_monitor_info *monitor)
 {
 	int	i;
 
-	ms_usleep(monitor->get_parse[TIME_TO_DIE]);
+	usleep(WAIT_THREAD_OR_PROCESS_END);
 	pthread_mutex_unlock(monitor->print_mutex);
 	i = -1;
 	while (++i < monitor->all_philo_number)
@@ -103,15 +103,4 @@ void	philo_wait_and_free(t_philo_monitor_info *monitor)
 	free(monitor->all_eat_count);
 	free(monitor->all_eat_mutex);
 	free(monitor);
-}
-
-void	philo_all_mutex_unlock(t_philo_info *philo)
-{
-	t_philo_info	*this_philo;
-
-	this_philo = philo;
-	pthread_mutex_unlock(this_philo->eat_mutex);
-	pthread_mutex_unlock(this_philo->print_mutex);
-	pthread_mutex_unlock(this_philo->fork_left);
-	pthread_mutex_unlock(this_philo->fork_right);
 }

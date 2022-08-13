@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/12 16:19:33 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/13 12:30:31 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define TIME_TO_SLEEP 3
 # define MUST_EAT_NUMBER 4
 # define MAX_ARGC_SIZE 5
+# define WAIT_THREAD_OR_PROCESS_END 10000
 
 typedef struct timeval	t_timeval;
 
@@ -73,10 +74,6 @@ typedef struct s_philo_main_monitor_info
 	t_timeval		start_time;
 }	t_philo_main_monitor_info;
 
-void		set_last_eat(sem_t *eat_sem, t_timeval *last_eat);
-int			check_philo_last_eat(t_philo_monitor_info *monitor, \
-						t_timeval *last_eat, int time_to_die);
-
 // error*
 int			paser_error(char **need_parsed);
 int			print_error(int exit_flag);
@@ -119,5 +116,8 @@ void		kill_philos(t_philo_main_monitor_info *main_monitor, \
 void		set_die_sem_flag(sem_t *die_sem, int *die_flag);
 int			check_philo_die(t_philo_info *this_philo);
 int			check_die_sem_flag(sem_t *die_sem, int *die_flag);
+void		set_last_eat(sem_t *eat_sem, t_timeval *last_eat);
+int			check_philo_last_eat(t_philo_monitor_info *monitor, \
+						t_timeval *last_eat, int time_to_die);
 
 #endif

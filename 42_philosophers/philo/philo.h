@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/12 14:01:22 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/13 12:38:14 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # define TIME_TO_SLEEP 3
 # define MUST_EAT_NUMBER 4
 # define MAX_ARGC_SIZE 5
+# define WAIT_THREAD_OR_PROCESS_END 10000
+# define WAIT_NEXT_PHILO_GET_FORK 2
 
 typedef struct timeval	t_timeval;
 
@@ -90,7 +92,6 @@ int			*parse(int argc, char **argv);
 void		philo_monitor_malloc(t_philo_monitor_info *monitor, void *parse);
 void		philo_init(t_philo_monitor_info *monitor);
 void		philo_wait_and_free(t_philo_monitor_info *monitor);
-void		philo_all_mutex_unlock(t_philo_info *philo);
 
 // philo_utils
 void		philo_lock_forks(t_philo_info *this_philo);

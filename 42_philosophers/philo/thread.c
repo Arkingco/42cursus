@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/12 16:33:31 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/13 12:55:59 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	*philo_run(void *philos)
 		philo_action_and_print(this_philo, "is sleeping\n", TIME_TO_SLEEP);
 		philo_action_and_print(this_philo, "is thinking\n", 0);
 	}
-	philo_all_mutex_unlock(this_philo);
 	return (NULL);
 }
 
@@ -81,12 +80,10 @@ static void	*philo_monitor_run(void *parse)
 void	run_thread(int *get_parse)
 {
 	pthread_t		philo_monitor;
-	int				i;
 
 	if (pthread_create(&philo_monitor, NULL, philo_monitor_run, get_parse))
 		if (print_error(1))
 			return ;
-	i = -1;
 	if (pthread_join(philo_monitor, NULL) != 0)
 		return ;
 }
