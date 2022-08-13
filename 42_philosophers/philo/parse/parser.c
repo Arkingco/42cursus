@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:36:24 by kipark            #+#    #+#             */
-/*   Updated: 2022/07/31 19:31:41 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/12 13:48:28 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ int	*parse(int argc, char **argv)
 
 	return_parse = ft_calloc(MAX_ARGC_SIZE, sizeof(int));
 	if (paser_error(argv))
-		print_error(1);
+	{
+		free(return_parse);
+		return (NULL);
+	}
 	set_return_parse(return_parse, argc, argv);
 	return (return_parse);
 }

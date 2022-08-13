@@ -6,13 +6,13 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:50:36 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/08 16:58:22 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/13 12:31:21 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
 
-void	philo_malloc(t_philo_main_monitor_info *main_monitor, \
+void	philo_monitor_malloc(t_philo_main_monitor_info *main_monitor, \
 						t_philo_monitor_info *monitor, int index, void *philos)
 {
 	monitor->get_parse = (int *)philos;
@@ -56,10 +56,19 @@ void	philo_init(t_philo_main_monitor_info *main_monitor, \
 		philo_info_init(index, &monitor->philosophers[i], monitor);
 	i = -1;
 	while (++i < monitor->all_philo_number)
-		pthread_create(&monitor->philosophers_thread[i], \
+	{
+		if (pthread_create(&monitor->philosophers_thread[i], \
 		NULL, \
 		philo_run, \
-		&monitor->philosophers[i]);
+		&monitor->philosophers[i]) != 0)
+		{
+			print_error(1);
+		}
+	}
+	i = -1;
+	while (++i < monitor->all_philo_number)
+		set_last_eat(monitor->philosophers[i].eat_sem, \
+							&monitor->philosophers[i].last_eat);
 }
 
 void	philo_wait_and_free(t_philo_monitor_info *monitor)

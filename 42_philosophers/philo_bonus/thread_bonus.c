@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:16:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/09 19:33:05 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/13 12:27:54 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	*philo_run(void *philos)
 
 	this_philo = (t_philo_info *)philos;
 	eat_count = 0;
-	set_last_eat(this_philo->eat_sem, &this_philo->last_eat);
 	while (check_philo_die(this_philo) == 0 && \
 				this_philo->eat_count != 0)
 	{
@@ -56,9 +55,8 @@ void	philo_process_run(int index, int *get_parse, \
 	unsigned int			i;
 
 	monitor = ft_calloc(ONE_MALLOC, sizeof(t_philo_monitor_info));
-	philo_malloc(main_monitor, monitor, index, get_parse);
+	philo_monitor_malloc(main_monitor, monitor, index, get_parse);
 	philo_init(main_monitor, monitor, index);
-	usleep(monitor->get_parse[TIME_TO_EAT] * 0.8);
 	i = -1;
 	while (1)
 	{
@@ -109,6 +107,8 @@ void	run_thread(int *get_parse)
 		if (pid[i] == 0)
 			philo_process_run(i, get_parse, &main_monitor);
 	}
-	pthread_create(&wait_all_eat, NULL, wait_all_philo_eat, &main_monitor);
+	if (pthread_create(&wait_all_eat, NULL, \
+										wait_all_philo_eat, &main_monitor) != 0)
+		print_error(1);
 	kill_philos(&main_monitor, &wait_all_eat, all_philo_number, pid);
 }

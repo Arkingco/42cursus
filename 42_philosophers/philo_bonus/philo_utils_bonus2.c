@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:59:54 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/09 13:31:02 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/13 12:33:18 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	kill_philos(t_philo_main_monitor_info *main_monitor, \
 
 	sem_wait(main_monitor->all_die_sem);
 	sem_wait(main_monitor->die_sem);
+	usleep(WAIT_THREAD_OR_PROCESS_END);
 	unlinks_sem(main_monitor);
 	i = -1;
 	while (++i < all_philo_number)

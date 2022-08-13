@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:59:54 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/09 14:27:52 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/12 14:06:53 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,11 @@ long	get_diff_time(t_timeval start_time)
 	return (end_time_int - start_time_int);
 }
 
-void	philo_lock_forks(t_philo_info *this_philo, int philo_index)
+void	philo_lock_forks(t_philo_info *this_philo)
 {
-	if (check_philo_die(this_philo))
-		return ;
 	pthread_mutex_lock(this_philo->fork_left);
 	philo_print(this_philo, "has taken a fork \n");
-	if (check_philo_die(this_philo))
+	if (check_fork_dup(this_philo))
 		return ;
 	pthread_mutex_lock(this_philo->fork_right);
 	philo_print(this_philo, "has taken a fork \n");
@@ -55,8 +53,13 @@ void	philo_unlock_forks(t_philo_info *this_philo)
 
 void	philo_print(t_philo_info *this_philo, char *strs)
 {
+	pthread_mutex_lock(this_philo->print_mutex);
 	if (check_philo_die(this_philo))
+	{
+		pthread_mutex_unlock(this_philo->print_mutex);
 		return ;
+	}
 	printf("%04ld %d %s", \
 				get_diff_time(this_philo->start_time), this_philo->index, strs);
+	pthread_mutex_unlock(this_philo->print_mutex);
 }
