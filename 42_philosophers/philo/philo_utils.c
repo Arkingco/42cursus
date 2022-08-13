@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:59:54 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/10 19:40:34 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/12 14:06:53 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	philo_lock_forks(t_philo_info *this_philo)
 {
 	pthread_mutex_lock(this_philo->fork_left);
 	philo_print(this_philo, "has taken a fork \n");
+	if (check_fork_dup(this_philo))
+		return ;
 	pthread_mutex_lock(this_philo->fork_right);
 	philo_print(this_philo, "has taken a fork \n");
 }

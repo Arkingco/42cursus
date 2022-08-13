@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:55:06 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/10 16:01:01 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/12 14:01:22 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,6 @@ long		get_diff_time(t_timeval start_time);
 void		set_die_mutex_flag(pthread_mutex_t *die_mutex, int *die_flag);
 int			check_philo_die(t_philo_info *this_philo);
 int			check_die_mutex_flag(pthread_mutex_t *die_mutex, int *die_flag);
+int			check_fork_dup(t_philo_info *this_philo);
 
 #endif

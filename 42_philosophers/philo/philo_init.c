@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:50:36 by kipark            #+#    #+#             */
-/*   Updated: 2022/08/11 12:10:49 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/13 12:15:10 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	philo_monitor_malloc(t_philo_monitor_info *monitor, void *philos)
 	monitor->forks = \
 		ft_calloc(monitor->all_philo_number, sizeof(pthread_mutex_t));
 	monitor->die_mutex = ft_calloc(ONE_MALLOC, sizeof(pthread_mutex_t));
-	monitor->die_flag = ft_calloc(ONE_MALLOC, sizeof(int));
+	monitor->	 = ft_calloc(ONE_MALLOC, sizeof(int));
 	monitor->eat_mutex = ft_calloc(ONE_MALLOC, sizeof(pthread_mutex_t));
 	monitor->print_mutex = ft_calloc(ONE_MALLOC, sizeof(pthread_mutex_t));
 	monitor->all_eat_count = ft_calloc(ONE_MALLOC, sizeof(int));
@@ -81,7 +81,7 @@ void	philo_wait_and_free(t_philo_monitor_info *monitor)
 {
 	int	i;
 
-	usleep(10000);
+	ms_usleep(monitor->get_parse[TIME_TO_DIE]);
 	pthread_mutex_unlock(monitor->print_mutex);
 	i = -1;
 	while (++i < monitor->all_philo_number)

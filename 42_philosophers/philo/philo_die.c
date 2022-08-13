@@ -6,7 +6,7 @@
 /*   By: kipark <kipark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:11:57 by baggiseon         #+#    #+#             */
-/*   Updated: 2022/08/10 16:00:11 by kipark           ###   ########.fr       */
+/*   Updated: 2022/08/12 14:06:51 by kipark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,16 @@ int	check_philo_die(t_philo_info *this_philo)
 {
 	if (check_die_mutex_flag(this_philo->die_mutex, this_philo->die_flag))
 		return (1);
+	return (0);
+}
+
+int	check_fork_dup(t_philo_info *this_philo)
+{
+	if (this_philo->fork_left == this_philo->fork_right)
+	{
+		ms_usleep(this_philo->get_parse[TIME_TO_DIE] + 100);
+		pthread_mutex_unlock(this_philo->fork_left);
+		return (1);
+	}
 	return (0);
 }
