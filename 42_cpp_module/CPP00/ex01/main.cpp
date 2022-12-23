@@ -1,32 +1,6 @@
 #include <iostream>
 #include "PhoneBook.hpp"
-
-void cmd_ADD(PhoneBook phone_book)
-{
-
-}
-
-void cmd_SEARCH(PhoneBook phone_book)
-{
-
-}
-
-int process_cmd(std::string line, PhoneBook phone_book)
-{
-	if (line.compare("ADD"))
-	{
-		phone_book.ADD();
-	}
-	else if (line.compare("SEARCH"))
-	{
-		phone_book.SEARCH(phone_book);
-	}
-	else if (line.compare("EXIT"))
-	{
-		return (0);
-	}
-	return (1);
-}
+#include "error.hpp"
 
 int main()
 {
@@ -35,9 +9,18 @@ int main()
 
 	while (1)
 	{
+		std::cout << "choose the command! (ADD / SEARCH / EXIT) :";
 		getline(std::cin, line);
-		if (process_cmd(line, phone_book) == 0)
-			break ;
+		if (!is_cin_success())
+			std::exit(1);
+		if (line.compare("ADD") == 0)
+			phone_book.ADD();
+		else if (line.compare("SEARCH") == 0)
+			phone_book.SEARCH(phone_book);
+		else if (line.compare("EXIT") == 0)
+			return (0);
+		else
+			print_error(WRONG_STRING);
+		std::cin.clear();
 	}
-	return (1);
 }

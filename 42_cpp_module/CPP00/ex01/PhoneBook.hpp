@@ -18,8 +18,6 @@ class PhoneBook
 
 		void ADD();
 		void SEARCH(PhoneBook phone_book);
-		void EXIT();
-		void get_contact();
 };
 
 #endif

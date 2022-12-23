@@ -6,11 +6,11 @@
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/28 11:11:09 by kipark            #+#    #+#              #
-#    Updated: 2022/12/23 19:30:08 by kipark           ###   ########seoul.kr   #
+#    Updated: 2022/12/23 19:51:18 by kipark           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 						= 	megaphone
+NAME 						= 	PhoneBook
 
 CXX							=	c++
 CPPFLAGS					=	-Wall -Wextra -Werror -std=c++98
@@ -20,7 +20,6 @@ SRCS						=	main.cpp				\
 								Contact.cpp
 
 OBJS						=	$(SRCS:.cpp=.o)
-
 
 all: $(NAME)
 
