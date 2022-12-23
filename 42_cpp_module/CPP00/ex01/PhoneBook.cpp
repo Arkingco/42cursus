@@ -33,8 +33,10 @@ void print_only_ten_word(std::string content)
 {
 	if(content.length() >= 10)
 	{
-		std::cout << content.substr(0, 9) << ".";
+		std::cout << content.substr(0, 9) + ".";
+		return ;
 	}
+	std::cout << content;
 }
 
 void PhoneBook::SEARCH(PhoneBook phone_book)
