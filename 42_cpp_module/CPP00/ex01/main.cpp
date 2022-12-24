@@ -20,7 +20,7 @@ int main()
 		else if (line.compare("EXIT") == 0)
 			return (0);
 		else
-			print_error(WRONG_STRING);
+ 			print_error(WRONG_STRING);
 		std::cin.clear();
 	}
 }

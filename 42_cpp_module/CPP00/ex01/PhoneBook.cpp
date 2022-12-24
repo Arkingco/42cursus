@@ -41,48 +41,44 @@ void print_only_ten_word(std::string content)
 
 void PhoneBook::SEARCH(PhoneBook phone_book)
 {
-	int idx;
+	std::string idx;
 
 	std::cout << "|";
-	std::cout.width(15); std::cout << "IDX";
+	std::cout.width(10); std::cout << "IDX";
 	for (int i=0; i<NUMBER_OF_ELEMENT - 2; ++i)
 	{
 		std::cout << "|";
-		std::cout.width(15); std::cout << Contact::contact_element_string[i];
+		std::cout.width(10); std::cout << Contact::contact_element_string[i];
 	}
 	std::cout << "|" << std::endl;
 
 	for (int i=0; i<MAX_CONTACT; ++i)
 	{
 		std::cout << "|";
-		std::cout.width(15); std::cout << i + 1;
+		std::cout.width(10); std::cout << i + 1;
 		for (int j=0; j<NUMBER_OF_ELEMENT - 2; ++j)
 		{
 			std::cout << "|";
-			std::cout.width(15);
+			std::cout.width(10);
 			print_only_ten_word(phone_book.contact[i].get_element(j));
 		}
 		std::cout << "|" << std::endl;
 	}
 
-	std::cout << "choose the idx(user) you want! : ";
-	std::cin >> idx;
+	while (1)
+	{
+		std::cout << "choose the idx(user) you want! (1 ~ 8) : ";
+		std::getline(std::cin, idx);
+		if (!is_cin_success())
+			std::exit(1);
+		if (idx.length() == 1 && idx[0] >= '1' && idx[0] <= '8')
+			break;
+		std::cout << "please choose the right idx! " << std::endl;
+	}
 
-	std::cout << "|";
-	std::cout.width(15); std::cout << "IDX";
 	for (int i=0; i<NUMBER_OF_ELEMENT; ++i)
 	{
-		std::cout << "|";
-		std::cout.width(15); std::cout << Contact::contact_element_string[i];
+		std::cout.width(15); std::cout << Contact::contact_element_string[i] << " : ";
+		std::cout << phone_book.contact[idx[0] - '1'].get_element(i) << std::endl;
 	}
-	std::cout << "|" << std::endl;
-
-	std::cout << "|";
-	std::cout.width(15); std::cout << idx;
-	for (int i=0; i<NUMBER_OF_ELEMENT; ++i)
-	{
-		std::cout << "|";
-		std::cout.width(15); std::cout << phone_book.contact[idx - 1].get_element(i);
-	}
-	std::cout << "|" << std::endl;
 }
