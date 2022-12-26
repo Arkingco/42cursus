@@ -2,22 +2,22 @@
 #ifndef PHONEBOOK
 #define PHONEBOOK
 
-# include <iostream>
-# include "Contact.hpp"
+#include "Contact.hpp"
+#include <iostream>
 
-# define MAX_CONTACT 8
+#define MAX_CONTACT 8
 
 class PhoneBook
 {
-	private:
-		Contact contact[8];
-		int idx;
+  private:
+    Contact contact[8];
+    int     idx;
 
-	public:
-		PhoneBook();
+  public:
+    PhoneBook();
 
-		void ADD();
-		void SEARCH(PhoneBook phone_book);
+    void ADD();
+    void SEARCH(PhoneBook phone_book);
 };
 
 #endif
