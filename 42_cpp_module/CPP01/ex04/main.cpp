@@ -1,8 +1,6 @@
 #include <fstream>
 #include <iostream>
 
-// 1. 입력에 대한 에러 핸들링이 필요
-// 2. s1의 내용을 s2로 고치기
 int main(int argc, char** argv)
 {
     if (argc != 4)
@@ -11,12 +9,11 @@ int main(int argc, char** argv)
         return 0;
     }
 
-    std::string file_name = argv[1];
-    std::string file_content;
-    std::string s1 = argv[2];
-    std::string s2 = argv[3];
+    std::ifstream file(argv[1]);
+    std::string   file_content;
+    std::string   s1 = argv[2];
+    std::string   s2 = argv[3];
 
-    std::ifstream file(file_name);
     if (file.is_open())
     {
         file.seekg(0, std::ios::end);
