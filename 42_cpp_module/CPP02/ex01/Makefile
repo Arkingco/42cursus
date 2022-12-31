@@ -6,11 +6,11 @@
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/28 11:11:09 by kipark            #+#    #+#              #
-#    Updated: 2022/12/29 19:50:48 by kipark           ###   ########seoul.kr   #
+#    Updated: 2022/12/31 14:32:26 by kipark           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 						= 	ex00
+NAME 						= 	ex01
 
 CXX							=	c++
 CPPFLAGS					=	-Wall -Wextra -Werror -std=c++98
