@@ -6,18 +6,20 @@
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/28 11:11:09 by kipark            #+#    #+#              #
-#    Updated: 2022/12/24 12:59:58 by kipark           ###   ########seoul.kr   #
+#    Updated: 2022/12/27 14:32:38 by kipark           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 						= 	megaphone
+NAME 						= 	Unnecessary_violence
 
 CXX							=	c++
 CPPFLAGS					=	-Wall -Wextra -Werror -std=c++98
-SRCS						=	megaphone.cpp
+SRCS						=	main.cpp			\
+								HumanA.cpp			\
+								HumanB.cpp			\
+								Weapon.cpp
 
 OBJS						=	$(SRCS:.cpp=.o)
-
 
 all: $(NAME)
 

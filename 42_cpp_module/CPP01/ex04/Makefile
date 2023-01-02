@@ -6,18 +6,17 @@
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/28 11:11:09 by kipark            #+#    #+#              #
-#    Updated: 2022/12/24 12:59:58 by kipark           ###   ########seoul.kr   #
+#    Updated: 2022/12/29 13:47:41 by kipark           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 						= 	megaphone
+NAME 						= 	 Sed_is_for_losers
 
 CXX							=	c++
 CPPFLAGS					=	-Wall -Wextra -Werror -std=c++98
-SRCS						=	megaphone.cpp
+SRCS						=	main.cpp
 
 OBJS						=	$(SRCS:.cpp=.o)
-
 
 all: $(NAME)
 
