@@ -1,56 +1,54 @@
-#include <iostream>
 #include <array>
+#include <iostream>
 
 class Animal
 {
   public:
     virtual void speak()
     {
-      std::cout << "Animal" << std::endl;
+        std::cout << "Animal" << std::endl;
     }
-    virtual ~Animal()=default;
+    virtual ~Animal();
 };
 
 class Cat : public Animal
 {
-  public :
-    void speak() override
+  public:
+    void speak()
     {
-      std::cout << "meow~" << std::endl;
+        std::cout << "meow~" << std::endl;
     }
 };
-
 
 class Dog : public Animal
 {
-  public :
-    void speak() override
+  public:
+    void speak()
     {
-      std::cout << "bark!" << std::endl;
+        std::cout << "bark!" << std::endl;
     }
 };
 
-
 int main()
 {
-  std::array<Animal *,5> animals;
+    std::array<Animal*, 5> animals;
 
-  for (auto & animal : animals)
-  {
-    int i = 0;
-    std::cin >> i;
-    if (i == 1)
+    for (int i = 0; i < 5; ++i)
     {
-      animal = new Cat();
+        int in = 0;
+        std::cin >> in;
+        if (i == in)
+        {
+            animals[i] = new Cat();
+        }
+        else
+        {
+            animals[i] = new Dog();
+        }
     }
-    else{
-      animal = new Dog();
+    for (int i = 0; i < 5; i++)
+    {
+        animals[i]->speak();
     }
-  }
-  for (auto & animal : animals)
-  {
-    animal->speak();
-  }
-  return (0);
+    return (0);
 }
-
