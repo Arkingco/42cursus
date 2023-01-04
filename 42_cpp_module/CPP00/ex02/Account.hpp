@@ -21,8 +21,7 @@ class Account
   public:
     typedef Account t;
 
-    static int getNbAccounts(
-        void); // 객체에서 접접근근하하는는ㄱ게 아아니니라  클클래래스  다다누누이이에에서  접근할수  ㅇ있음
+    static int  getNbAccounts(void);
     static int  getTotalAmount(void);
     static int  getNbDeposits(void);
     static int  getNbWithdrawals(void);
