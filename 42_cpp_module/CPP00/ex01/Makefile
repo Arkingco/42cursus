@@ -6,11 +6,11 @@
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/28 11:11:09 by kipark            #+#    #+#              #
-#    Updated: 2022/12/23 19:51:18 by kipark           ###   ########seoul.kr   #
+#    Updated: 2023/01/04 15:30:37 by kipark           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 						= 	PhoneBook
+NAME 						= 	ex01
 
 CXX							=	c++
 CPPFLAGS					=	-Wall -Wextra -Werror -std=c++98
