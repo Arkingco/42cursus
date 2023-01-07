@@ -4,7 +4,7 @@
 #include <iostream>
 
 #define DEFAULT_HIT_POINT 10
-#define DEAFULT_ENERGY_POINT 10
+#define DEFAULT_ENERGY_POINT 10
 #define DEFAULT_ATTACK_DAMAGE 0
 
 class ClapTrap
@@ -15,6 +15,8 @@ class ClapTrap
     int         energy_points;
     int         attack_damage;
     bool        is_works();
+    bool        is_energy_point();
+    bool        is_hit_point();
 
   public:
     ClapTrap();

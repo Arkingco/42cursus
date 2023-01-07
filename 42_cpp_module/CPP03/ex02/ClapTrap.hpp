@@ -15,6 +15,8 @@ class ClapTrap
     int         energy_points;
     int         attack_damage;
     bool        is_works();
+    bool        is_energy_point();
+    bool        is_hit_point();
 
   public:
     ClapTrap();

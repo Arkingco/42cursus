@@ -25,7 +25,7 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap Destructor Call" << std::endl;
+    std::cout << "["<< Name << "]" << "ClapTrap Destructor Call" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
@@ -48,7 +48,7 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    if (is_works() == 0)
+    if (is_hit_point() == 0)
         return;
     std::cout << Name << " is Take damage ... " << std::endl;
     std::cout << "damage amount: " << amount << std::endl;
@@ -57,8 +57,8 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    if (is_works() == 0)
-        return;
+    if (is_energy_point() == 0)
+        return ;
     std::cout << Name << " be Repaired ! ! ! " << std::endl;
     std::cout << "Repaired amount : " << amount << std::endl;
     energy_points--;
@@ -87,6 +87,28 @@ bool ClapTrap::is_works()
     {
         std::cout << "[" << Name << "] "
                   << "I don't have power... (_ _)" << std::endl;
+        return (0);
+    }
+    return (1);
+}
+
+bool ClapTrap::is_energy_point()
+{
+    if (energy_points <= 0)
+    {
+        std::cout << "[" << Name << "] "
+                  << "I don't have energy... (_ _)" << std::endl;
+        return (0);
+    }
+    return (1);
+}
+
+bool ClapTrap::is_hit_point()
+{
+    if (hit_points <= 0)
+    {
+        std::cout << "[" << Name << "] "
+                  << "I don't have hit_point... (_ _)" << std::endl;
         return (0);
     }
     return (1);

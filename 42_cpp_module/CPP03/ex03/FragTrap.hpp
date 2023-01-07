@@ -8,7 +8,7 @@
 #define FRAG_DEFAULT_ENERGY_POINT 100
 #define FRAG_DEFAULT_ATTACK_DAMAGE 30
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
   public:
     FragTrap();

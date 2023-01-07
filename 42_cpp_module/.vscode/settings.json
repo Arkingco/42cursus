@@ -65,6 +65,8 @@
         "iomanip": "cpp",
         "stack": "cpp",
         "filesystem": "cpp",
-        "__memory": "cpp"
+        "__memory": "cpp",
+        "*.tcc": "cpp",
+        "clocale": "cpp"
     }
 }

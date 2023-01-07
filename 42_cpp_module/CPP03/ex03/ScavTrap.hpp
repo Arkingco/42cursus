@@ -8,7 +8,7 @@
 #define SCAV_DEFAULT_ENERGY_POINT 50
 #define SCAV_DEFAULT_ATTACK_DAMAGE 20
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
   public:
     ScavTrap();

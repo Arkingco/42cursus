@@ -20,4 +20,7 @@ int main()
     Park.attack("Kim");
     Park.print_status();
     Kim.print_status();
+
+    Park.beRepaired(20);
+    Park.print_status();
 }
