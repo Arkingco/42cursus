@@ -24,7 +24,7 @@ Fixed::Fixed(const int value)
 }
 Fixed::Fixed(const float value)
 {
-    setRawBits(static_cast<float>(value) * (1 << _fractional_bit));
+    setRawBits(roundf(value * (1 << _fractional_bit)));
 }
 Fixed& Fixed::operator=(const Fixed& other)
 {
@@ -48,7 +48,7 @@ int Fixed::toInt() const
 
 float Fixed::toFloat() const
 {
-    return (static_cast<float>(_fixed_point) / (1 << _fractional_bit));
+    return (static_cast<float>(_fixed_point)) / (1 << _fractional_bit);
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& obj)
@@ -84,11 +84,11 @@ bool Fixed::operator>=(const Fixed& b)
 
 Fixed Fixed::operator+(const Fixed& b)
 {
-    return Fixed(NULL, (this->getRawBits() + b.getRawBits()) / (1 << _fractional_bit));
+    return Fixed(NULL, (this->getRawBits() + b.getRawBits()));
 }
 Fixed Fixed::operator-(const Fixed& b)
 {
-    return Fixed(NULL, (this->getRawBits() + b.getRawBits()) / (1 << _fractional_bit));
+    return Fixed(NULL, (this->getRawBits() - b.getRawBits()));
 }
 Fixed Fixed::operator*(const Fixed& b)
 {
@@ -96,7 +96,7 @@ Fixed Fixed::operator*(const Fixed& b)
 }
 Fixed Fixed::operator/(const Fixed& b)
 {
-    return Fixed(NULL, (this->getRawBits() / b.getRawBits()) / (1 << _fractional_bit));
+    return Fixed(NULL, (this->getRawBits() / b.getRawBits()) * (1 << _fractional_bit));
 }
 const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
 {
@@ -130,8 +130,9 @@ Fixed& Fixed::operator++()
 }
 Fixed Fixed::operator++(int)
 {
-    _fixed_point++;
-    return *this;
+    Fixed temp = *this;
+    this->_fixed_point++;
+    return temp;
 }
 Fixed& Fixed::operator--()
 {
@@ -140,6 +141,7 @@ Fixed& Fixed::operator--()
 }
 Fixed Fixed::operator--(int)
 {
-    _fixed_point--;
-    return *this;
+    Fixed temp = *this;
+    this->_fixed_point--;
+    return temp;
 }

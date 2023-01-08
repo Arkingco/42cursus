@@ -6,14 +6,14 @@
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/28 11:11:09 by kipark            #+#    #+#              #
-#    Updated: 2023/01/07 17:12:44 by kipark           ###   ########.fr        #
+#    Updated: 2023/01/08 13:31:28 by kipark           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 						= 	ex03
 
 CXX							=	c++
-CPPFLAGS					=	
+CPPFLAGS					=	-Wall -Wextra -Werror -std=c++98
 SRCS						=	main.cpp				\
 								ClapTrap.cpp			\
 								FragTrap.cpp			\

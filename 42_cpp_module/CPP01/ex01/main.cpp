@@ -18,6 +18,8 @@ int main()
     Zombie* pointer_number_one_zombie = parent_zombie.zombieHorde(N, "Horde_Zombie_");
     for (int i = 0; i < N; i++)
         (pointer_number_one_zombie + i)->announce();
+
+    std::cout << "\ncall pointer_number_one_zombie" << std::endl;
     pointer_number_one_zombie->announce();
     delete[] pointer_number_one_zombie;
 }

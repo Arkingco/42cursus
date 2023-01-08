@@ -6,14 +6,14 @@
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/28 11:11:09 by kipark            #+#    #+#              #
-#    Updated: 2023/01/03 17:12:59 by kipark           ###   ########seoul.kr   #
+#    Updated: 2023/01/04 16:06:45 by kipark           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 						= 	ex01
 
 CXX							=	c++
-CPPFLAGS					=	-Wall -Wextra -Werror -std=c++98
+CXXFLAGS					=	-Wall -Wextra -Werror -std=c++98
 SRCS						=	main.cpp				\
 								ClapTrap.cpp			\
 								ScavTrap.cpp
@@ -23,7 +23,7 @@ OBJS						=	$(SRCS:.cpp=.o)
 all: $(NAME)
 
 $(NAME)		: $(OBJS)
-	$(CXX) $(CPPFLAGS) $(OBJS) -o $@
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $@
 
 clean:
 	rm -rf $(OBJS)

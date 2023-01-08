@@ -6,14 +6,14 @@
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/28 11:11:09 by kipark            #+#    #+#              #
-#    Updated: 2022/12/31 16:49:53 by kipark           ###   ########seoul.kr   #
+#    Updated: 2023/01/04 16:06:38 by kipark           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 						= 	ex02
 
 CXX							=	c++
-CPPFLAGS					=	-Wall -Wextra -Werror -std=c++98
+CXXFLAGS					=	-Wall -Wextra -Werror -std=c++98
 SRCS						=	main.cpp				\
 								Fixed.cpp
 
@@ -22,7 +22,7 @@ OBJS						=	$(SRCS:.cpp=.o)
 all: $(NAME)
 
 $(NAME)		: $(OBJS)
-	$(CXX) $(CPPFLAGS) $(OBJS) -o $@
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $@
 
 clean:
 	rm -rf $(OBJS)

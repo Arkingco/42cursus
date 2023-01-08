@@ -1,5 +1,5 @@
-#ifndef HUMAN_B
-#define HUMAN_B
+#ifndef HUMAN_B_HPP
+#define HUMAN_B_HPP
 
 #include "Weapon.hpp"
 #include <iostream>

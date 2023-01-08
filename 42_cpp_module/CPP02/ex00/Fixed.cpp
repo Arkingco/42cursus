@@ -31,8 +31,3 @@ void Fixed::setRawBits(int const raw)
     std::cout << "setRawBits member function called" << std::endl;
     _fixed_point = raw;
 }
-
-bool Fixed::operator==(const Fixed& lhs, const Fixed& rhs)
-{
-    return false;
-}

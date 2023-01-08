@@ -8,8 +8,6 @@ class Fixed
   private:
     int              _fixed_point;
     static const int _fractional_bit = 8;
-    void             increase();
-    void             decrease();
 
   public:
     Fixed();

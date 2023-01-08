@@ -6,14 +6,14 @@
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/28 11:11:09 by kipark            #+#    #+#              #
-#    Updated: 2022/12/26 20:37:18 by kipark           ###   ########seoul.kr   #
+#    Updated: 2023/01/05 13:24:15 by kipark           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 						= 	HI_THIS_IS_BRAIN
+NAME 						= 	ex02
 
 CXX							=	c++
-CPPFLAGS					=	-Wall -Wextra -Werror -std=c++98
+CXXFLAGS					=	-Wall -Wextra -Werror -std=c++98
 SRCS						=	main.cpp
 
 OBJS						=	$(SRCS:.cpp=.o)
@@ -21,7 +21,7 @@ OBJS						=	$(SRCS:.cpp=.o)
 all: $(NAME)
 
 $(NAME)		: $(OBJS)
-	$(CXX) $(CPPFLAGS) $(OBJS) -o $@
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $@
 
 clean:
 	rm -rf $(OBJS)

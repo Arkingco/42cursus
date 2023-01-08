@@ -1,4 +1,5 @@
 #include "Fixed.hpp"
+#include "math.h"
 
 Fixed::Fixed()
 {
@@ -23,7 +24,7 @@ Fixed::Fixed(const int value)
 Fixed::Fixed(const float value)
 {
     std::cout << "Float constructor called" << std::endl;
-    setRawBits(value * (1 << _fractional_bit));
+    setRawBits(roundf(value * (1 << _fractional_bit)));
 }
 
 Fixed& Fixed::operator=(const Fixed& other)
