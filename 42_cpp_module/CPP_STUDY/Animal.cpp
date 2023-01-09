@@ -3,12 +3,7 @@
 
 class Animal
 {
-  public:
-    virtual void speak()
-    {
-        std::cout << "Animal" << std::endl;
-    }
-    virtual ~Animal();
+
 };
 
 class Cat : public Animal
@@ -27,15 +22,16 @@ class Dog : public Animal
     {
         std::cout << "bark!" << std::endl;
     }
+
 };
 
 int main()
 {
     std::array<Animal*, 5> animals;
 
-    Animal polyAnimal = Dog();
-    
-    // for (int i = 0; i < 5; ++i)
+    Animal polyAnimal = Cat();
+    std::cout << polyAnimal. << std::endl;
+    // for (int i = 0; i < 5; ++i) 
     // {
     //     int in = 0;
     //     std::cin >> in;
