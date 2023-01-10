@@ -67,6 +67,8 @@
         "filesystem": "cpp",
         "__memory": "cpp",
         "*.tcc": "cpp",
-        "clocale": "cpp"
+        "clocale": "cpp",
+        "__functional_03": "cpp",
+        "memory_resource": "cpp"
     }
 }
