@@ -13,7 +13,8 @@ Animal::Animal(const Animal& other)
 
 Animal::~Animal()
 {
-    std::cout << "["<< type << "---]" << "Animal Destructor Call" << std::endl;
+    std::cout << "[" << type << "---]"
+              << "Animal Destructor Call" << std::endl;
 }
 
 Animal& Animal::operator=(const Animal& other)

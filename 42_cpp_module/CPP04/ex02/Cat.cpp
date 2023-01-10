@@ -17,7 +17,8 @@ Cat::Cat(const Cat& other) : Animal(other)
 Cat::~Cat()
 {
     delete brain;
-    std::cout << "["<< type << "]" << "Cat Destructor Call" << std::endl;
+    std::cout << "[" << type << "]"
+              << "Cat Destructor Call" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& other)

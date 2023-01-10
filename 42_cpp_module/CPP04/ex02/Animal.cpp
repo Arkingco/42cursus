@@ -13,7 +13,8 @@ Animal::Animal(const Animal& other)
 
 Animal::~Animal()
 {
-    std::cout << "["<< type << "---]" << "Animal Destructor Call" << std::endl;
+    std::cout << "[" << type << "---]"
+              << "Animal Destructor Call" << std::endl;
 }
 
 Animal& Animal::operator=(const Animal& other)
@@ -23,9 +24,4 @@ Animal& Animal::operator=(const Animal& other)
     type = other.type;
     std::cout << "Animal Assignment Operator Call" << std::endl;
     return *this;
-}
-
-std::string Animal::getType() const
-{
-    return type;
 }

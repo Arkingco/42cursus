@@ -13,7 +13,8 @@ WrongAnimal::WrongAnimal(const WrongAnimal& other)
 
 WrongAnimal::~WrongAnimal()
 {
-    std::cout << "["<< type << "---]" << "WrongAnimal Destructor Call" << std::endl;
+    std::cout << "[" << type << "---]"
+              << "WrongAnimal Destructor Call" << std::endl;
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other)

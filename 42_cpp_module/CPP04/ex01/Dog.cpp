@@ -17,7 +17,8 @@ Dog::Dog(const Dog& other) : Animal(other)
 Dog::~Dog()
 {
     delete brain;
-    std::cout << "["<< type << "]" << "Dog Destructor Call" << std::endl;
+    std::cout << "[" << type << "]"
+              << "Dog Destructor Call" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& other)
