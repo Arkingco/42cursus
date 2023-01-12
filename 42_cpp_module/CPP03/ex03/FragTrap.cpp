@@ -10,7 +10,7 @@ FragTrap::FragTrap()
 
 FragTrap::FragTrap(std::string Name)
 {
-    std::cout << "FragTrap Constructor Call"  << std::endl;
+    std::cout << "FragTrap Constructor Call" << std::endl;
     hit_points = FRAG_DEFAULT_HIT_POINT;
     energy_points = FRAG_DEFAULT_ENERGY_POINT;
     attack_damage = FRAG_DEFAULT_ATTACK_DAMAGE;
@@ -25,7 +25,8 @@ FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
 
 FragTrap::~FragTrap()
 {
-    std::cout << "["<< Name << "]" << "FragTrap Destructor Call" << std::endl;
+    std::cout << "[" << Name << "]"
+              << "FragTrap Destructor Call" << std::endl;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& other)

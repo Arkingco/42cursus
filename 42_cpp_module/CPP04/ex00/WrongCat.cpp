@@ -14,7 +14,8 @@ WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other)
 
 WrongCat::~WrongCat()
 {
-    std::cout << "["<< type << "]" << "WrongCat Destructor Call" << std::endl;
+    std::cout << "[" << type << "]"
+              << "WrongCat Destructor Call" << std::endl;
 }
 
 WrongCat& WrongCat::operator=(const WrongCat& other)

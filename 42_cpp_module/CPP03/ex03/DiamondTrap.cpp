@@ -10,7 +10,7 @@ DiamondTrap::DiamondTrap()
 
 DiamondTrap::DiamondTrap(std::string Name)
 {
-    std::cout << "DiamondTrap Constructor Call"  << std::endl;
+    std::cout << "DiamondTrap Constructor Call" << std::endl;
     ClapTrap::Name = Name + "_clap_name";
     this->Name = Name;
     hit_points = FragTrap::hit_points;
@@ -26,7 +26,8 @@ DiamondTrap::DiamondTrap(const DiamondTrap& other) : ClapTrap(other)
 
 DiamondTrap::~DiamondTrap()
 {
-    std::cout << "["<< Name << "]" << "DiamondTrap Destructor Call" << std::endl;
+    std::cout << "[" << Name << "]"
+              << "DiamondTrap Destructor Call" << std::endl;
 }
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
@@ -35,6 +36,7 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
     energy_points = other.energy_points;
     attack_damage = other.attack_damage;
     Name = other.Name;
+    ClapTrap::Name = other.Name + "_clap_name";
     return *this;
 }
 

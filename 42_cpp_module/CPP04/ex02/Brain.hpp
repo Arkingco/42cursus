@@ -7,11 +7,11 @@ class Brain
 {
   protected:
     std::string ideas[100];
-  
+
   public:
     Brain();
     Brain(const Brain& a);
-    virtual ~Brain();
+    ~Brain();
     Brain& operator=(const Brain& a);
 };
 

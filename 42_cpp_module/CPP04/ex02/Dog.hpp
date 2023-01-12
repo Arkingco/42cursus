@@ -1,15 +1,15 @@
 #ifndef DOG_HPP
 #define DOG_HPP
 
-#include <iostream>
 #include "Animal.hpp"
 #include "Brain.hpp"
+#include <iostream>
 
 class Dog : public Animal
 {
   protected:
     std::string type;
-    Brain* brain;
+    Brain*      brain;
 
   public:
     Dog();
@@ -18,7 +18,7 @@ class Dog : public Animal
     Dog& operator=(const Dog& a);
 
     std::string getType() const;
-    void makeSound() const;
+    void        makeSound() const;
 };
 
 #endif
