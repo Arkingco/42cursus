@@ -2,9 +2,12 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "Form.hpp"
 
 #define HIGHEST_GRADE 1
 #define LOWEST_GRADE 150
+
+class Form;
 
 class Bureaucrat
 {
@@ -24,6 +27,8 @@ class Bureaucrat
     void        increment(int increment_grade);
     void        decrement(int decrement_grade);
     void        who_am_i();
+  
+    void        signForm(bool is_sign, Form &form);
 
     class GradeTooHighException : public std::exception
     {

@@ -65,12 +65,21 @@ void Bureaucrat::who_am_i()
     std::cout << name << ", bureaucrat grade " << grade <<"." << std::endl;
 }
 
+void Bureaucrat::signForm(bool is_sign, Form &form)
+{
+    if (is_sign)
+    {
+        std::cout << name << "signed" << form << std::endl;
+        return ;
+    }
+    std::cout << name << "couldn’t sign " << form << " because <reason>" << std::endl;
+}
+
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
 {
     os << obj.getName() << ", bureaucrat grade " << obj.getGrade() <<".";
     return (os);
 }
-
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
