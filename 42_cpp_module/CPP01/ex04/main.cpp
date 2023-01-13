@@ -8,7 +8,7 @@ int main(int argc, char** argv)
         std::cout << "please input 3 parameter! (filename, s1, s2)" << std::endl;
         return 0;
     }
-    
+
     std::ifstream file(argv[1]);
     std::string   file_content;
     std::string   s1 = argv[2];
@@ -34,11 +34,11 @@ int main(int argc, char** argv)
     int loc_s1 = 0;
     int s1_size = s1.size();
     int s2_size = s2.size();
-    while ((loc_s1 = file_content.find(s1,loc_s1)) != -1)
+    while ((loc_s1 = file_content.find(s1, loc_s1)) != -1)
     {
         file_content.erase(loc_s1, s1_size);
         file_content.insert(loc_s1, s2);
         loc_s1 = loc_s1 + s2_size;
     }
-    std::cout << file_content << std::endl;   
+    std::cout << file_content << std::endl;
 }

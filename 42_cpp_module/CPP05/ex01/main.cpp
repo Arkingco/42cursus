@@ -3,21 +3,38 @@
 
 void end_line()
 {
-	std::cout << "-----------------------------" << std::endl;
+    std::cout << "-----------------------------" << std::endl;
 }
 
 int main()
 {
-	try 
-	{
-		Bureaucrat A("A", 70);
-		Form form("Government's top secret", false, 1, 5);
+    try
+    {
+        Bureaucrat A("A", 70);
+        Bureaucrat Master("Master", 1);
+        Form       form("Government's top secret", false, 1, 5);
 
-		end_line();
-	}
-	catch(std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-		end_line();
-	}
+        form.beSigned(A);
+        end_line();
+    }
+    catch (std::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+        end_line();
+    }
+
+    try
+    {
+        Bureaucrat Master("Master", 1);
+        Form       form("Government's top secret", false, 1, 5);
+
+        form.beSigned(Master);
+        form.beSigned(Master);
+        end_line();
+    }
+    catch (std::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+        end_line();
+    }
 }

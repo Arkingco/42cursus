@@ -33,6 +33,7 @@ int main()
     Dog b;
     Cat c;
     Cat d;
+    std::cout << "--- Assignment -----" << std::endl;
     c = d;
     a = b;
 }

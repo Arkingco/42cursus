@@ -26,4 +26,6 @@ int main()
     delete meta;
     delete i;
     delete j;
+    delete wAnimal;
+    delete wCat;
 }

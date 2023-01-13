@@ -5,25 +5,26 @@ Form::Form() : name("Default_Form"), is_signed(false), sign_grade(150), excute_g
     std::cout << "Form Constructor Call" << std::endl;
 }
 
-Form::Form(std::string name, bool is_signed, int sign_grade, int excute_grade) :
-    name(name), is_signed(is_signed), sign_grade(sign_grade), excute_grade(excute_grade)
+Form::Form(std::string name, bool is_signed, int sign_grade, int excute_grade)
+    : name(name), is_signed(is_signed), sign_grade(sign_grade), excute_grade(excute_grade)
 {
     std::cout << "Form Constructor Call" << std::endl;
     if (sign_grade < HIGHEST_GRADE || excute_grade < HIGHEST_GRADE)
         throw Form::GradeTooHighException();
-     if (sign_grade > LOWEST_GRADE || excute_grade > LOWEST_GRADE)
+    if (sign_grade > LOWEST_GRADE || excute_grade > LOWEST_GRADE)
         throw Form::GradeTooLowException();
 }
 
-Form::Form(const Form& other) :
-    name(other.name), is_signed(other.is_signed), sign_grade(other.sign_grade), excute_grade(other.excute_grade)
+Form::Form(const Form& other)
+    : name(other.name), is_signed(other.is_signed), sign_grade(other.sign_grade), excute_grade(other.excute_grade)
 {
     std::cout << "Form Constructor Call" << std::endl;
 }
 
 Form::~Form()
 {
-    std::cout << "["<< name << "]" << "Form Destructor Call" << std::endl;
+    std::cout << "[" << name << "]"
+              << "Form Destructor Call" << std::endl;
 }
 
 Form& Form::operator=(const Form& other)
@@ -39,27 +40,27 @@ std::string Form::get_name() const
     return name;
 }
 
-bool        Form::get_is_signed() const
+bool Form::get_is_signed() const
 {
     return is_signed;
 }
 
-int   Form::get_sign_grade() const
+int Form::get_sign_grade() const
 {
     return sign_grade;
 }
 
-int   Form::get_excute_grade() const
+int Form::get_excute_grade() const
 {
     return excute_grade;
 }
 
-void Form::beSigned(Bureaucrat &A)
+void Form::beSigned(Bureaucrat& A)
 {
     if (is_signed)
     {
         std::cout << "Already Signed" << std::endl;
-        return ;
+        return;
     }
     if (A.getGrade() > sign_grade)
     {
@@ -72,7 +73,8 @@ void Form::beSigned(Bureaucrat &A)
 
 std::ostream& operator<<(std::ostream& os, const Form& obj)
 {
-    os << "name : " << obj.get_name() << "is_signed : " << obj.get_is_signed() << "sign_grade : " << obj.get_sign_grade() << "excute_grade : " << obj.get_excute_grade() << std::endl; 
+    os << obj.get_name() << "\nis_signed : " << obj.get_is_signed() << "\nsign_grade : " << obj.get_sign_grade()
+       << "\nexcute_grade : " << obj.get_excute_grade() << std::endl;
     return os;
 }
 
