@@ -66,14 +66,18 @@ void Bureaucrat::who_am_i()
     std::cout << name << ", bureaucrat grade " << grade << "." << std::endl;
 }
 
-void Bureaucrat::signForm(bool is_sign, Form& form)
+void Bureaucrat::signForm(Form& form)
 {
-    if (is_sign)
+    try
     {
+        form.beSigned(*this);
         std::cout << name << " signed  " << form << std::endl;
         return;
     }
-    std::cout << name << "couldn’t sign " << form << " because GradeTooLowException" << std::endl;
+    catch (const std::exception& e)
+    {
+        std::cout << name << " couldn’t sign " << form << " because " << e.what() << std::endl;
+    }
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)

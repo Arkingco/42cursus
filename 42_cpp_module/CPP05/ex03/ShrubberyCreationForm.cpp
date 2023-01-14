@@ -11,6 +11,12 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
     std::cout << "ShrubberyCreationForm Constructor Call" << std::endl;
 }
 
+ShrubberyCreationForm::ShrubberyCreationForm(std::string name, std::string target)
+    : AForm(name, false, 145, 137), target(target)
+{
+    std::cout << "RobotomyRequestForm Constructor Call" << std::endl;
+}
+
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
 {
     std::cout << "ShrubberyCreationForm Constructor Call" << std::endl;

@@ -14,7 +14,7 @@ int main()
         Bureaucrat Master("Master", 1);
         Form       form("Government's top secret", false, 1, 5);
 
-        form.beSigned(A);
+        A.signForm(form);
         end_line();
     }
     catch (std::exception& e)
@@ -28,8 +28,8 @@ int main()
         Bureaucrat Master("Master", 1);
         Form       form("Government's top secret", false, 1, 5);
 
-        form.beSigned(Master);
-        form.beSigned(Master);
+        Master.signForm(form);
+        Master.signForm(form);
         end_line();
     }
     catch (std::exception& e)

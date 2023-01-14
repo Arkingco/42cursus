@@ -58,17 +58,10 @@ int Form::get_excute_grade() const
 void Form::beSigned(Bureaucrat& A)
 {
     if (is_signed)
-    {
-        std::cout << "Already Signed" << std::endl;
-        return;
-    }
+        throw Form::AlreadySigned();
     if (A.getGrade() > sign_grade)
-    {
-        A.signForm(false, *this);
         throw Form::GradeTooLowException();
-    }
     is_signed = true;
-    A.signForm(true, *this);
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& obj)
@@ -86,4 +79,8 @@ const char* Form::GradeTooHighException::what() const throw()
 const char* Form::GradeTooLowException::what() const throw()
 {
     return "GradeTooLowException !!!";
+}
+const char* Form::AlreadySigned::what() const throw()
+{
+    return "AlreadySigned !!!";
 }

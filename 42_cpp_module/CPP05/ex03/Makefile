@@ -6,11 +6,11 @@
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/28 11:11:09 by kipark            #+#    #+#              #
-#    Updated: 2023/01/14 15:31:44 by kipark           ###   ########seoul.kr   #
+#    Updated: 2023/01/14 17:01:26 by kipark           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 						= 	ex02
+NAME 						= 	ex03
 
 CXX							=	c++
 CXXFLAGS					=	-Wall -Wextra -Werror -g -std=c++98
@@ -19,7 +19,8 @@ SRCS						=	main.cpp					\
 								AForm.cpp					\
 								ShrubberyCreationForm.cpp	\
 								RobotomyRequestForm.cpp		\
-								PresidentialPardonForm.cpp
+								PresidentialPardonForm.cpp	\
+								Intern.cpp
 
 OBJS						=	$(SRCS:.cpp=.o)
 

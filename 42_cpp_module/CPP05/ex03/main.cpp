@@ -11,6 +11,7 @@ void end_line()
 
 int main()
 {
+    srand(time(NULL));
     try
     {
         Bureaucrat Master("Master", 1);
@@ -18,16 +19,18 @@ int main()
         AForm*     Robotomy = new RobotomyRequestForm("Robotomy");
         AForm*     Presidential = new PresidentialPardonForm("Presidential");
         end_line();
-
         Master.executeForm(*Shrubbery);
         Master.signForm(*Shrubbery);
         Master.executeForm(*Shrubbery);
+
         end_line();
         Master.signForm(*Robotomy);
         Master.executeForm(*Robotomy);
+
         end_line();
         Master.signForm(*Presidential);
         Master.executeForm(*Presidential);
+
         end_line();
     }
     catch (std::exception& e)
