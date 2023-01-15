@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/28 11:11:09 by kipark            #+#    #+#              #
-#    Updated: 2023/01/15 13:36:20 by kipark           ###   ########.fr        #
+#    Updated: 2023/01/15 16:57:19 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME 						= 	ex00
 
 CXX							=	c++
 CXXFLAGS					=	-Wall -Wextra -Werror -g -std=c++98
-SRCS						=	main.cpp
+SRCS						=	main.cpp				\
+								Convert.cpp
 
 OBJS						=	$(SRCS:.cpp=.o)
 

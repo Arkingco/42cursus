@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Convert.hpp"
 
 int main(int argc, char **argv)
 {
@@ -7,5 +8,5 @@ int main(int argc, char **argv)
         std::cout << "plz input vaild case" << std::endl;
         return 0;
     }
-    
+    Convert convert = Convert(argv[1]);
 }

@@ -2,14 +2,16 @@
 #define Convert_HPP
 
 #include <iostream>
-
-#define HIGHEST_GRADE 1
-#define LOWEST_GRADE 150
+#include <stdlib.h>
+#include <math.h>
+#include <limits.h>
+#include <iomanip>
 
 class Convert
 {
   private:
     std::string input;
+    double      to_double;
     Convert();
     void ConvertChar();
     void ConvertInt();
