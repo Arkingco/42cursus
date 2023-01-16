@@ -19,14 +19,12 @@ class Intern
 
   public:
     Intern();
-    Intern(std::string target);
     Intern(const Intern& a);
-    virtual ~Intern();
+    ~Intern();
     Intern& operator=(const Intern& a);
 
     AForm* makeForm(std::string name, std::string target);
-
-    class VaildClass : public std::exception
+    class InVaildForm : public std::exception
     {
       public:
         virtual const char* what() const throw();

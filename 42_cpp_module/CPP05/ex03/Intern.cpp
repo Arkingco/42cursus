@@ -24,19 +24,18 @@ Intern& Intern::operator=(const Intern& other)
     return *this;
 }
 
-AForm* makeForm(std::string name, std::string target)
+AForm* Intern::makeForm(std::string name, std::string target)
 {
     int         num;
     std::string Forms[4] = {"robotomy request", "presidential pardon", "shrubbery Creation", "null"};
 
-    for (int i = 0; i < 3; ++i)
+    for (int i = 0; i < 4; ++i)
     {
         num = i;
         if (target == Forms[i])
             break;
     }
 
-    // delete 해야함 클래스를 리턴 받을 때 문제가 생길 수 있음
     switch (num)
     {
     case 0:
@@ -49,11 +48,11 @@ AForm* makeForm(std::string name, std::string target)
         return new ShrubberyCreationForm(name, target);
         break;
     default:
-        throw Intern::VaildClass();
+        throw Intern::InVaildForm();
     }
 }
 
-const char* Intern::VaildClass::what() const throw()
+const char* Intern::InVaildForm::what() const throw()
 {
-    return "VaildClass !!!";
+    return "InVaildForm !!!";
 }

@@ -40,7 +40,6 @@ void RobotomyRequestForm::execute(Bureaucrat const& executor) const
 {
     is_signed_grade(executor);
     std::cout << "* DRILLING NOISES *" << std::endl << target;
-    srand(time(NULL));
     if (rand() % 2)
         std::cout << " has been successfully robotimized!" << std::endl;
     else

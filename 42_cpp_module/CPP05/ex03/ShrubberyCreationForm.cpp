@@ -51,8 +51,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
                            " \\  _-     -_  /  \n"
                            "   ~  \\ \\/\\/  ~ \n"
                            "_- -   | | _- _    \n"
-                           "  _ -  | |   -_    \n"
-                           "      // \\        ";
+                           " |_|-  | | ||-|    \n"
+                           "  |   // \\       ";
         file << tree;
         std::cout << tree << std::endl;
     }
