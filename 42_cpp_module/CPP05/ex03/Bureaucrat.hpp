@@ -19,7 +19,7 @@ class Bureaucrat
     Bureaucrat();
     Bureaucrat(std::string name, int grade);
     Bureaucrat(const Bureaucrat& a);
-    virtual ~Bureaucrat();
+    ~Bureaucrat();
     Bureaucrat& operator=(const Bureaucrat& a);
 
     std::string getName() const;
