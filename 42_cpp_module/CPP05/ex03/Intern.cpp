@@ -36,20 +36,23 @@ AForm* Intern::makeForm(std::string name, std::string target)
             break;
     }
 
+    AForm* form;
     switch (num)
     {
-    case 0:
-        return new RobotomyRequestForm(name, target);
-        break;
-    case 1:
-        return new PresidentialPardonForm(name, target);
-        break;
-    case 2:
-        return new ShrubberyCreationForm(name, target);
-        break;
-    default:
-        throw Intern::InVaildForm();
+        case 0:
+            form = new RobotomyRequestForm(name, target);
+            break;
+        case 1:
+            form = new PresidentialPardonForm(name, target);
+            break;
+        case 2:
+            form =  new ShrubberyCreationForm(name, target);
+            break;
+        default:
+            throw Intern::InVaildForm();
     }
+    std::cout << "Intern creates " << form << std::endl;
+    return form;
 }
 
 const char* Intern::InVaildForm::what() const throw()

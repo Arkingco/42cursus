@@ -24,8 +24,8 @@ class Bureaucrat
 
     std::string getName() const;
     int         getGrade() const;
-    void        increment(int increment_grade);
-    void        decrement(int decrement_grade);
+    void        increment();
+    void        decrement();
     void        who_am_i();
 
     void signForm(Form& form);

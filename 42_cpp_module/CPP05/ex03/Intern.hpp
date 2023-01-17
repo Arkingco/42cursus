@@ -14,9 +14,6 @@ class ShrubberyCreationForm;
 
 class Intern
 {
-  private:
-    std::string target;
-
   public:
     Intern();
     Intern(const Intern& a);

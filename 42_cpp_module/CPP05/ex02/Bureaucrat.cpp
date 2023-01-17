@@ -45,19 +45,19 @@ int Bureaucrat::getGrade() const
     return (grade);
 }
 
-void Bureaucrat::increment(int increment_grade)
+void Bureaucrat::increment()
 {
-    if (grade - increment_grade < HIGHEST_GRADE)
+    if (grade - 1 < HIGHEST_GRADE)
         throw Bureaucrat::GradeTooHighException();
-    grade = grade - increment_grade;
+    grade = grade - 1;
     who_am_i();
 }
 
-void Bureaucrat::decrement(int decrement_grade)
+void Bureaucrat::decrement()
 {
-    if (grade + decrement_grade > LOWEST_GRADE)
+    if (grade + 1 > LOWEST_GRADE)
         throw Bureaucrat::GradeTooLowException();
-    grade = grade + decrement_grade;
+    grade = grade + 1;
     who_am_i();
 }
 
@@ -85,6 +85,7 @@ void Bureaucrat::executeForm(AForm const& form)
     try
     {
         form.execute(*this);
+        std::cout << name << "executed" << form << std::endl;
     }
     catch (const std::exception& e)
     {

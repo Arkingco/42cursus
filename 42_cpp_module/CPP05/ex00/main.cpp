@@ -10,13 +10,12 @@ int main()
 
     try
     {
-        Bureaucrat A("A", 70);
+        Bureaucrat A("A", 148);
         std::cout << A << std::endl;
 
-        A.increment(10);
-        A.decrement(20);
-        A.decrement(70);
-        A.decrement(1);
+        A.decrement();
+        A.decrement();
+        A.decrement();
         end_line();
     }
     catch (std::exception& e)
@@ -27,12 +26,12 @@ int main()
 
     try
     {
-        Bureaucrat B("B", 70);
+        Bureaucrat B("B", 3);
         std::cout << B << std::endl;
 
-        B.increment(60);
-        B.increment(9);
-        B.increment(1);
+        B.increment();
+        B.increment();
+        B.increment();
         end_line();
     }
     catch (std::exception& e)
