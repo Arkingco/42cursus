@@ -20,20 +20,31 @@ bool    ft_isinf(double d)
     return (d != 0 && d * 2 == d);
 }
 
+bool ft_isdigit(std::string str)
+{
+    for (size_t i=0; i < str.length(); ++i)
+    {
+        if (str[i] < '0' || str[i] > '9')
+        {
+            if (str[i] != '.' && str[i] != '+' && str[i] != '-')
+                return false;
+        }
+    }
+    return true;
+}
+
+
 Convert::Convert() 
 {
-    std::cout << "Convert Constructor Call" << std::endl;
 }
 
 Convert::Convert(const Convert& other)
 {
-    std::cout << "Convert Constructor Call" << std::endl;
     *this = other;
 }
 
 Convert::~Convert()
 {
-    std::cout << "Convert Destructor Call" << std::endl;
 }
 
 Convert& Convert::operator=(const Convert& other)
@@ -46,19 +57,23 @@ Convert& Convert::operator=(const Convert& other)
 
 Convert::Convert(std::string input) : input(input)
 {
-    std::cout << "Convert Constructor Call" << std::endl;
     to_double = strtod(input.c_str(), NULL);
 
-    std::cout << to_double << std::endl;
-    if (ft_isinf(to_double))
+    if (ft_isnan(to_double) || !ft_isdigit(input))
     {
-        std::cout << "ft_isinf" << std::endl;
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float : nanf" << std::endl;
+        std::cout << "double: nan" << std::endl;
     }
-    else if (ft_isnan(to_double))
+    else if (ft_isinf(to_double))
     {
-        std::cout << "if_isnan" << std::endl;
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float : " << static_cast<float>(to_double) << std::endl;
+        std::cout << "double: " << to_double << std::endl;
     }
-    else 
+    else    
     {
         ConvertChar();
         ConvertInt();
@@ -81,7 +96,7 @@ void Convert::ConvertChar()
 void Convert::ConvertInt()
 {
     int i = static_cast<int>(to_double);
-    if (to_double < -214748369 || to_double > 2147483648)
+    if (to_double <= static_cast<double>(-2147483649) || to_double >= static_cast<double>(2147483648))
         std::cout << "int: impossible" << std::endl;
     else{
         std::cout << "int: " << i << std::endl;
@@ -91,25 +106,17 @@ void Convert::ConvertInt()
 void Convert::ConvertFloat()
 {
     float f = static_cast<float>(to_double);
-    std::cout << "float: " << (double)f << "f" << std::endl;
+    if (f == static_cast<int>(f))
+        std::cout << "float: " << std::setprecision(std::numeric_limits<float>::digits10)  << f << ".0f" << std::endl;
+    else
+        std::cout << "float: " << std::setprecision(std::numeric_limits<float>::digits10) << f << "f" << std::endl;
 }
 
 void Convert::ConvertDouble()
 {
-    float d = static_cast<double>(to_double);
-    d = d + 0.000;
-    std::setprecision(5);
-    std::cout << "double: " << (double)d << std::endl;
-}
-
-void Convert::printConvert()
-{
-
-    double a = 0;
-    double b = 1.1;
-    double c = 10;
-
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << c << std::endl;
+    double d = static_cast<double>(to_double);
+    if (d == ceil(d))
+        std::cout << std::setprecision(std::numeric_limits<double>::digits10) << "dobule: " << d << ".0" << std::endl;
+    else
+        std::cout << std::setprecision(std::numeric_limits<double>::digits10) << "dobule: " << d << std::endl;
 }

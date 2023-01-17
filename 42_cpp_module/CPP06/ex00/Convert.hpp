@@ -1,11 +1,11 @@
-#ifndef Convert_HPP
-#define Convert_HPP
+#ifndef CONVERT_HPP
+#define CONVERT_HPP
 
 #include <iostream>
 #include <stdlib.h>
-#include <math.h>
-#include <limits.h>
 #include <iomanip>
+#include <limits>
+#include <cmath>
 
 class Convert
 {
