@@ -22,6 +22,8 @@ bool    ft_isinf(double d)
 
 bool ft_isdigit(std::string str)
 {
+    if (str.length() == 0)
+        return false;
     for (size_t i=0; i < str.length(); ++i)
     {
         if (str[i] < '0' || str[i] > '9')
@@ -96,7 +98,7 @@ void Convert::ConvertChar()
 void Convert::ConvertInt()
 {
     int i = static_cast<int>(to_double);
-    if (to_double <= static_cast<double>(-2147483649) || to_double >= static_cast<double>(2147483648))
+    if (to_double <= -2147483649.0 || to_double >= 2147483648.0)
         std::cout << "int: impossible" << std::endl;
     else{
         std::cout << "int: " << i << std::endl;
@@ -107,7 +109,7 @@ void Convert::ConvertFloat()
 {
     float f = static_cast<float>(to_double);
     if (f == static_cast<int>(f))
-        std::cout << "float: " << std::setprecision(std::numeric_limits<float>::digits10)  << f << ".0f" << std::endl;
+        std::cout << "float: "   << f << ".0f" << std::endl;
     else
         std::cout << "float: " << std::setprecision(std::numeric_limits<float>::digits10) << f << "f" << std::endl;
 }

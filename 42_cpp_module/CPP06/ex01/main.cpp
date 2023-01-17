@@ -4,23 +4,22 @@
 
 uintptr_t serialize(Data* ptr)
 {
-    std::cout << ptr << std::endl;
+    return (reinterpret_cast<uintptr_t>(ptr));
 } 
 
 Data* deserialize(uintptr_t raw)
 {
-    std::cout << raw << std::endl;
+    return (reinterpret_cast<Data *>(raw));
 }
 
 int main()
 {
-    uintptr_t a;
-    Data *b;
-    uintptr_t c;
-    std::cout << sizeof(Data *) << std::endl;
-    a = 10;
-    
-    b = reinterpret_cast<Data *>(&a);
-    c = reinterpret_cast<uintptr_t>(b);
-    std::cout << &a << " " << c << std::endl;
+    Data A("my name is kipark");
+
+    uintptr_t uintprt_t_serialize = serialize(&A);
+
+    Data* B = deserialize(uintprt_t_serialize);
+
+    std::cout << "before serialize : " << A.getData() << std::endl;
+    std::cout << "after deserialize : " << B->getData() << std::endl;
 }

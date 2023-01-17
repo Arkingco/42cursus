@@ -6,14 +6,16 @@
 class Data
 {
   private:
-    uintptr_t data;
+    std::string data;
 
   public:
     Data();
-    Data(uintptr_t data);
+    Data(std::string data);
     Data(const Data& a);
     ~Data();
     Data& operator=(const Data& a);
+
+    std::string getData();
 };
 
 #endif

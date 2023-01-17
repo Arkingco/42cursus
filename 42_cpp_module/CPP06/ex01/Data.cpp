@@ -4,10 +4,10 @@ Data::Data()
 {
 }
 
-// Data::Data(uintptr_t data) : data(data)
-// {
+Data::Data(std::string data) : data(data)
+{
 
-// }
+}
 
 Data::Data(const Data& other)
 {
@@ -24,4 +24,9 @@ Data& Data::operator=(const Data& other)
         return *this;
     std::cout << "Data Assignment Operator Call" << std::endl;
     return *this;
+}
+
+std::string Data::getData()
+{
+    return (data);
 }
