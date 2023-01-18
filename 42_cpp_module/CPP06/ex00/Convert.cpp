@@ -20,17 +20,15 @@ bool    ft_isinf(double d)
     return (d != 0 && d * 2 == d);
 }
 
-bool ft_isdigit(std::string str)
+bool ft_isdigit(std::string str, double to_double)
 {
     if (str.length() == 0)
         return false;
-    for (size_t i=0; i < str.length(); ++i)
+    if (to_double == 0)
     {
-        if (str[i] < '0' || str[i] > '9')
-        {
-            if (str[i] != '.' && str[i] != '+' && str[i] != '-')
-                return false;
-        }
+        if (str.length() == 1 && str[0] == '0')
+            return true;
+        return false;
     }
     return true;
 }
@@ -61,19 +59,19 @@ Convert::Convert(std::string input) : input(input)
 {
     to_double = strtod(input.c_str(), NULL);
 
-    if (ft_isnan(to_double) || !ft_isdigit(input))
+     if (ft_isinf(to_double))
+    {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float : " << static_cast<float>(to_double) << "f" << std::endl;
+        std::cout << "double: " << to_double << std::endl;
+    }
+    else if (ft_isnan(to_double) || !ft_isdigit(input, to_double))
     {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
         std::cout << "float : nanf" << std::endl;
         std::cout << "double: nan" << std::endl;
-    }
-    else if (ft_isinf(to_double))
-    {
-        std::cout << "char: impossible" << std::endl;
-        std::cout << "int: impossible" << std::endl;
-        std::cout << "float : " << static_cast<float>(to_double) << std::endl;
-        std::cout << "double: " << to_double << std::endl;
     }
     else    
     {
