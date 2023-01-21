@@ -34,15 +34,12 @@ class Array
     {
 		if (this == &other)
 			return *this;
-		std::cout << "1" << std::endl;
 		if (value != NULL)
 			delete[] value;
-		std::cout << "1" << std::endl;
 		value = new T[other.length];
 		for (unsigned int i=0; i<other.length; ++i)
 			value[i] = other.value[i];
 		length = other.length;
-		std::cout << "1" << std::endl;
 
 		std::cout << "Array Assignment Operator Call" << std::endl;
 		return *this;
