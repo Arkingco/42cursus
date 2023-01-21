@@ -6,14 +6,14 @@
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/28 11:11:09 by kipark            #+#    #+#              #
-#    Updated: 2023/01/19 19:00:40 by kipark           ###   ########.fr        #
+#    Updated: 2023/01/21 18:39:34 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 						= 	ex00
 
 CXX							=	c++
-CXXFLAGS					=	-Wall -Wextra -Werror -g -std=c++98
+CXXFLAGS					=	-Wall -Wextra -Werror -std=c++98
 SRCS						=	main.cpp				\
 								Whatever.cpp
 OBJS						=	$(SRCS:.cpp=.o)
