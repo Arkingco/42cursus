@@ -69,6 +69,12 @@ void Span::printVector()
     std::cout << std::endl;
 }
 
+void Span::addManyNumber()
+{
+    int a;
+}
+
+
 const char * TooManyElement::what() const throw(){
     return "TooManyElement !!";
 }

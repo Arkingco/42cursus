@@ -8,13 +8,6 @@
 #include <list>
 #include <deque>
 
-class NotMatched : public std::exception
-{
-	virtual const char * what() const throw(){
-		return "NotMatched !!";
-	}
-};
-
 template<typename T>
 typename T::iterator easyfind(T &iter, int num)
 {

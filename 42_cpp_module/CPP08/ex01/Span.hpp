@@ -23,6 +23,7 @@ class Span
     int shortestSpan();
     int longestSpan();
     void printVector();
+    void addManyNumber();
 };
 
 class TooManyElement : public std::exception

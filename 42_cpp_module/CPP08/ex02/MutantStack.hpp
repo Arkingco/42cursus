@@ -16,16 +16,19 @@ class MutantStack : public std::stack<T>
     {
     	std::cout << "MutantStack Constructor Call" << std::endl;
   	}
+
     MutantStack(const MutantStack& other)
 	{
 		std::cout << "MutantStack copy Constructor Call" << std::endl;
 		this->c.assign(other.begin(), other.end());
 		return *this;
 	}
+
     ~MutantStack()
 	{
 	    std::cout << "MutantStack Destructor Call" << std::endl;
 	}
+	
     MutantStack& operator=(const MutantStack& other)
 	{
 		if (this == &other)
@@ -46,9 +49,5 @@ class MutantStack : public std::stack<T>
 	}
 };
 
-// class TooManyElement : public std::exception
-// {
-// 	virtual const char * what() const throw();
-// };
 
 #endif

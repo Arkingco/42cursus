@@ -44,6 +44,11 @@ class Array
 		return *this;
     }
 
+	~Array()
+	{
+		delete [] value;
+	}
+
     T& operator[] (unsigned int idx) const
     {
 		if(idx < 0 || idx >= length)
