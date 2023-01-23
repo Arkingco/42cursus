@@ -25,7 +25,6 @@ class Array
     {
 		for (unsigned int i=0; i<other.length; ++i)
 			value[i] = other.value[i];
-		length = other.length;
 
 		std::cout << "Copy constructor Call" << std::endl;
     }

@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/28 11:11:09 by kipark            #+#    #+#              #
-#    Updated: 2023/01/23 05:51:48 by kipark           ###   ########.fr        #
+#    Updated: 2023/01/23 12:42:35 by kipark           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,7 @@ NAME 						= 	ex02
 
 CXX							=	c++
 CXXFLAGS					=	-Wall -Wextra -Werror -std=c++98
-SRCS						=	main.cpp				\
-								Span.cpp
+SRCS						=	main.cpp
 
 OBJS						=	$(SRCS:.cpp=.o)
 

@@ -8,7 +8,7 @@ void print_array(T t)
 
 int main( void ) {
 	
-	int a[5] = {1,2,3,4,5};
+	int a[5]  = {1,2,3,4,5};
 	iter(a, 5, &print_array);
 	std::cout << std::endl;
 	

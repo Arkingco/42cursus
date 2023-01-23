@@ -3,25 +3,52 @@
 
 #include <iostream>
 #include <stack>
-#include <algorithm>
 
-class MutantStack
+
+template<typename T>
+class MutantStack : public std::stack<T>
 {
-  private:
-    unsigned int N;
-    std::vector<int> elements;
-    MutantStack();
-
+	 
   public:
-    MutantStack(unsigned int N);
-    MutantStack(const MutantStack& a);
-    ~MutantStack();
-    MutantStack& operator=(const MutantStack& a);
+  	typedef typename std::stack<T>::container_type::iterator iterator;
+
+    MutantStack()
+    {
+    	std::cout << "MutantStack Constructor Call" << std::endl;
+  	}
+    MutantStack(const MutantStack& other)
+	{
+		std::cout << "MutantStack copy Constructor Call" << std::endl;
+		this->c.assign(other.begin(), other.end());
+		return *this;
+	}
+    ~MutantStack()
+	{
+	    std::cout << "MutantStack Destructor Call" << std::endl;
+	}
+    MutantStack& operator=(const MutantStack& other)
+	{
+		if (this == &other)
+        	return *this;
+		std::cout << "MutantStack Assignment Operator Call" << std::endl;
+		this->c.assign(other.begin(), other.end());
+		return *this;
+	}
+
+	iterator begin()
+	{
+		return (this->c.begin());
+	}
+
+	iterator end()
+	{
+		return (this->c.end());
+	}
 };
 
-class TooManyElement : public std::exception
-{
-	virtual const char * what() const throw();
-};
+// class TooManyElement : public std::exception
+// {
+// 	virtual const char * what() const throw();
+// };
 
 #endif

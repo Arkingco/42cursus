@@ -51,7 +51,6 @@ Convert& Convert::operator=(const Convert& other)
 {
     if (this == &other)
         return *this;
-    std::cout << "Convert Assignment Operator Call" << std::endl;
     return *this;
 }
 
@@ -106,8 +105,8 @@ void Convert::ConvertInt()
 void Convert::ConvertFloat()
 {
     float f = static_cast<float>(to_double);
-    if (f == static_cast<int>(f))
-        std::cout << "float: "   << f << ".0f" << std::endl;
+    if (f == static_cast<int>(f) && (to_double < 1000000.0 && to_double > -1000000.0) )
+        std::cout << "float: " << f << ".0f" << std::endl;
     else
         std::cout << "float: " << std::setprecision(std::numeric_limits<float>::digits10) << f << "f" << std::endl;
 }
