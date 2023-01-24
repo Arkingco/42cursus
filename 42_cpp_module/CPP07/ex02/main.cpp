@@ -83,5 +83,17 @@ int main( void ) {
 	{
 		std::cout << e.what() << std::endl;
 	}
+	std::cout << "-------------------------------------- " << std::endl;
+
+
+	try
+	{
+		Array<int> g;
+	} 
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
 	return 0;
 }

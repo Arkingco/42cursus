@@ -13,12 +13,12 @@ class Array
   public:
     Array() : value(NULL), length(0)
     {
-   	   std::cout << "Default constructor Call" << std::endl;
+   		std::cout << "Default constructor Call" << std::endl;
     }
 
     Array(unsigned int n) : value(new T[n]), length(n)
     {
-   	   std::cout << "constructor Call" << std::endl;
+   		std::cout << "constructor Call" << std::endl;
     }
 
     Array(const Array& other) : value(new T[other.length]), length(other.length)
@@ -46,7 +46,10 @@ class Array
 
 	~Array()
 	{
-		delete [] value;
+		std::cout << "destructor Call" << std::endl;
+		if (value == NULL)
+			return ;
+		delete[] value;
 	}
 
     T& operator[] (unsigned int idx) const

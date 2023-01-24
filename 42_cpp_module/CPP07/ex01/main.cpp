@@ -1,7 +1,7 @@
-#include "Iter.hpp"
+#include "iter.hpp"
 
 template<typename T>
-void print_array(T t)
+void print_array(T const t)
 {
 	std::cout << t << std::endl;
 }

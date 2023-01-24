@@ -2,31 +2,26 @@
 
 Span::Span()
 {
-    std::cout << "Span Constructor Call" << std::endl;
 }
 
 Span::Span(unsigned int N) : N(N)
 {
-    std::cout << "Span Constructor Call" << std::endl;
 }
 
 Span::Span(const Span& other)
 {
-    std::cout << "Span copy Constructor Call" << std::endl;
     elements.assign(other.elements.begin(), other.elements.end());
     *this = other;
 }
 
 Span::~Span()
 {
-    std::cout << "Span Destructor Call" << std::endl;
 }
 
 Span& Span::operator=(const Span& other)
 {
     if (this == &other)
         return *this;
-    std::cout << "Span Assignment Operator Call" << std::endl;
     elements.assign(other.elements.begin(), other.elements.end());
     return *this;
 }
@@ -62,18 +57,12 @@ int Span::longestSpan()
     return (elements[elements.size() - 1] - elements[0]);
 }
 
-void Span::printVector()
-{
-    for (std::vector<int>::iterator idx = elements.begin(); idx != elements.end(); ++idx)
-        std::cout << *idx << " ";
-    std::cout << std::endl;
-}
-
 void Span::addManyNumber()
 {
-    int a;
+    for (unsigned int i=0; i<N; ++i){
+        elements.push_back(rand() % 21474783647);
+    }
 }
-
 
 const char * TooManyElement::what() const throw(){
     return "TooManyElement !!";

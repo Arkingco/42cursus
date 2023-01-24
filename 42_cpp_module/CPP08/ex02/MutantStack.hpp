@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <stack>
-
+#include <list>
 
 template<typename T>
 class MutantStack : public std::stack<T>
@@ -34,7 +34,7 @@ class MutantStack : public std::stack<T>
 		if (this == &other)
         	return *this;
 		std::cout << "MutantStack Assignment Operator Call" << std::endl;
-		this->c.assign(other.begin(), other.end());
+		this->c.assign(other.c.begin(), other.c.end());
 		return *this;
 	}
 

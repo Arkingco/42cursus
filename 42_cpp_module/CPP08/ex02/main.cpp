@@ -28,7 +28,8 @@ void subject_test()
 void custom_test()
 {
     MutantStack<int> mstack;
-    MutantStack<int> mstack2;
+    MutantStack<int> copy_mstak;
+
     mstack.push(1);
     mstack.push(2);
     mstack.push(3);
@@ -41,8 +42,8 @@ void custom_test()
     }
     std::cout << std::endl;
 
-    mstack2 = mstack;
-    for (MutantStack<int>::iterator iter = mstack2.begin(); iter != mstack2.end(); ++iter)
+    copy_mstak = mstack;
+    for (MutantStack<int>::iterator iter = copy_mstak.begin(); iter != copy_mstak.end(); ++iter)
     {
         std::cout << *iter << " ";
     }
@@ -54,8 +55,5 @@ int main()
     subject_test();
     std::cout << "\n\n---------------- custom -------------" << std::endl;
     custom_test();
-
-
-    
     return 0;
 }

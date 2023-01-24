@@ -1,6 +1,5 @@
 #include "Easyfind.hpp"
 
-
 int main( void ) {
 
 	
@@ -28,9 +27,9 @@ int main( void ) {
 
 	try
 	{
-		std::cout << "vector ----------------" << std::endl;
-		std::cout << *(easyfind(a, 124)) << std::endl;
-		std::cout << *(easyfind(a, 5555)) << std::endl;
+		std::cout << "-------------- vector ----------------" << std::endl;
+		std::cout << easyfind(a, 124) << std::endl;
+		std::cout << easyfind(a, 5555) << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -39,9 +38,9 @@ int main( void ) {
 	
 	try
 	{
-		std::cout << "list ----------------" << std::endl;
-		std::cout << *(easyfind(b, 12)) << std::endl;
-		std::cout << *(easyfind(b, 1000)) << std::endl;
+		std::cout << "---------------- list ----------------" << std::endl;
+		std::cout << easyfind(b, 12) << std::endl;
+		std::cout << easyfind(b, 1000) << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -50,9 +49,9 @@ int main( void ) {
 
 	try
 	{
-		std::cout << "deque ----------------" << std::endl;
-		std::cout << *(easyfind(c, 5)) << std::endl;
-		std::cout << *(easyfind(c, 100)) << std::endl;
+		std::cout << "-------------- deque ----------------" << std::endl;
+		std::cout << easyfind(c, 5) << std::endl;
+		std::cout << easyfind(c, 100) << std::endl;
 	}
 	catch(const std::exception& e)
 	{
