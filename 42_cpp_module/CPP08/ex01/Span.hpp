@@ -23,6 +23,13 @@ class Span
     int shortestSpan();
     int longestSpan();
     void addManyNumber();
+    template<typename T>
+    void addManyNumber(typename T::iterator begin, typename T::iterator end)
+    {
+        for (typename T::iterator iter = begin; iter != end; ++iter)
+            elements.push_back(*iter);
+    }
+
 };
 
 class TooManyElement : public std::exception

@@ -1,5 +1,12 @@
 #include "MutantStack.hpp"
 
+template<typename T>
+void printMutantStack(T &container)
+{
+    for (typename T::iterator iter = container.begin(); iter != container.end(); ++iter)
+        std::cout << *iter << " ";
+}
+
 void subject_test()
 {
     MutantStack<int> mstack;
@@ -36,17 +43,31 @@ void custom_test()
     mstack.push(4);
     mstack.push(5);
 
-    for (MutantStack<int>::iterator iter = mstack.begin(); iter != mstack.end(); ++iter)
-    {
-        std::cout << *iter << " ";
-    }
-    std::cout << std::endl;
+    copy_mstak.push(1);
+    copy_mstak.push(1);
+    copy_mstak.push(1);
+    copy_mstak.push(1);
+    copy_mstak.push(1);
+    copy_mstak.push(1);
+    copy_mstak.push(1);
+    copy_mstak.push(1);
+
+    printMutantStack(mstack); std::cout << std::endl;
+    printMutantStack(copy_mstak);
 
     copy_mstak = mstack;
+    
     for (MutantStack<int>::iterator iter = copy_mstak.begin(); iter != copy_mstak.end(); ++iter)
-    {
-        std::cout << *iter << " ";
-    }
+        *iter = *iter + 10;
+
+    printMutantStack(mstack); std::cout << std::endl;
+    printMutantStack(copy_mstak);
+    std::cout << std::endl;
+
+    std::list<int> list_mstack(mstack.begin(), mstack.end());
+
+    printMutantStack(mstack); std::cout << std::endl;
+    printMutantStack(list_mstack);
     std::cout << std::endl;
 }
 

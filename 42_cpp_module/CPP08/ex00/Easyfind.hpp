@@ -16,13 +16,13 @@ class NotMatched : public std::exception
 };
 
 template<typename T>
-int easyfind(T &container, int num)
+typename T::iterator easyfind(T &container, int num)
 {
 	typename T::iterator find;
 	find = std::find(container.begin(), container.end(), num);
 	if (find == container.end())
 		throw NotMatched();
-	return *find;
+	return find;
 }
 
 #endif

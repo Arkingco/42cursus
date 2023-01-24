@@ -68,4 +68,19 @@ int main()
     {
         std::cout << e.what() << std::endl;
     }
+
+    try
+    {
+        std::vector<int> a(100);
+        Span b(a.size());
+        for (int i=0; i<100; ++i)
+            a[i] = i + 1;
+
+        b.addManyNumber< std::vector<int> >(a.begin(), a.end());
+        std::cout << "longesSpan : " << b.longestSpan() << "    shortestSpan : " << b.shortestSpan() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
 }

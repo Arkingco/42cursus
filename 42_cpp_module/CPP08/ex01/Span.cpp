@@ -11,7 +11,6 @@ Span::Span(unsigned int N) : N(N)
 Span::Span(const Span& other)
 {
     elements.assign(other.elements.begin(), other.elements.end());
-    *this = other;
 }
 
 Span::~Span()
