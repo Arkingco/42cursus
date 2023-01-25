@@ -18,26 +18,22 @@ class MutantStack : public std::stack<T>
 
     MutantStack()
     {
-    	std::cout << "MutantStack Constructor Call" << std::endl;
   	}
 
     MutantStack(const MutantStack& other)
 	{
-		std::cout << "MutantStack copy Constructor Call" << std::endl;
 		this->c.assign(other.begin(), other.end());
 		return *this;
 	}
 
     ~MutantStack()
 	{
-	    std::cout << "MutantStack Destructor Call" << std::endl;
 	}
 	
     MutantStack& operator=(const MutantStack& other)
 	{
 		if (this == &other)
         	return *this;
-		std::cout << "MutantStack Assignment Operator Call" << std::endl;
 		this->c.assign(other.c.begin(), other.c.end());
 		return *this;
 	}

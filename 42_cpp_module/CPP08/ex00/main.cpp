@@ -1,5 +1,12 @@
 #include "easyfind.hpp"
 
+template<typename T>
+void printContainer(typename T::iterator con_begin, typename T::iterator con_end)
+{
+	for (typename T::iterator iter = con_begin; iter != con_end; iter++)
+		std::cout << *iter << std::endl;
+}
+
 int main( void ) {
 	std::vector<int> a;
 	std::list<int> b;
@@ -26,8 +33,8 @@ int main( void ) {
 	try
 	{
 		std::cout << "-------------- vector ----------------" << std::endl;
-		std::cout << *easyfind(a, 124) << std::endl;
-		std::cout << *easyfind(a, 5555) << std::endl;
+		printContainer<std::vector<int> >(easyfind(a, 124), a.end());
+		printContainer<std::vector<int> >(easyfind(a, 5555), a.end());
 	}
 	catch(const std::exception& e)
 	{
@@ -37,8 +44,8 @@ int main( void ) {
 	try
 	{
 		std::cout << "---------------- list ----------------" << std::endl;
-		std::cout << *easyfind(b, 12) << std::endl;
-		std::cout << *easyfind(b, 1000) << std::endl;
+		printContainer<std::list<int> >(easyfind(b, 12), b.end());
+		printContainer<std::list<int> >(easyfind(b, 1000), b.end());
 	}
 	catch(const std::exception& e)
 	{
@@ -48,8 +55,8 @@ int main( void ) {
 	try
 	{
 		std::cout << "-------------- deque ----------------" << std::endl;
-		std::cout << *easyfind(c, 5) << std::endl;
-		std::cout << *easyfind(c, 100) << std::endl;
+		printContainer<std::deque<int> >(easyfind(c, 5), c.end());
+		printContainer<std::deque<int> >(easyfind(c, 100), c.end());
 	}
 	catch(const std::exception& e)
 	{

@@ -1,7 +1,7 @@
 #include "MutantStack.hpp"
 
 template<typename T>
-void printMutantStack(T &container)
+void printContainer(T &container)
 {
     for (typename T::iterator iter = container.begin(); iter != container.end(); ++iter)
         std::cout << *iter << " ";
@@ -52,22 +52,22 @@ void custom_test()
     copy_mstak.push(1);
     copy_mstak.push(1);
 
-    printMutantStack(mstack); std::cout << std::endl;
-    printMutantStack(copy_mstak);
+    printContainer(mstack); std::cout << std::endl;
+    printContainer(copy_mstak);
 
     copy_mstak = mstack;
     
     for (MutantStack<int>::iterator iter = copy_mstak.begin(); iter != copy_mstak.end(); ++iter)
         *iter = *iter + 10;
 
-    printMutantStack(mstack); std::cout << std::endl;
-    printMutantStack(copy_mstak);
+    printContainer(mstack); std::cout << std::endl;
+    printContainer(copy_mstak);
     std::cout << std::endl;
 
     std::list<int> list_mstack(mstack.begin(), mstack.end());
 
-    printMutantStack(mstack); std::cout << std::endl;
-    printMutantStack(list_mstack);
+    printContainer(mstack); std::cout << std::endl;
+    printContainer(list_mstack);
     std::cout << std::endl;
 }
 
