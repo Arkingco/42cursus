@@ -1,5 +1,5 @@
-
 // include in vector header (custom)
+
 #include <__config>
 #include <iosfwd> // for forward declaration of vector
 #include <__bit_reference>
@@ -24,7 +24,31 @@
 namespace ft
 {
 
-template <class T, class Allocator >
+// template <class _Tp, class _Allocator, bool _IsStatic>
+// class _Vector_alloc_base {
+// public:
+//   typedef typename _Alloc_traits<_Tp, _Allocator>::allocator_type
+//           allocator_type;
+//   allocator_type get_allocator() const { return _M_data_allocator; }
+
+//   _Vector_alloc_base(const allocator_type& __a)
+//     : _M_data_allocator(__a), _M_start(0), _M_finish(0), _M_end_of_storage(0) 
+//   {}
+
+// protected:
+//   allocator_type _M_data_allocator;
+//   _Tp* _M_start;
+//   _Tp* _M_finish;
+//   _Tp* _M_end_of_storage;
+
+//   _Tp* _M_allocate(size_t __n)
+//     { return _M_data_allocator.allocate(__n); }
+//   void _M_deallocate(_Tp* __p, size_t __n)
+//     { if (__p) _M_data_allocator.deallocate(__p, __n); }
+// };
+
+
+template <class T, class Allocator = std::allocator<T> >
 class vector
 {
     public:
@@ -34,25 +58,34 @@ class vector
         // typedef typename allocator_type::const_reference const_reference;
         // typedef ft::randomaccessiterator<T>                   iterator;
         // typedef implementation-defined                   const_iterator;
-        // typedef typename allocator_type::size_type       size_type;
+        typedef typename allocator_type::size_type       size_type;
         // typedef typename allocator_type::difference_type difference_type;
-        // typedef typename allocator_type::pointer         pointer;
+        typedef typename allocator_type::pointer         pointer;
         // typedef typename allocator_type::const_pointer   const_pointer;
         // typedef std::reverse_iterator<iterator>          reverse_iterator;
         // typedef std::reverse_iterator<const_iterator>    const_reverse_iterator;
 
+    private:
+          pointer			_begin;         // = _Vector_alloc_base::_M_start in c++98(gcc)
+          pointer			_end;           // = _Vector_alloc_base::_M_finish in c++98(gcc)
+          pointer			_end_cap;       // = _Vector_alloc_base::_M_end_of_storage in c++98(gcc)
+          allocator_type _alloc;      // = _Vector_alloc_base::_M_data_allocator in c++98(gcc)
+
+
+    public:
     // Member functions;
         // constructor
-        vector() // default construct
+
+        vector() : _begin(0), _end(0), _end_cap(0)
         {
-            std::cout << "ft_vector default constructor" << std::endl;
+          std::cout << "ft_vector default constructor" << std::endl;
+        }    
+
+        explicit vector(const allocator_type& __a) : _alloc(__a), _begin(0), _end(0), _end_cap(0)
+        {
+          std::cout << "ft_vector default constructor" << std::endl;
         }
         
-        explicit vector(const allocator_type&) 
-        {
-            std::cout << "hi" << std::endl;
-        }
-
         // explicit vector(size_type n)
         // {
 
@@ -107,8 +140,10 @@ class vector
 
         // // Capacity:
         // bool empty() const;
-        // size_type size() const;
-        // size_type max_size() const;
+        size_type size() const
+          { return size_type(end() - begin()); } // end와 begin은 random access 라서 가능!!
+        size_type max_size() const
+          { return size_type(-1) / sizeof(T); }
         // void reserve(size_type n);
         // size_type capacity() const;
 
@@ -135,7 +170,26 @@ class vector
         //     iterator insert(const_iterator position, InputIterator first, InputIterator last);
         // iterator erase(iterator position);
         // iterator erase(iterator first, iterator last);
-        // void push_back(const value_type& x);
+
+        _increase_cap(const value_type& x)
+        {
+          const size_type __old_size = size();
+          const size_type __len = __old_size != 0 ? 2 * __old_size : 1;
+          
+        }
+        void push_back(const value_type& x)
+        {
+          if (_end != _end_cap)
+          {
+            _alloc.construct(_end, x);
+            ++_end;
+          }
+          else
+          {
+            _increase_cap()
+          }
+        }
+        
         // void pop_back();
         // void resize(size_type sz);
         // void resize( size_type count, value_type val = value_type());
