@@ -20,6 +20,7 @@
 
 // my include
 #include <iostream>
+#include "ft_iterator.hpp"
 
 namespace ft
 {
@@ -56,8 +57,8 @@ class vector
         typedef Allocator                                allocator_type;
         // typedef typename allocator_type::reference       reference;
         // typedef typename allocator_type::const_reference const_reference;
-        // typedef ft::randomaccessiterator<T>                   iterator;
-        // typedef implementation-defined                   const_iterator;
+        typedef ft::randomaccessiterator<T>                   iterator;
+        typedef implementation-defined                   const_iterator;
         typedef typename allocator_type::size_type       size_type;
         // typedef typename allocator_type::difference_type difference_type;
         typedef typename allocator_type::pointer         pointer;
@@ -70,7 +71,6 @@ class vector
           pointer			_end;           // = _Vector_alloc_base::_M_finish in c++98(gcc)
           pointer			_end_cap;       // = _Vector_alloc_base::_M_end_of_storage in c++98(gcc)
           allocator_type _alloc;      // = _Vector_alloc_base::_M_data_allocator in c++98(gcc)
-
 
     public:
     // Member functions;
@@ -122,10 +122,13 @@ class vector
         // allocator_type get_allocator() const
 
         // // Iterstors
-        // iterator               begin();
-        // const_iterator         begin() const;
-        // iterator               end();
-        // const_iterator         end() const;
+        iterator               begin()
+        {
+          return 
+        }
+        const_iterator         begin() const;
+        iterator               end();
+        const_iterator         end() const;
 
         // reverse_iterator       rbegin();
         // const_reverse_iterator rbegin() const;
@@ -140,10 +143,10 @@ class vector
 
         // // Capacity:
         // bool empty() const;
-        size_type size() const
-          { return size_type(end() - begin()); } // end와 begin은 random access 라서 가능!!
-        size_type max_size() const
-          { return size_type(-1) / sizeof(T); }
+        // size_type size() const
+        //   { return size_type(end() - begin()); } // end와 begin은 random access 라서 가능!!
+        // size_type max_size() const
+        //   { return size_type(-1) / sizeof(T); }
         // void reserve(size_type n);
         // size_type capacity() const;
 
@@ -171,14 +174,15 @@ class vector
         // iterator erase(iterator position);
         // iterator erase(iterator first, iterator last);
 
-        _increase_cap(const value_type& x)
-        {
-          const size_type __old_size = size();
-          const size_type __len = __old_size != 0 ? 2 * __old_size : 1;
+        // void _increase_cap(const value_type& x)
+        // {
+        //   // const size_type __old_size = size();
+        //   // const size_type __len = __old_size != 0 ? 2 * __old_size : 1;
           
-        }
+        // }
         void push_back(const value_type& x)
         {
+          std::cout << "push_back " << std::endl;
           if (_end != _end_cap)
           {
             _alloc.construct(_end, x);
@@ -186,7 +190,9 @@ class vector
           }
           else
           {
-            _increase_cap()
+            _increase_cap();
+            std::cout << "psuh_back : push_BACK" << std::endl;
+            
           }
         }
         
