@@ -84,9 +84,9 @@ class vector
         }
 
         template <class InputIterator> 
-        vector(enable_if<>InputIterator first, InputIterator last, const allocator_type& = allocator_type())
+        vector(InputIterator first, InputIterator last, const allocator_type& = allocator_type())
         {
-        
+          
         }
 
         // vector(const vector& x)
