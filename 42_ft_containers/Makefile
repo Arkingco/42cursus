@@ -6,7 +6,7 @@
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/28 11:11:09 by kipark            #+#    #+#              #
-#    Updated: 2023/01/29 19:29:43 by kipark           ###   ########seoul.kr   #
+#    Updated: 2023/01/31 17:44:44 by kipark           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME 						= 	ft_containers
 
 CXX							=	c++
 # CXXFLAGS					=	-Wall -Wextra -Werror -std=c++98
+CXXFLAGS					=	-g -fsanitize=address -std=c++98
 SRCS						=	main.cpp				\
 
 

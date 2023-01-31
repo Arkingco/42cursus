@@ -21,61 +21,38 @@
 // my include
 #include <iostream>
 #include "ft_iterator.hpp"
-
+#include ""
 namespace ft
 {
-
-// template <class _Tp, class _Allocator, bool _IsStatic>
-// class _Vector_alloc_base {
-// public:
-//   typedef typename _Alloc_traits<_Tp, _Allocator>::allocator_type
-//           allocator_type;
-//   allocator_type get_allocator() const { return _M_data_allocator; }
-
-//   _Vector_alloc_base(const allocator_type& __a)
-//     : _M_data_allocator(__a), _M_start(0), _M_finish(0), _M_end_of_storage(0) 
-//   {}
-
-// protected:
-//   allocator_type _M_data_allocator;
-//   _Tp* _M_start;
-//   _Tp* _M_finish;
-//   _Tp* _M_end_of_storage;
-
-//   _Tp* _M_allocate(size_t __n)
-//     { return _M_data_allocator.allocate(__n); }
-//   void _M_deallocate(_Tp* __p, size_t __n)
-//     { if (__p) _M_data_allocator.deallocate(__p, __n); }
-// };
-
 
 template <class T, class Allocator = std::allocator<T> >
 class vector
 {
+    private:
+      typedef vector<T, Allocator> vector_type;
     public:
-        typedef T                                        value_type;
-        typedef Allocator                                allocator_type;
-        // typedef typename allocator_type::reference       reference;
-        // typedef typename allocator_type::const_reference const_reference;
-        typedef ft::randomaccessiterator<T>                   iterator;
-        typedef implementation-defined                   const_iterator;
-        typedef typename allocator_type::size_type       size_type;
-        // typedef typename allocator_type::difference_type difference_type;
-        typedef typename allocator_type::pointer         pointer;
-        // typedef typename allocator_type::const_pointer   const_pointer;
-        // typedef std::reverse_iterator<iterator>          reverse_iterator;
-        // typedef std::reverse_iterator<const_iterator>    const_reverse_iterator;
+      typedef Allocator                                  allocator_type;
+      typedef T                                          value_type;
+      typedef value_type*                                pointer;
+      typedef const value_type*                          const_pointer;
+      typedef value_type&                                reference;
+      typedef const value_type&                          const_reference;
+      typedef size_t                                     size_type;
+      typedef ptrdiff_t                                  difference_type;
+      typedef ft::__vector_iterator<pointer, vector_type>      iterator;
+      typedef ft::__vector_iterator<const_pointer, vector_type>      const_iterator;
+      typedef std::reverse_iterator<iterator>            reverse_iterator;
+      typedef std::reverse_iterator<const_iterator>      const_reverse_iterator;
 
     private:
-          pointer			_begin;         // = _Vector_alloc_base::_M_start in c++98(gcc)
-          pointer			_end;           // = _Vector_alloc_base::_M_finish in c++98(gcc)
-          pointer			_end_cap;       // = _Vector_alloc_base::_M_end_of_storage in c++98(gcc)
-          allocator_type _alloc;      // = _Vector_alloc_base::_M_data_allocator in c++98(gcc)
+      pointer			_begin;         // = _Vector_alloc_base::_M_start in c++98(gcc)
+      pointer			_end;           // = _Vector_alloc_base::_M_finish in c++98(gcc)
+      pointer			_end_cap;       // = _Vector_alloc_base::_M_end_of_storage in c++98(gcc)
+      allocator_type _alloc;      // = _Vector_alloc_base::_M_data_allocator in c++98(gcc)
 
     public:
     // Member functions;
         // constructor
-
         vector() : _begin(0), _end(0), _end_cap(0)
         {
           std::cout << "ft_vector default constructor" << std::endl;
@@ -86,21 +63,31 @@ class vector
           std::cout << "ft_vector default constructor" << std::endl;
         }
         
-        // explicit vector(size_type n)
-        // {
+        explicit vector(size_type n)
+        {
+          _begin = _alloc.allocate(n, nullptr);
+          _end = _begin;
+          _end_cap = _begin + n;
+        }
 
-        // }
+        vector(size_type n, const value_type& value, const allocator_type& = allocator_type())  // 98
+        {
+          _begin = _alloc.allocate(n, nullptr);
+          _end = _begin;
+          _end_cap = _begin + n;
+          
+          for (int i=0; i<n; ++i)
+          {
+            *_end = value;
+            _end++;
+          }
+        }
 
-        // vector(size_type n, const value_type& value, const allocator_type& = allocator_type());  // 98
-        // {
-
-        // }
-
-        // template <class InputIterator> 
-        // vector(InputIterator first, InputIterator last, const allocator_type& = allocator_type());  // 98
-        // {
-            
-        // }
+        template <class InputIterator> 
+        vector(enable_if<>InputIterator first, InputIterator last, const allocator_type& = allocator_type())
+        {
+        
+        }
 
         // vector(const vector& x)
         // {
@@ -122,13 +109,10 @@ class vector
         // allocator_type get_allocator() const
 
         // // Iterstors
-        iterator               begin()
-        {
-          return 
-        }
-        const_iterator         begin() const;
-        iterator               end();
-        const_iterator         end() const;
+        iterator               begin() { return iterator (_begin); }
+        const_iterator         begin() const { return const_iterator (_begin); }
+        iterator               end() { return iterator (_end); }
+        const_iterator         end() const { return const_iterator (_end); } 
 
         // reverse_iterator       rbegin();
         // const_reverse_iterator rbegin() const;
@@ -143,12 +127,12 @@ class vector
 
         // // Capacity:
         // bool empty() const;
-        // size_type size() const
-        //   { return size_type(end() - begin()); } // end와 begin은 random access 라서 가능!!
-        // size_type max_size() const
-        //   { return size_type(-1) / sizeof(T); }
+        size_type size() const
+          { return size_type(_end_cap - _begin); } // end와 begin은 random access 라서 가능!!
+        size_type max_size() const
+          { return size_type(-1) / sizeof(T); }
         // void reserve(size_type n);
-        // size_type capacity() const;
+        size_type capacity() const {return size_type(_end_cap - _begin);}
 
         // // Element access:
         // reference       operator[](size_type n);
@@ -174,15 +158,35 @@ class vector
         // iterator erase(iterator position);
         // iterator erase(iterator first, iterator last);
 
-        // void _increase_cap(const value_type& x)
-        // {
-        //   // const size_type __old_size = size();
-        //   // const size_type __len = __old_size != 0 ? 2 * __old_size : 1;
-          
-        // }
+        void _copy_mem(pointer __temp_begin, pointer __temp_end, pointer& _current_end)
+        {
+          for (pointer t_begin = __temp_begin; t_begin != __temp_end; ++t_begin)
+          {
+            std::cout << "copy " << *t_begin << std::endl;
+            *_current_end = *t_begin;
+            _current_end++;
+          }
+        }
+
+        void _increase_cap()
+        {
+          size_type __old_size = size();
+          size_type __new_size = __old_size != 0 ? 2 * __old_size : 1;
+
+          pointer __temp_begin = _begin;
+          pointer __temp_end = _end;
+          pointer __temp_end_cap = _end_cap;
+          allocator_type __temp_alloc = _alloc;
+
+          _begin = _alloc.allocate(__new_size, nullptr);
+          _end = _begin;
+          _end_cap = _begin + __new_size;
+          _copy_mem(__temp_begin, __temp_end, _end);
+          __temp_alloc.deallocate(__temp_begin, __temp_end_cap - __temp_begin);
+        }
+
         void push_back(const value_type& x)
         {
-          std::cout << "push_back " << std::endl;
           if (_end != _end_cap)
           {
             _alloc.construct(_end, x);
@@ -191,8 +195,8 @@ class vector
           else
           {
             _increase_cap();
-            std::cout << "psuh_back : push_BACK" << std::endl;
-            
+            _alloc.construct(_end, x);
+            ++_end;
           }
         }
         
