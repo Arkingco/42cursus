@@ -136,10 +136,30 @@ class vector
         size_type capacity() const {return size_type(_end_cap - _begin);}
 
         // // Element access:
-        // reference       operator[](size_type n);
-        // const_reference operator[](size_type n) const;
-        // reference       at(size_type n);
-        // const_reference at(size_type n) const;
+        reference       operator[](size_type n)
+        {
+          if (n >= _end_cap - _begin || n < 0)
+            return *(_begin);
+          return *(_begin + n);
+        }
+        const_reference operator[](size_type n) const
+        {
+          if (n >= _end_cap - _begin || n < 0)
+            return *(_begin);
+          return *(_begin + n);
+        }
+        reference       at(size_type n)
+        {
+          if (n >= _end_cap - _begin || n < 0)
+            return *(_begin);
+          return *(_begin + n);
+        }
+        const_reference at(size_type n) const
+        {
+          if (n >= _end_cap - _begin || n < 0)
+            return *(_begin);
+          return *(_begin + n);
+        }
 
         // reference       front();
         // const_reference front() const;
