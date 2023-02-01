@@ -2,13 +2,28 @@
 #include "vector.hpp"
 #include <vector>
 #include <stack>
+#include <type_traits>
+
+
 int main()
 {
-    ft::vector<int> hi(2, 10);
+    ft::vector<int> ft_vector;
+    std::vector<int> std_vector;
+    ft_vector.push_back(10);
+    ft_vector.push_back(10);
+    ft_vector.push_back(10);
+    ft_vector.push_back(10);
+    std_vector.push_back(10);
+    std_vector.push_back(10);
+    std_vector.push_back(10);
+    std_vector.push_back(10);
+    std_vector.push_back(10);
 
-    std::cout << *hi.begin() << " " << *hi.end() << " " << hi.capacity() << std::endl;
-    for(ft::vector<int>::iterator i = hi.begin(); i != hi.end(); ++i)
+    for(ft::vector<int>::iterator i = ft_vector.begin(); i != ft_vector.end(); ++i)
     {
         std::cout << *i << std::endl;
     }
+
+    ft::is_integral<volatile int> a;
+    std::cout << a.value << std::endl;
 }

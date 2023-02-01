@@ -3,7 +3,6 @@
 #include <__config>
 #include <iosfwd> // for forward declaration of vector
 #include <__bit_reference>
-#include <type_traits>
 #include <climits>
 #include <limits>
 #include <initializer_list>
@@ -21,7 +20,8 @@
 // my include
 #include <iostream>
 #include "ft_iterator.hpp"
-#include ""
+#include "ft_utils.hpp"
+
 namespace ft
 {
 
@@ -72,19 +72,20 @@ class vector
 
         vector(size_type n, const value_type& value, const allocator_type& = allocator_type())  // 98
         {
+          std::cout << "vector intergral constructor call " << std::endl;
           _begin = _alloc.allocate(n, nullptr);
           _end = _begin;
           _end_cap = _begin + n;
           
           for (int i=0; i<n; ++i)
           {
-            *_end = value;
+            _alloc.construct(_end, value);
             _end++;
           }
         }
 
         template <class InputIterator> 
-        vector(InputIterator first, InputIterator last, const allocator_type& = allocator_type())
+        vector(InputIterator first, InputIterator last, typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type, const allocator_type& = allocator_type())
         {
           
         }
