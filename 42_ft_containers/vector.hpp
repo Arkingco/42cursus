@@ -140,31 +140,45 @@ class vector
         {
           if (n >= _end_cap - _begin || n < 0)
             return *(_begin);
-          return *(_begin + n);
+          return reference(*(_begin + n));
         }
         const_reference operator[](size_type n) const
         {
           if (n >= _end_cap - _begin || n < 0)
             return *(_begin);
-          return *(_begin + n);
+          return const_reference(*(_begin + n));
         }
         reference       at(size_type n)
         {
           if (n >= _end_cap - _begin || n < 0)
             return *(_begin);
-          return *(_begin + n);
+          return reference(*(_begin + n));
         }
         const_reference at(size_type n) const
         {
           if (n >= _end_cap - _begin || n < 0)
             return *(_begin);
-          return *(_begin + n);
+          return const_reference(*(_begin + n));
         }
 
-        // reference       front();
-        // const_reference front() const;
-        // reference       back();
-        // const_reference back() const;
+        reference       front()
+        {
+          return reference(*(_begin));
+        }
+        const_reference front() const
+        {
+          return const_reference(*(_begin));
+          
+        }
+        reference       back()
+        {
+          return reference(*(_end - 1));
+
+        }
+        const_reference back() const
+        {
+          return const_reference(*(_end - 1));
+        }
 
         // value_type*       data();
         // const value_type* data() const;

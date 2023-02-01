@@ -29,6 +29,15 @@ int main()
     ft_vector.at(10) = 10;
     std::cout << ft_vector[0] << " " << ft_vector[1] << " " << ft_vector[2] << " " << ft_vector[3] << std::endl;
 
+    std::cout << ft_vector.front() << " " << ft_vector.back() << std::endl;
+    ft_vector.push_back(123);
+    ft_vector.push_back(456);
+    ft_vector.push_back(789);
+    ft_vector.front() = 5;
+
+    std::cout << ft_vector[0] << " " << ft_vector[1] << " " << ft_vector[2] << " " << ft_vector[3]  << std::endl;
+    std::cout << ft_vector.front() << " " << ft_vector.back() << std::endl;
+
     // std::cout << ft_vector[-1] << " " << ft_vector[-2] << " " << ft_vector[5] << " " << ft_vector[4] << std::endl;
     // have to clear this problem
     // ft::is_integral<const int> a;   ft::is_integral<volatile int> a;
