@@ -74,8 +74,8 @@ namespace ft
         __vector_iterator(const _Iterator& __i) : _current(__i) { }
   
         template<typename _Iter>
-        inline __vector_iterator(const __vector_iterator<_Iter, _Container>& __i)
-          : _current(__i.base()) { }
+        __vector_iterator(const __vector_iterator<_Iter, _Container>& __i)
+	      : _current(__i.base()) { }
 
         reference
         operator*() const { return *_current; }
@@ -113,8 +113,9 @@ namespace ft
         difference_type operator-(const __vector_iterator& __i)
         { return _current - __i._current; }
 
-        const _Iterator&
-        base() const { return _current; }     
+        const _Iterator& base() const { return _current; }     
+
+        _Iterator& base() { return _current; }   
   };
 
 

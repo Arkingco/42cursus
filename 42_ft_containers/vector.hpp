@@ -1,5 +1,8 @@
 // include in vector header (custom)
 
+# ifndef FT_VECTOR
+#define FT_VECTOR
+
 #include <__config>
 #include <iosfwd> // for forward declaration of vector
 #include <__bit_reference>
@@ -65,7 +68,7 @@ class vector
         
         explicit vector(size_type n)
         {
-          _begin = _alloc.allocate(n, nullptr);
+          _begin = _alloc.allocate(n, NULL);
           _end = _begin;
           _end_cap = _begin + n;
         }
@@ -73,7 +76,7 @@ class vector
         vector(size_type n, const value_type& value, const allocator_type& = allocator_type())  // 98
         {
           std::cout << "vector intergral constructor call " << std::endl;
-          _begin = _alloc.allocate(n, nullptr);
+          _begin = _alloc.allocate(n, NULL);
           _end = _begin;
           _end_cap = _begin + n;
           
@@ -85,9 +88,9 @@ class vector
         }
 
         template <class InputIterator> 
-        vector(InputIterator first, InputIterator last, typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type, const allocator_type& = allocator_type())
+        vector(InputIterator first, InputIterator last, typename ft::enable_if<ft::is_integral<InputIterator>::value, InputIterator>::type, const allocator_type& = allocator_type())
         {
-          
+          std::cout << "vector InputIterator constructor call " << std::endl;
         }
 
         // vector(const vector& x)
@@ -129,7 +132,7 @@ class vector
         // // Capacity:
         // bool empty() const;
         size_type size() const
-          { return size_type(_end_cap - _begin); } // end와 begin은 random access 라서 가능!!
+          { return size_type(_end - _begin); } // end와 begin은 random access 라서 가능!!
         size_type max_size() const
           { return size_type(-1) / sizeof(T); }
         // void reserve(size_type n);
@@ -180,14 +183,50 @@ class vector
           return const_reference(*(_end - 1));
         }
 
-        // value_type*       data();
-        // const value_type* data() const;
+        pointer       data()
+        {
+          if (_begin == _end_cap)
+            return NULL;
+          return pointer(_begin);
+        }
+        const const_pointer data() const
+        {
+          if (_begin == _end_cap)
+            return NULL;
+          return const_pointer(_begin);
+        }
 
         // // Modifiers:
-        // void clear();
-        // iterator insert(const_iterator position, const value_type& x);
-        // iterator insert(const_iterator position, value_type&& x);
-        // iterator insert(const_iterator position, size_type n, const value_type& x);
+        void clear() 
+        {
+          if (_begin == _end)
+            return ;
+          for (pointer i = _begin; i != _end; ++i)
+            _alloc.destroy(i);
+          _end = _begin;
+        }
+
+        iterator insert(const_iterator position, const value_type& x)
+        {
+          difference_type pos = begin() - position;
+          std::cout << x << " " << position << std::endl;
+          // if (_end != _end_cap)
+          // {
+          //   _alloc.construct(_begin - pos, x);
+          //   ++_end;
+          // }
+          // else
+          // {
+          //   _increase_cap();
+          //   _alloc.construct(_begin - pos, x);
+          //   ++_end;
+          // }
+        }
+
+        // iterator insert(const_iterator position, size_type n, const value_type& x)
+        // {
+          
+        // }
         // template <class InputIterator>
         //     iterator insert(const_iterator position, InputIterator first, InputIterator last);
         // iterator erase(iterator position);
@@ -203,6 +242,12 @@ class vector
           }
         }
 
+        void _copy_value(pointer& __temp_begin, pointer& __temp_end, value_type& value)
+        {
+          for (pointer t_begin = __temp_begin; t_begin != __temp_end; ++t_begin)
+            t_begin = value;
+        }
+
         void _increase_cap()
         {
           size_type __old_size = size();
@@ -213,7 +258,7 @@ class vector
           pointer __temp_end_cap = _end_cap;
           allocator_type __temp_alloc = _alloc;
 
-          _begin = _alloc.allocate(__new_size, nullptr);
+          _begin = _alloc.allocate(__new_size, NULL);
           _end = _begin;
           _end_cap = _begin + __new_size;
           _copy_mem(__temp_begin, __temp_end, _end);
@@ -235,9 +280,30 @@ class vector
           }
         }
         
-        // void pop_back();
-        // void resize(size_type sz);
-        // void resize( size_type count, value_type val = value_type());
+        void pop_back()
+        {
+          if (_begin == _end)
+            return ;
+          _alloc.destroy(_end);
+          --_end;
+        }
+
+        // void resize(size_type count, value_type val = value_type())
+        // {
+        //   if (this.size() >= count)
+        //   {
+        //     _alloc.deallocate(_begin, this.capacity());
+        //     _begin = _alloc.allocate(count, NULL);
+        //     _end = _begin;
+        //     _end_cap = _begin + count;
+        //     _copy_value(__temp_begin, __temp_end, _end);
+        //   }
+        //   else 
+        //   {
+            
+        //   }
+        // }
+
         // void swap(vector& other)
 
         // bool __invariants() const; // ?? where use?
@@ -262,144 +328,4 @@ class vector
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// what is this?
-
-    // template <class Allocator = allocator<T> >
-    // class vector<bool, Allocator>
-    // {
-    // public:
-    //     typedef bool                                     value_type;
-    //     typedef Allocator                                allocator_type;
-    //     typedef implementation-defined                   iterator;
-    //     typedef implementation-defined                   const_iterator;
-    //     typedef typename allocator_type::size_type       size_type;
-    //     typedef typename allocator_type::difference_type difference_type;
-    //     typedef iterator                                 pointer;
-    //     typedef const_iterator                           const_pointer;
-    //     typedef std::reverse_iterator<iterator>          reverse_iterator;
-    //     typedef std::reverse_iterator<const_iterator>    const_reverse_iterator;
-
-    //     class reference
-    //     {
-    //     public:
-    //         reference(const reference&) noexcept;
-    //         operator bool() const noexcept;
-    //         reference& operator=(const bool x) noexcept;
-    //         reference& operator=(const reference& x) noexcept;
-    //         iterator operator&() const noexcept;
-    //         void flip() noexcept;
-    //     };
-
-    //     class const_reference
-    //     {
-    //     public:
-    //         const_reference(const reference&) noexcept;
-    //         operator bool() const noexcept;
-    //         const_iterator operator&() const noexcept;
-    //     };
-
-    //     vector()
-    //         noexcept(is_nothrow_default_constructible<allocator_type>::value);
-    //     explicit vector(const allocator_type&);
-    //     explicit vector(size_type n, const allocator_type& a = allocator_type()); // C++14
-    //     vector(size_type n, const value_type& value, const allocator_type& = allocator_type());
-    //     template <class InputIterator>
-    //         vector(InputIterator first, InputIterator last, const allocator_type& = allocator_type());
-    //     vector(const vector& x);
-    //     vector(vector&& x)
-    //         noexcept(is_nothrow_move_constructible<allocator_type>::value);
-    //     vector(initializer_list<value_type> il);
-    //     vector(initializer_list<value_type> il, const allocator_type& a);
-    //     ~vector();
-    //     vector& operator=(const vector& x);
-    //     vector& operator=(vector&& x)
-    //         noexcept(
-    //              allocator_type::propagate_on_container_move_assignment::value ||
-    //              allocator_type::is_always_equal::value); // C++17
-    //     vector& operator=(initializer_list<value_type> il);
-    //     template <class InputIterator>
-    //         void assign(InputIterator first, InputIterator last);
-    //     void assign(size_type n, const value_type& u);
-    //     void assign(initializer_list<value_type> il);
-
-    //     allocator_type get_allocator() const noexcept;
-
-    //     iterator               begin() noexcept;
-    //     const_iterator         begin()   const noexcept;
-    //     iterator               end() noexcept;
-    //     const_iterator         end()     const noexcept;
-
-    //     reverse_iterator       rbegin() noexcept;
-    //     const_reverse_iterator rbegin()  const noexcept;
-    //     reverse_iterator       rend() noexcept;
-    //     const_reverse_iterator rend()    const noexcept;
-
-    //     const_iterator         cbegin()  const noexcept;
-    //     const_iterator         cend()    const noexcept;
-    //     const_reverse_iterator crbegin() const noexcept;
-    //     const_reverse_iterator crend()   const noexcept;
-
-    //     size_type size() const noexcept;
-    //     size_type max_size() const noexcept;
-    //     size_type capacity() const noexcept;
-    //     bool empty() const noexcept;
-    //     void reserve(size_type n);
-    //     void shrink_to_fit() noexcept;
-
-    //     reference       operator[](size_type n);
-    //     const_reference operator[](size_type n) const;
-    //     reference       at(size_type n);
-    //     const_reference at(size_type n) const;
-
-    //     reference       front();
-    //     const_reference front() const;
-    //     reference       back();
-    //     const_reference back() const;
-
-    //     void push_back(const value_type& x);
-    //     template <class... Args> reference emplace_back(Args&&... args);  // C++14; reference in C++17
-    //     void pop_back();
-
-    //     template <class... Args> iterator emplace(const_iterator position, Args&&... args);  // C++14
-    //     iterator insert(const_iterator position, const value_type& x);
-    //     iterator insert(const_iterator position, size_type n, const value_type& x);
-    //     template <class InputIterator>
-    //         iterator insert(const_iterator position, InputIterator first, InputIterator last);
-    //     iterator insert(const_iterator position, initializer_list<value_type> il);
-
-    //     iterator erase(const_iterator position);
-    //     iterator erase(const_iterator first, const_iterator last);
-
-    //     void clear() noexcept;
-
-    //     void resize(size_type sz);
-    //     void resize(size_type sz, value_type x);
-
-    //     void swap(vector&)
-    //         noexcept(allocator_traits<allocator_type>::propagate_on_container_swap::value ||
-    //                  allocator_traits<allocator_type>::is_always_equal::value);  // C++17
-    //     void flip() noexcept;
-
-    //     bool __invariants() const;
-// };
+#endif
