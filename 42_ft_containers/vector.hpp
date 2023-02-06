@@ -209,9 +209,21 @@ class vector
 
         void _insert_pos_copy(unsigned int& pos, const value_type& x)
         {
+          _alloc.construct(_end, 0);
           for (pointer i = _end; i != _begin + pos; --i)
             *i = *(i - 1);
           *(_begin + pos) = x;
+        }
+
+        void _insert_pos_copy(unsigned int& pos, size_type size, const value_type& x)
+        {
+          for (int i = 0; i < size; ++i)
+            _alloc.construct(_end, 0);
+          _end = _end + size;
+          for (pointer i = _end; i != _begin + pos + size; --i)
+            *i = *(i - size);
+          for (int i = 0; i < size; ++i)
+            *(_begin + pos + i) = x;
         }
 
         iterator insert(const_iterator position, const value_type& x)
@@ -219,24 +231,35 @@ class vector
           unsigned int pos = position - begin();
           if (_end != _end_cap)
           {
-            _alloc.construct(_end, 0);
             _insert_pos_copy(pos, x);
             ++_end;
           }
           else
           {
             _increase_cap();
-            _alloc.construct(_end, 0);
             _insert_pos_copy(pos, x);
             ++_end;
           }
           return iterator (_begin + pos);
         }
 
-        // iterator insert(const_iterator position, size_type n, const value_type& x)
-        // {
-          
-        // }
+        iterator insert(const_iterator position, size_type n, const value_type& x)
+        {
+          int insert_size = n + size();
+          unsigned int pos = position - begin();
+
+            if (insert_size < capacity())
+            {
+              std::cout << "hi" << std::endl;
+              _insert_pos_copy(pos, n, x);
+            }
+            else
+            {
+              std::cout << "hi22" << std::endl;
+              _increase_cap(insert_size + 1);
+              _insert_pos_copy(pos, n, x);
+            }
+        }
         // template <class InputIterator>
         //     iterator insert(const_iterator position, InputIterator first, InputIterator last);
         // iterator erase(iterator position);
@@ -262,6 +285,23 @@ class vector
         {
           size_type __old_size = size();
           size_type __new_size = __old_size != 0 ? 2 * __old_size : 1;
+
+          pointer __temp_begin = _begin;
+          pointer __temp_end = _end;
+          pointer __temp_end_cap = _end_cap;
+          allocator_type __temp_alloc = _alloc;
+
+          _begin = _alloc.allocate(__new_size, NULL);
+          _end = _begin;
+          _end_cap = _begin + __new_size;
+          _copy_mem(__temp_begin, __temp_end, _end);
+          __temp_alloc.deallocate(__temp_begin, __temp_end_cap - __temp_begin);
+        }
+
+        void _increase_cap(unsigned int custom_size)
+        {
+          size_type __old_size = size();
+          size_type __new_size = custom_size;
 
           pointer __temp_begin = _begin;
           pointer __temp_end = _end;

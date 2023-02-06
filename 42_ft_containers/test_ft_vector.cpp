@@ -81,7 +81,7 @@ void test_ft_vector()
     test.push_back(1);
 
 
-    ft::vector<int> hh;
+    ft::vector<int> hh(1000);
 
     hh.push_back(1);
     hh.push_back(2);
@@ -91,6 +91,7 @@ void test_ft_vector()
     hh.push_back(6);
     hh.push_back(7);
 
+    print_vector(hh.begin(), hh.end());
     hh.insert(hh.begin(), 10);
     hh.insert(hh.begin(), 10);
     hh.insert(hh.begin(), 10);
@@ -98,6 +99,9 @@ void test_ft_vector()
     hh.insert(hh.begin(), 10);
     hh.insert(hh.begin(), 10);
     hh.insert(hh.begin(), 10);
+    print_vector(hh.begin(), hh.end());
+
+    hh.insert(hh.end(), 5, 5);
     print_vector(hh.begin(), hh.end());
 
 }
