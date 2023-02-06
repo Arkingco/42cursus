@@ -24,7 +24,8 @@
 #include <iostream>
 #include "ft_iterator.hpp"
 #include "ft_utils.hpp"
-
+#include <typeinfo>       // operator typeid
+#include <string>
 namespace ft
 {
 
@@ -141,7 +142,7 @@ class vector
         // // Element access:
         reference       operator[](size_type n)
         {
-          if (n >= _end_cap - _begin || n < 0)
+            if (n >= _end_cap - _begin || n < 0)
             return *(_begin);
           return reference(*(_begin + n));
         }
@@ -206,21 +207,30 @@ class vector
           _end = _begin;
         }
 
+        void _insert_pos_copy(unsigned int& pos, const value_type& x)
+        {
+          for (pointer i = _end; i != _begin + pos; --i)
+            *i = *(i - 1);
+          *(_begin + pos) = x;
+        }
+
         iterator insert(const_iterator position, const value_type& x)
         {
-          difference_type pos = begin() - position;
-          std::cout << x << " " << position << std::endl;
-          // if (_end != _end_cap)
-          // {
-          //   _alloc.construct(_begin - pos, x);
-          //   ++_end;
-          // }
-          // else
-          // {
-          //   _increase_cap();
-          //   _alloc.construct(_begin - pos, x);
-          //   ++_end;
-          // }
+          unsigned int pos = position - begin();
+          if (_end != _end_cap)
+          {
+            _alloc.construct(_end, 0);
+            _insert_pos_copy(pos, x);
+            ++_end;
+          }
+          else
+          {
+            _increase_cap();
+            _alloc.construct(_end, 0);
+            _insert_pos_copy(pos, x);
+            ++_end;
+          }
+          return iterator (_begin + pos);
         }
 
         // iterator insert(const_iterator position, size_type n, const value_type& x)
