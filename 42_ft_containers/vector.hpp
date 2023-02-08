@@ -89,7 +89,7 @@ class vector
         }
 
         template <class InputIterator> 
-        vector(InputIterator first, InputIterator last, typename ft::enable_if<ft::is_integral<InputIterator>::value, InputIterator>::type, const allocator_type& = allocator_type())
+        vector(InputIterator first, InputIterator last, typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type* = 0, const allocator_type& = allocator_type())
         {
           std::cout << "vector InputIterator constructor call " << std::endl;
         }
@@ -218,10 +218,15 @@ class vector
         void _insert_pos_copy(unsigned int& pos, size_type size, const value_type& x)
         {
           for (int i = 0; i < size; ++i)
+          {
             _alloc.construct(_end, 0);
-          _end = _end + size;
-          for (pointer i = _end; i != _begin + pos + size; --i)
+            _end++;
+          }
+          for (pointer i = _end - 1; i != _begin + pos + size - 1; --i)
+          {
             *i = *(i - size);
+            std::cout << *i << " " << *(i - size) << std::endl;
+          }
           for (int i = 0; i < size; ++i)
             *(_begin + pos + i) = x;
         }
@@ -245,31 +250,42 @@ class vector
 
         iterator insert(const_iterator position, size_type n, const value_type& x)
         {
-          int insert_size = n + size();
+          unsigned int insert_size = size() + n;
           unsigned int pos = position - begin();
-
-            if (insert_size < capacity())
-            {
-              std::cout << "hi" << std::endl;
-              _insert_pos_copy(pos, n, x);
-            }
-            else
-            {
-              std::cout << "hi22" << std::endl;
-              _increase_cap(insert_size + 1);
-              _insert_pos_copy(pos, n, x);
-            }
+          if (insert_size < capacity())
+          {
+            _insert_pos_copy(pos, n, x);
+          }
+          else
+          {
+            _increase_cap(insert_size);
+            _insert_pos_copy(pos, n, x);
+          }
+          return iterator(_begin + pos);
         }
-        // template <class InputIterator>
-        //     iterator insert(const_iterator position, InputIterator first, InputIterator last);
-        // iterator erase(iterator position);
-        // iterator erase(iterator first, iterator last);
+        
+        template <class InputIterator>
+        iterator insert(const_iterator position, InputIterator first, InputIterator last, typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type* = 0)
+        {
+          unsigned int pos = position - begin();
+          for(InputIterator i = first; i != last; ++i)
+          {
+            insert(position, *i);
+            ++position;
+          }
+          return iterator(_begin + pos);
+        }
+        iterator erase(iterator position)
+        {
+          
+        }
+        // iterator erase(iterator first, iterator last)
+        
 
         void _copy_mem(pointer __temp_begin, pointer __temp_end, pointer& _current_end)
         {
           for (pointer t_begin = __temp_begin; t_begin != __temp_end; ++t_begin)
           {
-            std::cout << "copy " << *t_begin << std::endl;
             *_current_end = *t_begin;
             _current_end++;
           }
@@ -298,10 +314,10 @@ class vector
           __temp_alloc.deallocate(__temp_begin, __temp_end_cap - __temp_begin);
         }
 
-        void _increase_cap(unsigned int custom_size)
+        void _increase_cap(unsigned int new_size)
         {
           size_type __old_size = size();
-          size_type __new_size = custom_size;
+          size_type __new_size = new_size;
 
           pointer __temp_begin = _begin;
           pointer __temp_end = _end;

@@ -15,6 +15,7 @@ void print_vector(iterator start, iterator end)
     }
 }
 
+#include <sstream> //
 void test_ft_vector()
 {
     ft::vector<int> ft_vector;
@@ -90,18 +91,25 @@ void test_ft_vector()
     hh.push_back(5);
     hh.push_back(6);
     hh.push_back(7);
+    hh.push_back(7);
+    hh.push_back(7);
 
     print_vector(hh.begin(), hh.end());
-    hh.insert(hh.begin(), 10);
-    hh.insert(hh.begin(), 10);
-    hh.insert(hh.begin(), 10);
-    hh.insert(hh.begin(), 10);
-    hh.insert(hh.begin(), 10);
-    hh.insert(hh.begin(), 10);
-    hh.insert(hh.begin(), 10);
+    hh.insert(hh.begin(), 11);
+    hh.insert(hh.begin(), 12);
+    hh.insert(hh.begin(), 13);
+    hh.insert(hh.begin(), 14);
+    hh.insert(hh.begin(), 15);
+    hh.insert(hh.begin(), 16);
+    hh.insert(hh.begin(), 17);
     print_vector(hh.begin(), hh.end());
 
     hh.insert(hh.end(), 5, 5);
+    print_vector(hh.begin(), hh.end());
+
+    std::istringstream str("11234 331232 441233 4444 5 6 7");
+    hh.insert(hh.begin(), std::istream_iterator<int>(str), std::istream_iterator<int>());
+
     print_vector(hh.begin(), hh.end());
 
 }
