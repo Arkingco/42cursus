@@ -277,7 +277,14 @@ class vector
         }
         iterator erase(iterator position)
         {
-          
+          unsigned int pos = position - begin();
+          for(pointer i = _begin + pos; i != _end - 1; ++i)
+          {
+            *i = *(i + 1);
+          }
+          --_end;
+          _alloc.destroy(_end);
+          return iterator(_begin + pos);
         }
         // iterator erase(iterator first, iterator last)
         

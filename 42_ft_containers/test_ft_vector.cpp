@@ -112,4 +112,8 @@ void test_ft_vector()
 
     print_vector(hh.begin(), hh.end());
 
+
+    hh.erase(hh.begin());
+    print_vector(hh.begin(), hh.end());
+
 }
