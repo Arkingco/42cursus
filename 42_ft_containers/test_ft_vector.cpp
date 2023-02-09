@@ -64,6 +64,7 @@ void test_ft_vector()
     hi2.push_back("name");
     hi2.push_back("is");
     hi2.push_back("kipark");
+    hi2.erase(hi2.begin());
     std::cout << "hi man : " <<hi2[0] << std::endl;
     print_vector(hi2.begin(), hi2.end());
     hi2.clear();
@@ -114,6 +115,9 @@ void test_ft_vector()
 
 
     hh.erase(hh.begin());
+    print_vector(hh.begin(), hh.end());
+
+    hh.erase(hh.begin(), hh.end());
     print_vector(hh.begin(), hh.end());
 
 }

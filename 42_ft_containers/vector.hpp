@@ -3,28 +3,9 @@
 # ifndef FT_VECTOR
 #define FT_VECTOR
 
-#include <__config>
-#include <iosfwd> // for forward declaration of vector
-#include <__bit_reference>
-#include <climits>
-#include <limits>
-#include <initializer_list>
-#include <memory>
-#include <stdexcept>
-#include <algorithm>
-#include <cstring>
-#include <__cxx_version>
-#include <__split_buffer>
-#include <__functional_base>
-
-#include <__debug>
-///////////////////////////////////////////
-
-// my include
 #include <iostream>
 #include "ft_iterator.hpp"
 #include "ft_utils.hpp"
-#include <typeinfo>       // operator typeid
 #include <string>
 namespace ft
 {
@@ -275,6 +256,7 @@ class vector
           }
           return iterator(_begin + pos);
         }
+        // poinstert 가 iterator 고 iterator rk Pointer의 추상화
         iterator erase(iterator position)
         {
           unsigned int pos = position - begin();
@@ -286,14 +268,28 @@ class vector
           _alloc.destroy(_end);
           return iterator(_begin + pos);
         }
-        // iterator erase(iterator first, iterator last)
+        iterator erase(iterator first, iterator last)
+        {
+          unsigned int pos = last - first;
+          for (iterator it = last; last != end(); ++it)
+          {
+            *(begin() + first) = *it;
+          }
+          for(int i=0; i<pos; ++i)
+          {
+            _alloc.destroy(_end);
+            --_end;
+          }
+          return iterator(_begin);
+        }
         
-
+        // iterator 3 4 5
+        // 1 2 3 4 5 6 7 8
         void _copy_mem(pointer __temp_begin, pointer __temp_end, pointer& _current_end)
         {
           for (pointer t_begin = __temp_begin; t_begin != __temp_end; ++t_begin)
           {
-            *_current_end = *t_begin;
+            _alloc.construct(_current_end, *t_begin);
             _current_end++;
           }
         }
@@ -378,8 +374,6 @@ class vector
         // }
 
         // void swap(vector& other)
-
-        // bool __invariants() const; // ?? where use?
 };
 
     // // Non-member functions
