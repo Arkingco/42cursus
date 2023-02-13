@@ -3,6 +3,7 @@
 #include <vector>
 #include <stack>
 #include <type_traits>
+#include "ft_utils.hpp"
 
 
 template<typename iterator>
@@ -24,6 +25,7 @@ void print_vector(iterator start, iterator end, std::string str)
         std::cout << *i << std::endl;
     }
 }
+
 
 #include <sstream> //
 void test_ft_vector()
@@ -131,5 +133,68 @@ void test_ft_vector()
     print_vector(hh.begin(), hh.end(), "erase hh begin() hh end()");
 
     hh.push_back(10);
-    print_vector(hh.begin() + 2, hh.end());
+    print_vector(hh.begin(), hh.end());
+
+    std::cout << "hh size  : " << hh.size() << " hh cap : " << hh.capacity() << std::endl;
+    print_vector(hh.begin(), hh.end());
+
+    hh.reserve(100000);
+    std::cout << "hh size  : " << hh.size() << " hh cap : " << hh.capacity() << std::endl;
+    print_vector(hh.begin(), hh.end());
+
+
+    ft::vector<int> hh2(hh);
+    ft::vector<int> aa(10, 5);
+    std::cout << "this is hh2 vector " << std::endl;
+    print_vector(hh2.begin(), hh2.end());
+    
+    hh2 = aa;
+    print_vector(hh2.begin(), hh2.end());
+
+    ft::vector<int> bb(5, 144);
+
+    hh2.assign(100, 5555);
+    print_vector(hh2.begin(), hh2.end());
+
+
+    ft::vector<int> cc;
+
+    cc.push_back(1);
+    cc.push_back(2);
+    cc.push_back(3);
+    cc.push_back(4);
+    cc.push_back(5);
+
+    cc.resize(10);
+    print_vector(cc.begin(), cc.end());
+    
+    cc.resize(7);
+    print_vector(cc.begin(), cc.end());
+
+    cc.resize(3);
+    print_vector(cc.begin(), cc.end());
+
+    cc.resize(7, 10);
+    print_vector(cc.begin(), cc.end());
+
+    hh2.swap(cc);
+    print_vector(hh2.begin(), hh2.end());
+    print_vector(cc.begin(), cc.end());
+    
+
+    ft::vector<int> qq(10, 6);
+    ft::vector<int> ww(10, 5);
+
+    std::vector<int> qq2(10, 11);
+    std::vector<int> ww2(10, 44);
+
+
+    std::cout << (qq <= ww) << "  " << (qq2 <= ww2) << std::endl;
+    std::cout << (qq < ww) << "  " << (qq2 < ww2) << std::endl;
+    std::cout << (qq >= ww) << "  " << (qq2 >= ww2) << std::endl;
+    std::cout << (qq > ww) << "  " << (qq2 > ww2) << std::endl;
+
+    ft::swap(qq, ww);
+    print_vector(qq.begin(), qq.end());
+    print_vector(ww.begin(), ww.end());
 }

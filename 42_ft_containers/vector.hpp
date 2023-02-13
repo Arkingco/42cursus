@@ -26,14 +26,14 @@ class vector
       typedef ptrdiff_t                                  difference_type;
       typedef ft::__vector_iterator<pointer, vector_type>      iterator;
       typedef ft::__vector_iterator<const_pointer, vector_type>      const_iterator;
-      typedef std::reverse_iterator<iterator>            reverse_iterator;
-      typedef std::reverse_iterator<const_iterator>      const_reverse_iterator;
+      typedef ft::reverse_iterator<const_iterator> const_reverse_iterator;
+      typedef ft::reverse_iterator<iterator> reverse_iterator;
 
     private:
-      pointer			_begin;         // = _Vector_alloc_base::_M_start in c++98(gcc)
-      pointer			_end;           // = _Vector_alloc_base::_M_finish in c++98(gcc)
-      pointer			_end_cap;       // = _Vector_alloc_base::_M_end_of_storage in c++98(gcc)
-      allocator_type _alloc;      // = _Vector_alloc_base::_M_data_allocator in c++98(gcc)
+      pointer			_begin;
+      pointer			_end;
+      pointer			_end_cap;
+      allocator_type _alloc;
 
     public:
     // Member functions;
@@ -75,24 +75,75 @@ class vector
           std::cout << "vector InputIterator constructor call " << std::endl;
         }
 
-        // vector(const vector& x)
-        // {
-
-        // }
+        vector(const vector& x)
+        {
+          unsigned int x_capacity = x.capacity();
+          _begin = _alloc.allocate(x_capacity, NULL);
+          _end = _begin;
+          _end_cap = _begin + x_capacity;
+          for (int i=0; i<x.size(); ++i)
+          {
+            *_end = x[i];
+            ++_end;
+          }
+        }
         
         // // destructor
-        // ~vector();
+        ~vector()
+        {
+          std::cout << " destructor call " << std::endl;
+          if (capacity() == 0)
+            return ;
+          clear();
+          _alloc.deallocate(_begin, _end_cap - _begin);
+        }
 
         // // operator
-        // vector& operator=(const vector& x);
+        vector& operator=(const vector& other)
+        {
+          // if (capacity() != 0)
+            // this free 작업 진행 해야함
+          unsigned int other_capacity = other.capacity();
+          _begin = _alloc.allocate(other_capacity, NULL);
+          _end = _begin;
+          _end_cap = _begin + other_capacity;
+          for (int i=0; i<other.size(); ++i)
+          {
+            *_end = other[i];
+            ++_end;
+          }
+          return *this;
+        }
 
         // // assign
-        // template <class InputIterator>
-        //     void assign(InputIterator first, InputIterator last);
-        // void assign(size_type n, const value_type& u);
+        template <class InputIterator>
+        void assign(InputIterator first, InputIterator last, typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type* = 0)
+        {
+          difference_type pos = last - first;
+          if (pos > capacity())
+            _increase_cap(pos);
+          clear();
+          for (InputIterator it = first; it != last; ++it)
+          {
+            _alloc.construct(_end, *it);
+            _end++;
+          }
+        }
+        
+        void assign(size_type n, const value_type& u)
+        {
+          if (n > capacity())
+            _increase_cap(n);
+          clear();
+          for (int i=0; i<n; ++i)
+          {
+            _alloc.construct(_end, u);
+            _end++;
+          }
+        }
 
         // // get_allocator:
-        // allocator_type get_allocator() const
+        allocator_type get_allocator() const { return (_alloc); }
 
         // // Iterstors
         iterator               begin() { return iterator (_begin); }
@@ -100,24 +151,33 @@ class vector
         iterator               end() { return iterator (_end); }
         const_iterator         end() const { return const_iterator (_end); } 
 
-        // reverse_iterator       rbegin();
-        // const_reverse_iterator rbegin() const;
-        // reverse_iterator       rend();
-        // const_reverse_iterator rend() const;
+        reverse_iterator       rbegin() { return iterator (_end); }
+        const_reverse_iterator rbegin() const { return const_iterator (_end); }
+        reverse_iterator       rend() { return iterator (_begin); }
+        const_reverse_iterator rend() const { return const_iterator (_begin); }
 
-        // const_iterator         cbegin()  const;
-        // const_iterator         cend()    const;
-        // const_reverse_iterator crbegin() const;
-        // const_reverse_iterator crend()   const;
-
+        const_iterator         cbegin()  const { return const_iterator(_begin); }
+        const_iterator         cend()    const { return const_iterator(_end); }
+        const_reverse_iterator crbegin() const { return const_iterator(_end); }
+        const_reverse_iterator crend()   const { return const_iterator(_begin); }
 
         // // Capacity:
-        // bool empty() const;
+        bool empty() const
+        {
+          if (capacity() == 0)
+            return true;
+          return false;
+        }
         size_type size() const
           { return size_type(_end - _begin); } // end와 begin은 random access 라서 가능!!
         size_type max_size() const
           { return size_type(-1) / sizeof(T); }
-        // void reserve(size_type n);
+        void reserve(size_type n)
+        {
+          if (n > capacity())
+            _increase_cap(n);
+          return ;
+        }
         size_type capacity() const {return size_type(_end_cap - _begin);}
 
         // // Element access:
@@ -316,12 +376,12 @@ class vector
           _end = _begin;
           _end_cap = _begin + __new_size;
           _copy_mem(__temp_begin, __temp_end, _end);
+          // 
           __temp_alloc.deallocate(__temp_begin, __temp_end_cap - __temp_begin);
         }
 
         void _increase_cap(unsigned int new_size)
         {
-          size_type __old_size = size();
           size_type __new_size = new_size;
 
           pointer __temp_begin = _begin;
@@ -333,6 +393,23 @@ class vector
           _end = _begin;
           _end_cap = _begin + __new_size;
           _copy_mem(__temp_begin, __temp_end, _end);
+          // _alloc.destroy(i) 추가 
+          __temp_alloc.deallocate(__temp_begin, __temp_end_cap - __temp_begin);
+        }
+
+        void _decrease_cap(unsigned int new_size)
+        {
+          size_type __new_size = new_size;
+
+          pointer __temp_begin = _begin;
+          pointer __temp_end = _end;
+          pointer __temp_end_cap = _end_cap;
+          allocator_type __temp_alloc = _alloc;
+          _begin = _alloc.allocate(__new_size, NULL);
+          _end = _begin;
+          _end_cap = _begin + __new_size;
+          _copy_mem(__temp_begin, __temp_begin + new_size, _end);
+          // _alloc.destroy(i) 추가
           __temp_alloc.deallocate(__temp_begin, __temp_end_cap - __temp_begin);
         }
 
@@ -359,38 +436,92 @@ class vector
           --_end;
         }
 
-        // void resize(size_type count, value_type val = value_type())
-        // {
-        //   if (this.size() >= count)
-        //   {
-        //     _alloc.deallocate(_begin, this.capacity());
-        //     _begin = _alloc.allocate(count, NULL);
-        //     _end = _begin;
-        //     _end_cap = _begin + count;
-        //     _copy_value(__temp_begin, __temp_end, _end);
-        //   }
-        //   else 
-        //   {
-            
-        //   }
-        // }
+        void resize(size_type count)
+        {
+          if (count > size())
+          {
+            _increase_cap(count);
+            for (pointer i = _end; i != _end_cap; ++i)
+            {
+              _alloc.construct(i, 0);
+              _end++;
+            }
+          }
+          else
+            _decrease_cap(count);
+        }
 
-        // void swap(vector& other)
+        void resize(size_type count, value_type value)
+        {
+          if (count > size())
+          {
+            _increase_cap(count);
+            for (pointer i = _end; i != _end_cap; ++i)
+            {
+              _alloc.construct(i, value);
+              _end++;
+            }
+          }
+          else
+            _decrease_cap(count);
+        }
+
+        void swap(vector& other)
+        {
+          pointer __temp_begin = _begin;
+          pointer __temp_end = _end;
+          pointer __temp_end_cap = _end_cap;
+          allocator_type __temp_alloc = _alloc;
+
+          _begin = other._begin;
+          _end = other._end;
+          _end_cap = other._end_cap;
+          _alloc = other._alloc;
+
+          other._begin = __temp_begin; 
+          other._end = __temp_end;
+          other._end_cap = __temp_end_cap;
+          other._alloc = __temp_alloc;
+        }
 };
 
-    // // Non-member functions
-    // template <class T, class Allocator> bool operator==(const vector<T,Allocator>& x, const vector<T,Allocator>& y);
-    // template <class T, class Allocator> bool operator< (const vector<T,Allocator>& x, const vector<T,Allocator>& y);
-    // template <class T, class Allocator> bool operator!=(const vector<T,Allocator>& x, const vector<T,Allocator>& y);
-    // template <class T, class Allocator> bool operator> (const vector<T,Allocator>& x, const vector<T,Allocator>& y);
-    // template <class T, class Allocator> bool operator>=(const vector<T,Allocator>& x, const vector<T,Allocator>& y);
-    // template <class T, class Allocator> bool operator<=(const vector<T,Allocator>& x, const vector<T,Allocator>& y);
+  // Non-member functions
+  template <class T, class Allocator>
+  bool operator==(const vector<T,Allocator>& x, const vector<T,Allocator>& y)
+  {
+    if (x.size() != y.size())
+      return false;
+    for (int i=0; i<x.size(); ++i)
+      if (x[i] != y[i])
+        return false;
+    return true;
+  }
 
-    // template <class T, class Allocator>
-    //     void swap(vector<T,Allocator>& x, vector<T,Allocator>& y);
+  template <class T, class Allocator>
+  bool operator!=(const vector<T,Allocator>& x, const vector<T,Allocator>& y) 
+  { return !(x == y); }
 
-    // template <class T, class Allocator, class Predicate>
-    // void erase_if(vector<T, Allocator>& c, Predicate pred);    // C++20 this Non-member function can not use c++98 but we have to implement
+  template <class T, class Allocator>
+  bool operator< (const vector<T,Allocator>& x, const vector<T,Allocator>& y)
+  { return ft::lexicographical_compare(x.begin(), x.end(), y.begin(), y.end()); }
+
+  template <class T, class Allocator>
+  bool operator<=(const vector<T,Allocator>& x, const vector<T,Allocator>& y)
+  {
+    return !(x > y);
+  }
+
+  template <class T, class Allocator>
+  bool operator> (const vector<T,Allocator>& x, const vector<T,Allocator>& y)
+  {
+    return ft::lexicographical_compare(y.begin(), y.end(), x.begin(), x.end());
+  }
+
+  template <class T, class Allocator>
+  bool operator>=(const vector<T,Allocator>& x, const vector<T,Allocator>& y)
+  {
+    return !(x < y);
+  }
 
 }
 
