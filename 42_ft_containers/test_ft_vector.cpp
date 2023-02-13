@@ -15,6 +15,16 @@ void print_vector(iterator start, iterator end)
     }
 }
 
+template<typename iterator>
+void print_vector(iterator start, iterator end, std::string str)
+{
+    std::cout << "-------- print vector --------   " << str << std::endl;
+    for (iterator i = start; i != end; ++i)
+    {
+        std::cout << *i << std::endl;
+    }
+}
+
 #include <sstream> //
 void test_ft_vector()
 {
@@ -111,13 +121,15 @@ void test_ft_vector()
     std::istringstream str("11234 331232 441233 4444 5 6 7");
     hh.insert(hh.begin(), std::istream_iterator<int>(str), std::istream_iterator<int>());
 
-    print_vector(hh.begin(), hh.end());
+    print_vector(hh.begin() , hh.end());
 
 
     hh.erase(hh.begin());
     print_vector(hh.begin(), hh.end());
 
     hh.erase(hh.begin(), hh.end());
-    print_vector(hh.begin(), hh.end());
+    print_vector(hh.begin(), hh.end(), "erase hh begin() hh end()");
 
+    hh.push_back(10);
+    print_vector(hh.begin() + 2, hh.end());
 }

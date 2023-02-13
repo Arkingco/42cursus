@@ -270,10 +270,12 @@ class vector
         }
         iterator erase(iterator first, iterator last)
         {
-          unsigned int pos = last - first;
-          for (iterator it = last; last != end(); ++it)
+          difference_type pos = last - first;
+          iterator it_begin = begin();
+          iterator it_end = end();
+          for (iterator it = last; last != it_end; ++it)
           {
-            *(begin() + first) = *it;
+            *(first) = *it;
           }
           for(int i=0; i<pos; ++i)
           {
