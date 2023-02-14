@@ -502,7 +502,7 @@ class vector
   { return !(x == y); }
 
   template <class T, class Allocator>
-  bool operator< (const vector<T,Allocator>& x, const vector<T,Allocator>& y)
+  bool operator<(const vector<T,Allocator>& x, const vector<T,Allocator>& y)
   { return ft::lexicographical_compare(x.begin(), x.end(), y.begin(), y.end()); }
 
   template <class T, class Allocator>
@@ -512,7 +512,7 @@ class vector
   }
 
   template <class T, class Allocator>
-  bool operator> (const vector<T,Allocator>& x, const vector<T,Allocator>& y)
+  bool operator>(const vector<T,Allocator>& x, const vector<T,Allocator>& y)
   {
     return ft::lexicographical_compare(y.begin(), y.end(), x.begin(), x.end());
   }

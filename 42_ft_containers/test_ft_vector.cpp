@@ -195,6 +195,6 @@ void test_ft_vector()
     std::cout << (qq > ww) << "  " << (qq2 > ww2) << std::endl;
 
     ft::swap(qq, ww);
-    print_vector(qq.begin(), qq.end());
-    print_vector(ww.begin(), ww.end());
+    print_vector(qq.end() - 2, qq.end());
+    print_vector(ww.end() - 2, ww.end());
 }
