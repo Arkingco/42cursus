@@ -499,7 +499,7 @@ class vector
 
   template <class T, class Allocator>
   bool operator!=(const vector<T,Allocator>& x, const vector<T,Allocator>& y) 
-  { return !(x == y); }
+{ return !(x == y); }
 
   template <class T, class Allocator>
   bool operator<(const vector<T,Allocator>& x, const vector<T,Allocator>& y)
