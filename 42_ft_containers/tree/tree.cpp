@@ -30,7 +30,6 @@ class RedBlackTree {
     private:
         Node *root;
 
-        // Helper functions84
         void rotateLeft(Node *x)
         {
             Node *y = x->right;             // node의 right 가 변경되면 이전의 포인터 값을 가져올 수 없으니 미리 저장
@@ -137,7 +136,7 @@ class RedBlackTree {
                                 grandFather->left->color = BLACK;
                                 grandFather->right->color = BLACK;
                                 grandFather->color = RED;
-                            }
+                            } 
                             // case 2 삼촌이 black
                             else
                             {

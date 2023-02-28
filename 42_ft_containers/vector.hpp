@@ -151,15 +151,15 @@ class vector
         iterator               end() { return iterator (_end); }
         const_iterator         end() const { return const_iterator (_end); } 
 
-        reverse_iterator       rbegin() { return iterator (_end); }
-        const_reverse_iterator rbegin() const { return const_iterator (_end); }
-        reverse_iterator       rend() { return iterator (_begin); }
-        const_reverse_iterator rend() const { return const_iterator (_begin); }
+        reverse_iterator       rbegin() { return iterator (_end - 1); }
+        const_reverse_iterator rbegin() const { return const_iterator (_end - 1); }
+        reverse_iterator       rend() { return iterator (_begin - 1); }
+        const_reverse_iterator rend() const { return const_iterator (_begin - 1); }
 
         const_iterator         cbegin()  const { return const_iterator(_begin); }
         const_iterator         cend()    const { return const_iterator(_end); }
-        const_reverse_iterator crbegin() const { return const_iterator(_end); }
-        const_reverse_iterator crend()   const { return const_iterator(_begin); }
+        const_reverse_iterator crbegin() const { return const_iterator(_end - 1); }
+        const_reverse_iterator crend()   const { return const_iterator(_begin - 1); }
 
         // // Capacity:
         bool empty() const
