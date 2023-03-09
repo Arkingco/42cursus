@@ -1,5 +1,5 @@
 # Use the Alpine base image
-FROM alpine:latest
+FROM alpine:3.16
 
 # https://wonit.tistory.com/335 ngix conf 파일 구조
 # Install Nginx and some useful utilities
