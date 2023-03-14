@@ -1,0 +1,45 @@
+version: '3'
+services:
+  #항목명 = 서비스명 = 네트워크 호스트명
+  wordpress:
+    # Dockerfile이 있는 위치
+    build:
+      context: ./requirements/wordpress
+      dockerfile: ./Dockerfile
+    depends_on:
+      - mariadb
+    # 내부에서 개방할 포트 : 외부에서 접근할 포트
+    ports:
+      - "80:80"
+    volumes:
+      - "/home/WordPress:/var/www/localhost/htdocs"
+  
+  mariadb:
+    # Dockerfile이 있는 위치
+    build:
+      context: ./requirements/mariadb
+      dockerfile: ./Dockerfile
+    # 내부에서 개방할 포트 : 외부에서 접근할 포트
+    # ports:
+    #   - "80:80"
+    # depends_on:
+
+  # #항목명 = 서비스명 = 네트워크 호스트명
+  # backend:
+  #   build: ./backend
+  #   # 연결할 외부 디렉토리 : 컨테이너 내 디렉토리
+  #   volumes:
+  #     - ./backend:/usr/src/app
+  #   ports:
+  #     - "5000:5000"
+  #   # 환경변수 설정
+  #   environment: 
+  #     - DBHOST=database
+  # #항목명 = 서비스명  = 네트워크 호스트명
+  # mariadb:
+  #   build: ./requ
+  #   # 연결할 외부 디렉토리 : 컨테이너 내 디렉토리
+  #   volumes:
+  #     - ./frontend:/home/node/app
+  #   ports:
+  #     - "8080:8080"​
