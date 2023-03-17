@@ -1,6 +1,21 @@
 version: '3'
+
 services:
   #항목명 = 서비스명 = 네트워크 호스트명
+  nginx:
+    # Dockerfile이 있는 위치
+    build:
+      context: ./requirements/nginx
+      dockerfile: ./Dockerfile
+    depends_on:
+      - wordpress
+    # 내부에서 개방할 포트 : 외부에서 접근할 포트
+    ports:
+      - '80:80'
+    networks:
+      - intra
+    restart: always
+
   wordpress:
     # Dockerfile이 있는 위치
     build:
@@ -8,17 +23,20 @@ services:
       dockerfile: ./Dockerfile
     depends_on:
       - mariadb
-    # 내부에서 개방할 포트 : 외부에서 접근할 포트
-    ports:
-      - "80:80"
     volumes:
-      - "/home/WordPress:/var/www/localhost/htdocs"
-  
+      - './requirements/wordpress/WordPress/:/var/www/localhost/htdocs'
+    networks:
+      - intra
+    restart: always
+
   mariadb:
     # Dockerfile이 있는 위치
     build:
       context: ./requirements/mariadb
       dockerfile: ./Dockerfile
+    networks:
+      - intra
+    restart: always
     # 내부에서 개방할 포트 : 외부에서 접근할 포트
     # ports:
     #   - "80:80"
@@ -33,7 +51,7 @@ services:
   #   ports:
   #     - "5000:5000"
   #   # 환경변수 설정
-  #   environment: 
+  #   environment:
   #     - DBHOST=database
   # #항목명 = 서비스명  = 네트워크 호스트명
   # mariadb:
@@ -43,3 +61,7 @@ services:
   #     - ./frontend:/home/node/app
   #   ports:
   #     - "8080:8080"​
+
+networks:
+  intra:
+    driver: bridge
