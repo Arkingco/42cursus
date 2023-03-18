@@ -3,10 +3,15 @@ FROM alpine
 RUN apk update && \
     apk add php-fpm && \
     apk add php-mysqli && \
-    apk add curl
+    apk add curl iputils
 
 EXPOSE 9000
 
-CMD ["/bin/sh", "-c", "/usr/sbin/php-fpm81 -F -R"]
+ADD config/www.conf /etc/php81/php-fpm.d/www.conf
+ADD config/wp-config.php /tmp/wp-config.php
+ADD script/wordpress.sh /tmp/wordpress.sh
+
+CMD ["/bin/sh", "/tmp/wordpress.sh"]
+
 WORKDIR /var/www/localhost/htdocs
 
