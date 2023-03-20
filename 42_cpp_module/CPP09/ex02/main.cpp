@@ -25,29 +25,7 @@ void insertionSort(container &A, int left, int right) {
 
 template <class container>
 void merge(container &A, int left, int half, int right) {
-    int n1 = half - left + 1;
-    int n2 = right - half;
-    std::vector<int> LA;
-	LA.assign(A.begin() + left, A.begin() + (half + 1));
-    std::vector<int> RA;
-	RA.assign(A.begin() + half + 1, A.begin() + (right + 1));
-    int RIDX = 0;
-    int LIDX = 0;
-    for (int i = left; i < right - left + 1; i++) {
-        if (RIDX == n2) {
-            A[i] = LA[LIDX];
-            LIDX++;
-        } else if (LIDX == n1) {
-            A[i] = RA[RIDX];
-            RIDX++;
-        } else if (RA[RIDX] > LA[LIDX]) {
-            A[i] = LA[LIDX];
-            LIDX++;
-        } else {
-            A[i] = RA[RIDX];
-            RIDX++;
-        }
-    }
+ 
 }
 
 template <class container>
