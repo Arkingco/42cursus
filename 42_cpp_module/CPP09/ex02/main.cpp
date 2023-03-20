@@ -1,80 +1,71 @@
-#include "MutantStack.hpp"
+#include "PmergeMe.hpp"
 
-template<typename T>
-void printContainer(T &container)
-{
-    for (typename T::iterator iter = container.begin(); iter != container.end(); ++iter)
-        std::cout << *iter << " ";
-}
-
-void subject_test()
-{
-    MutantStack<int> mstack;
-    mstack.push(5);
-    mstack.push(17);
-    std::cout << "mstack top : " << mstack.top() << std::endl;
-    mstack.pop();
-    std::cout << "mstack size : " << mstack.size() << std::endl;
-    mstack.push(3);
-    mstack.push(5);
-    mstack.push(737);
-    //[...]
-    mstack.push(0);
-    MutantStack<int>::iterator it = mstack.begin();
-    MutantStack<int>::iterator ite = mstack.end();
-    ++it;
-    --it;
-    while (it != ite)
+int K = 3;
+void insertionSort(std::vector<int> &A, int left, int right) {
+	std::cout << "left : " << left << " right : " << right << std::endl;
+    for (int i=left; i<right; ++i)
     {
-        std::cout << *it << std::endl;
-        ++it;
+        int temp = A[i + 1];
+        int j = i + 1;
+        while(j > left && A[j - 1] > temp )
+        {
+            A[j] = A[j - 1];
+            j--;
+        }
+        A[j] = temp;
     }
-    std::stack<int> s(mstack);
+	std::vector<int> temp;
+	temp.assign(A.begin() + left, A.begin() + (right+1));
+	for (int i=0; i<temp.size(); ++i)
+	{
+		std::cout << temp[i] << " ";
+	}
+	std::cout << std::endl;
 }
 
-void custom_test()
-{
-    MutantStack<int> mstack;
-    MutantStack<int> copy_mstak;
-
-    mstack.push(1);
-    mstack.push(2);
-    mstack.push(3);
-    mstack.push(4);
-    mstack.push(5);
-
-    copy_mstak.push(1);
-    copy_mstak.push(1);
-    copy_mstak.push(1);
-    copy_mstak.push(1);
-    copy_mstak.push(1);
-    copy_mstak.push(1);
-    copy_mstak.push(1);
-    copy_mstak.push(1);
-
-    printContainer(mstack); std::cout << std::endl;
-    printContainer(copy_mstak);
-
-    copy_mstak = mstack;
-    
-    for (MutantStack<int>::iterator iter = copy_mstak.begin(); iter != copy_mstak.end(); ++iter)
-        *iter = *iter + 10;
-
-    printContainer(mstack); std::cout << std::endl;
-    printContainer(copy_mstak);
-    std::cout << std::endl;
-
-    std::list<int> list_mstack(mstack.begin(), mstack.end());
-
-    printContainer(mstack); std::cout << std::endl;
-    printContainer(list_mstack);
-    std::cout << std::endl;
+void merge(std::vector<int> &A, int p, int q, int r) {
+    int n1 = q - p + 1;
+    int n2 = r - q;
+    std::vector<int> LA;
+	LA.assign(A.begin() + p, A.begin() + (q + 1));
+    std::vector<int> RA;
+	RA.assign(A.begin() + q + 1, A.begin() + (r + 1));
+    int RIDX = 0;
+    int LIDX = 0;
+    for (int i = p; i < r - p + 1; i++) {
+        if (RIDX == n2) {
+            A[i] = LA[LIDX];
+            LIDX++;
+        } else if (LIDX == n1) {
+            A[i] = RA[RIDX];
+            RIDX++;
+        } else if (RA[RIDX] > LA[LIDX]) {
+            A[i] = LA[LIDX];
+            LIDX++;
+        } else {
+            A[i] = RA[RIDX];
+            RIDX++;
+        }
+    }
 }
 
-int main()
-{
-    subject_test();
-    std::cout << "\n\n---------------- custom -------------" << std::endl;
-    custom_test();
-    return 0;
+void sort(std::vector<int> &A, int p, int r) {
+    if (r - p > K) {
+        int q = (p + r) / 2;
+        sort(A, p, q);
+        sort(A, q + 1, r);
+        merge(A, p, q, r);
+    } else {
+        insertionSort(A, p, r);
+    }
+}
+
+int main() {
+    std::vector<int> A { 12, 5, 12, 61, 72, 34, 182, 44,19 };
+    sort(A, 0, A.size() - 1);
+	for(int i=0; i<A.size(); ++i)
+	{
+		std::cout << A[i] << " ";
+	}
+	return (0);
 }

@@ -1,9 +1,9 @@
 #ifndef RPN
 # define RPN
 
-
 #include <stack>
 #include <iostream>
+#include <cstdlib>
 
 class Rpn
 {

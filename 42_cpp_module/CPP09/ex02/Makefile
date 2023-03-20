@@ -5,16 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/28 11:11:09 by kipark            #+#    #+#              #
-#    Updated: 2023/01/23 12:42:35 by kipark           ###   ########seoul.kr   #
+#    Created: 2023/03/19 12:57:37 by kipark            #+#    #+#              #
+#    Updated: 2023/03/21 03:47:25 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 						= 	ex02
+
+NAME 						= 	PmergeMe
 
 CXX							=	c++
-CXXFLAGS					=	-Wall -Wextra -Werror -std=c++98
-SRCS						=	main.cpp
+# CXXFLAGS					=	-Wall -Wextra -Werror -std=c++98
+SRCS						=	main.cpp				\
+								PmergeMe.cpp
 
 OBJS						=	$(SRCS:.cpp=.o)
 
