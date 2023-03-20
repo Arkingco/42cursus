@@ -1,7 +1,7 @@
 #include "PmergeMe.hpp"
 
-int K = 3;
-void insertionSort(std::vector<int> &A, int left, int right) {
+template <class container>
+void insertionSort(container &A, int left, int right) {
 	std::cout << "left : " << left << " right : " << right << std::endl;
     for (int i=left; i<right; ++i)
     {
@@ -23,16 +23,17 @@ void insertionSort(std::vector<int> &A, int left, int right) {
 	std::cout << std::endl;
 }
 
-void merge(std::vector<int> &A, int p, int q, int r) {
-    int n1 = q - p + 1;
-    int n2 = r - q;
+template <class container>
+void merge(container &A, int left, int half, int right) {
+    int n1 = half - left + 1;
+    int n2 = right - half;
     std::vector<int> LA;
-	LA.assign(A.begin() + p, A.begin() + (q + 1));
+	LA.assign(A.begin() + left, A.begin() + (half + 1));
     std::vector<int> RA;
-	RA.assign(A.begin() + q + 1, A.begin() + (r + 1));
+	RA.assign(A.begin() + half + 1, A.begin() + (right + 1));
     int RIDX = 0;
     int LIDX = 0;
-    for (int i = p; i < r - p + 1; i++) {
+    for (int i = left; i < right - left + 1; i++) {
         if (RIDX == n2) {
             A[i] = LA[LIDX];
             LIDX++;
@@ -49,14 +50,15 @@ void merge(std::vector<int> &A, int p, int q, int r) {
     }
 }
 
-void sort(std::vector<int> &A, int p, int r) {
-    if (r - p > K) {
-        int q = (p + r) / 2;
-        sort(A, p, q);
-        sort(A, q + 1, r);
-        merge(A, p, q, r);
+template <class container>
+void sort(container &A, int left, int right) {
+    if (right - left > 3) {
+        int half = (left + right) / 2;
+        sort(A, left, half);
+        sort(A, half + 1, right);
+        merge(A, left, half, right);
     } else {
-        insertionSort(A, p, r);
+        insertionSort(A, left, right);
     }
 }
 
