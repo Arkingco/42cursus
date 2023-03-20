@@ -1,86 +1,77 @@
-#include "Span.hpp"
+#include "RPN.hpp"
 
-
-int main()
+int calc_input(int a, int b, int sign)
 {
-    srand(time(NULL));
+	if (sign == '+')
+		return a + b;
+	else if (sign == '-')
+		return a - b;
+	else if (sign == '*')
+		return a * b;
+	else
+		return a / b;
+}
 
-    try
-    {
-        Span a(1);
+int check_number(char a)
+{
+	if (a >= '0' && a <= '9')
+		return 1;
+	return 0;
+}
 
-        a.addNumber(1);
-        a.addNumber(2);
-    }
-    catch(const std::exception& e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-    
-    try
-    {
-        Span a(1);
+int check_sign(char a)
+{
+	if (a == '+' || a == '-' || a == '*' || a == '/')
+		return 1;
+	return 0;
+}
 
-        std::cout << "longesSpan : " << a.longestSpan() << "    shortestSpan : " << a.shortestSpan() << std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cout << e.what() << std::endl;
-    }
+int check_vaild_input(char a)
+{
+	if (check_number(a) || check_sign(a))
+		return 0;
+	return 1;
+}
 
-    try
-    {
-        Span a(1);
+int main(int argc, char **argv) {
+	
+	if (argc != 2)
+	{
+		std::cout << "Error: not enuogh input." << std::endl;
+		return (1);
+	}
 
-        a.addNumber(1);
-        std::cout << "longesSpan : " << a.longestSpan() << "    shortestSpan : " << a.shortestSpan() << std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cout << e.what() << std::endl;
-    }
+	std::stack<int> input_stack;
+	std::string input_argv = argv[1];
+	int result = 0;
+	for (int i=0; input_argv[i] != '\0'; ++i)
+	{
+		char input = input_argv[i];
+		if (input == ' ')
+			continue;
+		if(check_vaild_input(input))
+		{
+			std::cout << "Error" << std::endl;
+			return 1;
+		}
+		input_stack.push(input);
+		if (input_stack.size() == 3)
+		{
+			int a, b, sign;
 
-    try
-    {
-        Span a(5);
+			sign = input_stack.top();
+			input_stack.pop();
 
-        a.addNumber(1);
-        a.addNumber(2);
-        a.addNumber(3);
-        a.addNumber(4);
-        a.addNumber(5);
+			b = input_stack.top();
+			input_stack.pop();
+			b = b - '0';
 
-        std::cout << "longesSpan : " << a.longestSpan() << "    shortestSpan : " << a.shortestSpan() << std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cout << e.what() << std::endl;
-    }
+			a = i < 5 ? input_stack.top() - '0' : result;
+			input_stack.pop();
 
-    try
-    {
-        Span a(10000);
-
-        a.addManyNumber();
-        std::cout << "longesSpan : " << a.longestSpan() << "    shortestSpan : " << a.shortestSpan() << std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-
-    try
-    {
-        std::vector<int> a(100);
-        Span b(a.size());
-        for (int i=0; i<100; ++i)
-            a[i] = i + 1;
-
-        b.addManyNumber< std::vector<int> >(a.begin(), a.end());
-        std::cout << "longesSpan : " << b.longestSpan() << "    shortestSpan : " << b.shortestSpan() << std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cout << e.what() << std::endl;
-    }
+			result = calc_input(a, b, sign);
+			input_stack.push(result);
+		}
+	}
+	std::cout << result << std::endl;
 }

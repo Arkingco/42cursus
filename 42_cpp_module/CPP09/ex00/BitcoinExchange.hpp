@@ -1,19 +1,19 @@
 #ifndef BITCOIN_EXCHANGE
 # define BITCOIN_EXCHANGE
 
-#define DATA_NAME "data.csv"
-
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <list>
 #include <map>
 #include <deque>
-#include <sstream>
-#include <cstdlib>
 #include <ctime>
+#include <fstream>
+#include <sstream>
+#include <list>
+#include <cstdlib>
+#include <iostream>
 
-typedef std::pair<std::string, double> data_type;
+typedef std::map<std::string, double> map_pair_string_double;
+typedef std::pair<std::string, double> pair_string_double;
+typedef std::deque<pair_string_double > deque_pair_string_double;
+
 class BitcoinExchange
 {
   private:
