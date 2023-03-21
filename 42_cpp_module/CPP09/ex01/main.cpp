@@ -46,8 +46,6 @@ int main(int argc, char **argv) {
 
 	std::stack<int> input_stack;
 	std::string input_argv = argv[1];
-	int result = 0;
-	int result_flag = 0;
 	for (int i=0; input_argv[i] != '\0'; ++i)
 	{
 		char input = input_argv[i];
@@ -55,27 +53,19 @@ int main(int argc, char **argv) {
 			continue;
 		if(check_vaild_input(input))
 			print_error_exit("Error");
-		input_stack.push(input);
-		if (input_stack.size() == 3)
+		if (check_sign(input))
 		{
-			int a, b, sign;
-
-			sign = input_stack.top(); input_stack.pop();
+			int a, b;
+			if (input_stack.size() < 2)
+				print_error_exit("Error");
+			a = input_stack.top(); input_stack.pop();
 			b = input_stack.top(); input_stack.pop();
-			a = result == 0 ? input_stack.top() : result; input_stack.pop();
-
-			if (check_sign(sign) == 0 || check_number(b) == 0 || (check_number(a) == 0 && result == 0))
-				print_error_exit("0");
-			if (result == 0)
-				a = a - '0';
-			b = b - '0';
-
-			input_stack.push('0');
-			result = calc_input(a, b, sign);
-			result_flag = 1;
+			input_stack.push(calc_input(b, a, input));
 		}
+		else
+			input_stack.push(input - '0');
 	}
-	if (input_stack.size() != 1 || result_flag == 0)
+	if(input_stack.size() != 1)
 		print_error_exit("Error");
-	std::cout << result << std::endl;
+	std::cout << input_stack.top() << std::endl;
 }

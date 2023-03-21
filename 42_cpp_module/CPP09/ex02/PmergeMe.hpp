@@ -1,22 +1,22 @@
-#ifndef PMERGEME
-# define PMERGEME
+#include "PmergeMe.hpp"
 
-#include <stack>
-#include <iostream>
-#include <cstdlib>
-#include <vector>
-#include <deque>
-
-class PmergeMe
+PmergeMe::PmergeMe() : c_start(0), c_end(0)
 {
-  private:
 
-  public:
-    PmergeMe();
-    PmergeMe(const PmergeMe& a);;
-    ~PmergeMe();
-    PmergeMe& operator=(const PmergeMe& a);
+}
 
-};
+PmergeMe::PmergeMe(const PmergeMe& other)
+{
+	(void)other;
+}
 
-#endif
+PmergeMe::~PmergeMe()
+{
+	
+}
+
+PmergeMe& PmergeMe::operator=(const PmergeMe& other)
+{
+	(void)other;
+	return *this;
+}
