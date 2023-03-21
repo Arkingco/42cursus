@@ -23,13 +23,13 @@ void print_error(std::string msg)
 template <class container>
 void insertion_sort(container &AB, int left, int right) {
     for (int i = left; i < right; i++) {
-        int tempVal = AB[i + 1];
+        int temp = AB[i + 1];
         int j = i + 1;
-        while (j > left && AB[j - 1] > tempVal) {
+        while (j > left && AB[j - 1] > temp) {
             AB[j] = AB[j - 1];
             j--;
         }
-        AB[j] = tempVal;
+        AB[j] = temp;
     }
 }
 
@@ -41,7 +41,7 @@ void merge(container &AB, int left, int half, int right) {
     RA.assign(AB.begin() + half + 1, AB.begin() + right + 1);
     int LA_index = 0;
     int RA_index = 0;
-    for (int i = left; i < right - left + 1; i++) {
+    for (int i = left; i < right + 1; i++) {
         if (RA_index == right - half) {
             AB[i] = LA[LA_index];
             LA_index++;
@@ -70,6 +70,15 @@ void sort(container &AB, int left, int right) {
     }
 }
 
+template <class container>
+void merge_sort(container &AB, int left, int right) {
+    if (right - left > 1) {
+        int half = (left + right) / 2;
+        sort(AB, left, half);
+        sort(AB, half + 1, right);
+        merge(AB, left, half, right);
+    }
+}
 
 template <class container1, class container2, class container3>
 void push_value(container1 &c1, container2 &c2, container3 &c3, char **argv)
@@ -89,7 +98,6 @@ void push_value(container1 &c1, container2 &c2, container3 &c3, char **argv)
         c2.push_back(*iter);
     }
 }
-
 
 int main(int argc, char **argv) {
 
@@ -119,7 +127,7 @@ int main(int argc, char **argv) {
         std::cout << *iter << " ";
     std::cout << std::endl;
     std::cout << "after  ";
-	for (int i=0; i<A.size(); ++i)
+	for (int i=0; i<static_cast<int>(A.size()); ++i)
         std::cout << A[i] << " ";
     std::cout << std::endl;
     std::cout << "Time to process a range of " << C.size() << " elements with std::vector : " << \
