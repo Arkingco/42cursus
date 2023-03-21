@@ -16,18 +16,18 @@ Base *generate()
         return new C();
 }
 
-void identify(Base* p)
+void identify(Base* left)
 { 
     std::cout << "[in * identify]Base class -> ";
-    if (dynamic_cast<A *>(p))
+    if (dynamic_cast<A *>(left))
         std::cout << "A!!" << std::endl;
-    else if(dynamic_cast<B *>(p))
+    else if(dynamic_cast<B *>(left))
         std::cout << "B!!" << std::endl;
-    else if(dynamic_cast<C *>(p))
+    else if(dynamic_cast<C *>(left))
         std::cout << "C!!" << std::endl;
 }
 
-void identify(Base& p)
+void identify(Base& left)
 {
     A a;
     B b;
@@ -35,7 +35,7 @@ void identify(Base& p)
 
     try
     {
-        a = dynamic_cast<A&>(p);
+        a = dynamic_cast<A&>(left);
         std::cout << "[in & identify]Base class -> A!!" << std::endl;
     }
     catch(const std::exception& e)
@@ -45,7 +45,7 @@ void identify(Base& p)
     
     try
     {
-        b = dynamic_cast<B&>(p);
+        b = dynamic_cast<B&>(left);
         std::cout << "[in & identify]Base class -> B!!" << std::endl;
     }
     catch(const std::exception& e)
@@ -55,7 +55,7 @@ void identify(Base& p)
 
     try
     {
-        c = dynamic_cast<C&>(p);
+        c = dynamic_cast<C&>(left);
         std::cout << "[in & identify]Base class -> C!!" << std::endl;
     }
     catch(const std::exception& e)
@@ -68,9 +68,9 @@ int main()
 {
     std::srand(time(NULL));
 
-    Base *p;
+    Base *left;
 
-    p = generate();
-    identify(p);
-    identify(*p);
+    left = generate();
+    identify(left);
+    identify(*left);
 }

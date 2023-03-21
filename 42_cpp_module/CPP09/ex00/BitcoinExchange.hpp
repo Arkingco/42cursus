@@ -17,18 +17,12 @@ typedef std::deque<pair_string_double > deque_pair_string_double;
 class BitcoinExchange
 {
   private:
-    double      price;
-    double      amount;
-
-  public:
     BitcoinExchange();
-    BitcoinExchange(double price, double amount);
     BitcoinExchange(const BitcoinExchange& a);
-
-    double get_price();
-
     ~BitcoinExchange();
     BitcoinExchange& operator=(const BitcoinExchange& a);
+
+  public:
 
 };
 

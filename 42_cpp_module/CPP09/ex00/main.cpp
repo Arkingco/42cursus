@@ -114,7 +114,6 @@ int main(int argc, char **argv) {
 		else
 			price = (--find_data)->second;
 		amount = input_iter->second;
-		BitcoinExchange coin(price, amount);	
-		std::cout << input_iter->first << " => " << input_iter->second << " = " << coin.get_price() << std::endl;
+		std::cout << input_iter->first << " => " << input_iter->second << " = " << price * amount << std::endl;
  	}
 }
