@@ -2,7 +2,7 @@
 # define BITCOIN_EXCHANGE
 
 #include <map>
-#include <deque>
+#include <list>
 #include <ctime>
 #include <fstream>
 #include <sstream>
@@ -12,7 +12,7 @@
 
 typedef std::map<std::string, double> map_pair_string_double;
 typedef std::pair<std::string, double> pair_string_double;
-typedef std::deque<pair_string_double > deque_pair_string_double;
+typedef std::list<pair_string_double > list_pair_string_double;
 
 class BitcoinExchange
 {

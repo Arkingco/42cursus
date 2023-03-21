@@ -12,12 +12,13 @@
 class PmergeMe
 {
   private:
-  public:
     PmergeMe();
     PmergeMe(const PmergeMe& a);
     ~PmergeMe();
     PmergeMe& operator=(const PmergeMe& a);
 
+  public:
+    
 };
 
 #endif

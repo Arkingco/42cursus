@@ -131,8 +131,8 @@ int main(int argc, char **argv) {
         std::cout << A[i] << " ";
     std::cout << std::endl;
     std::cout << "Time to process a range of " << C.size() << " elements with std::vector : " << \
-                std::fixed << std::setprecision(5) << 1.0 * (A_stop - A_start) / CLOCK_BOOTTIME << "us" << std::endl;
+                std::setprecision(5) << 1.0 * (A_stop - A_start) << "us" << std::endl;
     std::cout << "Time to process a range of " << C.size() << " elements with std::deque  : " << \
-                std::fixed << std::setprecision(5) << 1.0 * (B_stop - B_start) / CLOCK_BOOTTIME << "us" << std::endl;
+                std::setprecision(5) << 1.0 * (B_stop - B_start) << "us" << std::endl;
 
 }

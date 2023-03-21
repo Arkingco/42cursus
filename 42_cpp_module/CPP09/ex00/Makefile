@@ -6,12 +6,12 @@
 #    By: kipark <kipark@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/19 12:57:37 by kipark            #+#    #+#              #
-#    Updated: 2023/03/19 23:58:03 by kipark           ###   ########.fr        #
+#    Updated: 2023/03/22 07:19:51 by kipark           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME 						= 	ex00
+NAME 						= 	btc
 
 CXX							=	c++
 CXXFLAGS					=	-Wall -Wextra -Werror -std=c++98

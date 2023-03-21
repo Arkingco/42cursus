@@ -6,7 +6,7 @@ bool is_valid_date(const std::string& date_str) {
 	int year, month, day;
 	char delimiter;
 	if (!(iss >> year >> delimiter >> month >> delimiter >> day)) {
-		return false;
+		return 0;
 	}
 	std::tm timeinfo = {};
 	timeinfo.tm_year = year - 1900;
@@ -40,7 +40,7 @@ int check_error(std::string first, double second)
 }
 
 
-void add_map_data(std::string file_name, char delimiter1, char delimiter2, map_pair_string_double &maps)
+void add_data(std::string file_name, char delimiter1, char delimiter2, map_pair_string_double &maps)
 {
 	std::ifstream file(file_name.c_str());
 	std::string data_getline;
@@ -61,7 +61,7 @@ void add_map_data(std::string file_name, char delimiter1, char delimiter2, map_p
 	}
 }
 
-void add_array_data(std::string file_name, char delimiter1, char delimiter2, char delimiter3, deque_pair_string_double &deque_input)
+void add_input(std::string file_name, char delimiter1, char delimiter2, char delimiter3, list_pair_string_double &deque_input)
 {
 	std::ifstream file(file_name.c_str());
 	std::string data_getline;
@@ -92,13 +92,13 @@ int main(int argc, char **argv) {
 	}
 
 	map_pair_string_double data;
-	deque_pair_string_double input;
+	list_pair_string_double input;
 	for (int i=1; i<argc; ++i)
-		add_map_data(i == 1 ? "data.csv" : argv[i], '\n', ',', data);
-	add_array_data(argv[1], '\n', ' ', '|',input);
+		add_data(i == 1 ? "data.csv" : argv[i], '\n', ',', data);
+	add_input(argv[1], '\n', ' ', '|',input);
 	
 	map_pair_string_double::iterator find_data;
-	for (deque_pair_string_double::iterator input_iter = input.begin(); input_iter != input.end(); ++input_iter)
+	for (list_pair_string_double::iterator input_iter = input.begin(); input_iter != input.end(); ++input_iter)
 	{
 		double price, amount;
 		if (check_error(input_iter->first, input_iter->second))
@@ -106,7 +106,7 @@ int main(int argc, char **argv) {
 		find_data = data.lower_bound(input_iter->first);
 		if (find_data->first == data.begin()->first)
 		{
-			std::cout << "Error: not a positive date." << std::endl;
+			std::cout << "Error: bad input => " << input_iter->first << std::endl;
 			continue;
 		}
 		if (find_data->first == input_iter->first)
