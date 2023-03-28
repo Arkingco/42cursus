@@ -11,7 +11,7 @@ services:
       - wordpress
     # 내부에서 개방할 포트 : 외부에서 접근할 포트
     volumes:
-      - '../../../WordPress/:/var/www/localhost/htdocs'
+      - '../WordPress/:/var/www/html'
     ports:
       - '80:80'
     networks:
@@ -28,7 +28,7 @@ services:
     depends_on:
       - mariadb
     volumes:
-      - '../../../WordPress/:/var/www/localhost/htdocs'
+      - '../WordPress/:/var/www/html'
     networks:
       - intra
     env_file:
