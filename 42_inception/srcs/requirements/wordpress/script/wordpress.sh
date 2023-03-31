@@ -1,14 +1,21 @@
+mv /tmp/wp-config.php /var/www/html/wp-config.php
+
 wp core download --allow-root --path=/var/www/html
 
-               
 wp	core install \
 	--allow-root \
-	--path=/var/www/html \
-	--url="kipark.42.fr" \
+	--path=${WORDPRESS_PATH} \
+	--url=${WORDPRESS_URL} \
 	--title=Inception \
-    --admin_user=your_admin_username="kipark" \
-    --admin_password="1234" \
-    --admin_email=your_admin_email="arkingco@gmail.com" \
+    --admin_user=${WORDPRESS_ADMIN} \
+    --admin_password=${WORDPRESS_ADMIN_PASSWORD} \
+    --admin_email=${WORDPRESS_EMAIL} \
 	--skip-email
+
+wp user create  ${WORDPRESS_USER} \
+                ${WORDPRESS_USER_EMAIL} \
+                --user_pass=${WORDPRESS_USER_PASSWORD} \
+                --role=author
+
 
 /usr/sbin/php-fpm8 -F -R

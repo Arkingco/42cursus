@@ -7,4 +7,3 @@ RUN apk update && \
 
 ADD config/default.conf /etc/nginx/http.d/default.conf
 CMD ["/bin/sh", "-c", "exec nginx -g 'daemon off;';"]
-

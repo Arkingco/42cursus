@@ -3,11 +3,15 @@ FROM alpine:3.16
 RUN apk update && apk upgrade && \
     apk add php8 && \
     apk add php8-fpm && \
-    apk add php8-mysqli && \
-    apk add curl iputils && \
     apk add php8-phar && \
-    apk add php8-openssl
-
+    apk add php8-json && \
+    apk add php8-exif && \
+    apk add php8-mysqli && \
+	apk add php8-mysqlnd && \
+    apk add php8-openssl && \
+    apk add mariadb-client && \
+    apk add curl iputils
+    
 EXPOSE 9000
 
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
