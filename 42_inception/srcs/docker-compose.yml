@@ -8,7 +8,7 @@ services:
     depends_on:
       - wordpress
     volumes:
-      - 'volumes_wordpress:/var/www/html'
+      - 'wp:/var/www/html'
     ports:
       - '443:443'
     networks:
@@ -25,7 +25,7 @@ services:
     depends_on:
       - mariadb
     volumes:
-      - 'volumes_wordpress:/var/www/html'
+      - 'wp:/var/www/html'
     networks:
       - intra
     env_file:
@@ -38,15 +38,25 @@ services:
       dockerfile: ./Dockerfile
     networks:
       - intra
+    volumes:
+      - 'db:/var/lib/mysql'
     env_file:
       - .env
     restart: always
 
 volumes:
-  volumes_wordpress:
+  wp:
+    driver: local
     driver_opts:
-      type: 'bind'
-      device: ':$HOME/kipark/data/'
+      type: none
+      o: bind
+      device: '$HOME/wordpress'
+  db:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: '$HOME/mariadb'
 
 networks:
   intra:
