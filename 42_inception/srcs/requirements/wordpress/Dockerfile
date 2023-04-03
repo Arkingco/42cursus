@@ -25,4 +25,3 @@ ADD script/wordpress.sh /tmp/wordpress.sh
 CMD ["/bin/sh", "/tmp/wordpress.sh"]
 
 WORKDIR /var/www/html
-

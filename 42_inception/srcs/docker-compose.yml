@@ -1,19 +1,16 @@
 version: '3'
 
 services:
-  #항목명 = 서비스명 = 네트워크 호스트명
   nginx:
-    # Dockerfile이 있는 위치
     build:
       context: ./requirements/nginx
       dockerfile: ./Dockerfile
     depends_on:
       - wordpress
-    # 내부에서 개방할 포트 : 외부에서 접근할 포트
     volumes:
-      - '../WordPress/:/var/www/html'
+      - 'volumes_wordpress:/var/www/html'
     ports:
-      - '80:80'
+      - '443:443'
     networks:
       - intra
     env_file:
@@ -28,7 +25,7 @@ services:
     depends_on:
       - mariadb
     volumes:
-      - '../WordPress/:/var/www/html'
+      - 'volumes_wordpress:/var/www/html'
     networks:
       - intra
     env_file:
@@ -36,7 +33,6 @@ services:
     restart: always
 
   mariadb:
-    # Dockerfile이 있는 위치
     build:
       context: ./requirements/mariadb
       dockerfile: ./Dockerfile
@@ -45,30 +41,12 @@ services:
     env_file:
       - .env
     restart: always
-    # 내부에서 개방할 포트 : 외부에서 접근할 포트
-    # ports:
-    #   - "80:80"
-    # depends_on:
 
-  # #항목명 = 서비스명 = 네트워크 호스트명
-  # backend:
-  #   build: ./backend
-  #   # 연결할 외부 디렉토리 : 컨테이너 내 디렉토리
-  #   volumes:
-  #     - ./backend:/usr/src/app
-  #   ports:
-  #     - "5000:5000"
-  #   # 환경변수 설정
-  #   environment:
-  #     - DBHOST=database
-  # #항목명 = 서비스명  = 네트워크 호스트명
-  # mariadb:
-  #   build: ./requ
-  #   # 연결할 외부 디렉토리 : 컨테이너 내 디렉토리
-  #   volumes:
-  #     - ./frontend:/home/node/app
-  #   ports:
-  #     - "8080:8080"​
+volumes:
+  volumes_wordpress:
+    driver_opts:
+      type: 'bind'
+      device: ':$HOME/kipark/data/'
 
 networks:
   intra:
