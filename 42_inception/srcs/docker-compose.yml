@@ -50,13 +50,13 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: '$HOME/wordpress'
+      device: '$HOME/data/wordpress'
   db:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: '$HOME/mariadb'
+      device: '$HOME/data/mariadb'
 
 networks:
   intra:
