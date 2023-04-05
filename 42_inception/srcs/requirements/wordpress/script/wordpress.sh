@@ -4,7 +4,7 @@ then
   echo "WordPress already exists!!!"
 else
     mv /tmp/wp-config.php /var/www/html/wp-config.php
-
+  
     wp core download --allow-root --path=/var/www/html
 
     wp	core install \
@@ -24,5 +24,6 @@ else
 
   echo "Download and set new WordPress!!"
 fi
+
 
 /usr/sbin/php-fpm8 -F -R
