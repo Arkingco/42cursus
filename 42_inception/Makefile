@@ -16,7 +16,7 @@ DOCKER_COMPOSE_FILE = ./srcs/docker-compose.yml
 all:
 	mkdir -p ${HOME}/data/wordpress
 	mkdir -p ${HOME}/data/mariadb
-	$(DOCKER_COMPOSE) -f $(DOCKER_COMPOSE_FILE) up --build -d 
+	$(DOCKER_COMPOSE) -f $(DOCKER_COMPOSE_FILE) up --build
 
 down:
 	$(DOCKER_COMPOSE) -f $(DOCKER_COMPOSE_FILE) down
